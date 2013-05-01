@@ -19,6 +19,7 @@
 		58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E517314752000E382D /* MainStoryboard.storyboard */; };
 		58FCF3EA17314752000E382D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3E917314752000E382D /* ViewController.m */; };
 		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
+		58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		58FCF3E917314752000E382D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		58FCF3F6173150F3000E382D /* UIDevice+resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+resolution.h"; sourceTree = "<group>"; };
 		58FCF3F7173150F3000E382D /* UIDevice+resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+resolution.m"; sourceTree = "<group>"; };
+		58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollView.h; sourceTree = "<group>"; };
+		58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				58FCF3F917315E46000E382D /* Scroll */,
 				58FCF3F317314C9B000E382D /* Status */,
 				58FCF3F217314C92000E382D /* NavigationBar */,
 				58FCF3F117314BF5000E382D /* Buttons */,
@@ -158,6 +162,15 @@
 			children = (
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		58FCF3F917315E46000E382D /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */,
+				58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */,
+			);
+			name = Scroll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +243,7 @@
 				58FCF3DE17314752000E382D /* AppDelegate.m in Sources */,
 				58FCF3EA17314752000E382D /* ViewController.m in Sources */,
 				58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */,
+				58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
