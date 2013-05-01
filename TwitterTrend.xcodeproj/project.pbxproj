@@ -18,6 +18,7 @@
 		58FCF3E417314752000E382D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E317314752000E382D /* Default-568h@2x.png */; };
 		58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E517314752000E382D /* MainStoryboard.storyboard */; };
 		58FCF3EA17314752000E382D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3E917314752000E382D /* ViewController.m */; };
+		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		58FCF3E617314752000E382D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		58FCF3E817314752000E382D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		58FCF3E917314752000E382D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		58FCF3F6173150F3000E382D /* UIDevice+resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+resolution.h"; sourceTree = "<group>"; };
+		58FCF3F7173150F3000E382D /* UIDevice+resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+resolution.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,9 @@
 		58FCF3D317314752000E382D /* TwitterTrend */ = {
 			isa = PBXGroup;
 			children = (
+				58FCF3F517315095000E382D /* Common */,
+				58FCF3F417315025000E382D /* Categories */,
+				58FCF3F017314BEC000E382D /* UIView */,
 				58FCF3DC17314752000E382D /* AppDelegate.h */,
 				58FCF3DD17314752000E382D /* AppDelegate.m */,
 				58FCF3E517314752000E382D /* MainStoryboard.storyboard */,
@@ -105,6 +111,53 @@
 				58FCF3E317314752000E382D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58FCF3F017314BEC000E382D /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				58FCF3F317314C9B000E382D /* Status */,
+				58FCF3F217314C92000E382D /* NavigationBar */,
+				58FCF3F117314BF5000E382D /* Buttons */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
+		58FCF3F117314BF5000E382D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		58FCF3F217314C92000E382D /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NavigationBar;
+			sourceTree = "<group>";
+		};
+		58FCF3F317314C9B000E382D /* Status */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Status;
+			sourceTree = "<group>";
+		};
+		58FCF3F417315025000E382D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				58FCF3F6173150F3000E382D /* UIDevice+resolution.h */,
+				58FCF3F7173150F3000E382D /* UIDevice+resolution.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		58FCF3F517315095000E382D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +229,7 @@
 				58FCF3DA17314752000E382D /* main.m in Sources */,
 				58FCF3DE17314752000E382D /* AppDelegate.m in Sources */,
 				58FCF3EA17314752000E382D /* ViewController.m in Sources */,
+				58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
