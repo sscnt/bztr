@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
+		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -17,12 +19,18 @@
 		58FCF3E217314752000E382D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E117314752000E382D /* Default@2x.png */; };
 		58FCF3E417314752000E382D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E317314752000E382D /* Default-568h@2x.png */; };
 		58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E517314752000E382D /* MainStoryboard.storyboard */; };
-		58FCF3EA17314752000E382D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3E917314752000E382D /* ViewController.m */; };
+		58FCF3EA17314752000E382D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3E917314752000E382D /* MainViewController.m */; };
 		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
 		58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */; };
+		58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF400173162CB000E382D /* UIColor+twitter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580FBE371732B66F00D57341 /* UITwitterBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterBackgroundView.h; sourceTree = "<group>"; };
+		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
+		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
+		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
+		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,12 +45,15 @@
 		58FCF3E117314752000E382D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		58FCF3E317314752000E382D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		58FCF3E617314752000E382D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		58FCF3E817314752000E382D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		58FCF3E917314752000E382D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		58FCF3E817314752000E382D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		58FCF3E917314752000E382D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		58FCF3F6173150F3000E382D /* UIDevice+resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+resolution.h"; sourceTree = "<group>"; };
 		58FCF3F7173150F3000E382D /* UIDevice+resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+resolution.m"; sourceTree = "<group>"; };
 		58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollView.h; sourceTree = "<group>"; };
 		58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollView.m; sourceTree = "<group>"; };
+		58FCF3FE17316258000E382D /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		58FCF3FF173162CB000E382D /* UIColor+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+twitter.h"; sourceTree = "<group>"; };
+		58FCF400173162CB000E382D /* UIColor+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+twitter.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580FBE361732B65900D57341 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				580FBE371732B66F00D57341 /* UITwitterBackgroundView.h */,
+				580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +115,7 @@
 				58FCF3DC17314752000E382D /* AppDelegate.h */,
 				58FCF3DD17314752000E382D /* AppDelegate.m */,
 				58FCF3E517314752000E382D /* MainStoryboard.storyboard */,
-				58FCF3E817314752000E382D /* ViewController.h */,
-				58FCF3E917314752000E382D /* ViewController.m */,
+				58FCF3FD1731616E000E382D /* ViewControllers */,
 				58FCF3D417314752000E382D /* Supporting Files */,
 			);
 			path = TwitterTrend;
@@ -119,6 +138,7 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				580FBE361732B65900D57341 /* Background */,
 				58FCF3F917315E46000E382D /* Scroll */,
 				58FCF3F317314C9B000E382D /* Status */,
 				58FCF3F217314C92000E382D /* NavigationBar */,
@@ -151,8 +171,12 @@
 		58FCF3F417315025000E382D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				58FCF3FF173162CB000E382D /* UIColor+twitter.h */,
+				58FCF400173162CB000E382D /* UIColor+twitter.m */,
 				58FCF3F6173150F3000E382D /* UIDevice+resolution.h */,
 				58FCF3F7173150F3000E382D /* UIDevice+resolution.m */,
+				580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */,
+				580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -160,6 +184,8 @@
 		58FCF3F517315095000E382D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				58FCF3FE17316258000E382D /* common.h */,
+				580FBE3D1732BA9200D57341 /* commonViews.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -171,6 +197,15 @@
 				58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */,
 			);
 			name = Scroll;
+			sourceTree = "<group>";
+		};
+		58FCF3FD1731616E000E382D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				58FCF3E817314752000E382D /* MainViewController.h */,
+				58FCF3E917314752000E382D /* MainViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +276,12 @@
 			files = (
 				58FCF3DA17314752000E382D /* main.m in Sources */,
 				58FCF3DE17314752000E382D /* AppDelegate.m in Sources */,
-				58FCF3EA17314752000E382D /* ViewController.m in Sources */,
+				58FCF3EA17314752000E382D /* MainViewController.m in Sources */,
 				58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */,
 				58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */,
+				58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */,
+				580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */,
+				580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +406,7 @@
 				58FCF3EF17314752000E382D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

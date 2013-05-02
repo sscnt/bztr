@@ -19,9 +19,22 @@
     return self;
 }
 
+//// Adding View
+- (void)appendView:(UIView *)view
+{
+    
+}
+
+- (void)prependView:(UIView *)view
+{
+    
+}
+
 
 - (void)drawRect:(CGRect)rect
 {
+    //// General Declarations
+    
 
 }
 

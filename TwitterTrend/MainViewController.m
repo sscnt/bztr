@@ -6,18 +6,20 @@
 //  Copyright (c) 2013年 SSC. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
+    [self.view addSubview:bg];
 }
 
 - (void)didReceiveMemoryWarning
