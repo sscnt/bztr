@@ -20,6 +20,8 @@
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
     [self.view addSubview:bg];
+    [self showMenuBtn];
+    [self showSettingsBtn];
 }
 
 - (void)didReceiveMemoryWarning

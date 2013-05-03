@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JASidePanelController.h"
+#import "common.h"
 
 @interface SidePanelController : JASidePanelController
 

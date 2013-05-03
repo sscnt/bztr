@@ -13,8 +13,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor navigationBarBackgroundColor]];
     
     //// Set Controllers
+    [self setCenterPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"]];
 }
 
 @end

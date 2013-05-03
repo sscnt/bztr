@@ -40,12 +40,9 @@ typedef enum _JASidePanelState {
 
 #pragma mark - Usage
 
-// ready
-@property (nonatomic, assign) BOOL ready;
-
 // set the panels
 @property (nonatomic, strong) UIViewController *leftPanel;   // optional
-@property (nonatomic, strong) UITabBarController *centerPanel; // required
+@property (nonatomic, strong) UIViewController *centerPanel; // required
 @property (nonatomic, strong) UIViewController *rightPanel;  // optional
 
 // show the panels
@@ -71,7 +68,7 @@ typedef enum _JASidePanelState {
 @property (nonatomic) JASidePanelStyle style; // default is JASidePanelSingleActive
 
 // size the left panel based on % of total screen width
-@property (nonatomic) CGFloat leftGapPercentage; 
+@property (nonatomic) CGFloat leftGapPercentage;
 
 // size the left panel based on this fixed size. overrides leftGapPercentage
 @property (nonatomic) CGFloat leftFixedWidth;
@@ -113,6 +110,9 @@ typedef enum _JASidePanelState {
 
 // should the center panel bounce when you are panning closed a left/right panel.
 @property (nonatomic) BOOL bounceOnSidePanelClose; // defaults to NO
+
+// while changing the center panel, should we bounce it offscreen?
+@property (nonatomic) BOOL bounceOnCenterPanelChange; // defaults to YES
 
 #pragma mark - Gesture Behavior
 

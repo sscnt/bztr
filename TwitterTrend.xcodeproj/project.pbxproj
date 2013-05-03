@@ -12,6 +12,16 @@
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
+		58F9D307173387FA007100EF /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FC1733817C007100EF /* JASidePanelController.m */; };
+		58F9D30817338803007100EF /* UIView+extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D305173384C9007100EF /* UIView+extend.m */; };
+		58F9D30A1733886C007100EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F9D3091733886B007100EF /* QuartzCore.framework */; };
+		58F9D31217339211007100EF /* NavigationBarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D31017339211007100EF /* NavigationBarBg.png */; };
+		58F9D31317339211007100EF /* NavigationBarBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D31117339211007100EF /* NavigationBarBg@2x.png */; };
+		58F9D31B17339A39007100EF /* UIViewController+navi.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D31A17339A39007100EF /* UIViewController+navi.m */; };
+		58F9D32117339CB4007100EF /* NavigationBarMenuButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32017339CB4007100EF /* NavigationBarMenuButtonBg@2x.png */; };
+		58F9D32317339CE4007100EF /* NavigationBarMenuButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */; };
+		58F9D32617339D2D007100EF /* NavigationBarSettingsButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */; };
+		58F9D32717339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -44,6 +54,15 @@
 		58F9D3021733845D007100EF /* TwitterTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTabBarController.m; sourceTree = "<group>"; };
 		58F9D304173384C9007100EF /* UIView+extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+extend.h"; sourceTree = "<group>"; };
 		58F9D305173384C9007100EF /* UIView+extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+extend.m"; sourceTree = "<group>"; };
+		58F9D3091733886B007100EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		58F9D31017339211007100EF /* NavigationBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarBg.png; sourceTree = "<group>"; };
+		58F9D31117339211007100EF /* NavigationBarBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarBg@2x.png"; sourceTree = "<group>"; };
+		58F9D31917339A39007100EF /* UIViewController+navi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+navi.h"; sourceTree = "<group>"; };
+		58F9D31A17339A39007100EF /* UIViewController+navi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+navi.m"; sourceTree = "<group>"; };
+		58F9D32017339CB4007100EF /* NavigationBarMenuButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarMenuButtonBg@2x.png"; sourceTree = "<group>"; };
+		58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarMenuButtonBg.png; sourceTree = "<group>"; };
+		58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarSettingsButtonBg.png; sourceTree = "<group>"; };
+		58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarSettingsButtonBg@2x.png"; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58F9D30A1733886C007100EF /* QuartzCore.framework in Frameworks */,
 				58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */,
 				58FCF3D017314752000E382D /* Foundation.framework in Frameworks */,
 				58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */,
@@ -118,9 +138,38 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
+		58F9D30E17339178007100EF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				58F9D30F173391FF007100EF /* NavigationBar */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		58F9D30F173391FF007100EF /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */,
+				58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */,
+				58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */,
+				58F9D32017339CB4007100EF /* NavigationBarMenuButtonBg@2x.png */,
+				58F9D31017339211007100EF /* NavigationBarBg.png */,
+				58F9D31117339211007100EF /* NavigationBarBg@2x.png */,
+			);
+			name = NavigationBar;
+			sourceTree = "<group>";
+		};
+		58F9D31417339355007100EF /* Side */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Side;
+			sourceTree = "<group>";
+		};
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
+				58F9D3091733886B007100EF /* QuartzCore.framework */,
 				58FCF3D317314752000E382D /* TwitterTrend */,
 				58FCF3CC17314752000E382D /* Frameworks */,
 				58FCF3CB17314752000E382D /* Products */,
@@ -148,6 +197,7 @@
 		58FCF3D317314752000E382D /* TwitterTrend */ = {
 			isa = PBXGroup;
 			children = (
+				58F9D30E17339178007100EF /* Images */,
 				58F9D2F917338156007100EF /* Libraries */,
 				58FCF3F517315095000E382D /* Common */,
 				58FCF3F417315025000E382D /* Categories */,
@@ -219,6 +269,8 @@
 				58FCF3F7173150F3000E382D /* UIDevice+resolution.m */,
 				580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */,
 				580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */,
+				58F9D31917339A39007100EF /* UIViewController+navi.h */,
+				58F9D31A17339A39007100EF /* UIViewController+navi.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -244,6 +296,7 @@
 		58FCF3FD1731616E000E382D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				58F9D31417339355007100EF /* Side */,
 				58F9D300173383DB007100EF /* Tabs */,
 				58F9D2F617337CB6007100EF /* TwitterNavigationController.h */,
 				58F9D2F717337CB6007100EF /* TwitterNavigationController.m */,
@@ -311,6 +364,12 @@
 				58FCF3E217314752000E382D /* Default@2x.png in Resources */,
 				58FCF3E417314752000E382D /* Default-568h@2x.png in Resources */,
 				58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */,
+				58F9D31217339211007100EF /* NavigationBarBg.png in Resources */,
+				58F9D31317339211007100EF /* NavigationBarBg@2x.png in Resources */,
+				58F9D32117339CB4007100EF /* NavigationBarMenuButtonBg@2x.png in Resources */,
+				58F9D32317339CE4007100EF /* NavigationBarMenuButtonBg.png in Resources */,
+				58F9D32617339D2D007100EF /* NavigationBarSettingsButtonBg.png in Resources */,
+				58F9D32717339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58F9D30817338803007100EF /* UIView+extend.m in Sources */,
+				58F9D307173387FA007100EF /* JASidePanelController.m in Sources */,
 				58FCF3DA17314752000E382D /* main.m in Sources */,
 				58FCF3DE17314752000E382D /* AppDelegate.m in Sources */,
 				58FCF3EA17314752000E382D /* MainViewController.m in Sources */,
@@ -332,6 +393,7 @@
 				58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */,
 				58F9D2FF17338242007100EF /* SidePanelController.m in Sources */,
 				58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */,
+				58F9D31B17339A39007100EF /* UIViewController+navi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
