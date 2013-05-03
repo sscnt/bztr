@@ -25,4 +25,10 @@
     return [self colorWithRed:229.0f/255.0f green:229.0f/255.0f blue:229.0f/255.0f alpha:1.0f];
 }
 
++(UIColor *)navigationBarBackgroundColor
+{
+    return [self colorWithRed:56.0f/255.0f green:56.0f/255.0f blue:56.0f/255.0f alpha:1.0f];
+}
+
+
 @end

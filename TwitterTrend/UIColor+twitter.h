@@ -10,8 +10,10 @@
 
 @interface UIColor (twitter)
 
-+(UIColor *)timelineBackgroundColorPrimary;
-+(UIColor *)timelineBackgroundColorSecondary;
-+(UIColor *)timelineBackgroundColorStrokeColor;
++(UIColor*)timelineBackgroundColorPrimary;
++(UIColor*)timelineBackgroundColorSecondary;
++(UIColor*)timelineBackgroundColorStrokeColor;
+
++(UIColor*)navigationBarBackgroundColor;
 
 @end

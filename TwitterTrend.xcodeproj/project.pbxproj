@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
+		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
+		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
+		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -31,6 +34,16 @@
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
 		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
+		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
+		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
+		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		58F9D2FC1733817C007100EF /* JASidePanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		58F9D2FD17338242007100EF /* SidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidePanelController.h; sourceTree = "<group>"; };
+		58F9D2FE17338242007100EF /* SidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidePanelController.m; sourceTree = "<group>"; };
+		58F9D3011733845D007100EF /* TwitterTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTabBarController.h; sourceTree = "<group>"; };
+		58F9D3021733845D007100EF /* TwitterTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTabBarController.m; sourceTree = "<group>"; };
+		58F9D304173384C9007100EF /* UIView+extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+extend.h"; sourceTree = "<group>"; };
+		58F9D305173384C9007100EF /* UIView+extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+extend.m"; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +92,32 @@
 			name = Background;
 			sourceTree = "<group>";
 		};
+		58F9D2F917338156007100EF /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				58F9D2FA1733816A007100EF /* JASidePanels */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		58F9D2FA1733816A007100EF /* JASidePanels */ = {
+			isa = PBXGroup;
+			children = (
+				58F9D2FB1733817C007100EF /* JASidePanelController.h */,
+				58F9D2FC1733817C007100EF /* JASidePanelController.m */,
+			);
+			name = JASidePanels;
+			sourceTree = "<group>";
+		};
+		58F9D300173383DB007100EF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				58FCF3E817314752000E382D /* MainViewController.h */,
+				58FCF3E917314752000E382D /* MainViewController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +148,7 @@
 		58FCF3D317314752000E382D /* TwitterTrend */ = {
 			isa = PBXGroup;
 			children = (
+				58F9D2F917338156007100EF /* Libraries */,
 				58FCF3F517315095000E382D /* Common */,
 				58FCF3F417315025000E382D /* Categories */,
 				58FCF3F017314BEC000E382D /* UIView */,
@@ -171,6 +211,8 @@
 		58FCF3F417315025000E382D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				58F9D304173384C9007100EF /* UIView+extend.h */,
+				58F9D305173384C9007100EF /* UIView+extend.m */,
 				58FCF3FF173162CB000E382D /* UIColor+twitter.h */,
 				58FCF400173162CB000E382D /* UIColor+twitter.m */,
 				58FCF3F6173150F3000E382D /* UIDevice+resolution.h */,
@@ -202,8 +244,13 @@
 		58FCF3FD1731616E000E382D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				58FCF3E817314752000E382D /* MainViewController.h */,
-				58FCF3E917314752000E382D /* MainViewController.m */,
+				58F9D300173383DB007100EF /* Tabs */,
+				58F9D2F617337CB6007100EF /* TwitterNavigationController.h */,
+				58F9D2F717337CB6007100EF /* TwitterNavigationController.m */,
+				58F9D2FD17338242007100EF /* SidePanelController.h */,
+				58F9D2FE17338242007100EF /* SidePanelController.m */,
+				58F9D3011733845D007100EF /* TwitterTabBarController.h */,
+				58F9D3021733845D007100EF /* TwitterTabBarController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -282,6 +329,9 @@
 				58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */,
 				580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */,
 				580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */,
+				58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */,
+				58F9D2FF17338242007100EF /* SidePanelController.m in Sources */,
+				58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
