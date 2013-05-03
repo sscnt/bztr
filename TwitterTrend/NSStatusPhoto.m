@@ -10,4 +10,9 @@
 
 @implementation NSStatusPhoto
 
+- (id)initWithJsonObject:(NSDictionary *)json
+{
+    return nil;
+}
+
 @end

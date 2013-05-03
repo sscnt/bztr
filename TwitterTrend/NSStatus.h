@@ -23,5 +23,4 @@
 @property (nonatomic, strong) NSStatusPhoto* photo;
 @property (nonatomic, strong) NSStatusUser* user;
 
-
 @end

@@ -10,4 +10,9 @@
 
 @implementation NSStatusUser
 
+- (id)initWithJsonObject:(NSDictionary *)json
+{
+    return nil;
+}
+
 @end

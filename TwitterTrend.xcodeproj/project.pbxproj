@@ -43,7 +43,7 @@
 		58FDEDD41733F814000C037A /* TwitterTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD31733F814000C037A /* TwitterTimelineViewController.m */; };
 		58FDEDD71734095D000C037A /* NSRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD61734095C000C037A /* NSRequestParams.m */; };
 		58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD917340A0F000C037A /* NSTrendApi.m */; };
-		58FDEDDE17340B15000C037A /* UITimelineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDDD17340B15000C037A /* UITimelineViewModel.m */; };
+		58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,8 +108,8 @@
 		58FDEDD61734095C000C037A /* NSRequestParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRequestParams.m; sourceTree = "<group>"; };
 		58FDEDD817340A0F000C037A /* NSTrendApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTrendApi.h; sourceTree = "<group>"; };
 		58FDEDD917340A0F000C037A /* NSTrendApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTrendApi.m; sourceTree = "<group>"; };
-		58FDEDDC17340B15000C037A /* UITimelineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITimelineViewModel.h; sourceTree = "<group>"; };
-		58FDEDDD17340B15000C037A /* UITimelineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITimelineViewModel.m; sourceTree = "<group>"; };
+		58FDEDDC17340B15000C037A /* TwitterTimelineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewModel.h; sourceTree = "<group>"; };
+		58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,8 +358,8 @@
 		58FDEDDB17340AE5000C037A /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
-				58FDEDDC17340B15000C037A /* UITimelineViewModel.h */,
-				58FDEDDD17340B15000C037A /* UITimelineViewModel.m */,
+				58FDEDDC17340B15000C037A /* TwitterTimelineViewModel.h */,
+				58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */,
 			);
 			name = VIewModels;
 			sourceTree = "<group>";
@@ -457,7 +457,7 @@
 				58FDEDD41733F814000C037A /* TwitterTimelineViewController.m in Sources */,
 				58FDEDD71734095D000C037A /* NSRequestParams.m in Sources */,
 				58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */,
-				58FDEDDE17340B15000C037A /* UITimelineViewModel.m in Sources */,
+				58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

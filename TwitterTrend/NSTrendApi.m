@@ -10,4 +10,9 @@
 
 @implementation NSTrendApi
 
++ (void)call:(NSString *)api params:(NSRequestParams *)params addTarget:(id)target selector:(SEL)selector
+{
+    
+}
+
 @end

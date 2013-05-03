@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "NSRequestParams.h"
 
-@interface UITimelineViewModel : NSObject
+@interface TwitterTimelineViewModel : NSObject
 {
-    NSArray* _statusesArray;
+    NSMutableArray* _statusesArray;
 }
 
 - (void)callApi:(NSString*)api params:(NSRequestParams*)params;
-- (NSArray*)statusesOnPage:(NSInteger)page;
+- (NSMutableArray*)statusesOnPage:(NSInteger)page;
 
 @end
