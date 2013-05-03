@@ -9,13 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "NSRequestParams.h"
 #import "NSTrendApi.h"
+#import "NSStatus.h"
+
+@protocol TwitterTimelineViewModelDelegate <NSObject>
+- (void)didCallApi;
+@end
 
 @interface TwitterTimelineViewModel : NSObject
 {
     NSMutableArray* _statusesArray;
 }
 
-- (void)callApi:(NSString*)api params:(NSRequestParams*)params addTarget:(id)target selector:(SEL)selector;
+- (void)callApi:(NSString*)api params:(NSRequestParams*)params;
+- (void)didCallApi:(NSDictionary*)json;
 - (NSMutableArray*)statusesOnPage:(NSInteger)page;
 
 @end
