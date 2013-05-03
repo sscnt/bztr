@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "NSRequestParams.h"
+#import "NSTrendApi.h"
 
 @interface TwitterTimelineViewModel : NSObject
 {
     NSMutableArray* _statusesArray;
 }
 
-- (void)callApi:(NSString*)api params:(NSRequestParams*)params;
+- (void)callApi:(NSString*)api params:(NSRequestParams*)params addTarget:(id)target selector:(SEL)selector;
 - (NSMutableArray*)statusesOnPage:(NSInteger)page;
 
 @end

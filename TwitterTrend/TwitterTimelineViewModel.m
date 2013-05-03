@@ -10,7 +10,7 @@
 
 @implementation TwitterTimelineViewModel
 
-- (void)callApi:(NSString*)api params:(NSRequestParams*)params
+- (void)callApi:(NSString*)api params:(NSRequestParams*)params addTarget:(id)target selector:(SEL)selector
 {
     
     
