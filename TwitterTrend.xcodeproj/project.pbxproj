@@ -36,6 +36,10 @@
 		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
 		58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */; };
 		58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF400173162CB000E382D /* UIColor+twitter.m */; };
+		58FDEDC71733BF01000C037A /* UIStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDC61733BF01000C037A /* UIStatusView.m */; };
+		58FDEDCB1733C023000C037A /* NSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCA1733C023000C037A /* NSStatus.m */; };
+		58FDEDCE1733C1DF000C037A /* NSStatusUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCD1733C1DF000C037A /* NSStatusUser.m */; };
+		58FDEDD11733C2DB000C037A /* NSStatusPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD01733C2DB000C037A /* NSStatusPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,14 @@
 		58FCF3FE17316258000E382D /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		58FCF3FF173162CB000E382D /* UIColor+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+twitter.h"; sourceTree = "<group>"; };
 		58FCF400173162CB000E382D /* UIColor+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+twitter.m"; sourceTree = "<group>"; };
+		58FDEDC51733BF01000C037A /* UIStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusView.h; sourceTree = "<group>"; };
+		58FDEDC61733BF01000C037A /* UIStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusView.m; sourceTree = "<group>"; };
+		58FDEDC91733C023000C037A /* NSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatus.h; sourceTree = "<group>"; };
+		58FDEDCA1733C023000C037A /* NSStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatus.m; sourceTree = "<group>"; };
+		58FDEDCC1733C1DF000C037A /* NSStatusUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatusUser.h; sourceTree = "<group>"; };
+		58FDEDCD1733C1DF000C037A /* NSStatusUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatusUser.m; sourceTree = "<group>"; };
+		58FDEDCF1733C2DB000C037A /* NSStatusPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatusPhoto.h; sourceTree = "<group>"; };
+		58FDEDD01733C2DB000C037A /* NSStatusPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatusPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +209,7 @@
 		58FCF3D317314752000E382D /* TwitterTrend */ = {
 			isa = PBXGroup;
 			children = (
+				58FDEDC81733C00C000C037A /* Objects */,
 				58F9D30E17339178007100EF /* Images */,
 				58F9D2F917338156007100EF /* Libraries */,
 				58FCF3F517315095000E382D /* Common */,
@@ -254,6 +267,8 @@
 		58FCF3F317314C9B000E382D /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				58FDEDC51733BF01000C037A /* UIStatusView.h */,
+				58FDEDC61733BF01000C037A /* UIStatusView.m */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -306,6 +321,19 @@
 				58F9D3021733845D007100EF /* TwitterTabBarController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		58FDEDC81733C00C000C037A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				58FDEDC91733C023000C037A /* NSStatus.h */,
+				58FDEDCA1733C023000C037A /* NSStatus.m */,
+				58FDEDCC1733C1DF000C037A /* NSStatusUser.h */,
+				58FDEDCD1733C1DF000C037A /* NSStatusUser.m */,
+				58FDEDCF1733C2DB000C037A /* NSStatusPhoto.h */,
+				58FDEDD01733C2DB000C037A /* NSStatusPhoto.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +422,10 @@
 				58F9D2FF17338242007100EF /* SidePanelController.m in Sources */,
 				58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */,
 				58F9D31B17339A39007100EF /* UIViewController+navi.m in Sources */,
+				58FDEDC71733BF01000C037A /* UIStatusView.m in Sources */,
+				58FDEDCB1733C023000C037A /* NSStatus.m in Sources */,
+				58FDEDCE1733C1DF000C037A /* NSStatusUser.m in Sources */,
+				58FDEDD11733C2DB000C037A /* NSStatusPhoto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
