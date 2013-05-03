@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface UITwitterScrollView : UIScrollView
+{
+    CGFloat _margin;
+    CGFloat _bottom;
+}
 
 - (void)appendView:(UIView*)view;
-
 - (void)prependView:(UIView*)view;
 
 @end

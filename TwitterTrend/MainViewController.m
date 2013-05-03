@@ -17,11 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
-    UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
-    [self.view addSubview:bg];
-    [self showMenuBtn];
-    [self showSettingsBtn];
+    NSStatus* status = [[NSStatus alloc] init];
+    status.text = @"NUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU";
+    UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];
+    [_scrollView addSubview:view];
+ 
 }
 
 - (void)didReceiveMemoryWarning

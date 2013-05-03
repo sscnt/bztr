@@ -13,7 +13,20 @@
 - (id)initWithStatus:(NSStatus *)status
 {
     //// Calc Height
-    return nil;
+    CGSize size = [self sizeWithStatus:status];
+    CGRect frame = CGRectMake(6.0f, 0.0f, size.width, size.height);
+    self = [super initWithFrame:frame];
+    if(self){
+        _radius = 5.0f;
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height) cornerRadius:_radius];
+        self.backgroundColor = [UIColor clearColor];
+        self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        self.layer.shadowRadius = 1.0f;
+        self.layer.shadowPath = path.CGPath;
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowOpacity = 0.15f;
+    }
+    return self;
 }
 
 - (CGSize)sizeWithStatus:(NSStatus *)status
@@ -41,13 +54,31 @@
         }
         photoHeight = height + padding;
     }
-    return CGSizeMake([UIScreen screenSize].width - 23.0f, ceil(wrapperPadding + innerPadding + headerHeight + footerHeight + textHeight + photoHeight));
+    return CGSizeMake([UIScreen screenSize].width - 32.0f, ceil(wrapperPadding + innerPadding + headerHeight + footerHeight + textHeight + photoHeight));
     
 }
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    //// General Declarations
+    UIColor* borderColor = [UIColor colorWithWhite:200.0f/255.0f alpha:1.0f];
+    UIColor* sepColor = [UIColor colorWithWhite:222.0f/255.0f alpha:1.0f];
+    
+    //// Draw Base
+    UIBezierPath* basePath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, rect.size.width, rect.size.height) cornerRadius:_radius];
+    [[UIColor whiteColor] setFill];
+    [basePath fill];
+    [borderColor setStroke];
+    [basePath stroke];
+    
+    //// Draw Separator
+    UIBezierPath* sepPath = [UIBezierPath bezierPath];
+    [sepPath moveToPoint:CGPointMake(16.0f, rect.size.height - 32.0f)];
+    [sepPath addLineToPoint:CGPointMake(rect.size.width - 16.0f, rect.size.height - 32.0f)];
+    [sepPath closePath];
+    [sepColor setStroke];
+    sepPath.lineWidth = 1;
+    [sepPath stroke];    
 }
 
 @end

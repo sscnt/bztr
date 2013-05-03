@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "NSStatus.h"
 #import "common.h"
+#import <QuartzCore/CALayer.h>
 
 @interface UIStatusView : UIView
+{
+    CGFloat _radius;
+}
 
 - (id)initWithStatus:(NSStatus*)status;
 - (CGSize)sizeWithStatus:(NSStatus*)status;

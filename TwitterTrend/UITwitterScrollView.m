@@ -14,7 +14,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _margin = 20.0f;
+        _bottom = 0.0f;
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

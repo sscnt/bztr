@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "common.h"
 #import "commonViews.h"
+#import "TwitterTimelineViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : TwitterTimelineViewController
 
 @end
