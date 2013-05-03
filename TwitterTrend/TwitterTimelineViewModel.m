@@ -16,6 +16,7 @@
     if(self){
         _statusesArray = [[NSMutableArray alloc] init];
     }
+    return self;
 }
 
 - (void)callApi:(NSString*)api params:(NSRequestParams*)params
