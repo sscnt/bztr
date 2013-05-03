@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSStatus.h"
+#import "common.h"
 
 @interface UIStatusView : UIView
 
-- (id)initWithStatus:(NSDictionary*)status;
+- (id)initWithStatus:(NSStatus*)status;
+- (CGSize)sizeWithStatus:(NSStatus*)status;
 
 @end
