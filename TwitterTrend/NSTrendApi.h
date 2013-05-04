@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "NSRequestParams.h"
 
+@protocol NSTrendApiDelegate <NSObject>
+- (void)apiDidReturnError:(NSString*)error;
+- (void)apiDidReturnResult:(NSDictionary*)json;
+@end
+
 @interface NSTrendApi : NSURLConnection
 
-+ (void)call:(NSString *)api params:(NSRequestParams *)params addTarget:(id)target selector:(SEL)selector;
+@property (nonatomic, unsafe_unretained) id<NSTrendApiDelegate> delegate;
+
+- (void)call:(NSString *)api params:(NSRequestParams *)params;
+- (void)didCall:(NSDictionary*)json;
 
 @end

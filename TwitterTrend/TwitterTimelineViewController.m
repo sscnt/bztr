@@ -37,6 +37,14 @@
     [self.view addSubview:_scrollView];
 }
 
+//// Delegate
+
+- (void)didLoadStatuses:(NSArray *)statuses
+{
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

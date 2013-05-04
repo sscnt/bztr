@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "common.h"
 #import "commonViews.h"
+#import "TwitterTimelineViewModel.h"
 
-@interface TwitterTimelineViewController : UIViewController
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewModelDelegate>
 {
     UITwitterScrollView* _scrollView;
 }

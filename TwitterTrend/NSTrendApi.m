@@ -10,9 +10,19 @@
 
 @implementation NSTrendApi
 
-+ (void)call:(NSString *)api params:(NSRequestParams *)params addTarget:(id)target selector:(SEL)selector
+- (void)call:(NSString *)api params:(NSRequestParams *)params
 {
     
+}
+
+- (void)didCall:(NSDictionary *)json
+{
+    NSArray* errors = [json objectForKey:@"errors"];
+    if(!errors || [errors count] > 0){
+        
+    } else {
+
+    }
 }
 
 @end

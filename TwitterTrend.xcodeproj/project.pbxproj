@@ -22,6 +22,7 @@
 		58F9D32317339CE4007100EF /* NavigationBarMenuButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */; };
 		58F9D32617339D2D007100EF /* NavigationBarSettingsButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */; };
 		58F9D32717339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */; };
+		58FA24B61734D428004D803D /* NSFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FA24B51734D428004D803D /* NSFilter.m */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -71,6 +72,8 @@
 		58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarMenuButtonBg.png; sourceTree = "<group>"; };
 		58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarSettingsButtonBg.png; sourceTree = "<group>"; };
 		58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarSettingsButtonBg@2x.png"; sourceTree = "<group>"; };
+		58FA24B41734D428004D803D /* NSFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFilter.h; sourceTree = "<group>"; };
+		58FA24B51734D428004D803D /* NSFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFilter.m; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -351,6 +354,8 @@
 				58FDEDD61734095C000C037A /* NSRequestParams.m */,
 				58FDEDD817340A0F000C037A /* NSTrendApi.h */,
 				58FDEDD917340A0F000C037A /* NSTrendApi.m */,
+				58FA24B41734D428004D803D /* NSFilter.h */,
+				58FA24B51734D428004D803D /* NSFilter.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				58FDEDD71734095D000C037A /* NSRequestParams.m in Sources */,
 				58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */,
 				58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */,
+				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
