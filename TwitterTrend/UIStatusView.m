@@ -17,6 +17,7 @@
     CGRect frame = CGRectMake(6.0f, 0.0f, size.width, size.height);
     self = [super initWithFrame:frame];
     if(self){
+        _status = status;
         _radius = 5.0f;
         UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height) cornerRadius:_radius];
         self.backgroundColor = [UIColor clearColor];
@@ -90,6 +91,10 @@
 {
     [self layoutHeaderProfileImage:status];
     [self layoutHeaderName:status];
+    _userOpenWithButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 8.0f, self.frame.size.width, 43.0f)];
+    _userOpenWithButton.backgroundColor = [UIColor clearColor];
+    [_userOpenWithButton addTarget:self action:@selector(didClickUserOpenWithButton) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_userOpenWithButton];
 }
 
 - (void)layoutHeaderProfileImage:(NSStatus *)status
@@ -149,6 +154,12 @@
 - (void)layoutFooter:(NSStatus *)status
 {
     
+}
+
+//// Events
+- (void)didClickUserOpenWithButton
+{
+    dlog(@"Clicked! %@", _status.user.name);
 }
 
 @end
