@@ -24,11 +24,11 @@
 - (CGSize)sizeWithStatus:(NSStatus*)status;
 
 //// Layout
-- (void)layoutHeader:(NSStatus*)status;
-- (void)layoutHeaderProfileImage:(NSStatus*)status;
-- (void)layoutHeaderName:(NSStatus*)status;
-- (void)layoutContent:(NSStatus*)status;
-- (void)layoutFooter:(NSStatus*)status;
+- (void)layoutHeader;
+- (void)layoutHeaderProfileImage;
+- (void)layoutHeaderName;
+- (void)layoutContent;
+- (void)layoutFooter;
 
 //// Button Events
 - (void)didClickUserOpenWithButton;
