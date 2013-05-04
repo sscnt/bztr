@@ -33,19 +33,19 @@
     //// Load Statuses
     NSRequestParams* params = [[NSRequestParams alloc] init];
     params.page = 1;
-    [_model callApi:@"words/popular" params:params];
-    
-    NSStatus* status = [[NSStatus alloc] init];
-    status.text = @"NUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU";
-    UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];
-    [_scrollView addSubview:view];
- 
+    [_model callApi:@"words/popular" params:params]; 
 }
 
 //// Delegate
 - (void)didLoadStatuses:(NSArray *)statuses
 {
     dlog(@"Loaded Statuses.");
+    NSStatus* status;
+    for(int index = 0;index < [statuses count];index++){
+        status = (NSStatus*)[statuses objectAtIndex:index];
+        UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];
+        [_scrollView appendView:view];
+    }
 }
 
 - (void)didReceiveMemoryWarning

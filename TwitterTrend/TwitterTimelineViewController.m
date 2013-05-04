@@ -33,7 +33,7 @@
     [self showMenuBtn];
     [self showSettingsBtn];
     
-    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, self.view.frame.size.height)];
+    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, self.view.frame.size.height - 44.0f)];
     [self.view addSubview:_scrollView];
 }
 

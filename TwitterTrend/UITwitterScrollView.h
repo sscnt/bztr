@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+extend.h"
 
 @interface UITwitterScrollView : UIScrollView
 {
@@ -15,6 +16,8 @@
 }
 
 - (void)appendView:(UIView*)view;
+- (void)appendView:(UIView *)view margin:(NSInteger)margin;
 - (void)prependView:(UIView*)view;
+- (void)prependView:(UIView*)view margin:(NSInteger)margin;
 
 @end
