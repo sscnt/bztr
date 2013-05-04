@@ -10,4 +10,17 @@
 
 @implementation NSRequestParams
 
+- (id)init
+{
+    self = [super init];
+    if(self){
+        self.max_fav = -1;
+        self.max_rt = -1;
+        self.min_fav = -1;
+        self.min_rt = -1;
+        self.page = -1;
+    }
+    return self;
+}
+
 @end

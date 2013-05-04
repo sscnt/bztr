@@ -17,7 +17,7 @@
 
 @interface TwitterTimelineViewModel : NSObject <NSTrendApiDelegate>
 {
-    NSMutableArray* _statusesArray;
+    NSMutableDictionary* _statuses;
     NSTrendApi* _api;
 }
 

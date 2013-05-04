@@ -18,7 +18,10 @@
 
 @property (nonatomic, unsafe_unretained) id<NSTrendApiDelegate> delegate;
 
-- (void)call:(NSString *)api params:(NSRequestParams *)params;
-- (void)didCall:(NSDictionary*)json;
++ (NSString *)bodyFromRequestParams:(NSRequestParams*)params;
+- (void)call:(NSString *)api params:(NSRequestParams*)params;
+- (void)didReturnData:(NSData*)data;
+- (void)didReturnConnectionErrorWithStatusCode:(NSInteger)statusCode;
+
 
 @end

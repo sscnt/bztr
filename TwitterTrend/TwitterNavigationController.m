@@ -18,7 +18,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor clearColor]];
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0f forBarMetrics:UIBarMetricsDefault];
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
-    [titleBarAttributes setValue:[UIFont fontWithName:@"rounded-mplus-1p-heavy" size:18] forKey:UITextAttributeFont];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"rounded-mplus-1p-bold" size:18] forKey:UITextAttributeFont];
     [titleBarAttributes setValue:[UIColor colorWithWhite:240.0f/255.0f alpha:1.0f] forKey:UITextAttributeTextColor];
     [titleBarAttributes setValue:[UIColor blackColor] forKey:UITextAttributeTextShadowColor];
     [titleBarAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(1, 1)] forKey:UITextAttributeTextShadowOffset];

@@ -12,7 +12,11 @@
 
 - (id)initWithJsonObject:(NSDictionary *)json
 {
-    return nil;
+    self = [super init];
+    if(self){
+        
+    }
+    return self;
 }
 
 @end

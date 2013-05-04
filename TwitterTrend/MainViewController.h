@@ -12,5 +12,8 @@
 #import "TwitterTimelineViewController.h"
 
 @interface MainViewController : TwitterTimelineViewController
+{
+    TwitterTimelineViewModel* _model;
+}
 
 @end
