@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 
+
 @interface MainViewController ()
 
 @end
@@ -25,7 +26,7 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやき（24時間）"];
-    
+
     //// Model
     _model = [[TwitterTimelineViewModel alloc] init];
     _model.delegate = self;

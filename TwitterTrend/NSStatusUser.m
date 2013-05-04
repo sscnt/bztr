@@ -37,6 +37,8 @@
         self.profile_image_url = @"";
         if([json objectForKey:@"profile_image_url"] != nil){
             self.profile_image_url = [json objectForKey:@"profile_image_url"];
+            [self.profile_image_url stringByReplacingOccurrencesOfString:@"normal" withString:@"bigger"];
+            [self.profile_image_url stringByReplacingOccurrencesOfString:@"https:" withString:@"http:"];
         }
     }
     return self;

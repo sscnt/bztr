@@ -93,7 +93,8 @@
     } else {
         if([json objectForKey:@"errors"] != nil){
             id errors = [json objectForKey:@"errors"];
-            if([[[errors class] description] isEqualToString:@"NSArray"] || [[[errors class] description] isEqualToString:@"__NSArrayM"]){
+            dlog(@"%@", [[errors class] description]);
+            if([[[errors class] description] rangeOfString:@"NSArray"].location != NSNotFound){
                 if(!errors || [errors count] > 0){
                     //// Error
                     dlog(@"An error occured:%@", [errors objectAtIndex:0]);

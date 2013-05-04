@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
+		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
+		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
@@ -59,6 +61,10 @@
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
 		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
+		58F7BA86173546F40012AAEC /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
+		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
+		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
+		58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
 		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
 		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
 		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -151,9 +157,21 @@
 			name = Background;
 			sourceTree = "<group>";
 		};
+		58F7BA85173546B80012AAEC /* JMImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				58F7BA86173546F40012AAEC /* JMImageCache.h */,
+				58F7BA87173546F40012AAEC /* JMImageCache.m */,
+				58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */,
+				58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */,
+			);
+			name = JMImageCache;
+			sourceTree = "<group>";
+		};
 		58F9D2F917338156007100EF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				58F7BA85173546B80012AAEC /* JMImageCache */,
 				58F9D2FA1733816A007100EF /* JASidePanels */,
 			);
 			name = Libraries;
@@ -496,6 +514,8 @@
 				58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */,
 				58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */,
 				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
+				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
+				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
