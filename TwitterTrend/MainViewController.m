@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやきtw（24時間）"];
+    
     NSStatus* status = [[NSStatus alloc] init];
     status.text = @"NUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUNUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU";
     UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];

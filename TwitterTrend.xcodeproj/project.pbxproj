@@ -23,6 +23,12 @@
 		58F9D32617339D2D007100EF /* NavigationBarSettingsButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */; };
 		58F9D32717339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */; };
 		58FA24B61734D428004D803D /* NSFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FA24B51734D428004D803D /* NSFilter.m */; };
+		58FA24BE1734EDAF004D803D /* rounded-mplus-1p-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24B81734EDAF004D803D /* rounded-mplus-1p-bold.ttf */; };
+		58FA24BF1734EDAF004D803D /* rounded-mplus-1p-heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24B91734EDAF004D803D /* rounded-mplus-1p-heavy.ttf */; };
+		58FA24C01734EDAF004D803D /* rounded-mplus-1p-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BA1734EDAF004D803D /* rounded-mplus-1p-light.ttf */; };
+		58FA24C11734EDAF004D803D /* rounded-mplus-1p-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BB1734EDAF004D803D /* rounded-mplus-1p-medium.ttf */; };
+		58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */; };
+		58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -74,6 +80,12 @@
 		58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarSettingsButtonBg@2x.png"; sourceTree = "<group>"; };
 		58FA24B41734D428004D803D /* NSFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFilter.h; sourceTree = "<group>"; };
 		58FA24B51734D428004D803D /* NSFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFilter.m; sourceTree = "<group>"; };
+		58FA24B81734EDAF004D803D /* rounded-mplus-1p-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-bold.ttf"; sourceTree = "<group>"; };
+		58FA24B91734EDAF004D803D /* rounded-mplus-1p-heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-heavy.ttf"; sourceTree = "<group>"; };
+		58FA24BA1734EDAF004D803D /* rounded-mplus-1p-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-light.ttf"; sourceTree = "<group>"; };
+		58FA24BB1734EDAF004D803D /* rounded-mplus-1p-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-medium.ttf"; sourceTree = "<group>"; };
+		58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-regular.ttf"; sourceTree = "<group>"; };
+		58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-thin.ttf"; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +205,19 @@
 			name = Side;
 			sourceTree = "<group>";
 		};
+		58FA24B71734EB21004D803D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				58FA24B81734EDAF004D803D /* rounded-mplus-1p-bold.ttf */,
+				58FA24B91734EDAF004D803D /* rounded-mplus-1p-heavy.ttf */,
+				58FA24BA1734EDAF004D803D /* rounded-mplus-1p-light.ttf */,
+				58FA24BB1734EDAF004D803D /* rounded-mplus-1p-medium.ttf */,
+				58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */,
+				58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +249,7 @@
 		58FCF3D317314752000E382D /* TwitterTrend */ = {
 			isa = PBXGroup;
 			children = (
+				58FA24B71734EB21004D803D /* Fonts */,
 				58FDEDC81733C00C000C037A /* Objects */,
 				58F9D30E17339178007100EF /* Images */,
 				58F9D2F917338156007100EF /* Libraries */,
@@ -431,6 +457,12 @@
 				58F9D32317339CE4007100EF /* NavigationBarMenuButtonBg.png in Resources */,
 				58F9D32617339D2D007100EF /* NavigationBarSettingsButtonBg.png in Resources */,
 				58F9D32717339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png in Resources */,
+				58FA24BE1734EDAF004D803D /* rounded-mplus-1p-bold.ttf in Resources */,
+				58FA24BF1734EDAF004D803D /* rounded-mplus-1p-heavy.ttf in Resources */,
+				58FA24C01734EDAF004D803D /* rounded-mplus-1p-light.ttf in Resources */,
+				58FA24C11734EDAF004D803D /* rounded-mplus-1p-medium.ttf in Resources */,
+				58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */,
+				58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
