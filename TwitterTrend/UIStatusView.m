@@ -125,15 +125,15 @@
 - (void)layoutHeaderName:(NSStatus *)status
 {
     //// Name
-    UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(62.0f, 18.0f, self.frame.size.width - 80.0f, 15.0f)];
+    UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(57.0f, 18.0f, self.frame.size.width - 80.0f, 15.0f)];
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f];
     nameLabel.text = status.user.name;
     [self addSubview:nameLabel];
     
     //// ScreenName
-    UILabel* screenNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(62.0f, 24.0f, self.frame.size.width - 80.0f, 16.0f)];
+    UILabel* screenNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(57.0f, 33.0f, self.frame.size.width - 80.0f, 16.0f)];
     screenNameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
-    screenNameLabel.text = status.user.name;
+    screenNameLabel.text = [NSString stringWithFormat:@"@%@", status.user.screen_name];
     screenNameLabel.textColor = [UIColor colorWithWhite:153.0f/255.0f alpha:1.0f];
     [self addSubview:screenNameLabel];
     
