@@ -10,11 +10,11 @@
 #import "NSStatusUser.h"
 #import "NSStatusPhoto.h"
 
-@interface NSStatus : NSDictionary
+@interface NSStatus : NSObject
 
 - (id)initWithJsonObject:(NSDictionary*)json;
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) double id;
 @property (nonatomic, assign) NSInteger created_at;
 @property (nonatomic, assign) NSInteger favorite_count;
 @property (nonatomic, assign) NSInteger retweet_count;
@@ -22,5 +22,7 @@
 @property (nonatomic, strong) NSString* type;
 @property (nonatomic, strong) NSStatusPhoto* photo;
 @property (nonatomic, strong) NSStatusUser* user;
+
+
 
 @end

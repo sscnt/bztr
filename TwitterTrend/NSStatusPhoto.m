@@ -12,7 +12,23 @@
 
 - (id)initWithJsonObject:(NSDictionary *)json
 {
-    return nil;
+    self = [super init];
+    if(self){
+        self.media_url = @"";
+        if([json objectForKey:@"media_url"] != nil){
+            self.media_url = [json objectForKey:@"media_url"];
+        }
+        self.width = 0;
+        self.height = 0;
+        if([json objectForKey:@"sizes"] != nil){
+            if([[json objectForKey:@"sizes"] objectForKey:@"medium"] != nil){
+                self.width = [[[[json objectForKey:@"sizes"] objectForKey:@"medium"] objectForKey:@"width"] integerValue];
+                self.height = [[[[json objectForKey:@"sizes"] objectForKey:@"medium"] objectForKey:@"height"] integerValue];
+            }
+        }
+
+    }
+    return self;
 }
 
 @end
