@@ -41,14 +41,14 @@
     //// General Decralations
     CGFloat wrapperPadding = 8.0f;
     CGFloat innerPadding = 12.0f;
-    CGFloat headerHeight = 43.0f;
+    CGFloat headerHeight = 47.0f;
     CGFloat footerHeight = 27.0f;
     CGFloat textHeight = 0.0f;
     CGFloat photoHeight = 0.0f;
     
     //// Calc Text Height
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
-    CGSize textSize = [status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 66.0f, 9999);
+    CGSize textSize = [status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
     textHeight = textSize.height + 21.0f;
     
     //// Calc Photo Height
@@ -152,9 +152,9 @@
 - (void)layoutContent
 {
     //// Text
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
-    CGSize textSize = [_status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 50.0f, self.frame.size.width - 32.0f, textSize.height)];
+    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 66.0f, 9999);
+    CGSize textSize = [_status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
+    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, self.frame.size.width - 32.0f, textSize.height)];
     textLabel.text = _status.text;
     textLabel.numberOfLines = 0;
     textLabel.lineBreakMode = UILineBreakModeWordWrap;

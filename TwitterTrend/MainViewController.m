@@ -26,28 +26,15 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやき（24時間）"];
-
-    //// Model
-    _model = [[TwitterTimelineViewModel alloc] init];
-    _model.delegate = self;
     
-    //// Load Statuses
-    NSRequestParams* params = [[NSRequestParams alloc] init];
-    params.page = 1;
-    [_model callApi:@"words/popular" params:params]; 
+    //// General Decralations
+    _api = @"words/popular";
+    
+    //// Load
+    [self loadStatuses];
 }
 
-//// Delegate
-- (void)didLoadStatuses:(NSArray *)statuses
-{
-    dlog(@"Loaded Statuses.");
-    NSStatus* status;
-    for(int index = 0;index < [statuses count];index++){
-        status = (NSStatus*)[statuses objectAtIndex:index];
-        UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];
-        [_scrollView appendView:view];
-    }
-}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -30,12 +30,26 @@
 
 - (void)showMenu:(id)sender
 {
-    
+    [[self sidePanelController] showLeftPanelAnimated:YES];
 }
 
 - (void)showSettings:(id)sender
 {
     
+}
+
+- (JASidePanelController *)sidePanelController {
+    UIViewController *iter = self.parentViewController;
+    while (iter) {
+        if ([iter isKindOfClass:[JASidePanelController class]]) {
+            return (JASidePanelController *)iter;
+        } else if (iter.parentViewController && iter.parentViewController != iter) {
+            iter = iter.parentViewController;
+        } else {
+            iter = nil;
+        }
+    }
+    return nil;
 }
 
 @end

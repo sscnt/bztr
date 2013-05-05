@@ -20,4 +20,6 @@
 - (void)prependView:(UIView*)view;
 - (void)prependView:(UIView*)view margin:(NSInteger)margin;
 
+- (void)removeAllSubviews;
+
 @end

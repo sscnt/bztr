@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSStatus.h"
 
 @interface NSFilter : NSObject
+{
+    NSMutableArray* _NGWords;
+    NSMutableArray* _NGUsers;
+    __weak NSStatus* _status;
+}
+
+
+- (BOOL)ifConatainNGWord;
+- (BOOL)ifNGUser;
 
 @end

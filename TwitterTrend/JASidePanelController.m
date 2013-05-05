@@ -468,6 +468,7 @@ static char ja_kvoContext;
 #pragma mark - Pan Gestures
 
 - (void)_addPanGestureToView:(UIView *)view {
+    return;
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(_handlePan:)];
     panGesture.delegate = self;
     panGesture.maximumNumberOfTouches = 1;

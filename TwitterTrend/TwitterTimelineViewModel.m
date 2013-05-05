@@ -23,20 +23,33 @@
 
 - (void)callApi:(NSString*)api params:(NSRequestParams*)params
 {
-    [_api call:api params:params];
+    
+    if([_statuses objectForKey:[NSString stringWithFormat:@"%d", params.page]] == nil){
+        dlog(@"Cache not found.");
+        [_api call:api params:params];
+    }else{
+        dlog(@"Loaded form cache.");
+        dlog(@"Page:%d", params.page);
+        [self.delegate didLoadStatuses:[self statusesOnPage:params.page]];
+    }
+
 }
 
 - (NSMutableArray*)statusesOnPage:(NSInteger)page
 {
-    return nil;
+    return [_statuses objectForKey:[NSString stringWithFormat:@"%d", page]];
 }
 
+- (void)cleanStatusesCache
+{
+    _statuses = [NSMutableDictionary dictionary];
+}
 
 //// NSTrendApiDelegate
 
 - (void)apiDidReturnError:(NSString*)error
 {
-    
+    [self.delegate didReturnError:error];
 }
 
 - (void)apiDidReturnResult:(NSDictionary*)json
@@ -45,8 +58,8 @@
     if(page < 0){
         page = 0;
     }
+    dlog(@"Page:%d", page);
     if([_statuses objectForKey:[NSString stringWithFormat:@"%d", page]] == nil){
-        dlog(@"New Page");
         [_statuses setObject:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d", page]];
     }
     for(int index = 0;index < [[json objectForKey:@"statuses"] count];index++){

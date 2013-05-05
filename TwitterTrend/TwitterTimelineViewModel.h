@@ -13,6 +13,7 @@
 
 @protocol TwitterTimelineViewModelDelegate <NSObject>
 - (void)didLoadStatuses:(NSArray*)statuses;
+- (void)didReturnError:(NSString*)error;
 @end
 
 @interface TwitterTimelineViewModel : NSObject <NSTrendApiDelegate>
@@ -25,5 +26,6 @@
 
 - (void)callApi:(NSString*)api params:(NSRequestParams*)params;
 - (NSMutableArray*)statusesOnPage:(NSInteger)page;
+- (void)cleanStatusesCache;
 
 @end

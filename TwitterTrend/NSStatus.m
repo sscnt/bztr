@@ -30,7 +30,6 @@
         if([json objectForKey:@"id"] != nil){
             self.id = [[json objectForKey:@"id"] doubleValue];
         }
-        dlog(@"%@", [NSString stringWithFormat:@"%lf", self.id]);
         self.text = @"";
         if([json objectForKey:@"text"] != nil){
             self.text = [json objectForKey:@"text"];

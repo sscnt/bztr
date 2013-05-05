@@ -14,9 +14,12 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor navigationBarBackgroundColor]];
+    self.recognizesPanGesture = NO;
+    
     
     //// Set Controllers
     [self setCenterPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"]];
+    [self setLeftPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"LeftViewController"]];
 }
 
 @end

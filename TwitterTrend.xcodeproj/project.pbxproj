@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SIdeMenuViewController.m */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
@@ -56,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580409BA173619B00028EAD4 /* SIdeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIdeMenuViewController.h; sourceTree = "<group>"; };
+		580409BB173619B00028EAD4 /* SIdeMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIdeMenuViewController.m; sourceTree = "<group>"; };
 		580FBE371732B66F00D57341 /* UITwitterBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterBackgroundView.h; sourceTree = "<group>"; };
 		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 		58F9D31417339355007100EF /* Side */ = {
 			isa = PBXGroup;
 			children = (
+				580409BA173619B00028EAD4 /* SIdeMenuViewController.h */,
+				580409BB173619B00028EAD4 /* SIdeMenuViewController.m */,
 			);
 			name = Side;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
 				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
 				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
+				580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

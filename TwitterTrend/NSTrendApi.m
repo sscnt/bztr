@@ -46,7 +46,6 @@
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
     __weak NSTrendApi* _self = self;
-    
     //// Send Request    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connection_error)
     {
@@ -93,8 +92,8 @@
     } else {
         if([json objectForKey:@"errors"] != nil){
             id errors = [json objectForKey:@"errors"];
-            dlog(@"%@", [[errors class] description]);
-            if([[[errors class] description] rangeOfString:@"NSArray"].location != NSNotFound){
+            //if([[[errors class] description] rangeOfString:@"NSArray"].location != NSNotFound){
+            if([errors isKindOfClass:[NSArray class]]){
                 if(!errors || [errors count] > 0){
                     //// Error
                     dlog(@"An error occured:%@", [errors objectAtIndex:0]);

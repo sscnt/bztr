@@ -43,9 +43,17 @@
     [self prependView:view margin:_margin];
 }
 
--(void)prependView:(UIView *)view margin:(NSInteger)margin
+- (void)prependView:(UIView *)view margin:(NSInteger)margin
 {
     
+}
+
+- (void)removeAllSubviews
+{
+    for(UIView* view in [self subviews]){
+        [view removeFromSuperview];
+    }
+    _bottom = 0.0f;    
 }
 
 - (void)drawRect:(CGRect)rect

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JASidePanelController.h"
 
 @interface UIViewController (navi)
 
@@ -15,5 +16,7 @@
 
 - (void)showMenu:(id)sender;
 - (void)showSettings:(id)sender;
+
+- (JASidePanelController *)sidePanelController;
 
 @end
