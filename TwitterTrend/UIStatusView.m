@@ -49,7 +49,7 @@
     //// Calc Text Height
     CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
     CGSize textSize = [status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    textHeight = textSize.height;
+    textHeight = textSize.height + 21.0f;
     
     //// Calc Photo Height
     if([status.type isEqualToString:@"photo"]){
@@ -151,13 +151,71 @@
 //////// Content
 - (void)layoutContent
 {
+    //// Text
+    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
+    CGSize textSize = [_status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 50.0f, self.frame.size.width - 32.0f, textSize.height)];
+    textLabel.text = _status.text;
+    textLabel.numberOfLines = 0;
+    textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    [self addSubview:textLabel];
+    
+    //// Time
+    UILabel* dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, textLabel.bottom + 5.0f, self.frame.size.width - 32.0f, 16.0f)];
+    dateLabel.textColor = [UIColor colorWithWhite:153.0f/255.0f alpha:1.0f];
+    dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:_status.created_at];
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"yyyy年MM月dd日 HH時mm分";
+    dateLabel.text = [format stringFromDate:date];
+    [self addSubview:dateLabel];
+    
     
 }
 
 //////// Footer
 - (void)layoutFooter
 {
+    //// General Declarations
+    CGFloat baseX = 16.0f;
+    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
     
+    //// Retweet Count
+    NSString* numRtText = [NSString stringWithFormat:@"%d", _status.retweet_count];
+    CGSize textSize = [numRtText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    UILabel* numRtLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, textSize.width, 15.0f)];
+    numRtLabel.text = numRtText;
+    numRtLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f];
+    [self addSubview:numRtLabel];
+    baseX += textSize.width + 1.0f;
+    
+    //// Retweet Desc
+    NSString* rtDescText = @"リツイート";
+    textSize = [rtDescText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    UILabel* rtDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, textSize.width, 15.0f)];
+    rtDescLabel.text = rtDescText;
+    rtDescLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+    [self addSubview:rtDescLabel];
+    baseX += textSize.width + 5.0f;
+    
+    //// Favorite Count
+    NSString* numFavText = [NSString stringWithFormat:@"%d", _status.favorite_count];
+    textSize = [numFavText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    UILabel* numFavLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, textSize.width, 15.0f)];
+    numFavLabel.text = numFavText;
+    numFavLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f];
+    [self addSubview:numFavLabel];
+    baseX += textSize.width + 1.0f;
+    
+    //// Favorite Desc
+    NSString* favDescText = @"お気に入り";
+    textSize = [favDescText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
+    UILabel* favDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, textSize.width, 15.0f)];
+    favDescLabel.text = favDescText;
+    favDescLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+    [self addSubview:favDescLabel];
+    baseX += textSize.width + 5.0f;
+
 }
 
 //// Events
