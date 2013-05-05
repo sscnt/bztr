@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
+		580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241F3173697E500C64E28 /* ImageZoomViewController.m */; };
 		580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SIdeMenuViewController.m */; };
 		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
 		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
@@ -62,6 +63,8 @@
 /* Begin PBXFileReference section */
 		580241EE1736644900C64E28 /* UITwitterScrollHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollHeaderView.h; sourceTree = "<group>"; };
 		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
+		580241F2173697E500C64E28 /* ImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageZoomViewController.h; sourceTree = "<group>"; };
+		580241F3173697E500C64E28 /* ImageZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageZoomViewController.m; sourceTree = "<group>"; };
 		580409BA173619B00028EAD4 /* SIdeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIdeMenuViewController.h; sourceTree = "<group>"; };
 		580409BB173619B00028EAD4 /* SIdeMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIdeMenuViewController.m; sourceTree = "<group>"; };
 		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -159,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580241F1173697AC00C64E28 /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				580241F2173697E500C64E28 /* ImageZoomViewController.h */,
+				580241F3173697E500C64E28 /* ImageZoomViewController.m */,
+			);
+			name = Viewer;
+			sourceTree = "<group>";
+		};
 		580409BD173639DC0028EAD4 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +411,7 @@
 			children = (
 				58FDEDD21733F814000C037A /* TwitterTimelineViewController.h */,
 				58FDEDD31733F814000C037A /* TwitterTimelineViewController.m */,
+				580241F1173697AC00C64E28 /* Viewer */,
 				58F9D31417339355007100EF /* Side */,
 				58F9D300173383DB007100EF /* Tabs */,
 				58F9D2F617337CB6007100EF /* TwitterNavigationController.h */,
@@ -546,6 +559,7 @@
 				580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */,
 				580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */,
 				580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */,
+				580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

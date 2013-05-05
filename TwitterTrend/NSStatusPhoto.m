@@ -22,7 +22,6 @@
         self.height = 0;
         if([json objectForKey:@"sizes"] != nil){
             if([[json objectForKey:@"sizes"] objectForKey:@"medium"] != nil){
-                dlog(@"%@", [[json objectForKey:@"sizes"] objectForKey:@"medium"]);
                 self.width = [[[[json objectForKey:@"sizes"] objectForKey:@"medium"] objectForKey:@"w"] integerValue];
                 self.height = [[[[json objectForKey:@"sizes"] objectForKey:@"medium"] objectForKey:@"h"] integerValue];
             }

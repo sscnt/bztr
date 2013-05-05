@@ -64,6 +64,7 @@
     for(int index = 0;index < [statuses count];index++){
         status = (NSStatus*)[statuses objectAtIndex:index];
         UIStatusView* view = [[UIStatusView alloc] initWithStatus:status];
+        view.delegate = self;
         [_scrollView appendView:view];
     }
     _state = TimelineViewStateReady;
@@ -121,6 +122,34 @@
         _state = TimelineViewStateLoadingStatuses;
         [SVProgressHUD showWithStatus:@"次のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToNextPage)];
     }
+}
+
+#pragma mark UIStatusViewDelegate
+- (void)didClickImage:(UIImage *)image
+{
+    //// Animation
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.2f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    transition.type = kCATransitionFade;
+    
+    //// Viewcontroller
+    ImageZoomViewController* controller = [[ImageZoomViewController alloc] init];
+    controller.image = image;
+    
+    //// Push
+    [self.tabBarController.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.tabBarController.navigationController pushViewController:controller animated:NO];
+}
+
+- (void)didClickStatusOpenWithButton:(NSStatus *)status
+{
+    
+}
+
+- (void)didClickUserOpenWithButton:(NSStatus *)status
+{
+    
 }
 
 - (void)didReceiveMemoryWarning

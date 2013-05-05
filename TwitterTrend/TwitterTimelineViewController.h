@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "common.h"
 #import "commonViews.h"
 #import "TwitterTimelineViewModel.h"
 #import "UITwitterScrollHeaderView.h"
+#import "ImageZoomViewController.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
     TimelineViewStateLoadingStatuses
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewModelDelegate, UIGestureRecognizerDelegate>
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate>
 {
     UITwitterScrollView* _scrollView;
     TwitterTimelineViewModel* _model;
@@ -35,5 +37,9 @@ typedef NS_ENUM(int, TimelineViewState){
 - (void)addSwipeGesture;
 - (void)didSwipeRight:(UISwipeGestureRecognizer*)sender;
 - (void)didSwipeLeft:(UISwipeGestureRecognizer*)sender;
+
+- (void)didClickImage:(UIImage*)image;
+- (void)didClickUserOpenWithButton:(NSStatus*)status;
+- (void)didClickStatusOpenWithButton:(NSStatus*)status;
 
 @end

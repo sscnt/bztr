@@ -176,16 +176,21 @@
 
         //// Image View
         UIImage* photo = [UIImage imageNamed:@"profile_image_placeholder"];
-        UIImageView* imageView = [[UIImageView alloc] initWithImage:photo];
-        [imageView setFrame:CGRectMake(16.0f, bottomY + 10.0f, width, height)];
+        _imageView = [[UIImageView alloc] initWithImage:photo];
+        [_imageView setFrame:CGRectMake(0.0f, 0.0f, width, height)];
+        
+        //// UIButton
+        UIButton* wrapper = [[UIButton alloc] initWithFrame:CGRectMake(16.0f, bottomY + 10.0f, width, height)];
+        [wrapper addTarget:self action:@selector(didClickImage) forControlEvents:UIControlEventTouchUpInside];
         
         //// Load Image
-        __weak UIImageView* _weak_imageView = imageView;
+        __weak UIImageView* _weak_imageView = _imageView;
         [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.photo.media_url] completionBlock:^(UIImage* image){
             [_weak_imageView setImage:image];
         } failureBlock:nil];
-        [self addSubview:imageView];
-        bottomY = imageView.bottom;
+        [wrapper addSubview:_imageView];
+        [self addSubview:wrapper];
+        bottomY = wrapper.bottom;
     }
     
     //// Time
@@ -248,6 +253,12 @@
 }
 
 //// Events
+- (void)didClickImage
+{
+    dlog(@"didClickImage");
+    [self.delegate didClickImage:_imageView.image];
+}
+
 - (void)didClickUserOpenWithButton
 {
     dlog(@"Clicked! %@", _status.user.name);

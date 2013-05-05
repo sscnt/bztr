@@ -12,13 +12,23 @@
 #import <QuartzCore/CALayer.h>
 #import "JMImageCache.h"
 
+@protocol UIStatusViewDelegate <NSObject>
+
+- (void)didClickImage:(UIImage*)image;
+- (void)didClickUserOpenWithButton:(NSStatus*)status;
+- (void)didClickStatusOpenWithButton:(NSStatus*)status;
+
+@end
+
 @interface UIStatusView : UIView
 {
     __weak NSStatus* _status;
+    UIImageView* _imageView;
     CGFloat _radius;
     UIButton* _userOpenWithButton;
     UIButton* _statusOpenWithButton;
 }
+@property (nonatomic, weak) id<UIStatusViewDelegate> delegate;
 
 - (id)initWithStatus:(NSStatus*)status;
 - (CGSize)sizeWithStatus:(NSStatus*)status;
@@ -31,6 +41,7 @@
 - (void)layoutFooter;
 
 //// Button Events
+- (void)didClickImage;
 - (void)didClickUserOpenWithButton;
 - (void)didClickStatusOpenWithButton;
 
