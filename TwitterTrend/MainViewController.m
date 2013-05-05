@@ -28,7 +28,7 @@
     self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやき"];
     
     //// General Decralations
-    _api = @"words/popular";
+    _api = @"images/popular";
     _headerTitle = @"新着順（一般）";
     
     //// Load

@@ -38,7 +38,7 @@
         self.photo = nil;
         if([json objectForKey:@"entities"] != nil){
             if([[json objectForKey:@"entities"] objectForKey:@"media"] != nil){
-                if([[[json objectForKey:@"entities"] objectForKey:@"media"] array].count == 1){
+                if([[[json objectForKey:@"entities"] objectForKey:@"media"] count] == 1){
                     self.type = @"photo";
                     self.photo = [[NSStatusPhoto alloc] initWithJsonObject:[[[json objectForKey:@"entities"] objectForKey:@"media"] objectAtIndex:0]];
                 }

@@ -151,6 +151,7 @@
 //////// Content
 - (void)layoutContent
 {
+    CGFloat bottomY = 0.0f;
     //// Text
     CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 66.0f, 9999);
     CGSize textSize = [_status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
@@ -159,9 +160,36 @@
     textLabel.numberOfLines = 0;
     textLabel.lineBreakMode = UILineBreakModeWordWrap;
     [self addSubview:textLabel];
+    bottomY = textLabel.bottom;
+    
+    //// Photo
+    if([_status.type isEqualToString:@"photo"]){
+        
+        //// General Declarations
+        CGFloat height = _status.photo.height;
+        CGFloat width = _status.photo.width;
+        CGFloat areaWidth = self.frame.size.width - 32.0f;
+        if(width > areaWidth){
+            height = _status.photo.height * areaWidth / _status.photo.width;
+            width = areaWidth;
+        }
+
+        //// Image View
+        UIImage* photo = [UIImage imageNamed:@"profile_image_placeholder"];
+        UIImageView* imageView = [[UIImageView alloc] initWithImage:photo];
+        [imageView setFrame:CGRectMake(16.0f, bottomY + 10.0f, width, height)];
+        
+        //// Load Image
+        __weak UIImageView* _weak_imageView = imageView;
+        [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.photo.media_url] completionBlock:^(UIImage* image){
+            [_weak_imageView setImage:image];
+        } failureBlock:nil];
+        [self addSubview:imageView];
+        bottomY = imageView.bottom;
+    }
     
     //// Time
-    UILabel* dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, textLabel.bottom + 5.0f, self.frame.size.width - 32.0f, 16.0f)];
+    UILabel* dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, bottomY + 5.0f, self.frame.size.width - 32.0f, 16.0f)];
     dateLabel.textColor = [UIColor colorWithWhite:153.0f/255.0f alpha:1.0f];
     dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:_status.created_at];
@@ -170,6 +198,7 @@
     dateLabel.text = [format stringFromDate:date];
     [self addSubview:dateLabel];
     
+
     
 }
 
