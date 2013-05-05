@@ -55,6 +55,11 @@
 //// Delegate
 - (void)didLoadStatuses:(NSArray *)statuses
 {
+    //// Add Header
+    UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _scrollView.frame.size.width, 44.0f)];
+    [header setTitle:_headerTitle page:_params.page];
+    [_scrollView appendView:header margin:0.0f];
+    
     NSStatus* status;
     for(int index = 0;index < [statuses count];index++){
         status = (NSStatus*)[statuses objectAtIndex:index];
@@ -62,6 +67,7 @@
         [_scrollView appendView:view];
     }
     _state = TimelineViewStateReady;
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReturnError:(NSString *)error
@@ -73,24 +79,16 @@
 
 - (void)goToNextPage
 {
-    if(_state == TimelineViewStateReady){
-        _state = TimelineViewStateLoadingStatuses;
-        dlog(@"Go to Next Page.");
-        _params.page = _params.page + 1;
-        [self loadStatuses];
-    }
+    dlog(@"Go to Next Page.");
+    _params.page = _params.page + 1;
+    [self loadStatuses];
 }
 
 - (void)goToPrevPage
 {
-    if(_state == TimelineViewStateReady){
-        _state = TimelineViewStateLoadingStatuses;
-        if(_params.page > 1){
-            dlog(@"Go to Prev Page.");
-            _params.page = _params.page - 1;
-            [self loadStatuses];
-        }
-    }
+    dlog(@"Go to Prev Page.");
+    _params.page = _params.page - 1;
+    [self loadStatuses];
 }
 
 #pragma mark - Swipe Gestures
@@ -110,12 +108,19 @@
 
 - (void)didSwipeRight:(UISwipeGestureRecognizer *)sender
 {
-    [self goToPrevPage];
-}
+    if(_state == TimelineViewStateReady){
+        if(_params.page > 1){
+            _state = TimelineViewStateLoadingStatuses;
+            [SVProgressHUD showWithStatus:@"前のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToPrevPage)];
+        }
+    }}
 
 - (void)didSwipeLeft:(UISwipeGestureRecognizer *)sender
-{    
-    [self goToNextPage];
+{
+    if(_state == TimelineViewStateReady){
+        _state = TimelineViewStateLoadingStatuses;
+        [SVProgressHUD showWithStatus:@"次のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToNextPage)];
+    }
 }
 
 - (void)didReceiveMemoryWarning

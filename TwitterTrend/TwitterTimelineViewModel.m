@@ -32,8 +32,8 @@
         dlog(@"Page:%d", params.page);
         [self.delegate didLoadStatuses:[self statusesOnPage:params.page]];
     }
-
 }
+
 
 - (NSMutableArray*)statusesOnPage:(NSInteger)page
 {

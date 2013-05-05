@@ -25,12 +25,14 @@
     [super viewDidLoad];
     
     //// NavigationBar
-    self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやき（24時間）"];
+    self.tabBarController.navigationItem.title = [NSString stringWithFormat:@"つぶやき"];
     
     //// General Decralations
     _api = @"words/popular";
+    _headerTitle = @"新着順（一般）";
     
     //// Load
+    [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [self loadStatuses];
 }
 

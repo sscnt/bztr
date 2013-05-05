@@ -10,6 +10,7 @@
 #import "common.h"
 #import "commonViews.h"
 #import "TwitterTimelineViewModel.h"
+#import "UITwitterScrollHeaderView.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
@@ -22,6 +23,7 @@ typedef NS_ENUM(int, TimelineViewState){
     TwitterTimelineViewModel* _model;
     NSRequestParams* _params;
     NSString* _api;
+    NSString* _headerTitle;
     TimelineViewState _state;
 }
 

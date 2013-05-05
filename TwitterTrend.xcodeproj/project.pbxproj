@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
 		580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SIdeMenuViewController.m */; };
+		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
+		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
@@ -57,8 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580241EE1736644900C64E28 /* UITwitterScrollHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollHeaderView.h; sourceTree = "<group>"; };
+		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
 		580409BA173619B00028EAD4 /* SIdeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIdeMenuViewController.h; sourceTree = "<group>"; };
 		580409BB173619B00028EAD4 /* SIdeMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIdeMenuViewController.m; sourceTree = "<group>"; };
+		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		580409BF173639ED0028EAD4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		580409C0173639ED0028EAD4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		580FBE371732B66F00D57341 /* UITwitterBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterBackgroundView.h; sourceTree = "<group>"; };
 		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
@@ -151,6 +159,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580409BD173639DC0028EAD4 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */,
+				580409BF173639ED0028EAD4 /* SVProgressHUD.h */,
+				580409C0173639ED0028EAD4 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		580FBE361732B65900D57341 /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +192,7 @@
 		58F9D2F917338156007100EF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				580409BD173639DC0028EAD4 /* SVProgressHUD */,
 				58F7BA85173546B80012AAEC /* JMImageCache */,
 				58F9D2FA1733816A007100EF /* JASidePanels */,
 			);
@@ -369,6 +388,8 @@
 			children = (
 				58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */,
 				58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */,
+				580241EE1736644900C64E28 /* UITwitterScrollHeaderView.h */,
+				580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */,
 			);
 			name = Scroll;
 			sourceTree = "<group>";
@@ -486,6 +507,7 @@
 				58FA24C11734EDAF004D803D /* rounded-mplus-1p-medium.ttf in Resources */,
 				58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */,
 				58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */,
+				580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +544,8 @@
 				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
 				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
 				580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */,
+				580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */,
+				580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
