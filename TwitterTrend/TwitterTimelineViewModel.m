@@ -42,7 +42,11 @@
 
 - (void)cleanStatusesCache
 {
-    _statuses = [NSMutableDictionary dictionary];
+    for(NSString* key in _statuses){
+        NSMutableArray* array = [_statuses objectForKey:key];
+        [array removeAllObjects];
+        [_statuses removeObjectForKey:key];
+    }
 }
 
 //// NSTrendApiDelegate

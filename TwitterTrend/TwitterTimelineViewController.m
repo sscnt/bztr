@@ -53,6 +53,7 @@
 - (void)restart
 {
     [_scrollView removeAllSubviews];
+    [_model cleanStatusesCache];
     _params = [[NSRequestParams alloc] init];
     _params.page = 1;
     dlog(@"Restart");
