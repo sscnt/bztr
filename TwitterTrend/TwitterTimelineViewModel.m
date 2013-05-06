@@ -45,8 +45,8 @@
     for(NSString* key in _statuses){
         NSMutableArray* array = [_statuses objectForKey:key];
         [array removeAllObjects];
-        [_statuses removeObjectForKey:key];
     }
+    [_statuses removeAllObjects];
 }
 
 //// NSTrendApiDelegate

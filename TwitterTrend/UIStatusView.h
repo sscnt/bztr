@@ -23,6 +23,8 @@
 @interface UIStatusView : UIView
 {
     __weak NSStatus* _status;
+    NSString* _profile_image_url;
+    NSString* _media_url;
     UIImageView* _imageView;
     CGFloat _radius;
     UIButton* _userOpenWithButton;

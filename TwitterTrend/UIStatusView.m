@@ -19,6 +19,8 @@
     if(self){
         //// General Declarations
         _status = status;
+        _profile_image_url = _status.user.profile_image_url;
+        _media_url = _status.photo.media_url;
         _radius = 5.0f;
         UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height) cornerRadius:_radius];
         self.backgroundColor = [UIColor clearColor];
@@ -271,6 +273,8 @@
 
 - (void)dealloc
 {
-    dlog(@"%% DEALLOC %%");
+    [[JMImageCache sharedCache] removeImageFromMemoryForKey:_media_url];
+    [[JMImageCache sharedCache] removeImageFromMemoryForKey:_profile_image_url];
 }
+
 @end

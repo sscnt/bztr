@@ -85,7 +85,7 @@
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（24時間ランキング）";
-    item.api = @"images/popular";
+    item.api = @"images/top";
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"24時間ランキング（一般）";
     item.index = 4;
@@ -93,7 +93,7 @@
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（週間ランキング）";
-    item.api = @"images/popular";
+    item.api = @"images/weekly_top";
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"週間ランキング（一般）";
     item.index = 5;

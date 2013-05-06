@@ -246,6 +246,10 @@ static inline NSString *cachePathForKey(NSString *key) {
 - (void) removeImageForKey:(NSString *)key {
 	[self removeObjectForKey:key];
 }
+- (void) removeImageFromMemoryForKey:(NSString *)key
+{
+    [super removeObjectForKey:key];
+}
 - (void) removeImageForURL:(NSURL *)url {
     [self removeImageForKey:keyForURL(url)];
 }
