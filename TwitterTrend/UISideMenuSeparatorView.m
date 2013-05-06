@@ -12,10 +12,10 @@
 
 - (id)initWithTitle:(NSString *)titie
 {
-    CGRect frame = CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, 20.0f);
+    CGRect frame = CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, 22.0f);
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor colorWithWhite:60.0f/255.0f alpha:1.0f];
+        self.backgroundColor = [UIColor colorWithWhite:50.0f/255.0f alpha:1.0f];
         UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, floorf(frame.size.width * 0.8f), frame.size.height)];
         titleLabel.text = titie;
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -29,13 +29,24 @@
 }
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    UIBezierPath* topStrokePath = [UIBezierPath bezierPath];
+    [topStrokePath moveToPoint:CGPointMake(0.0f, 0.0f)];
+    [topStrokePath addLineToPoint:CGPointMake(rect.size.width, 0.0f)];
+    [topStrokePath closePath];
+    [[UIColor colorWithWhite:0.0f alpha:0.6f] setStroke];
+    [topStrokePath stroke];
+    
+    UIBezierPath* bottomStrokePath = [UIBezierPath bezierPath];
+    [bottomStrokePath moveToPoint:CGPointMake(0.0f, rect.size.height)];
+    [bottomStrokePath addLineToPoint:CGPointMake(rect.size.width, rect.size.height)];
+    [bottomStrokePath closePath];
+    [[UIColor colorWithWhite:0.0f alpha:0.05f] setStroke];
+    [bottomStrokePath stroke];
+    
 }
-*/
+
 
 @end

@@ -44,8 +44,8 @@
     [topStrokePath stroke];
     
     UIBezierPath* bottomStrokePath = [UIBezierPath bezierPath];
-    [bottomStrokePath moveToPoint:CGPointMake(0.0f, rect.size.height - 1.0f)];
-    [bottomStrokePath addLineToPoint:CGPointMake(rect.size.width, rect.size.height - 1.0f)];
+    [bottomStrokePath moveToPoint:CGPointMake(0.0f, rect.size.height)];
+    [bottomStrokePath addLineToPoint:CGPointMake(rect.size.width, rect.size.height )];
     [bottomStrokePath closePath];
     [[UIColor colorWithWhite:0.0f alpha:0.2f] setStroke];
     [bottomStrokePath stroke];

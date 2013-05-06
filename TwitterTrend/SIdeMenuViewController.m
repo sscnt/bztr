@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
     _currentButtonIndex = 0;
+    _menuButtons = [NSMutableArray array];
     
     //// Background
     self.view.backgroundColor = [UIColor blackColor];
@@ -45,20 +46,88 @@
 
 - (void)showButtons
 {
+    //// Separator
     UISideMenuSeparatorView* generalSeparatorView = [[UISideMenuSeparatorView alloc] initWithTitle:@"一般ユーザー"];
     [_scrollView appendView:generalSeparatorView margin:0.0f];
-    NSArray* generalButtonList = [NSArray arrayWithObjects:@"つぶやき（新着順）", @"つぶやき（24時間ランキング）", @"つぶやき（週間ランキング）", nil];
-    for(int index = 0;index < [generalButtonList count];index++){
-        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[generalButtonList objectAtIndex:index]];
+    
+    //// Buttons
+    NSMutableArray* buttonList = [NSMutableArray array];
+    [buttonList addObject:@"つぶやき（新着順）"];
+    [buttonList addObject:@"つぶやき（24時間ランキング）"];
+    [buttonList addObject:@"つぶやき（週間ランキング）"];
+    [buttonList addObject:@"写真（新着順）"];
+    [buttonList addObject:@"写真（24時間ランキング）"];
+    [buttonList addObject:@"写真（週間ランキング）"];
+    for(int index = 0;index < [buttonList count];index++){
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
         if(index == _currentButtonIndex){
-            [button setSelected:YES];
+            button.selected = YES;
         }
+        button.tag = index;
+        [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_menuButtons insertObject:button atIndex:index];
         [_scrollView appendView:button margin:0.0f];
     }
+    
+    //// Separator
+    UISideMenuSeparatorView* celebritiesSeparatorView = [[UISideMenuSeparatorView alloc] initWithTitle:@"芸能人・有名人"];
+    [_scrollView appendView:celebritiesSeparatorView margin:0.0f];
+    
+    //// Buttons
+    [buttonList addObject:@"つぶやき（新着順）"];
+    [buttonList addObject:@"つぶやき（24時間ランキング）"];
+    [buttonList addObject:@"つぶやき（週間ランキング）"];
+    [buttonList addObject:@"写真（新着順）"];
+    [buttonList addObject:@"写真（24時間ランキング）"];
+    [buttonList addObject:@"写真（週間ランキング）"];
+    for(int index = 6;index < [buttonList count];index++){
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
+        if(index == _currentButtonIndex){
+            button.selected = YES;
+        }
+        button.tag = index;
+        [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_menuButtons insertObject:button atIndex:index];
+        [_scrollView appendView:button margin:0.0f];
+    }
+    
+    //// Separator
+    UISideMenuSeparatorView* aboutSeparatorView = [[UISideMenuSeparatorView alloc] initWithTitle:@"このアプリについて"];
+    [_scrollView appendView:aboutSeparatorView margin:0.0f];
+    
+    
+    //// Buttons
+    [buttonList addObject:@"設定"];
+    [buttonList addObject:@"使い方"];
+    [buttonList addObject:@"意見・要望"];
+    [buttonList addObject:@"プレミアム会員について"];
+    for(int index = 12;index < [buttonList count];index++){
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
+        if(index == _currentButtonIndex){
+            button.selected = YES;
+        }
+        button.tag = index;
+        [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_menuButtons insertObject:button atIndex:index];
+        [_scrollView appendView:button margin:0.0f];
+    }
+
 }
 
 - (void)didClickMenuButton:(id)sender
 {
+    NSInteger selectedIndex = ((UISideMenuButton*)sender).tag;
+    for(int index = 0;index < [_menuButtons count];index++){
+        UISideMenuButton* button = [_menuButtons objectAtIndex:index];
+        button.selected = NO;
+        if(button.tag == selectedIndex){
+            button.selected = YES;
+        }
+        dlog(@"%@", button);
+
+    }
+    _currentButtonIndex = selectedIndex;
+    dlog(@"%d", selectedIndex);
 }
 
 - (void)didReceiveMemoryWarning

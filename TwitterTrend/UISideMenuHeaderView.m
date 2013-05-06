@@ -33,6 +33,13 @@
     UIBezierPath* bgPath = [UIBezierPath bezierPathWithRect:rect];
     [[UIColor colorWithWhite:40.0f/255.0f alpha:1.0f] setFill];
     [bgPath fill];
+    
+    UIBezierPath* bottomStrokePath = [UIBezierPath bezierPath];
+    [bottomStrokePath moveToPoint:CGPointMake(0.0f, rect.size.height)];
+    [bottomStrokePath addLineToPoint:CGPointMake(rect.size.width, rect.size.height)];
+    [bottomStrokePath closePath];
+    [[UIColor colorWithWhite:0.0f alpha:0.3f] setStroke];
+    [bottomStrokePath stroke];
 }
 
 @end
