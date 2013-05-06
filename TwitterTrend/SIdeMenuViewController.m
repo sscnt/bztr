@@ -99,7 +99,7 @@
     //// Buttons
     [buttonList addObject:@"設定"];
     [buttonList addObject:@"使い方"];
-    [buttonList addObject:@"意見・要望"];
+    [buttonList addObject:@"ご意見・不具合報告など"];
     [buttonList addObject:@"プレミアム会員について"];
     for(int index = 12;index < [buttonList count];index++){
         UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];

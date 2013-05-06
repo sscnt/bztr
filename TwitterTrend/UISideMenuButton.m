@@ -16,14 +16,14 @@
     self = [super initWithFrame:frame];
     if(self){
         self.backgroundColor = [UIColor clearColor];
-        UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, frame.size.width, frame.size.height)];
-        titleLabel.text = titie;
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
-        titleLabel.textColor = [UIColor colorWithWhite:210.0f/255.0f alpha:1.0f];
-        titleLabel.shadowColor = [UIColor blackColor];
-        titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        [self addSubview:titleLabel];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, frame.size.width, frame.size.height)];
+        _titleLabel.text = titie;
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
+        _titleLabel.textColor = [UIColor colorWithWhite:190.0f/255.0f alpha:1.0f];
+        _titleLabel.shadowColor = [UIColor blackColor];
+        _titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        [self addSubview:_titleLabel];
     }
     return self;
 }
@@ -32,6 +32,11 @@
 {
     [super setSelected:selected];
     [self setNeedsDisplay];
+    if(selected){
+        _titleLabel.textColor = [UIColor colorWithWhite:220.0f/255.0f alpha:1.0f];
+    }else{
+        _titleLabel.textColor = [UIColor colorWithWhite:190.0f/255.0f alpha:1.0f];
+    }
 }
 
 - (void)drawRect:(CGRect)rect

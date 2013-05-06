@@ -10,6 +10,9 @@
 #import "UIScreen+twitter.h"
 
 @interface UISideMenuButton : UIButton
+{
+    UILabel* _titleLabel;
+}
 
 @property (nonatomic, strong) NSString* segueName;
 

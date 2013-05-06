@@ -31,7 +31,7 @@
 - (void)drawRect:(CGRect)rect
 {
     UIBezierPath* bgPath = [UIBezierPath bezierPathWithRect:rect];
-    [[UIColor colorWithWhite:40.0f/255.0f alpha:1.0f] setFill];
+    [[UIColor colorWithWhite:50.0f/255.0f alpha:1.0f] setFill];
     [bgPath fill];
     
     UIBezierPath* bottomStrokePath = [UIBezierPath bezierPath];

@@ -122,7 +122,7 @@
     
     //// Load Image
     __weak UIImageView* _weak_imageView = imageView;
-    [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.user.profile_image_url] completionBlock:^(UIImage* image){
+    [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.user.profile_image_url] key:_status.user.profile_image_url completionBlock:^(UIImage* image){
         [_weak_imageView setImage:image];
     } failureBlock:nil];
     
@@ -185,7 +185,7 @@
         
         //// Load Image
         __weak UIImageView* _weak_imageView = _imageView;
-        [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.photo.media_url] completionBlock:^(UIImage* image){
+        [[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:_status.photo.media_url] key:_status.photo.media_url completionBlock:^(UIImage* image){
             [_weak_imageView setImage:image];
         } failureBlock:nil];
         [wrapper addSubview:_imageView];
