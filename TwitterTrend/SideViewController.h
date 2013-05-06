@@ -14,14 +14,18 @@
 #import "UISideMenuHeaderView.h"
 #import "UISideMenuButton.h"
 #import "UISideMenuSeparatorView.h"
+#import "MainViewController.h"
+#import "NSMenuItem.h"
 
 @interface SideViewController : UIViewController
 {
     UITwitterScrollView* _scrollView;
     NSInteger _currentButtonIndex;
     NSMutableArray* _menuButtons;
+    NSMutableString* _menuButtonItems;
 }
 
+- (void)setMenuButtonItems;
 - (void)showButtons;
 - (void)didClickMenuButton:(id)sender;
 

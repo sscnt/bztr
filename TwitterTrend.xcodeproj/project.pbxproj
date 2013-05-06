@@ -20,6 +20,7 @@
 		58F5429E1737981F006C1FB2 /* UISideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F5429D1737981F006C1FB2 /* UISideMenuHeaderView.m */; };
 		58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A01737A499006C1FB2 /* UISideMenuButton.m */; };
 		58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */; };
+		58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A61737E598006C1FB2 /* NSMenuItem.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
@@ -90,6 +91,8 @@
 		58F542A01737A499006C1FB2 /* UISideMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuButton.m; sourceTree = "<group>"; };
 		58F542A21737ACB1006C1FB2 /* UISideMenuSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISideMenuSeparatorView.h; sourceTree = "<group>"; };
 		58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuSeparatorView.m; sourceTree = "<group>"; };
+		58F542A51737E598006C1FB2 /* NSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMenuItem.h; sourceTree = "<group>"; };
+		58F542A61737E598006C1FB2 /* NSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMenuItem.m; sourceTree = "<group>"; };
 		58F7BA86173546F40012AAEC /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
@@ -479,6 +482,8 @@
 				58FDEDD917340A0F000C037A /* NSTrendApi.m */,
 				58FA24B41734D428004D803D /* NSFilter.h */,
 				58FA24B51734D428004D803D /* NSFilter.m */,
+				58F542A51737E598006C1FB2 /* NSMenuItem.h */,
+				58F542A61737E598006C1FB2 /* NSMenuItem.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				58F5429E1737981F006C1FB2 /* UISideMenuHeaderView.m in Sources */,
 				58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */,
 				58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */,
+				58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

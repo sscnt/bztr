@@ -24,11 +24,14 @@ typedef NS_ENUM(int, TimelineViewState){
     UITwitterScrollView* _scrollView;
     TwitterTimelineViewModel* _model;
     NSRequestParams* _params;
-    NSString* _api;
-    NSString* _headerTitle;
     TimelineViewState _state;
 }
 
+@property (nonatomic, strong) NSString* api;
+@property (nonatomic, strong) NSString* headerTitle;
+@property (nonatomic, strong) NSString* navigationBarTitle;
+
+- (void)restart;
 - (void)loadStatuses;
 
 - (void)goToNextPage;

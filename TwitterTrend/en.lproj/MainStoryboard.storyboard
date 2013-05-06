@@ -35,7 +35,7 @@
         <!--Main View Controller - Item 1-->
         <scene sceneID="3PT-e3-4wM">
             <objects>
-                <viewController storyboardIdentifier="" id="hOX-V4-0vL" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="hOX-V4-0vL" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I6n-O7-j19">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,6 +65,7 @@
         <!--Twitter Tab Bar Controller-->
         <scene sceneID="oWc-R0-UQz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pl-mJ-P9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="" definesPresentationContext="YES" id="Uw7-Cs-gs1" customClass="TwitterTabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="VLv-y7-Zmy"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -77,31 +78,10 @@
                         <segue destination="hOX-V4-0vL" kind="relationship" relationship="viewControllers" id="rbS-S7-hXo"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pl-mJ-P9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715" y="103"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="JASidePanelController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
-        </class>
-        <class className="MainViewController" superclassName="TwitterTimelineViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-        </class>
-        <class className="SidePanelController" superclassName="JASidePanelController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SidePanelController.h"/>
-        </class>
-        <class className="TwitterNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterNavigationController.h"/>
-        </class>
-        <class className="TwitterTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterTabBarController.h"/>
-        </class>
-        <class className="TwitterTimelineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterTimelineViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

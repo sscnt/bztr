@@ -41,13 +41,26 @@
     _model = [[TwitterTimelineViewModel alloc] init];
     _model.delegate = self;
     
-    //// Load Statuses
+    [self restart];
+
+}
+
+- (void)setNavigationBarTitle:(NSString *)navigationBarTitle
+{
+    self.tabBarController.navigationItem.title = navigationBarTitle;
+}
+
+- (void)restart
+{
+    [_scrollView removeAllSubviews];
     _params = [[NSRequestParams alloc] init];
     _params.page = 1;
+    dlog(@"Restart");
 }
 
 - (void)loadStatuses
 {
+    [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [_scrollView removeAllSubviews];
     [_model callApi:_api params:_params];
 }
