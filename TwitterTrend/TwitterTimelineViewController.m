@@ -89,6 +89,7 @@
 - (void)didReturnError:(NSString *)error
 {
     _state = TimelineViewStateReady;
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark Paging

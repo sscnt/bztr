@@ -28,7 +28,7 @@
     self.navigationBarTitle = @"つぶやき";
     
     //// General Decralations
-    self.api = @"images/popular";
+    self.api = @"words/popular";
     self.headerTitle = @"新着順（一般）";
     
     //// Load
