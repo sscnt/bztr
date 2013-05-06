@@ -53,6 +53,8 @@
     for(UIView* view in [self subviews]){
         if([view isKindOfClass:[UIStatusView class]]){
             [view removeFromSuperview];            
+        } else if([view isKindOfClass:[UITwitterScrollHeaderView class]]){            
+            [view removeFromSuperview];
         }
     }
     _bottom = 0.0f;    
