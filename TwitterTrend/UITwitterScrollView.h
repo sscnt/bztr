@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIStatusView.h"
 #import "UIView+extend.h"
 
 @interface UITwitterScrollView : UIScrollView

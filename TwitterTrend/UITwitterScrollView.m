@@ -51,7 +51,9 @@
 - (void)removeAllSubviews
 {
     for(UIView* view in [self subviews]){
-        [view removeFromSuperview];
+        if([view isKindOfClass:[UIStatusView class]]){
+            [view removeFromSuperview];            
+        }
     }
     _bottom = 0.0f;    
 }
