@@ -15,7 +15,7 @@
 #import "UISideMenuButton.h"
 #import "UISideMenuSeparatorView.h"
 
-@interface SideMenuViewController : UIViewController
+@interface SideViewController : UIViewController
 {
     UITwitterScrollView* _scrollView;
     NSInteger _currentButtonIndex;

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 SSC. All rights reserved.
 //
 
-#import "SideMenuViewController.h"
+#import "SideViewController.h"
 
-@interface SideMenuViewController ()
+@interface SideViewController ()
 
 @end
 
-@implementation SideMenuViewController
+@implementation SideViewController
 
 - (void)viewDidLoad
 {

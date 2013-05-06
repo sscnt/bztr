@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
 		580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241F3173697E500C64E28 /* ImageZoomViewController.m */; };
-		580409BC173619B00028EAD4 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideMenuViewController.m */; };
+		580409BC173619B00028EAD4 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideViewController.m */; };
 		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
 		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
@@ -71,8 +71,8 @@
 		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
 		580241F2173697E500C64E28 /* ImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageZoomViewController.h; sourceTree = "<group>"; };
 		580241F3173697E500C64E28 /* ImageZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageZoomViewController.m; sourceTree = "<group>"; };
-		580409BA173619B00028EAD4 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
-		580409BB173619B00028EAD4 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		580409BA173619B00028EAD4 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideViewController.h; sourceTree = "<group>"; };
+		580409BB173619B00028EAD4 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
 		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		580409BF173639ED0028EAD4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		580409C0173639ED0028EAD4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 		58F9D31417339355007100EF /* Side */ = {
 			isa = PBXGroup;
 			children = (
-				580409BA173619B00028EAD4 /* SideMenuViewController.h */,
-				580409BB173619B00028EAD4 /* SideMenuViewController.m */,
+				580409BA173619B00028EAD4 /* SideViewController.h */,
+				580409BB173619B00028EAD4 /* SideViewController.m */,
 			);
 			name = Side;
 			sourceTree = "<group>";
@@ -599,7 +599,7 @@
 				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
 				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
 				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
-				580409BC173619B00028EAD4 /* SideMenuViewController.m in Sources */,
+				580409BC173619B00028EAD4 /* SideViewController.m in Sources */,
 				580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */,
 				580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */,
 				580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */,
