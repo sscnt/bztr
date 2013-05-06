@@ -11,8 +11,12 @@
 #import "UIScreen+twitter.h"
 
 @interface ImageZoomViewController : UIViewController <UIScrollViewDelegate>
+{
+    UIImageView* _imageView;
+}
 @property (nonatomic, weak) UIImage* image;
 
+- (void)adjustImageViewOrigin:(UIScrollView*)scrollView;
 - (void)back;
 
 @end

@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
 		580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241F3173697E500C64E28 /* ImageZoomViewController.m */; };
-		580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SIdeMenuViewController.m */; };
+		580409BC173619B00028EAD4 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideMenuViewController.m */; };
 		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
 		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
+		58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */; };
+		58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429617379269006C1FB2 /* SideMenuBg.png */; };
+		58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429717379269006C1FB2 /* SideMenuBg@2x.png */; };
+		58F5429E1737981F006C1FB2 /* UISideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F5429D1737981F006C1FB2 /* UISideMenuHeaderView.m */; };
+		58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A01737A499006C1FB2 /* UISideMenuButton.m */; };
+		58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
@@ -65,8 +71,8 @@
 		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
 		580241F2173697E500C64E28 /* ImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageZoomViewController.h; sourceTree = "<group>"; };
 		580241F3173697E500C64E28 /* ImageZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageZoomViewController.m; sourceTree = "<group>"; };
-		580409BA173619B00028EAD4 /* SIdeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIdeMenuViewController.h; sourceTree = "<group>"; };
-		580409BB173619B00028EAD4 /* SIdeMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIdeMenuViewController.m; sourceTree = "<group>"; };
+		580409BA173619B00028EAD4 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		580409BB173619B00028EAD4 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		580409BF173639ED0028EAD4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		580409C0173639ED0028EAD4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -75,6 +81,15 @@
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
 		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
+		58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg-568h@2x.png"; sourceTree = "<group>"; };
+		58F5429617379269006C1FB2 /* SideMenuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideMenuBg.png; sourceTree = "<group>"; };
+		58F5429717379269006C1FB2 /* SideMenuBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg@2x.png"; sourceTree = "<group>"; };
+		58F5429C1737981F006C1FB2 /* UISideMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISideMenuHeaderView.h; sourceTree = "<group>"; };
+		58F5429D1737981F006C1FB2 /* UISideMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuHeaderView.m; sourceTree = "<group>"; };
+		58F5429F1737A499006C1FB2 /* UISideMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISideMenuButton.h; sourceTree = "<group>"; };
+		58F542A01737A499006C1FB2 /* UISideMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuButton.m; sourceTree = "<group>"; };
+		58F542A21737ACB1006C1FB2 /* UISideMenuSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISideMenuSeparatorView.h; sourceTree = "<group>"; };
+		58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuSeparatorView.m; sourceTree = "<group>"; };
 		58F7BA86173546F40012AAEC /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
@@ -190,6 +205,29 @@
 			name = Background;
 			sourceTree = "<group>";
 		};
+		58F542941737924D006C1FB2 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */,
+				58F5429617379269006C1FB2 /* SideMenuBg.png */,
+				58F5429717379269006C1FB2 /* SideMenuBg@2x.png */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		58F5429B173797FB006C1FB2 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				58F5429C1737981F006C1FB2 /* UISideMenuHeaderView.h */,
+				58F5429D1737981F006C1FB2 /* UISideMenuHeaderView.m */,
+				58F5429F1737A499006C1FB2 /* UISideMenuButton.h */,
+				58F542A01737A499006C1FB2 /* UISideMenuButton.m */,
+				58F542A21737ACB1006C1FB2 /* UISideMenuSeparatorView.h */,
+				58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
 		58F7BA85173546B80012AAEC /* JMImageCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +270,7 @@
 		58F9D30E17339178007100EF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				58F542941737924D006C1FB2 /* SideMenu */,
 				58F9D30F173391FF007100EF /* NavigationBar */,
 			);
 			name = Images;
@@ -253,8 +292,8 @@
 		58F9D31417339355007100EF /* Side */ = {
 			isa = PBXGroup;
 			children = (
-				580409BA173619B00028EAD4 /* SIdeMenuViewController.h */,
-				580409BB173619B00028EAD4 /* SIdeMenuViewController.m */,
+				580409BA173619B00028EAD4 /* SideMenuViewController.h */,
+				580409BB173619B00028EAD4 /* SideMenuViewController.m */,
 			);
 			name = Side;
 			sourceTree = "<group>";
@@ -337,6 +376,7 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				58F5429B173797FB006C1FB2 /* SideMenu */,
 				580FBE361732B65900D57341 /* Background */,
 				58FCF3F917315E46000E382D /* Scroll */,
 				58FCF3F317314C9B000E382D /* Status */,
@@ -521,6 +561,9 @@
 				58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */,
 				58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */,
 				580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */,
+				58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */,
+				58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */,
+				58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,10 +599,13 @@
 				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
 				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
 				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
-				580409BC173619B00028EAD4 /* SIdeMenuViewController.m in Sources */,
+				580409BC173619B00028EAD4 /* SideMenuViewController.m in Sources */,
 				580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */,
 				580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */,
 				580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */,
+				58F5429E1737981F006C1FB2 /* UISideMenuHeaderView.m in Sources */,
+				58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */,
+				58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

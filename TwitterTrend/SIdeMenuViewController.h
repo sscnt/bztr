@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+navi.h"
+#import "UIScreen+twitter.h"
+#import "UIDevice+resolution.h"
+#import "UITwitterScrollView.h"
+#import "UISideMenuHeaderView.h"
+#import "UISideMenuButton.h"
+#import "UISideMenuSeparatorView.h"
 
-@interface SIdeMenuViewController : UIViewController
+@interface SideMenuViewController : UIViewController
+{
+    UITwitterScrollView* _scrollView;
+    NSInteger _currentButtonIndex;
+    NSMutableArray* _menuButtons;
+}
+
+- (void)showButtons;
+- (void)didClickMenuButton:(id)sender;
 
 @end

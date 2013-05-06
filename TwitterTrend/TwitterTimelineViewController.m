@@ -124,6 +124,7 @@
     }
 }
 
+
 #pragma mark UIStatusViewDelegate
 - (void)didClickImage:(UIImage *)image
 {
