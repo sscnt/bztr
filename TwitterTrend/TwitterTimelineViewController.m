@@ -60,6 +60,7 @@
 
 - (void)loadStatuses
 {
+    dlog(@"Called API %@", _api);
     [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [_scrollView removeAllSubviews];
     [_model callApi:_api params:_params];

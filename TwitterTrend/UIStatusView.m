@@ -269,4 +269,8 @@
     
 }
 
+- (void)dealloc
+{
+    dlog(@"%% DEALLOC %%");
+}
 @end

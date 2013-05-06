@@ -22,9 +22,10 @@
     UITwitterScrollView* _scrollView;
     NSInteger _currentButtonIndex;
     NSMutableArray* _menuButtons;
-    NSMutableString* _menuButtonItems;
+    NSMutableArray* _menuButtonItems;
 }
 
+- (NSMenuItem*)itemAtIndex:(NSInteger)index;
 - (void)setMenuButtonItems;
 - (void)showButtons;
 - (void)didClickMenuButton:(id)sender;

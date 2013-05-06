@@ -48,7 +48,7 @@
 - (void)setMenuButtonItems
 {
     NSMenuItem* item;
-    _menuButtons = [NSMutableArray array];
+    _menuButtonItems = [NSMutableArray array];
     
     //// General
     item = [[NSMenuItem alloc] init];
@@ -57,7 +57,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"新着順（一般）";
     item.index = 0;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"つぶやき（24時間ランキング）";
@@ -65,7 +65,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"24時間ランキング（一般）";
     item.index = 1;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"つぶやき（週間ランキング）";
@@ -73,7 +73,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"週間ランキング（一般）";
     item.index = 2;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（新着順）";
@@ -81,7 +81,7 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"新着順（一般）";
     item.index = 3;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（24時間ランキング）";
@@ -89,7 +89,7 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"24時間ランキング（一般）";
     item.index = 4;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（週間ランキング）";
@@ -97,7 +97,7 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"週間ランキング（一般）";
     item.index = 5;
-    [_menuButtons addObject:item];  
+    [_menuButtonItems addObject:item];  
 
     
     //// Celebrities
@@ -107,7 +107,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"新着順（芸能人・有名人）";
     item.index = 6;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"つぶやき（24時間ランキング）";
@@ -115,7 +115,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"24時間ランキング（芸能人・有名人））";
     item.index = 7;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"つぶやき（週間ランキング）";
@@ -123,7 +123,7 @@
     item.navigationBarTitle = @"つぶやき";
     item.headerTitle = @"週間ランキング（芸能人・有名人））";
     item.index = 8;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（新着順）";
@@ -131,7 +131,7 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"新着順（芸能人・有名人））";
     item.index = 9;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（24時間ランキング）";
@@ -139,7 +139,7 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"24時間ランキング（芸能人・有名人））";
     item.index = 10;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"画像（週間ランキング）";
@@ -147,32 +147,37 @@
     item.navigationBarTitle = @"画像";
     item.headerTitle = @"週間ランキング（芸能人・有名人））";
     item.index = 11;
-    [_menuButtons addObject:item];   
+    [_menuButtonItems addObject:item];   
     
     //// About
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"設定";
     item.type = NSMenuItemTypeSettings;
     item.index = 12;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"使い方";
     item.type = NSMenuItemTypeSettings;
     item.index = 13;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"ご意見・不具合の報告など";
     item.type = NSMenuItemTypeSettings;
     item.index = 14;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"有料オプションについて";
     item.type = NSMenuItemTypeSettings;
     item.index = 15;
-    [_menuButtons addObject:item];
+    [_menuButtonItems addObject:item];
+}
+
+- (NSMenuItem*)itemAtIndex:(NSInteger)index
+{
+    return (NSMenuItem*)[_menuButtonItems objectAtIndex:index];
 }
 
 - (void)showButtons
@@ -182,19 +187,13 @@
     [_scrollView appendView:generalSeparatorView margin:0.0f];
     
     //// Buttons
-    NSMutableArray* buttonList = [NSMutableArray array];
-    [buttonList addObject:@""];
-    [buttonList addObject:@""];
-    [buttonList addObject:@""];
-    [buttonList addObject:@""];
-    [buttonList addObject:@"画像（24時間ランキング）"];
-    [buttonList addObject:@"画像（週間ランキング）"];
-    for(int index = 0;index < [buttonList count];index++){
-        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
+    for(int index = 0;index < 6;index++){
+        NSMenuItem* item = [self itemAtIndex:index];
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:item.buttonTitle];
         if(index == _currentButtonIndex){
             button.selected = YES;
         }
-        button.tag = index;
+        button.tag = item.index;
         [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
         [_menuButtons insertObject:button atIndex:index];
         [_scrollView appendView:button margin:0.0f];
@@ -205,55 +204,54 @@
     [_scrollView appendView:celebritiesSeparatorView margin:0.0f];
     
     //// Buttons
-    [buttonList addObject:@"つぶやき（新着順）"];
-    [buttonList addObject:@"つぶやき（24時間ランキング）"];
-    [buttonList addObject:@"つぶやき（週間ランキング）"];
-    [buttonList addObject:@"画像（新着順）"];
-    [buttonList addObject:@"画像（24時間ランキング）"];
-    [buttonList addObject:@"画像（週間ランキング）"];
-    for(int index = 6;index < [buttonList count];index++){
-        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
+    for(int index = 6;index < 12;index++){
+        NSMenuItem* item = [self itemAtIndex:index];
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:item.buttonTitle];
         if(index == _currentButtonIndex){
             button.selected = YES;
         }
-        button.tag = index;
+        button.tag = item.index;
         [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
         [_menuButtons insertObject:button atIndex:index];
         [_scrollView appendView:button margin:0.0f];
+
     }
     
     //// Separator
     UISideMenuSeparatorView* aboutSeparatorView = [[UISideMenuSeparatorView alloc] initWithTitle:@"このアプリについて"];
     [_scrollView appendView:aboutSeparatorView margin:0.0f];
     
-    
     //// Buttons
-    [buttonList addObject:@"設定"];
-    [buttonList addObject:@"使い方"];
-    [buttonList addObject:@"ご意見・不具合報告など"];
-    [buttonList addObject:@"プレミアム会員について"];
-    for(int index = 12;index < [buttonList count];index++){
-        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:[buttonList objectAtIndex:index]];
+    for(int index = 12;index < 16;index++){
+        NSMenuItem* item = [self itemAtIndex:index];
+        UISideMenuButton* button = [[UISideMenuButton alloc] initWithTitle:item.buttonTitle];
         if(index == _currentButtonIndex){
             button.selected = YES;
         }
-        button.tag = index;
+        button.tag = item.index;
         [button addTarget:self action:@selector(didClickMenuButton:) forControlEvents:UIControlEventTouchUpInside];
         [_menuButtons insertObject:button atIndex:index];
         [_scrollView appendView:button margin:0.0f];
+
     }
 
 }
 
 - (void)didClickMenuButton:(id)sender
 {
-    MainViewController* controller = (MainViewController*)((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController).selectedViewController;
-    [controller restart];
-    controller.api = @"words/popular";
-    controller.headerTitle = @"一般）";
-    controller.navigationBarTitle = @"NAVI";
-    
     NSInteger selectedIndex = ((UISideMenuButton*)sender).tag;
+    NSMenuItem* item = [self itemAtIndex:selectedIndex];    
+    
+    if(item.type == NSMenuItemTypeTimeline){        
+        MainViewController* controller = (MainViewController*)((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController).selectedViewController;
+        [controller restart];
+        controller.api = item.api;
+        controller.headerTitle = item.headerTitle;
+        controller.navigationBarTitle = item.navigationBarTitle;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        [controller loadStatuses];
+    }
+        
     for(int index = 0;index < [_menuButtons count];index++){
         UISideMenuButton* button = [_menuButtons objectAtIndex:index];
         button.selected = NO;
