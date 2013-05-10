@@ -30,7 +30,7 @@
     button.titleTextShadowColor = [UIColor colorWithRed:0.0f/255.0f green:132.0f/255.0f blue:179.0f/255.0f alpha:1.0f];
     button.gradientTopColor = [UIColor colorWithRed:79.0f/255.0f green:195.0f/255.0f blue:234.0f/255.0f alpha:1.0f];
     button.gradientBottomColor = [UIColor colorWithRed:47.0f/255.0f green:153.0f/255.0f blue:188.0f/255.0f alpha:1.0f];
-    button.innerGrowColor = [UIColor colorWithRed:86.0f/255.0f green:165.0f/255.0f blue:192.0f/255.0f alpha:0.15];
+    button.innerGrowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2];
     return button;
 }
 
@@ -42,7 +42,7 @@
     button.titleTextShadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     button.gradientTopColor = [UIColor colorWithRed:252.0f/255.0f green:252.0f/255.0f blue:252.0f/255.0f alpha:1.0f];
     button.gradientBottomColor = [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
-    button.innerGrowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.55];
+    button.innerGrowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.4];
     return button;
 }
 
@@ -54,7 +54,7 @@
     button.titleTextShadowColor = [UIColor colorWithRed:151.0f/255.0f green:8.0f/255.0f blue:63.0f/255.0f alpha:1.0f];
     button.gradientTopColor = [UIColor colorWithRed:237.0f/255.0f green:98.0f/255.0f blue:151.0f/255.0f alpha:1.0f];
     button.gradientBottomColor = [UIColor colorWithRed:208.0f/255.0f green:39.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
-    button.innerGrowColor = [UIColor colorWithRed:214.0f/255.0f green:66.0f/255.0f blue:123.0f/255.0f alpha:0.15];
+    button.innerGrowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2];
     return button;
 }
 

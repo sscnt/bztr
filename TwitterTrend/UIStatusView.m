@@ -14,7 +14,7 @@
 {
     //// Calc Height
     CGSize size = [self sizeWithStatus:status];
-    CGRect frame = CGRectMake(6.0f, 0.0f, size.width, size.height);
+    CGRect frame = CGRectMake(16.0f, 0.0f, size.width, size.height);
     self = [super initWithFrame:frame];
     if(self){
         //// General Declarations

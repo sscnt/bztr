@@ -16,7 +16,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         [self.titleLabel setFont:[UIFont fontWithName:@"rounded-mplus-1p-bold" size:14.0f]];
-        [self.titleLabel setFrame:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height + 20.0f)];
+        [self setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
     }
     return self;
 }
@@ -31,7 +31,6 @@
     [self setTitleShadowColor:titleTextShadowColor forState:UIControlStateNormal];
     [self.titleLabel setShadowOffset:CGSizeMake(1.0f, 1.0f)];
 }
-
 
 - (void)drawRect:(CGRect)rect
 {

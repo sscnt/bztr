@@ -33,7 +33,7 @@
     [self showMenuBtn];
     [self showSettingsBtn];
     
-    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, self.view.frame.size.height - 44.0f)];
+    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, self.view.frame.size.height - 44.0f)];
     [self.view addSubview:_scrollView];
     [self addSwipeGesture];
     
@@ -81,8 +81,13 @@
 //// Delegate
 - (void)didLoadStatuses:(NSArray *)statuses
 {
+    //// General Decralations
+    CGFloat viewWidth = _scrollView.frame.size.width - 20.0f;
+    CGFloat viewX = 10.0f;
+    CGFloat paddingX = 16.0f;
+    CGFloat paddingWidth = viewWidth - 12.0f;
     //// Add Header
-    UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _scrollView.frame.size.width, 44.0f)];
+    UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(viewX, 0.0f, viewWidth, 44.0f)];
     [header setTitle:_headerTitle page:_params.page];
     [_scrollView appendView:header margin:0.0f];
     
@@ -96,7 +101,7 @@
     }
     
     //// Insert Buttons
-    CGRect frame = CGRectMake(6.0f, 0.0f, [UIScreen screenSize].width - 32.0f, 34.0f);
+    CGRect frame = CGRectMake(paddingX, 0.0f, paddingWidth, 34.0f);
     UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:frame];
     [button setTitle:@"次のページへ" forState:UIControlStateNormal];
     [_scrollView appendView:button margin:20.0f];
