@@ -41,6 +41,7 @@
 - (CGSize)sizeWithStatus:(NSStatus *)status
 {
     //// General Decralations
+    CGFloat viewWidth = [UIScreen screenSize].width - 32.0f;
     CGFloat wrapperPadding = 8.0f;
     CGFloat innerPadding = 12.0f;
     CGFloat headerHeight = 47.0f;
@@ -49,9 +50,14 @@
     CGFloat photoHeight = 0.0f;
     
     //// Calc Text Height
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 66.0f, 9999);
-    CGSize textSize = [status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
-    textHeight = textSize.height + 21.0f;
+    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, viewWidth - 32.0f, 0.0f)];
+    textLabel.text = status.text;
+    textLabel.numberOfLines = 0;
+    textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    [textLabel setTextAlignment:NSTextAlignmentLeft];
+    [textLabel sizeToFit];
+    textHeight = textLabel.frame.size.height + 21.0f;
+    textLabel = nil;
     
     //// Calc Photo Height
     if([status.type isEqualToString:@"photo"]){
@@ -63,7 +69,7 @@
         }
         photoHeight = height + padding;
     }
-    return CGSizeMake([UIScreen screenSize].width - 32.0f, ceil(wrapperPadding + innerPadding + headerHeight + footerHeight + textHeight + photoHeight));
+    return CGSizeMake(viewWidth, ceil(wrapperPadding + innerPadding + headerHeight + footerHeight + textHeight + photoHeight));
     
 }
 
@@ -155,12 +161,12 @@
 {
     CGFloat bottomY = 0.0f;
     //// Text
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 66.0f, 9999);
-    CGSize textSize = [_status.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
-    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, self.frame.size.width - 32.0f, textSize.height)];
+    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, self.frame.size.width - 32.0f, 0.0f)];
     textLabel.text = _status.text;
     textLabel.numberOfLines = 0;
     textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    [textLabel setTextAlignment:NSTextAlignmentLeft];
+    [textLabel sizeToFit];
     [self addSubview:textLabel];
     bottomY = textLabel.bottom;
     

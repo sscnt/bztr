@@ -89,7 +89,7 @@
     //// Add Header
     UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(viewX, 0.0f, viewWidth, 44.0f)];
     [header setTitle:_headerTitle page:_params.page];
-    [_scrollView appendView:header margin:0.0f];
+    [_scrollView appendView:header margin:4.0f];
     
     //// Insert Statuses
     NSStatus* status;
