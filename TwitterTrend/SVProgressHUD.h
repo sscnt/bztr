@@ -21,6 +21,9 @@ typedef NSUInteger SVProgressHUDMaskType;
 
 
 @interface SVProgressHUD : UIView
+{
+    BOOL _hidden;
+}
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
 @property (readwrite, nonatomic, retain) UIColor *hudBackgroundColor NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;

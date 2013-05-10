@@ -51,13 +51,14 @@
 - (void)removeAllSubviews
 {
     for(UIView* view in [self subviews]){
-        if([view isKindOfClass:[UIStatusView class]]){
-            [view removeFromSuperview];            
-        } else if([view isKindOfClass:[UITwitterScrollHeaderView class]]){            
+        if([view isKindOfClass:[UIImageView class]]){
+
+        } else {
             [view removeFromSuperview];
         }
     }
-    _bottom = 0.0f;    
+    _bottom = 0.0f;
+    self.contentSize = CGSizeMake(self.contentSize.width, 0.0f);
 }
 
 - (void)drawRect:(CGRect)rect

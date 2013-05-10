@@ -33,7 +33,7 @@
     [super setSelected:selected];
     [self setNeedsDisplay];
     if(selected){
-        _titleLabel.textColor = [UIColor colorWithWhite:220.0f/255.0f alpha:1.0f];
+        _titleLabel.textColor = [UIColor colorWithWhite:240.0f/255.0f alpha:1.0f];
     }else{
         _titleLabel.textColor = [UIColor colorWithWhite:190.0f/255.0f alpha:1.0f];
     }

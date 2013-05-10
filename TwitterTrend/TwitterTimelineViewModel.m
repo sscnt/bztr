@@ -23,7 +23,6 @@
 
 - (void)callApi:(NSString*)api params:(NSRequestParams*)params
 {
-    
     if([_statuses objectForKey:[NSString stringWithFormat:@"%d", params.page]] == nil){
         dlog(@"Cache not found.");
         [_api call:api params:params];

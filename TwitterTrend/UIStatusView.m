@@ -106,7 +106,7 @@
 - (void)layoutHeaderProfileImage
 {
     //// General Decralacions
-    UIImage* image = [UIImage imageNamed:@"profile_image_placeholder"];
+    UIImage* image = [UIImage imageNamed:@"placeholder"];
     UIView* wrapper = [[UIView alloc] initWithFrame:CGRectMake(16.0f, 16.0f, 30.0f, 30.0f)];
     UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
     [imageView setFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
@@ -177,7 +177,7 @@
         }
 
         //// Image View
-        UIImage* photo = [UIImage imageNamed:@"profile_image_placeholder"];
+        UIImage* photo = [UIImage imageNamed:@"placeholder"];
         _imageView = [[UIImageView alloc] initWithImage:photo];
         [_imageView setFrame:CGRectMake(0.0f, 0.0f, width, height)];
         

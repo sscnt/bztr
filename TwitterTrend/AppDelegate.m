@@ -12,6 +12,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[JMImageCache sharedCache] removeAllObjects];
+    [UIApplication sharedApplication].statusBarHidden = NO;
     // Override point for customization after application launch.
     return YES;
 }

@@ -146,6 +146,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 - (id)initWithFrame:(CGRect)frame {
 	
     if ((self = [super initWithFrame:frame])) {
+        _hidden = YES;
 		self.userInteractionEnabled = NO;
         self.backgroundColor = [UIColor clearColor];
 		self.alpha = 0;
@@ -381,62 +382,65 @@ CGFloat SVProgressHUDRingThickness = 6;
 
 - (void)showProgress:(float)progress status:(NSString*)string maskType:(SVProgressHUDMaskType)hudMaskType interval:(NSTimeInterval)interval addTarget:(id)target selector:(SEL)selector
 {
-    if(!self.superview)
-        [self.overlayWindow addSubview:self];
-    
-    self.fadeOutTimer = nil;
-    self.imageView.hidden = YES;
-    self.maskType = hudMaskType;
-    self.progress = progress;
-    
-    self.stringLabel.text = string;
-    [self updatePosition];
-    
-    if(progress >= 0) {
-        self.imageView.image = nil;
-        self.imageView.hidden = NO;
-        [self.spinnerView stopAnimating];
-        self.ringLayer.strokeEnd = progress;
-    }
-    else {
-        [self cancelRingLayerAnimation];
-        [self.spinnerView startAnimating];
-    }
-    
-    if(self.maskType != SVProgressHUDMaskTypeNone) {
-        self.overlayWindow.userInteractionEnabled = YES;
-        self.accessibilityLabel = string;
-        self.isAccessibilityElement = YES;
-    }
-    else {
-        self.overlayWindow.userInteractionEnabled = NO;
-        self.hudView.accessibilityLabel = string;
-        self.hudView.isAccessibilityElement = YES;
-    }
-
-    [self.overlayWindow setHidden:NO];
-    [self positionHUD:nil];
-    
-    if(self.alpha != 1) {
-        [self registerNotifications];
-        self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1.3, 1.3);
-
-        [UIView animateWithDuration:0.15
-                              delay:0
-                            options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState
-                         animations:^{
-                             self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1/1.3, 1/1.3);
-                             self.alpha = 1;
-                         }
-                         completion:^(BOOL finished){
-                             UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, string);
-                             [NSThread sleepForTimeInterval:interval];
-                             if(target && selector){
-                                 [target performSelector:selector withObject:nil afterDelay:0.0f];
-                             }
-                         }];
+    if(_hidden){
+        _hidden = NO;
+        if(!self.superview)
+            [self.overlayWindow addSubview:self];
         
-        [self setNeedsDisplay];
+        self.fadeOutTimer = nil;
+        self.imageView.hidden = YES;
+        self.maskType = hudMaskType;
+        self.progress = progress;
+        
+        self.stringLabel.text = string;
+        [self updatePosition];
+        
+        if(progress >= 0) {
+            self.imageView.image = nil;
+            self.imageView.hidden = NO;
+            [self.spinnerView stopAnimating];
+            self.ringLayer.strokeEnd = progress;
+        }
+        else {
+            [self cancelRingLayerAnimation];
+            [self.spinnerView startAnimating];
+        }
+        
+        if(self.maskType != SVProgressHUDMaskTypeNone) {
+            self.overlayWindow.userInteractionEnabled = YES;
+            self.accessibilityLabel = string;
+            self.isAccessibilityElement = YES;
+        }
+        else {
+            self.overlayWindow.userInteractionEnabled = NO;
+            self.hudView.accessibilityLabel = string;
+            self.hudView.isAccessibilityElement = YES;
+        }
+        
+        [self.overlayWindow setHidden:NO];
+        [self positionHUD:nil];
+        
+        if(self.alpha != 1) {
+            [self registerNotifications];
+            self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1.3, 1.3);
+            
+            [UIView animateWithDuration:0.15
+                                  delay:0
+                                options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState
+                             animations:^{
+                                 self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1/1.3, 1/1.3);
+                                 self.alpha = 1;
+                             }
+                             completion:^(BOOL finished){
+                                 UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, string);
+                                 [NSThread sleepForTimeInterval:interval];
+                                 if(target && selector){
+                                     [target performSelector:selector withObject:nil afterDelay:0.0f];
+                                 }
+                             }];
+            
+            [self setNeedsDisplay];
+        }
     }
 }
 
@@ -492,6 +496,7 @@ CGFloat SVProgressHUDRingThickness = 6;
                              //NSLog(@"keyWindow = %@", [UIApplication sharedApplication].keyWindow);
                          }
                      }];
+    _hidden = YES;
 }
 
 

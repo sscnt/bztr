@@ -48,6 +48,10 @@
     _imageView.image = _image;
     [scrollView addSubview:_imageView];
     
+    //// Gesture
+    UILongPressGestureRecognizer* longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongTapped:)];
+    [scrollView addGestureRecognizer:longPressGesture];
+    
     //// UIScrollView
     CGFloat maximumZoomScale = _image.size.width / imageViewWidth;
     scrollView.maximumZoomScale = maximumZoomScale;
@@ -58,8 +62,12 @@
     [self adjustImageViewOrigin:scrollView];
     
     //// Back Button
-    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 50.0f, 50.0f)];
-    backButton.backgroundColor = [UIColor redColor];
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 43.0f, 43.0f)];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"close"]];
+    imageView.frame = CGRectMake(10.0f, 10.0f, 23.0f, 23.0f);
+    [backButton addSubview:imageView];
+    [backButton setY:5.0f];
+    [backButton setX:[UIScreen screenRect].size.width - 48.0f];
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
 
@@ -96,6 +104,11 @@
 - (void)scrollViewDidZoom:(UIScrollView*)scrollView
 {
     [self adjustImageViewOrigin:scrollView];
+}
+
+- (void)didLongTapped:(id)sender
+{
+    dlog(@"##############");
 }
 
 - (void)back

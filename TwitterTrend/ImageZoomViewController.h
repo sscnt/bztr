@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UIScreen+twitter.h"
+#import "UIView+extend.h"
 
 @interface ImageZoomViewController : UIViewController <UIScrollViewDelegate>
 {
@@ -18,5 +19,6 @@
 
 - (void)adjustImageViewOrigin:(UIScrollView*)scrollView;
 - (void)back;
+- (void)didLongTapped:(id)sender;
 
 @end

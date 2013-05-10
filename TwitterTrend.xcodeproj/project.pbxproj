@@ -12,6 +12,12 @@
 		580409BC173619B00028EAD4 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideViewController.m */; };
 		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
 		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
+		580CEEC1173BD2F90050470F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBB173BD2F90050470F /* Icon-72.png */; };
+		580CEEC2173BD2F90050470F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBC173BD2F90050470F /* Icon-Small-50.png */; };
+		580CEEC3173BD2F90050470F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBD173BD2F90050470F /* Icon-Small.png */; };
+		580CEEC4173BD2F90050470F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBE173BD2F90050470F /* Icon-Small@2x.png */; };
+		580CEEC5173BD2F90050470F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBF173BD2F90050470F /* Icon.png */; };
+		580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEC0173BD2F90050470F /* Icon@2x.png */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
 		58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */; };
@@ -23,6 +29,9 @@
 		58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A61737E598006C1FB2 /* NSMenuItem.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
+		58F82D04173BD8E100F8F080 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D01173BD8E100F8F080 /* Default-568h@2x.png */; };
+		58F82D05173BD8E100F8F080 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D02173BD8E100F8F080 /* Default.png */; };
+		58F82D06173BD8E100F8F080 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D03173BD8E100F8F080 /* Default@2x.png */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
@@ -43,20 +52,22 @@
 		58FA24C11734EDAF004D803D /* rounded-mplus-1p-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BB1734EDAF004D803D /* rounded-mplus-1p-medium.ttf */; };
 		58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */; };
 		58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */; };
+		58FCA5CA173BA55800B3DCEE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5C8173BA55800B3DCEE /* close.png */; };
+		58FCA5CB173BA55800B3DCEE /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5C9173BA55800B3DCEE /* close@2x.png */; };
+		58FCA5CD173BA6DF00B3DCEE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5CC173BA6DF00B3DCEE /* placeholder.png */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
 		58FCF3D817314752000E382D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3D617314752000E382D /* InfoPlist.strings */; };
 		58FCF3DA17314752000E382D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3D917314752000E382D /* main.m */; };
 		58FCF3DE17314752000E382D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3DD17314752000E382D /* AppDelegate.m */; };
-		58FCF3E017314752000E382D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3DF17314752000E382D /* Default.png */; };
-		58FCF3E217314752000E382D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E117314752000E382D /* Default@2x.png */; };
-		58FCF3E417314752000E382D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E317314752000E382D /* Default-568h@2x.png */; };
 		58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E517314752000E382D /* MainStoryboard.storyboard */; };
 		58FCF3EA17314752000E382D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3E917314752000E382D /* MainViewController.m */; };
 		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
 		58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */; };
 		58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF400173162CB000E382D /* UIColor+twitter.m */; };
+		58FD57BA173CF3E2001C4B8E /* UIFlatButtonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FD57B9173CF3E2001C4B8E /* UIFlatButtonCreator.m */; };
+		58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FD57BC173CF7CF001C4B8E /* UIFlatBUtton.m */; };
 		58FDEDC71733BF01000C037A /* UIStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDC61733BF01000C037A /* UIStatusView.m */; };
 		58FDEDCB1733C023000C037A /* NSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCA1733C023000C037A /* NSStatus.m */; };
 		58FDEDCE1733C1DF000C037A /* NSStatusUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCD1733C1DF000C037A /* NSStatusUser.m */; };
@@ -77,6 +88,12 @@
 		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		580409BF173639ED0028EAD4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		580409C0173639ED0028EAD4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		580CEEBB173BD2F90050470F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		580CEEBC173BD2F90050470F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		580CEEBD173BD2F90050470F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		580CEEBE173BD2F90050470F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		580CEEBF173BD2F90050470F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		580CEEC0173BD2F90050470F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		580FBE371732B66F00D57341 /* UITwitterBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterBackgroundView.h; sourceTree = "<group>"; };
 		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
@@ -97,6 +114,9 @@
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
 		58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
+		58F82D01173BD8E100F8F080 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		58F82D02173BD8E100F8F080 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		58F82D03173BD8E100F8F080 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
 		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
 		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -124,6 +144,9 @@
 		58FA24BB1734EDAF004D803D /* rounded-mplus-1p-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-medium.ttf"; sourceTree = "<group>"; };
 		58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-regular.ttf"; sourceTree = "<group>"; };
 		58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-thin.ttf"; sourceTree = "<group>"; };
+		58FCA5C8173BA55800B3DCEE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		58FCA5C9173BA55800B3DCEE /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		58FCA5CC173BA6DF00B3DCEE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,9 +157,6 @@
 		58FCF3DB17314752000E382D /* TwitterTrend-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterTrend-Prefix.pch"; sourceTree = "<group>"; };
 		58FCF3DC17314752000E382D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58FCF3DD17314752000E382D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		58FCF3DF17314752000E382D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		58FCF3E117314752000E382D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		58FCF3E317314752000E382D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		58FCF3E617314752000E382D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		58FCF3E817314752000E382D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		58FCF3E917314752000E382D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -147,6 +167,10 @@
 		58FCF3FE17316258000E382D /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		58FCF3FF173162CB000E382D /* UIColor+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+twitter.h"; sourceTree = "<group>"; };
 		58FCF400173162CB000E382D /* UIColor+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+twitter.m"; sourceTree = "<group>"; };
+		58FD57B8173CF3E2001C4B8E /* UIFlatButtonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlatButtonCreator.h; sourceTree = "<group>"; };
+		58FD57B9173CF3E2001C4B8E /* UIFlatButtonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlatButtonCreator.m; sourceTree = "<group>"; };
+		58FD57BB173CF7CF001C4B8E /* UIFlatBUtton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlatBUtton.h; sourceTree = "<group>"; };
+		58FD57BC173CF7CF001C4B8E /* UIFlatBUtton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlatBUtton.m; sourceTree = "<group>"; };
 		58FDEDC51733BF01000C037A /* UIStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusView.h; sourceTree = "<group>"; };
 		58FDEDC61733BF01000C037A /* UIStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusView.m; sourceTree = "<group>"; };
 		58FDEDC91733C023000C037A /* NSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatus.h; sourceTree = "<group>"; };
@@ -273,6 +297,9 @@
 		58F9D30E17339178007100EF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				58FCA5CC173BA6DF00B3DCEE /* placeholder.png */,
+				58FCA5C8173BA55800B3DCEE /* close.png */,
+				58FCA5C9173BA55800B3DCEE /* close@2x.png */,
 				58F542941737924D006C1FB2 /* SideMenu */,
 				58F9D30F173391FF007100EF /* NavigationBar */,
 			);
@@ -314,9 +341,25 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		58FCA5C5173BA0B100B3DCEE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
+				58F82D01173BD8E100F8F080 /* Default-568h@2x.png */,
+				58F82D02173BD8E100F8F080 /* Default.png */,
+				58F82D03173BD8E100F8F080 /* Default@2x.png */,
+				580CEEBB173BD2F90050470F /* Icon-72.png */,
+				580CEEBC173BD2F90050470F /* Icon-Small-50.png */,
+				580CEEBD173BD2F90050470F /* Icon-Small.png */,
+				580CEEBE173BD2F90050470F /* Icon-Small@2x.png */,
+				580CEEBF173BD2F90050470F /* Icon.png */,
+				580CEEC0173BD2F90050470F /* Icon@2x.png */,
 				58F9D3091733886B007100EF /* QuartzCore.framework */,
 				58FCF3D317314752000E382D /* TwitterTrend */,
 				58FCF3CC17314752000E382D /* Frameworks */,
@@ -369,9 +412,6 @@
 				58FCF3D617314752000E382D /* InfoPlist.strings */,
 				58FCF3D917314752000E382D /* main.m */,
 				58FCF3DB17314752000E382D /* TwitterTrend-Prefix.pch */,
-				58FCF3DF17314752000E382D /* Default.png */,
-				58FCF3E117314752000E382D /* Default@2x.png */,
-				58FCF3E317314752000E382D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -379,6 +419,8 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				58FD57B7173CF39E001C4B8E /* Buttons */,
+				58FD57B6173CF387001C4B8E /* ActionSheet */,
 				58F5429B173797FB006C1FB2 /* SideMenu */,
 				580FBE361732B65900D57341 /* Background */,
 				58FCF3F917315E46000E382D /* Scroll */,
@@ -454,6 +496,7 @@
 			children = (
 				58FDEDD21733F814000C037A /* TwitterTimelineViewController.h */,
 				58FDEDD31733F814000C037A /* TwitterTimelineViewController.m */,
+				58FCA5C5173BA0B100B3DCEE /* Settings */,
 				580241F1173697AC00C64E28 /* Viewer */,
 				58F9D31417339355007100EF /* Side */,
 				58F9D300173383DB007100EF /* Tabs */,
@@ -465,6 +508,24 @@
 				58F9D3021733845D007100EF /* TwitterTabBarController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		58FD57B6173CF387001C4B8E /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ActionSheet;
+			sourceTree = "<group>";
+		};
+		58FD57B7173CF39E001C4B8E /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				58FD57B8173CF3E2001C4B8E /* UIFlatButtonCreator.h */,
+				58FD57B9173CF3E2001C4B8E /* UIFlatButtonCreator.m */,
+				58FD57BB173CF7CF001C4B8E /* UIFlatBUtton.h */,
+				58FD57BC173CF7CF001C4B8E /* UIFlatBUtton.m */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 		58FDEDC81733C00C000C037A /* Objects */ = {
@@ -549,9 +610,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58FCF3D817314752000E382D /* InfoPlist.strings in Resources */,
-				58FCF3E017314752000E382D /* Default.png in Resources */,
-				58FCF3E217314752000E382D /* Default@2x.png in Resources */,
-				58FCF3E417314752000E382D /* Default-568h@2x.png in Resources */,
 				58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */,
 				58F9D31217339211007100EF /* NavigationBarBg.png in Resources */,
 				58F9D31317339211007100EF /* NavigationBarBg@2x.png in Resources */,
@@ -569,6 +627,18 @@
 				58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */,
 				58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */,
 				58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */,
+				58FCA5CA173BA55800B3DCEE /* close.png in Resources */,
+				58FCA5CB173BA55800B3DCEE /* close@2x.png in Resources */,
+				58FCA5CD173BA6DF00B3DCEE /* placeholder.png in Resources */,
+				580CEEC1173BD2F90050470F /* Icon-72.png in Resources */,
+				580CEEC2173BD2F90050470F /* Icon-Small-50.png in Resources */,
+				580CEEC3173BD2F90050470F /* Icon-Small.png in Resources */,
+				580CEEC4173BD2F90050470F /* Icon-Small@2x.png in Resources */,
+				580CEEC5173BD2F90050470F /* Icon.png in Resources */,
+				580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */,
+				58F82D04173BD8E100F8F080 /* Default-568h@2x.png in Resources */,
+				58F82D05173BD8E100F8F080 /* Default.png in Resources */,
+				58F82D06173BD8E100F8F080 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +682,8 @@
 				58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */,
 				58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */,
 				58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */,
+				58FD57BA173CF3E2001C4B8E /* UIFlatButtonCreator.m in Sources */,
+				58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
