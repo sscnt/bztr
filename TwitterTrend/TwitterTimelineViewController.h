@@ -38,6 +38,11 @@ typedef NS_ENUM(int, TimelineViewState){
 
 - (void)goToNextPage;
 - (void)goToPrevPage;
+- (void)goToTopPage;
+
+- (void)goToNextPageWithProgressHUD;
+- (void)goToPrevPageWithProgressHUD;
+- (void)goToTopPageWithProgressHUD;
 
 - (void)addSwipeGesture;
 - (void)didSwipeRight:(UISwipeGestureRecognizer*)sender;

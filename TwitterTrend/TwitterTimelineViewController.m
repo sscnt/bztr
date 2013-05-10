@@ -103,22 +103,19 @@
     //// Insert Buttons
     CGRect frame = CGRectMake(paddingX, 0.0f, paddingWidth, 34.0f);
     UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:frame];
-    [button setTitle:@"次のページへ" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(goToNextPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"次のページへ" forState:UIControlStateNormal];    
     [_scrollView appendView:button margin:20.0f];
     
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+    [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"前のページへ" forState:UIControlStateNormal];
     [_scrollView appendView:button margin:15.0f];
     
-    button = [UIFlatButtonCreator createBlueButtonWithFrame:frame];
+    button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+    [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
     [_scrollView appendView:button margin:15.0f];
-    
-    button = [UIFlatButtonCreator createRedButtonWithFrame:frame];
-    [button setTitle:@"NUUUUU" forState:UIControlStateNormal];
-    [_scrollView appendView:button margin:15.0f];
-
-    
     
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
@@ -146,6 +143,39 @@
     [self loadStatuses];
 }
 
+- (void)goToTopPage
+{
+    dlog(@"Go to Top Page.");
+    _params.page = 1;
+    [self loadStatuses];
+}
+
+- (void)goToNextPageWithProgressHUD
+{
+    if(_state == TimelineViewStateReady){
+        _state = TimelineViewStateLoadingStatuses;
+        [SVProgressHUD showWithStatus:@"次のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToNextPage)];
+    }
+}
+
+- (void)goToPrevPageWithProgressHUD
+{    
+    if(_state == TimelineViewStateReady){
+        if(_params.page > 1){
+            _state = TimelineViewStateLoadingStatuses;
+            [SVProgressHUD showWithStatus:@"前のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToPrevPage)];
+        }
+    }
+}
+
+- (void)goToTopPageWithProgressHUD
+{
+    if(_state == TimelineViewStateReady){
+        _state = TimelineViewStateLoadingStatuses;
+        [SVProgressHUD showWithStatus:@"最初のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToTopPage)];
+    }
+}
+
 #pragma mark - Swipe Gestures
 
 - (void)addSwipeGesture
@@ -163,19 +193,12 @@
 
 - (void)didSwipeRight:(UISwipeGestureRecognizer *)sender
 {
-    if(_state == TimelineViewStateReady){
-        if(_params.page > 1){
-            _state = TimelineViewStateLoadingStatuses;
-            [SVProgressHUD showWithStatus:@"前のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToPrevPage)];
-        }
-    }}
+    [self goToPrevPageWithProgressHUD];
+}
 
 - (void)didSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
-    if(_state == TimelineViewStateReady){
-        _state = TimelineViewStateLoadingStatuses;
-        [SVProgressHUD showWithStatus:@"次のページ" maskType:SVProgressHUDMaskTypeClear interval:0 addTarget:self selector:@selector(goToNextPage)];
-    }
+    [self goToNextPageWithProgressHUD];
 }
 
 
