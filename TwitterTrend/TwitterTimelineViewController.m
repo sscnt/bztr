@@ -41,7 +41,18 @@
     _model = [[TwitterTimelineViewModel alloc] init];
     _model.delegate = self;
     
-    [self restart];
+    [self restart];    
+    
+    //// NavigationBar
+    self.navigationBarTitle = @"つぶやき";
+    
+    //// General Decralations
+    self.api = @"words/popular";
+    self.headerTitle = @"新着順（一般）";
+    
+    //// Load
+    [self loadStatuses];
+
 
 }
 
@@ -75,6 +86,7 @@
     [header setTitle:_headerTitle page:_params.page];
     [_scrollView appendView:header margin:0.0f];
     
+    //// Insert Statuses
     NSStatus* status;
     for(int index = 0;index < [statuses count];index++){
         status = (NSStatus*)[statuses objectAtIndex:index];
@@ -82,6 +94,27 @@
         view.delegate = self;
         [_scrollView appendView:view];
     }
+    
+    //// Insert Buttons
+    CGRect frame = CGRectMake(6.0f, 0.0f, [UIScreen screenSize].width - 32.0f, 34.0f);
+    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:frame];
+    [button setTitle:@"次のページへ" forState:UIControlStateNormal];
+    [_scrollView appendView:button margin:20.0f];
+    
+    button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+    [button setTitle:@"前のページへ" forState:UIControlStateNormal];
+    [_scrollView appendView:button margin:15.0f];
+    
+    button = [UIFlatButtonCreator createBlueButtonWithFrame:frame];
+    [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
+    [_scrollView appendView:button margin:15.0f];
+    
+    button = [UIFlatButtonCreator createRedButtonWithFrame:frame];
+    [button setTitle:@"NUUUUU" forState:UIControlStateNormal];
+    [_scrollView appendView:button margin:15.0f];
+
+    
+    
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
 }

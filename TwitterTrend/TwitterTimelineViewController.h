@@ -13,6 +13,8 @@
 #import "TwitterTimelineViewModel.h"
 #import "UITwitterScrollHeaderView.h"
 #import "ImageZoomViewController.h"
+#import "UIFlatButtonCreator.h"
+#import "UIFlatBUtton.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,

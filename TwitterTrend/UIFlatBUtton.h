@@ -14,5 +14,7 @@
 @property (nonatomic, strong) UIColor* gradientTopColor;
 @property (nonatomic, strong) UIColor* gradientBottomColor;
 @property (nonatomic, strong) UIColor* innerGrowColor;
+@property (nonatomic, strong) UIColor* titleTextColor;
+@property (nonatomic, strong) UIColor* titleTextShadowColor;
 
 @end

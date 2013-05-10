@@ -11,9 +11,9 @@
 
 @interface UIFlatButtonCreator : NSObject
 
-- (UIButton*)createBlackButtonWithFrame:(CGRect)frame;
-- (UIButton*)createBlueButtonWithFrame:(CGRect)frame;
-- (UIButton*)createWhiteButtonWithFrame:(CGRect)frame;
-- (UIButton*)createRedButtonWithFrame:(CGRect)frame;
++ (UIFlatBUtton*)createBlackButtonWithFrame:(CGRect)frame;
++ (UIFlatBUtton*)createBlueButtonWithFrame:(CGRect)frame;
++ (UIFlatBUtton*)createWhiteButtonWithFrame:(CGRect)frame;
++ (UIFlatBUtton*)createRedButtonWithFrame:(CGRect)frame;
 
 @end

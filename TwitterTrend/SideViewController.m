@@ -243,7 +243,7 @@
     NSMenuItem* item = [self itemAtIndex:selectedIndex];    
     
     if(item.type == NSMenuItemTypeTimeline){        
-        MainViewController* controller = (MainViewController*)((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController).selectedViewController;
+        TwitterTimelineViewController* controller = (TwitterTimelineViewController*)((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController).selectedViewController;
         [controller restart];
         controller.api = item.api;
         controller.headerTitle = item.headerTitle;

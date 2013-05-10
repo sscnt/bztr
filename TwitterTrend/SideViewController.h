@@ -14,7 +14,7 @@
 #import "UISideMenuHeaderView.h"
 #import "UISideMenuButton.h"
 #import "UISideMenuSeparatorView.h"
-#import "MainViewController.h"
+#import "TwitterTimelineViewController.h"
 #import "NSMenuItem.h"
 
 @interface SideViewController : UIViewController

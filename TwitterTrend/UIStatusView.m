@@ -97,7 +97,7 @@
 {
     [self layoutHeaderProfileImage];
     [self layoutHeaderName];
-    _userOpenWithButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 8.0f, self.frame.size.width, 43.0f)];
+    _userOpenWithButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.frame.size.width - 20.0f, 43.0f)];
     _userOpenWithButton.backgroundColor = [UIColor clearColor];
     [_userOpenWithButton addTarget:self action:@selector(didClickUserOpenWithButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_userOpenWithButton];
