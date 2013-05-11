@@ -21,15 +21,12 @@
 
 - (void)setTitle:(NSString *)title page:(NSInteger)page
 {
-    //// General Declarations
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
-    
     //// Title
-    CGSize textSize = [title sizeWithFont:[UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 4.0f, textSize.width, textSize.height)];
+    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 4.0f, [UIScreen screenRect].size.width - 40.0f, 26.0f)];
     titleLabel.text = title;
     titleLabel.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
     titleLabel.textColor = [UIColor colorWithWhite:44.0f/255.0f alpha:1.0f];
+    titleLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:titleLabel];
     
     //// Page
