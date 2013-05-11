@@ -292,10 +292,16 @@
         }
         
         //// Developer Block
-        if(buttonIndex == _actionSheetUserButtonIndexDeveloperBlock){            
-            [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
-            _params.user_id_string = _currentTargetStatus.user.id_string;
-            [_modelUsers developerBlockWithParams:_params];
+        if(buttonIndex == _actionSheetUserButtonIndexDeveloperBlock){
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.tag = AlertViewIdentifierDeveloperBlock;
+            alert.delegate = self;
+            alert.title = @"確認";
+            alert.message = @"ブロックしますか？";
+            int okIndex = [alert addButtonWithTitle:@"キャンセル"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert addButtonWithTitle:@"ブロック"];
+            [alert show];
             return;
         }
         
@@ -313,6 +319,20 @@
     _state = TimelineViewStateReady;
 }
 
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //// Developer Block
+    if(alertView.tag == AlertViewIdentifierDeveloperBlock){
+        if(buttonIndex == 1){            
+            [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
+            _params.user_id_string = _currentTargetStatus.user.id_string;
+            [_modelUsers developerBlockWithParams:_params];
+        }
+        return;
+    }    
+}
 
 - (void)didReceiveMemoryWarning
 {

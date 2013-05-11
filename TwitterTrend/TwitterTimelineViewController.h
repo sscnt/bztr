@@ -28,7 +28,11 @@ typedef NS_ENUM(int, ActionSheetTag){
     ActionSheetTagUser
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewUsersModelDelegate>
+typedef NS_ENUM(int, AlertViewIdentifier){
+    AlertViewIdentifierDeveloperBlock = 0
+};
+
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewUsersModelDelegate, UIAlertViewDelegate>
 {
     __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;
@@ -65,5 +69,7 @@ typedef NS_ENUM(int, ActionSheetTag){
 - (void)didClickImage:(UIImage*)image;
 - (void)didClickUserOpenWithButton:(NSStatus*)status;
 - (void)didClickStatusOpenWithButton:(NSStatus*)status;
+
+- (void)confirmedAndBlockUser;
 
 @end
