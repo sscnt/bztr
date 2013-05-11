@@ -29,11 +29,12 @@
     CGFloat _radius;
     UIButton* _userOpenWithButton;
     UIButton* _statusOpenWithButton;
+    CGFloat _bottomY;
 }
 @property (nonatomic, weak) id<UIStatusViewDelegate> delegate;
 
 - (id)initWithStatus:(NSStatus*)status;
-- (CGSize)sizeWithStatus:(NSStatus*)status;
+- (void)setSize;
 
 //// Layout
 - (void)layoutHeader;

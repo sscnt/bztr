@@ -13,15 +13,22 @@
 - (id)initWithStatus:(NSStatus *)status
 {
     //// Calc Height
-    CGSize size = [self sizeWithStatus:status];
-    CGRect frame = CGRectMake(16.0f, 0.0f, size.width, size.height);
+    CGRect frame = CGRectMake(16.0f, 0.0f, [UIScreen screenSize].width - 32.0f, 0.0f);
     self = [super initWithFrame:frame];
     if(self){
         //// General Declarations
+        _bottomY = 0.0f;
         _status = status;
         _profile_image_url = _status.user.profile_image_url;
         _media_url = _status.photo.media_url;
         _radius = 5.0f;
+        
+        //// Layout
+        [self layoutHeader];
+        [self layoutContent];
+        [self layoutFooter];
+        
+        //// Drop Shadow
         UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height) cornerRadius:_radius];
         self.backgroundColor = [UIColor clearColor];
         self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
@@ -29,48 +36,31 @@
         self.layer.shadowPath = path.CGPath;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOpacity = 0.15f;
-        
-        //// Layout
-        [self layoutHeader];
-        [self layoutContent];
-        [self layoutFooter];
+
     }
     return self;
 }
 
-- (CGSize)sizeWithStatus:(NSStatus *)status
+- (void)setSize
 {
     //// General Decralations
-    CGFloat viewWidth = [UIScreen screenSize].width - 32.0f;
-    CGFloat wrapperPadding = 8.0f;
+    CGFloat wrapperPadding = 16.0f;
     CGFloat innerPadding = 12.0f;
-    CGFloat headerHeight = 47.0f;
-    CGFloat footerHeight = 27.0f;
-    CGFloat textHeight = 0.0f;
+    CGFloat footerHeight = 35.0f;
     CGFloat photoHeight = 0.0f;
     
-    //// Calc Text Height
-    UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, viewWidth - 32.0f, 0.0f)];
-    textLabel.text = status.text;
-    textLabel.numberOfLines = 0;
-    textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    [textLabel setTextAlignment:NSTextAlignmentLeft];
-    [textLabel sizeToFit];
-    textHeight = textLabel.frame.size.height + 21.0f;
-    textLabel = nil;
-    
     //// Calc Photo Height
-    if([status.type isEqualToString:@"photo"]){
+    if([_status.type isEqualToString:@"photo"]){
         CGFloat padding = 10.0f;
-        CGFloat height = status.photo.height;
+        CGFloat height = _status.photo.height;
         CGFloat areaWidth = [UIScreen screenSize].width - 66.0f;
-        if(status.photo.width > areaWidth){
-            height = status.photo.height * areaWidth / status.photo.width;
+        if(_status.photo.width > areaWidth){
+            height = _status.photo.height * areaWidth / _status.photo.width;
         }
         photoHeight = height + padding;
     }
-    return CGSizeMake(viewWidth, ceil(wrapperPadding + innerPadding + headerHeight + footerHeight + textHeight + photoHeight));
-    
+    CGRect frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _bottomY + photoHeight + footerHeight + wrapperPadding + innerPadding);
+    self.frame = frame;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -159,7 +149,6 @@
 //////// Content
 - (void)layoutContent
 {
-    CGFloat bottomY = 0.0f;
     //// Text
     UILabel* textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, 54.0f, self.frame.size.width - 32.0f, 0.0f)];
     textLabel.text = _status.text;
@@ -168,7 +157,7 @@
     [textLabel setTextAlignment:NSTextAlignmentLeft];
     [textLabel sizeToFit];
     [self addSubview:textLabel];
-    bottomY = textLabel.bottom;
+    _bottomY = textLabel.bottom;
     
     //// Photo
     if([_status.type isEqualToString:@"photo"]){
@@ -188,7 +177,7 @@
         [_imageView setFrame:CGRectMake(0.0f, 0.0f, width, height)];
         
         //// UIButton
-        UIButton* wrapper = [[UIButton alloc] initWithFrame:CGRectMake(16.0f, bottomY + 10.0f, width, height)];
+        UIButton* wrapper = [[UIButton alloc] initWithFrame:CGRectMake(16.0f, _bottomY + 10.0f, width, height)];
         [wrapper addTarget:self action:@selector(didClickImage) forControlEvents:UIControlEventTouchUpInside];
         
         //// Load Image
@@ -198,11 +187,11 @@
         } failureBlock:nil];
         [wrapper addSubview:_imageView];
         [self addSubview:wrapper];
-        bottomY = wrapper.bottom;
+        _bottomY = wrapper.bottom;
     }
     
     //// Time
-    UILabel* dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, bottomY + 5.0f, self.frame.size.width - 32.0f, 16.0f)];
+    UILabel* dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0f, _bottomY + 5.0f, self.frame.size.width - 32.0f, 16.0f)];
     dateLabel.textColor = [UIColor colorWithWhite:153.0f/255.0f alpha:1.0f];
     dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:_status.created_at];
@@ -210,9 +199,7 @@
     format.dateFormat = @"yyyy年MM月dd日 HH時mm分";
     dateLabel.text = [format stringFromDate:date];
     [self addSubview:dateLabel];
-    
-
-    
+    [self setSize];
 }
 
 //////// Footer
@@ -220,43 +207,42 @@
 {
     //// General Declarations
     CGFloat baseX = 16.0f;
-    CGSize constrainedSize = CGSizeMake([UIScreen screenSize].width - 30.0f, 9999);
     
     //// Retweet Count
     NSString* numRtText = [NSString stringWithFormat:@"%d", _status.retweet_count];
-    CGSize textSize = [numRtText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* numRtLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, textSize.width, 15.0f)];
+    UILabel* numRtLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, 0.0f, 15.0f)];
     numRtLabel.text = numRtText;
     numRtLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f];
+    [numRtLabel sizeToFit];
     [self addSubview:numRtLabel];
-    baseX += textSize.width + 1.0f;
+    baseX += numRtLabel.frame.size.width + 1.0f;
     
     //// Retweet Desc
     NSString* rtDescText = @"リツイート";
-    textSize = [rtDescText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* rtDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, textSize.width, 15.0f)];
+    UILabel* rtDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, 0.0f, 15.0f)];
     rtDescLabel.text = rtDescText;
     rtDescLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+    [rtDescLabel sizeToFit];
     [self addSubview:rtDescLabel];
-    baseX += textSize.width + 5.0f;
+    baseX += rtDescLabel.frame.size.width + 5.0f;
     
     //// Favorite Count
     NSString* numFavText = [NSString stringWithFormat:@"%d", _status.favorite_count];
-    textSize = [numFavText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* numFavLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, textSize.width, 15.0f)];
+    UILabel* numFavLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 23.0f, 0.0f, 15.0f)];
     numFavLabel.text = numFavText;
     numFavLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f];
+    [numFavLabel sizeToFit];
     [self addSubview:numFavLabel];
-    baseX += textSize.width + 1.0f;
+    baseX += numFavLabel.frame.size.width + 1.0f;
     
     //// Favorite Desc
     NSString* favDescText = @"お気に入り";
-    textSize = [favDescText sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] constrainedToSize:constrainedSize lineBreakMode:UILineBreakModeWordWrap];
-    UILabel* favDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, textSize.width, 15.0f)];
+    UILabel* favDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(baseX, self.bottom - 22.0f, 0.0f, 15.0f)];
     favDescLabel.text = favDescText;
     favDescLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+    [favDescLabel sizeToFit];
     [self addSubview:favDescLabel];
-    baseX += textSize.width + 5.0f;
+    baseX += favDescLabel.frame.size.width + 5.0f;
 
 }
 

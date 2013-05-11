@@ -14,6 +14,10 @@
 {
     return self.frame.origin.y + self.bounds.size.height;
 }
+-(CGFloat)right
+{
+    return self.frame.origin.x + self.frame.size.width;
+}
 
 -(void)setShadow
 {

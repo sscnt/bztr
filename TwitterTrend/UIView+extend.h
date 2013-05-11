@@ -16,6 +16,7 @@
 
 @interface UIView (extend)
 - (CGFloat)bottom;
+- (CGFloat)right;
 - (void)setShadow;
 - (void)setX:(NSInteger)x;
 - (void)setY:(NSInteger)y;
