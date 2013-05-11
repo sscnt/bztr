@@ -134,7 +134,14 @@
 
 - (void)didFinishDeveloperBlockingWithMessage:(NSString *)message
 {
-    
+    [SVProgressHUD dismiss];
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = message;
+    alert.title = @"ブロック";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
 }
 
 #pragma mark Paging

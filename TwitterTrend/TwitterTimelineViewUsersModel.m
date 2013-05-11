@@ -10,9 +10,19 @@
 
 @implementation TwitterTimelineViewUsersModel
 
+- (id)init
+{
+    self = [super init];
+    if(self){
+        _api = [[NSTrendApi alloc] init];
+        _api.delegate = self;
+    }
+    return self;
+}
+
 - (void)developerBlockWithParams:(NSRequestParams *)params
 {
-    
+    [_api call:@"developer/block" params:params];
 }
 
 #pragma mark NSTrendApiDelegate
@@ -24,6 +34,7 @@
 
 - (void)apiDidReturnResult:(NSDictionary*)json
 {
-    [self.delegate didFinishDeveloperBlockingWithMessage:@"UNKO"];
+    [self.delegate didFinishDeveloperBlockingWithMessage:[json objectForKey:@"message"]];
 }
+
 @end

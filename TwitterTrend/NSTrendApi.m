@@ -33,6 +33,11 @@
         bodyString = [NSString stringWithFormat:@"%@=%d&%@",@"max_rt",params.max_rt,bodyString];
     }
     
+    //// Target User ID
+    if(![params.user_id_string isEqualToString:@"0"]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"target_user_id",params.user_id_string,bodyString];
+    }
+    
     return bodyString;
 }
 

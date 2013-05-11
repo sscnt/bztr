@@ -19,6 +19,7 @@
         self.min_fav = -1;
         self.min_rt = -1;
         self.page = -1;
+        self.user_id_string = @"0";
     }
     return self;
 }
