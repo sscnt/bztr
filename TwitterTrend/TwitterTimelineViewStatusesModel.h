@@ -11,20 +11,20 @@
 #import "NSTrendApi.h"
 #import "NSStatus.h"
 
-@protocol TwitterTimelineViewModelDelegate <NSObject>
+@protocol TwitterTimelineViewStatusesModelDelegate <NSObject>
 - (void)didLoadStatuses:(NSArray*)statuses;
 - (void)didReturnError:(NSString*)error;
 @end
 
-@interface TwitterTimelineViewModel : NSObject <NSTrendApiDelegate>
+@interface TwitterTimelineViewStatusesModel : NSObject <NSTrendApiDelegate>
 {
     NSMutableDictionary* _statuses;
     NSTrendApi* _api;
 }
 
-@property (nonatomic, weak) id<TwitterTimelineViewModelDelegate> delegate;
+@property (nonatomic, weak) id<TwitterTimelineViewStatusesModelDelegate> delegate;
 
-- (void)callApi:(NSString*)api params:(NSRequestParams*)params;
+- (void)loadStatusesWithApi:(NSString*)api params:(NSRequestParams*)params;
 - (NSMutableArray*)statusesOnPage:(NSInteger)page;
 - (void)cleanStatusesCache;
 

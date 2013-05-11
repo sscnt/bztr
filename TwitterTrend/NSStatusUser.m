@@ -15,8 +15,10 @@
     self = [super init];
     if(self){
         self.id = 0;
+        self.id_string = @"0";
         if([json objectForKey:@"id"] != nil){
             self.id = [[json objectForKey:@"id"] integerValue];
+            self.id_string = [NSString stringWithFormat:@"%@", [json objectForKey:@"id"]];
         }
         self.verified = NO;
         if([json objectForKey:@"verified"] != nil){

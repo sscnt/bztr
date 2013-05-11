@@ -10,7 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "common.h"
 #import "commonViews.h"
-#import "TwitterTimelineViewModel.h"
+#import "TwitterTimelineViewStatusesModel.h"
+#import "TwitterTimelineViewUsersModel.h"
 #import "UITwitterScrollHeaderView.h"
 #import "ImageZoomViewController.h"
 #import "UIFlatButtonCreator.h"
@@ -18,15 +19,28 @@
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
-    TimelineViewStateLoadingStatuses
+    TimelineViewStateLoadingStatuses,
+    TimelineViewStateActionSheetShowing
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate>
+typedef NS_ENUM(int, ActionSheetTag){
+    ActionSheetTagStatus = 0,
+    ActionSheetTagUser
+};
+
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewUsersModelDelegate>
 {
+    __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;
-    TwitterTimelineViewModel* _model;
+    TwitterTimelineViewStatusesModel* _modelStatuses;
+    TwitterTimelineViewUsersModel* _modelUsers;
     NSRequestParams* _params;
     TimelineViewState _state;
+    UIActionSheet* _sheetUser;
+    UIActionSheet* _sheetStatus;
+    int _actionSheetUserButtonIndexOpenWithTwitterApp;
+    int _actionSheetUserButtonIndexDeveloperBlock;
+    int _actionSheetUserButtonIndexCancel;
 }
 
 @property (nonatomic, strong) NSString* api;

@@ -22,6 +22,7 @@
 		580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEC0173BD2F90050470F /* Icon@2x.png */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
+		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */; };
 		58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */; };
 		58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429617379269006C1FB2 /* SideMenuBg.png */; };
 		58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429717379269006C1FB2 /* SideMenuBg@2x.png */; };
@@ -76,7 +77,7 @@
 		58FDEDD41733F814000C037A /* TwitterTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD31733F814000C037A /* TwitterTimelineViewController.m */; };
 		58FDEDD71734095D000C037A /* NSRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD61734095C000C037A /* NSRequestParams.m */; };
 		58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDD917340A0F000C037A /* NSTrendApi.m */; };
-		58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */; };
+		58FDEDDE17340B15000C037A /* TwitterTimelineViewStatusesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDDD17340B15000C037A /* TwitterTimelineViewStatusesModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,8 @@
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
 		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
+		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewUsersModel.h; sourceTree = "<group>"; };
+		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewUsersModel.m; sourceTree = "<group>"; };
 		58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg-568h@2x.png"; sourceTree = "<group>"; };
 		58F5429617379269006C1FB2 /* SideMenuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideMenuBg.png; sourceTree = "<group>"; };
 		58F5429717379269006C1FB2 /* SideMenuBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg@2x.png"; sourceTree = "<group>"; };
@@ -188,8 +191,8 @@
 		58FDEDD61734095C000C037A /* NSRequestParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRequestParams.m; sourceTree = "<group>"; };
 		58FDEDD817340A0F000C037A /* NSTrendApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTrendApi.h; sourceTree = "<group>"; };
 		58FDEDD917340A0F000C037A /* NSTrendApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTrendApi.m; sourceTree = "<group>"; };
-		58FDEDDC17340B15000C037A /* TwitterTimelineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewModel.h; sourceTree = "<group>"; };
-		58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewModel.m; sourceTree = "<group>"; };
+		58FDEDDC17340B15000C037A /* TwitterTimelineViewStatusesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewStatusesModel.h; sourceTree = "<group>"; };
+		58FDEDDD17340B15000C037A /* TwitterTimelineViewStatusesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewStatusesModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,8 +552,10 @@
 		58FDEDDB17340AE5000C037A /* VIewModels */ = {
 			isa = PBXGroup;
 			children = (
-				58FDEDDC17340B15000C037A /* TwitterTimelineViewModel.h */,
-				58FDEDDD17340B15000C037A /* TwitterTimelineViewModel.m */,
+				58FDEDDC17340B15000C037A /* TwitterTimelineViewStatusesModel.h */,
+				58FDEDDD17340B15000C037A /* TwitterTimelineViewStatusesModel.m */,
+				583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.h */,
+				583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */,
 			);
 			name = VIewModels;
 			sourceTree = "<group>";
@@ -666,7 +671,7 @@
 				58FDEDD41733F814000C037A /* TwitterTimelineViewController.m in Sources */,
 				58FDEDD71734095D000C037A /* NSRequestParams.m in Sources */,
 				58FDEDDA17340A10000C037A /* NSTrendApi.m in Sources */,
-				58FDEDDE17340B15000C037A /* TwitterTimelineViewModel.m in Sources */,
+				58FDEDDE17340B15000C037A /* TwitterTimelineViewStatusesModel.m in Sources */,
 				58FA24B61734D428004D803D /* NSFilter.m in Sources */,
 				58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */,
 				58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */,
@@ -682,6 +687,7 @@
 				58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */,
 				58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */,
 				58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */,
+				583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

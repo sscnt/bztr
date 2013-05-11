@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 SSC. All rights reserved.
 //
 
-#import "TwitterTimelineViewModel.h"
+#import "TwitterTimelineViewStatusesModel.h"
 
-@implementation TwitterTimelineViewModel
+@implementation TwitterTimelineViewStatusesModel
 
 - (id)init
 {
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (void)callApi:(NSString*)api params:(NSRequestParams*)params
+- (void)loadStatusesWithApi:(NSString*)api params:(NSRequestParams*)params
 {
     if([_statuses objectForKey:[NSString stringWithFormat:@"%d", params.page]] == nil){
         dlog(@"Cache not found.");
@@ -33,6 +33,10 @@
     }
 }
 
+- (void)developerBlockWithParams:(NSRequestParams *)params
+{
+    
+}
 
 - (NSMutableArray*)statusesOnPage:(NSInteger)page
 {

@@ -4,3 +4,4 @@
 #import "UIView+extend.h"
 #import "UIViewController+navi.h"
 #import "NSRequestParams.h"
+#import "UIBlackAlertView.h"

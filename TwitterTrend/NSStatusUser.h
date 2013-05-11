@@ -13,6 +13,7 @@
 - (id)initWithJsonObject:(NSDictionary*)json;
 
 @property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSString* id_string;
 @property (nonatomic, assign) BOOL verified;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* screen_name;

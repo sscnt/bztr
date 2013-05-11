@@ -244,7 +244,7 @@
 
 - (void)didClickUserOpenWithButton
 {
-    dlog(@"Clicked! %@", _status.user.name);
+    [self.delegate didClickUserOpenWithButton:_status];
 }
 
 - (void)didClickStatusOpenWithButton

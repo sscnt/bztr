@@ -38,8 +38,10 @@
     [self addSwipeGesture];
     
     //// Model
-    _model = [[TwitterTimelineViewModel alloc] init];
-    _model.delegate = self;
+    _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
+    _modelStatuses.delegate = self;
+    _modelUsers = [[TwitterTimelineViewUsersModel alloc] init];
+    _modelUsers.delegate = self;
     
     [self restart];    
     
@@ -64,7 +66,7 @@
 - (void)restart
 {
     [_scrollView removeAllSubviews];
-    [_model cleanStatusesCache];
+    [_modelStatuses cleanStatusesCache];
     _params = [[NSRequestParams alloc] init];
     _params.page = 1;
     dlog(@"Restart");
@@ -75,10 +77,11 @@
     dlog(@"Called API %@", _api);
     [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [_scrollView removeAllSubviews];
-    [_model callApi:_api params:_params];
+    [_modelStatuses loadStatusesWithApi:_api params:_params];
 }
 
-//// Delegate
+#pragma mark TwitterTimelineViewStatusesModelDelegate
+
 - (void)didLoadStatuses:(NSArray *)statuses
 {
     //// General Decralations
@@ -125,6 +128,13 @@
 {
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
+}
+
+#pragma mark TwitterTimelineViewUsersModelDelegate
+
+- (void)didFinishDeveloperBlockingWithMessage:(NSString *)message
+{
+    
 }
 
 #pragma mark Paging
@@ -203,6 +213,7 @@
 
 
 #pragma mark UIStatusViewDelegate
+
 - (void)didClickImage:(UIImage *)image status:(NSStatus *)status
 {
     //// Animation
@@ -228,15 +239,92 @@
 
 - (void)didClickUserOpenWithButton:(NSStatus *)status
 {
-    
+    if(_state == TimelineViewStateReady){
+        _state = TimelineViewStateActionSheetShowing;
+        if(!_sheetUser){
+            _sheetUser = [[UIActionSheet alloc] init];
+            _sheetUser.delegate = self;
+            _sheetUser.tag = ActionSheetTagUser;
+            _actionSheetUserButtonIndexOpenWithTwitterApp = [_sheetUser addButtonWithTitle:@"Twitterアプリで開く"];
+            _actionSheetUserButtonIndexDeveloperBlock = [_sheetUser addButtonWithTitle:@"ブロック"];
+            _actionSheetUserButtonIndexCancel = [_sheetUser addButtonWithTitle:@"キャンセル"];
+            [_sheetUser setCancelButtonIndex:_actionSheetUserButtonIndexCancel];
+        }
+        _sheetUser.title = [NSString stringWithFormat:@"%@ @%@", status.user.name, status.user.screen_name];
+        _currentTargetStatus = status;
+        [_sheetUser showInView:self.view];
+    }
 }
+
+#pragma mark UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //// User
+    if(actionSheet.tag == ActionSheetTagUser){
+        
+        //// Open With Twitter App
+        if(buttonIndex == _actionSheetUserButtonIndexOpenWithTwitterApp){            
+            NSString* urlString = [NSString stringWithFormat:@"twitter://user?id=%@", _currentTargetStatus.user.id_string];
+            NSURL *url = [NSURL URLWithString:urlString];
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            } else {
+                UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+                alert.delegate = nil;
+                alert.message = @"URLを開けません";
+                alert.title = @"エラー";
+                int okIndex = [alert addButtonWithTitle:@"OK"];
+                [alert setCancelButtonIndex:okIndex];
+                [alert show];
+            }
+        
+            return;
+        }
+        
+        //// Developer Block
+        if(buttonIndex == _actionSheetUserButtonIndexDeveloperBlock){            
+            [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
+            _params.user_id_string = _currentTargetStatus.user.id_string;
+            [_modelUsers developerBlockWithParams:_params];
+            return;
+        }
+        
+        return;
+    }
+    
+    //// Status
+    if(actionSheet.tag == ActionSheetTagStatus){
+        return;
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    _state = TimelineViewStateReady;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    [_model cleanStatusesCache];
+    [_modelStatuses cleanStatusesCache];
     dlog(@"$$ Memory Warning $$");
     dlog(@"Cleaned cache.");
+}
+
+- (void)dealloc
+{
+    if(_sheetUser){
+        _sheetUser.delegate = nil;
+    }
+    if(_sheetStatus){
+        _sheetStatus.delegate = nil;
+    }
+    _modelStatuses.delegate = nil;
+    _modelUsers.delegate = nil;
 }
 
 @end

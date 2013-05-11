@@ -11,6 +11,7 @@
 @interface NSRequestParams : NSObject
 
 @property (nonatomic, assign) NSInteger min_rt;
+@property (nonatomic, strong) NSString* user_id_string;
 @property (nonatomic, assign) NSInteger max_rt;
 @property (nonatomic, assign) NSInteger min_fav;
 @property (nonatomic, assign) NSInteger max_fav;
