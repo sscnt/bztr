@@ -16,7 +16,8 @@
     __weak NSStatus* _status;
 }
 
-
++ (NSFilter*)sharedFilter;
+- (BOOL)isDisplayable:(NSStatus*)status;
 - (BOOL)ifConatainNGWord;
 - (BOOL)ifNGUser;
 

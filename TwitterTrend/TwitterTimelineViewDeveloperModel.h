@@ -10,17 +10,17 @@
 #import "NSRequestParams.h"
 #import "NSTrendApi.h"
 
-@protocol TwitterTimelineViewUsersModelDelegate <NSObject>
+@protocol TwitterTimelineViewDeveloperModelDelegate <NSObject>
 - (void)didFinishDeveloperBlockingWithMessage:(NSString*)message;
 - (void)didReturnError:(NSString*)error;
 @end
 
-@interface TwitterTimelineViewUsersModel : NSObject <NSTrendApiDelegate>
+@interface TwitterTimelineViewDeveloperModel : NSObject <NSTrendApiDelegate>
 {
     NSTrendApi* _api;
 }
 
-@property (nonatomic, weak) id<TwitterTimelineViewUsersModelDelegate> delegate;
+@property (nonatomic, weak) id<TwitterTimelineViewDeveloperModelDelegate> delegate;
 
 - (void)developerBlockWithParams:(NSRequestParams*)params;
 

@@ -105,6 +105,10 @@
                     message = [errors objectAtIndex:0];
                 } else {
                     //// Success
+                    if(self.identifier){
+                        [self.delegate apiDidReturnResult:json WithIdentifier:self.identifier];
+                        return;
+                    }
                     [self.delegate apiDidReturnResult:json];
                     return;
                 }
@@ -118,6 +122,10 @@
             dlog(@"Unexpected Error:errors not foound.");
             message = @"予期せぬエラーです。サーバーで障害が発生している可能性があります。";
         }
+    }
+    if(self.identifier){
+        [self.delegate apiDidReturnError:message WithIdentifier:self.identifier];
+        return;
     }
     [self.delegate apiDidReturnError:message];
 }

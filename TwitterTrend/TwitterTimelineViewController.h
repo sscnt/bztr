@@ -11,11 +11,13 @@
 #import "common.h"
 #import "commonViews.h"
 #import "TwitterTimelineViewStatusesModel.h"
-#import "TwitterTimelineViewUsersModel.h"
+#import "TwitterTimelineViewDeveloperModel.h"
+#import "TwitterTimelineViewEnduserModel.h"
 #import "UITwitterScrollHeaderView.h"
 #import "ImageZoomViewController.h"
 #import "UIFlatButtonCreator.h"
 #import "UIFlatBUtton.h"
+#import "NSEnduserData.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
@@ -29,15 +31,17 @@ typedef NS_ENUM(int, ActionSheetTag){
 };
 
 typedef NS_ENUM(int, AlertViewIdentifier){
-    AlertViewIdentifierDeveloperBlock = 0
+    AlertViewIdentifierDeveloperBlock = 0,
+    AlertViewIdentifierRegistration
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewUsersModelDelegate, UIAlertViewDelegate>
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate>
 {
     __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;
     TwitterTimelineViewStatusesModel* _modelStatuses;
-    TwitterTimelineViewUsersModel* _modelUsers;
+    TwitterTimelineViewDeveloperModel* _modelDeveloper;
+    TwitterTimelineViewEnduserModel* _modelEnduser;
     NSRequestParams* _params;
     TimelineViewState _state;
     UIActionSheet* _sheetUser;
@@ -50,6 +54,10 @@ typedef NS_ENUM(int, AlertViewIdentifier){
 @property (nonatomic, strong) NSString* api;
 @property (nonatomic, strong) NSString* headerTitle;
 @property (nonatomic, strong) NSString* navigationBarTitle;
+
+- (void)initializeUser;
+- (void)didInitializeUser;
+- (void)initializeController;
 
 - (void)restart;
 - (void)loadStatuses;

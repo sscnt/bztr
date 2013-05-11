@@ -22,7 +22,9 @@
 		580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEC0173BD2F90050470F /* Icon@2x.png */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
-		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */; };
+		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */; };
+		583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F8173E581400F7D3A7 /* NSEnduserData.m */; };
+		583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */; };
 		58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */; };
 		58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429617379269006C1FB2 /* SideMenuBg.png */; };
 		58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429717379269006C1FB2 /* SideMenuBg@2x.png */; };
@@ -105,8 +107,12 @@
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
 		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
-		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewUsersModel.h; sourceTree = "<group>"; };
-		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewUsersModel.m; sourceTree = "<group>"; };
+		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewDeveloperModel.h; sourceTree = "<group>"; };
+		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewDeveloperModel.m; sourceTree = "<group>"; };
+		583E92F7173E581300F7D3A7 /* NSEnduserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserData.h; sourceTree = "<group>"; };
+		583E92F8173E581400F7D3A7 /* NSEnduserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSEnduserData.m; sourceTree = "<group>"; };
+		583E92FA173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewEnduserModel.h; sourceTree = "<group>"; };
+		583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewEnduserModel.m; sourceTree = "<group>"; };
 		58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg-568h@2x.png"; sourceTree = "<group>"; };
 		58F5429617379269006C1FB2 /* SideMenuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideMenuBg.png; sourceTree = "<group>"; };
 		58F5429717379269006C1FB2 /* SideMenuBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg@2x.png"; sourceTree = "<group>"; };
@@ -545,6 +551,8 @@
 				58FA24B51734D428004D803D /* NSFilter.m */,
 				58F542A51737E598006C1FB2 /* NSMenuItem.h */,
 				58F542A61737E598006C1FB2 /* NSMenuItem.m */,
+				583E92F7173E581300F7D3A7 /* NSEnduserData.h */,
+				583E92F8173E581400F7D3A7 /* NSEnduserData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -554,8 +562,10 @@
 			children = (
 				58FDEDDC17340B15000C037A /* TwitterTimelineViewStatusesModel.h */,
 				58FDEDDD17340B15000C037A /* TwitterTimelineViewStatusesModel.m */,
-				583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.h */,
-				583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m */,
+				583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.h */,
+				583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */,
+				583E92FA173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.h */,
+				583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */,
 			);
 			name = VIewModels;
 			sourceTree = "<group>";
@@ -687,7 +697,9 @@
 				58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */,
 				58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */,
 				58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */,
-				583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewUsersModel.m in Sources */,
+				583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */,
+				583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */,
+				583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

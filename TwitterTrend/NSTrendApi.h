@@ -10,13 +10,17 @@
 #import "NSRequestParams.h"
 
 @protocol NSTrendApiDelegate <NSObject>
+@optional
 - (void)apiDidReturnError:(NSString*)error;
+- (void)apiDidReturnError:(NSString*)error WithIdentifier:(NSInteger)identifier;
 - (void)apiDidReturnResult:(NSDictionary*)json;
+- (void)apiDidReturnResult:(NSDictionary *)json WithIdentifier:(NSInteger)identifier;
 @end
 
 @interface NSTrendApi : NSURLConnection
 
-@property (nonatomic, unsafe_unretained) id<NSTrendApiDelegate> delegate;
+@property (nonatomic, weak) id<NSTrendApiDelegate> delegate;
+@property (nonatomic, assign) NSInteger identifier;
 
 + (NSString *)bodyFromRequestParams:(NSRequestParams*)params;
 - (void)call:(NSString *)api params:(NSRequestParams*)params;

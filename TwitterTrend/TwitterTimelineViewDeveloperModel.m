@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 SSC. All rights reserved.
 //
 
-#import "TwitterTimelineViewUsersModel.h"
+#import "TwitterTimelineViewDeveloperModel.h"
 
-@implementation TwitterTimelineViewUsersModel
+@implementation TwitterTimelineViewDeveloperModel
 
 - (id)init
 {

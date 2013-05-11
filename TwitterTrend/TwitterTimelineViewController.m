@@ -14,34 +14,47 @@
 
 @implementation TwitterTimelineViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //// Model
+    _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
+    _modelStatuses.delegate = self;
+    _modelDeveloper = [[TwitterTimelineViewDeveloperModel alloc] init];
+    _modelDeveloper.delegate = self;
+    _modelEnduser = [[TwitterTimelineViewEnduserModel alloc] init];
+    _modelEnduser.delegate = self;
+    
+    //// Load Enduser Data
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.registered == NO){
+        dlog(@"DO REGISTERATION NOW!!!!!!");
+        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+        alert.tag = AlertViewIdentifierRegistration;
+        alert.delegate = self;
+        alert.message = @"iCloudにユーザー情報を保存しますか？";
+        alert.title = @"初期設定";
+        int okIndex = [alert addButtonWithTitle:@"しない"];
+        [alert setCancelButtonIndex:okIndex];
+        [alert addButtonWithTitle:@"保存する"];
+        [alert show];
+        return;
+    }
+    [self initializeController];
+}
+
+- (void)initializeController
+{    
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
     [self.view addSubview:bg];
     [self showMenuBtn];
     [self showSettingsBtn];
     
-    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, self.view.frame.size.height - 44.0f)];
+    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
     [self.view addSubview:_scrollView];
     [self addSwipeGesture];
-    
-    //// Model
-    _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
-    _modelStatuses.delegate = self;
-    _modelUsers = [[TwitterTimelineViewUsersModel alloc] init];
-    _modelUsers.delegate = self;
     
     [self restart];    
     
@@ -54,8 +67,18 @@
     
     //// Load
     [self loadStatuses];
+}
 
+- (void)initializeUser
+{
+    [SVProgressHUD showWithStatus:@"初期設定中..." maskType:SVProgressHUDMaskTypeClear];
+    [_modelEnduser registerUser];
+}
 
+- (void)didInitializeUser
+{
+    [SVProgressHUD dismiss];
+    [self initializeController];
 }
 
 - (void)setNavigationBarTitle:(NSString *)navigationBarTitle
@@ -107,13 +130,15 @@
     CGRect frame = CGRectMake(paddingX, 0.0f, paddingWidth, 34.0f);
     UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:frame];
     [button addTarget:self action:@selector(goToNextPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"次のページへ" forState:UIControlStateNormal];    
+    [button setTitle:@"次のページへ" forState:UIControlStateNormal];
     [_scrollView appendView:button margin:20.0f];
     
-    button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
-    [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"前のページへ" forState:UIControlStateNormal];
-    [_scrollView appendView:button margin:15.0f];
+    if(_params.page > 1){
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"前のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:15.0f];
+    }
     
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
     [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
@@ -139,6 +164,25 @@
     alert.delegate = nil;
     alert.message = message;
     alert.title = @"ブロック";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
+}
+
+#pragma mark TwitterTimelineViewEndsersModelDelegate
+
+- (void)didRegisterUserAndSaved
+{
+    [self didInitializeUser];
+}
+
+- (void)didRegistrationFailedWithError:(NSString *)error
+{
+    [SVProgressHUD dismiss];
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = error;
+    alert.title = @"エラー";
     int okIndex = [alert addButtonWithTitle:@"OK"];
     [alert setCancelButtonIndex:okIndex];
     [alert show];
@@ -328,10 +372,20 @@
         if(buttonIndex == 1){            
             [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
             _params.user_id_string = _currentTargetStatus.user.id_string;
-            [_modelUsers developerBlockWithParams:_params];
+            [_modelDeveloper developerBlockWithParams:_params];
         }
         return;
-    }    
+    }
+    
+    //// Registration
+    if(alertView.tag == AlertViewIdentifierRegistration){
+        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        if(buttonIndex == 1){
+            userData.iCloudEnabled = YES;
+        }
+        [self initializeUser];
+        return;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -351,7 +405,7 @@
         _sheetStatus.delegate = nil;
     }
     _modelStatuses.delegate = nil;
-    _modelUsers.delegate = nil;
+    _modelDeveloper.delegate = nil;
 }
 
 @end
