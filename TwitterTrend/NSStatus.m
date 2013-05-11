@@ -30,7 +30,7 @@
         self.id_string = @"0";
         if([json objectForKey:@"id"] != nil){
             self.id = [[json objectForKey:@"id"] doubleValue];
-            self.id_string = [NSString stringWithFormat:@"%f", self.id];
+            self.id_string = [NSString stringWithFormat:@"%@", [json objectForKey:@"id"]];
             NSString* pattern = @"(.+)\\.0+$";
             NSString* replacement = @"$1";
  

@@ -133,7 +133,8 @@
 {
     //// Back
     if(buttonIndex == _actionSheetBackIndex){
-        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];        [self back];
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+        [self back];
         return;
     }
     
@@ -141,6 +142,7 @@
     if (buttonIndex == _actionSheetUrlCopyIndex){
         UIPasteboard *board = [UIPasteboard generalPasteboard];
         [board setValue:_status.photo.media_url forPasteboardType:@"public.utf8-plain-text"];
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
         alert.delegate = nil;
         alert.message = @"コピーしました";
@@ -154,8 +156,8 @@
     //// Open With Twitter App
     if(buttonIndex == _actionSheetOpenwithTwitterIndex){
         NSString* urlString = [NSString stringWithFormat:@"twitter://status?id=%@", _status.id_string];
-        dlog(@"%@", urlString);
         NSURL *url = [NSURL URLWithString:urlString];
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]) {            
             [[UIApplication sharedApplication] openURL:url];
@@ -167,10 +169,52 @@
             int okIndex = [alert addButtonWithTitle:@"OK"];
             [alert setCancelButtonIndex:okIndex];
             [alert show];
-            return;
-
         }
+        return;
     }
+    
+    //// Open With Safari
+    if(buttonIndex == _actionSheetOpenWithSafariIndex){
+        NSString* urlString = [NSString stringWithFormat:@"%@", _status.photo.media_url];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        } else {
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.delegate = nil;
+            alert.message = @"URLを開けません";
+            alert.title = @"エラー";
+            int okIndex = [alert addButtonWithTitle:@"OK"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert show];
+        }
+        return;
+    }
+    
+    //// Open With Chrome
+    if(buttonIndex == _actionSheetOpenwithChromeIndex){
+        NSString* urlString = [NSString stringWithFormat:@"%@", _status.photo.media_url];
+        urlString = [urlString stringByReplacingOccurrencesOfString:@"http" withString:@"googlechrome"];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        } else {
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.delegate = nil;
+            alert.message = @"URLを開けません";
+            alert.title = @"エラー";
+            int okIndex = [alert addButtonWithTitle:@"OK"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert show];
+        }
+        return;
+    }
+    
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
