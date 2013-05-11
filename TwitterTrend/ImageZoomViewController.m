@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     self.navigationController.navigationBarHidden = YES;
+    _state = ImageZoomViewStateReady;
     
     //// Scroll View
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, [UIScreen screenRect].size.height - 20.0f)];
@@ -108,11 +109,82 @@
 
 - (void)didLongTapped:(id)sender
 {
-    dlog(@"##############");
+    if(_state == ImageZoomViewStateReady){
+        _state = ImageZoomViewStateActionSheetShowing;
+        if(!_sheet){
+            _sheet = [[UIActionSheet alloc] init];
+            _sheet.title = self.status.photo.media_url;
+            _sheet.delegate = self;
+            _actionSheetBackIndex = [_sheet addButtonWithTitle:@"画像を閉じる"];
+            _actionSheetUrlCopyIndex = [_sheet addButtonWithTitle:@"URLをコピー"];
+            _actionSheetOpenwithTwitterIndex = [_sheet addButtonWithTitle:@"Twitterアプリで開く"];
+            _actionSheetOpenWithSafariIndex = [_sheet addButtonWithTitle:@"Safariで開く"];
+            _actionSheetOpenwithChromeIndex = [_sheet addButtonWithTitle:@"Chromeで開く"];
+            _actionSheetCancelIndex = [_sheet addButtonWithTitle:@"キャンセル"];
+            [_sheet setCancelButtonIndex:_actionSheetCancelIndex];
+        }
+        [_sheet showInView:self.view];
+    }
+}
+
+#pragma mark UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //// Back
+    if(buttonIndex == _actionSheetBackIndex){
+        [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];        [self back];
+        return;
+    }
+    
+    //// Copy URL
+    if (buttonIndex == _actionSheetUrlCopyIndex){
+        UIPasteboard *board = [UIPasteboard generalPasteboard];
+        [board setValue:_status.photo.media_url forPasteboardType:@"public.utf8-plain-text"];
+        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+        alert.delegate = nil;
+        alert.message = @"コピーしました";
+        alert.title = @"";
+        int okIndex = [alert addButtonWithTitle:@"OK"];
+        [alert setCancelButtonIndex:okIndex];
+        [alert show];
+        return;
+    }
+    
+    //// Open With Twitter App
+    if(buttonIndex == _actionSheetOpenwithTwitterIndex){
+        NSString* urlString = [NSString stringWithFormat:@"twitter://status?id=%@", _status.id_string];
+        dlog(@"%@", urlString);
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {            
+            [[UIApplication sharedApplication] openURL:url];
+        } else {
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.delegate = nil;
+            alert.message = @"URLを開けません";
+            alert.title = @"エラー";
+            int okIndex = [alert addButtonWithTitle:@"OK"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert show];
+            return;
+
+        }
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    _state = ImageZoomViewStateReady;
 }
 
 - (void)back
 {
+    if(_sheet){
+        _sheet.delegate = nil;
+        _sheet = nil;
+    }
+    
     self.navigationController.navigationBarHidden = NO;
     //// Animation
     CATransition* transition = [CATransition animation];

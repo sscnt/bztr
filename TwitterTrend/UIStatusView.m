@@ -29,7 +29,7 @@
         [self layoutFooter];
         
         //// Drop Shadow
-        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height) cornerRadius:_radius];
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height) cornerRadius:_radius];
         self.backgroundColor = [UIColor clearColor];
         self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
         self.layer.shadowRadius = 1.0f;
@@ -46,20 +46,9 @@
     //// General Decralations
     CGFloat wrapperPadding = 16.0f;
     CGFloat innerPadding = 12.0f;
-    CGFloat footerHeight = 35.0f;
-    CGFloat photoHeight = 0.0f;
-    
-    //// Calc Photo Height
-    if([_status.type isEqualToString:@"photo"]){
-        CGFloat padding = 10.0f;
-        CGFloat height = _status.photo.height;
-        CGFloat areaWidth = [UIScreen screenSize].width - 66.0f;
-        if(_status.photo.width > areaWidth){
-            height = _status.photo.height * areaWidth / _status.photo.width;
-        }
-        photoHeight = height + padding;
-    }
-    CGRect frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _bottomY + photoHeight + footerHeight + wrapperPadding + innerPadding);
+    CGFloat footerHeight = 31.0f;
+
+    CGRect frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _bottomY + footerHeight + wrapperPadding + innerPadding);
     self.frame = frame;
 }
 
@@ -93,7 +82,7 @@
 {
     [self layoutHeaderProfileImage];
     [self layoutHeaderName];
-    _userOpenWithButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.frame.size.width - 20.0f, 43.0f)];
+    _userOpenWithButton = [[UIStatusUserButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.frame.size.width - 20.0f, 43.0f)];
     _userOpenWithButton.backgroundColor = [UIColor clearColor];
     [_userOpenWithButton addTarget:self action:@selector(didClickUserOpenWithButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_userOpenWithButton];
@@ -187,7 +176,7 @@
         } failureBlock:nil];
         [wrapper addSubview:_imageView];
         [self addSubview:wrapper];
-        _bottomY = wrapper.bottom;
+        _bottomY = wrapper.bottom + 4.0f;
     }
     
     //// Time
@@ -250,7 +239,7 @@
 - (void)didClickImage
 {
     dlog(@"didClickImage");
-    [self.delegate didClickImage:_imageView.image];
+    [self.delegate didClickImage:_imageView.image status:_status];
 }
 
 - (void)didClickUserOpenWithButton

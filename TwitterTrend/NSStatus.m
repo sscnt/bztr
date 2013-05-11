@@ -27,8 +27,21 @@
             self.retweet_count = [[json objectForKey:@"retweet_count"] integerValue];
         }
         self.id = 0;
+        self.id_string = @"0";
         if([json objectForKey:@"id"] != nil){
             self.id = [[json objectForKey:@"id"] doubleValue];
+            self.id_string = [NSString stringWithFormat:@"%f", self.id];
+            NSString* pattern = @"(.+)\\.0+$";
+            NSString* replacement = @"$1";
+ 
+            NSRegularExpression* regexp = [
+                NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil
+            ];
+            
+            NSString* replacedString = [regexp stringByReplacingMatchesInString:self.id_string options:NSMatchingReportProgress range:NSMakeRange(0, self.id_string.length) withTemplate:replacement];
+            
+            self.id_string = replacedString;
+            
         }
         self.text = @"";
         if([json objectForKey:@"text"] != nil){

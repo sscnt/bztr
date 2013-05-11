@@ -203,7 +203,7 @@
 
 
 #pragma mark UIStatusViewDelegate
-- (void)didClickImage:(UIImage *)image
+- (void)didClickImage:(UIImage *)image status:(NSStatus *)status
 {
     //// Animation
     CATransition* transition = [CATransition animation];
@@ -214,6 +214,7 @@
     //// Viewcontroller
     ImageZoomViewController* controller = [[ImageZoomViewController alloc] init];
     controller.image = image;
+    controller.status = status;
     
     //// Push
     [self.tabBarController.navigationController.view.layer addAnimation:transition forKey:nil];

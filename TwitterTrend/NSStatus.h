@@ -15,6 +15,7 @@
 - (id)initWithJsonObject:(NSDictionary*)json;
 
 @property (nonatomic, assign) double id;
+@property (nonatomic, strong) NSString* id_string;
 @property (nonatomic, assign) NSInteger created_at;
 @property (nonatomic, assign) NSInteger favorite_count;
 @property (nonatomic, assign) NSInteger retweet_count;

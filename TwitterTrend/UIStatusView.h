@@ -11,10 +11,11 @@
 #import "common.h"
 #import <QuartzCore/CALayer.h>
 #import "JMImageCache.h"
+#import "UIStatusUserButton.h"
 
 @protocol UIStatusViewDelegate <NSObject>
 
-- (void)didClickImage:(UIImage*)image;
+- (void)didClickImage:(UIImage*)image status:(NSStatus*)status;;
 - (void)didClickUserOpenWithButton:(NSStatus*)status;
 - (void)didClickStatusOpenWithButton:(NSStatus*)status;
 
@@ -27,7 +28,7 @@
     NSString* _media_url;
     UIImageView* _imageView;
     CGFloat _radius;
-    UIButton* _userOpenWithButton;
+    UIStatusUserButton* _userOpenWithButton;
     UIButton* _statusOpenWithButton;
     CGFloat _bottomY;
 }

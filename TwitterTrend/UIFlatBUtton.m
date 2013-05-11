@@ -32,6 +32,12 @@
     [self.titleLabel setShadowOffset:CGSizeMake(1.0f, 1.0f)];
 }
 
+- (void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     //// General Decralations
@@ -48,6 +54,11 @@
     NSArray* gradientColors = [NSArray arrayWithObjects:
                                (id)self.gradientTopColor.CGColor,
                                (id)self.gradientBottomColor.CGColor,nil];
+    if(self.highlighted){
+        gradientColors = [NSArray arrayWithObjects:
+                                   (id)self.gradientBottomColor.CGColor,
+                                   (id)self.gradientBottomColor.CGColor,nil];
+    }
     CGFloat gradientLocations[] = {0, 1};
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocations);
     //////// Drawing

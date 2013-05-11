@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B02173E04920084FC51 /* UIStatusUserButton.m */; };
+		58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B08173E0FE00084FC51 /* UIBlackAlertView.m */; };
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
 		580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241F3173697E500C64E28 /* ImageZoomViewController.m */; };
 		580409BC173619B00028EAD4 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideViewController.m */; };
@@ -78,6 +80,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58018B01173E04920084FC51 /* UIStatusUserButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusUserButton.h; sourceTree = "<group>"; };
+		58018B02173E04920084FC51 /* UIStatusUserButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusUserButton.m; sourceTree = "<group>"; };
+		58018B07173E0FE00084FC51 /* UIBlackAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBlackAlertView.h; sourceTree = "<group>"; };
+		58018B08173E0FE00084FC51 /* UIBlackAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBlackAlertView.m; sourceTree = "<group>"; };
 		580241EE1736644900C64E28 /* UITwitterScrollHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollHeaderView.h; sourceTree = "<group>"; };
 		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
 		580241F2173697E500C64E28 /* ImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageZoomViewController.h; sourceTree = "<group>"; };
@@ -407,6 +413,8 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				58018B07173E0FE00084FC51 /* UIBlackAlertView.h */,
+				58018B08173E0FE00084FC51 /* UIBlackAlertView.m */,
 				58FD57B7173CF39E001C4B8E /* Buttons */,
 				58FD57B6173CF387001C4B8E /* ActionSheet */,
 				58F5429B173797FB006C1FB2 /* SideMenu */,
@@ -438,6 +446,8 @@
 			children = (
 				58FDEDC51733BF01000C037A /* UIStatusView.h */,
 				58FDEDC61733BF01000C037A /* UIStatusView.m */,
+				58018B01173E04920084FC51 /* UIStatusUserButton.h */,
+				58018B02173E04920084FC51 /* UIStatusUserButton.m */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -670,6 +680,8 @@
 				58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */,
 				58FD57BA173CF3E2001C4B8E /* UIFlatButtonCreator.m in Sources */,
 				58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */,
+				58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */,
+				58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
