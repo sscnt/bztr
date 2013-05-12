@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/CALayer.h>
-#import "common.h"
+#import "UIColor+twitter.h"
+#import "UIDevice+resolution.h"
+#import "UIScreen+twitter.h"
+#import "UIViewController+navi.h"
 
 @interface TwitterNavigationController : UINavigationController
 

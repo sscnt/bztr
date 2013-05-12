@@ -275,6 +275,12 @@
     
 }
 
+- (void)swithToSettings
+{
+    UISideMenuButton* sender = [_menuButtons objectAtIndex:12];
+    [self didClickMenuButton:sender];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

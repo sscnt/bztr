@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "common.h"
-#import "commonViews.h"
+#import "UIColor+twitter.h"
+#import "UIDevice+resolution.h"
+#import "UIScreen+twitter.h"
+#import "UIView+extend.h"
+#import "UIViewController+navi.h"
+#import "UIBlackAlertView.h"
+#import "NSEnduserData.h"
+#import "DCRoundSwitch.h"
 
 @interface SettingsViewController : UIViewController
+{
+    DCRoundSwitch* _iCloudSwitch;
+}
+
+- (void)didSwitchToggledForICloudEnabled:(id)sender;
 
 @end

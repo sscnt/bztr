@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "common.h"
+#import "UIScreen+twitter.h"
+#import "UIView+extend.h"
 
 @interface TwitterTabBarController : UITabBarController
 

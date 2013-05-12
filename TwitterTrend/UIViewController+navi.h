@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JASidePanelController.h"
+#import "SideViewController.h"
 
 @interface UIViewController (navi)
 

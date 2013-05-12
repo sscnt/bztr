@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "NSStatus.h"
-#import "common.h"
+#import "UIColor+twitter.h"
+#import "UIDevice+resolution.h"
+#import "UIScreen+twitter.h"
+#import "UIView+extend.h"
 #import <QuartzCore/CALayer.h>
 #import "JMImageCache.h"
 #import "UIStatusUserButton.h"
 
 @protocol UIStatusViewDelegate <NSObject>
-
 - (void)didClickImage:(UIImage*)image status:(NSStatus*)status;;
 - (void)didClickUserOpenWithButton:(NSStatus*)status;
 - (void)didClickStatusOpenWithButton:(NSStatus*)status;
-
 @end
 
 @interface UIStatusView : UIView

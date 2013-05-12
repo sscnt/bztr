@@ -136,7 +136,6 @@
 		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
-		580FBE3D1732BA9200D57341 /* commonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonViews.h; sourceTree = "<group>"; };
 		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewDeveloperModel.h; sourceTree = "<group>"; };
 		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewDeveloperModel.m; sourceTree = "<group>"; };
 		583E92F7173E581300F7D3A7 /* NSEnduserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserData.h; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 		58FCF3F7173150F3000E382D /* UIDevice+resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+resolution.m"; sourceTree = "<group>"; };
 		58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollView.h; sourceTree = "<group>"; };
 		58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollView.m; sourceTree = "<group>"; };
-		58FCF3FE17316258000E382D /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		58FCF3FF173162CB000E382D /* UIColor+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+twitter.h"; sourceTree = "<group>"; };
 		58FCF400173162CB000E382D /* UIColor+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+twitter.m"; sourceTree = "<group>"; };
 		58FD57B8173CF3E2001C4B8E /* UIFlatButtonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlatButtonCreator.h; sourceTree = "<group>"; };
@@ -481,7 +479,6 @@
 				58FDEDC81733C00C000C037A /* Objects */,
 				58F9D30E17339178007100EF /* Images */,
 				58F9D2F917338156007100EF /* Libraries */,
-				58FCF3F517315095000E382D /* Common */,
 				58FCF3F417315025000E382D /* Categories */,
 				58FCF3F017314BEC000E382D /* UIView */,
 				58FCF3DC17314752000E382D /* AppDelegate.h */,
@@ -563,15 +560,6 @@
 				58F9D31A17339A39007100EF /* UIViewController+navi.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		58FCF3F517315095000E382D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				58FCF3FE17316258000E382D /* common.h */,
-				580FBE3D1732BA9200D57341 /* commonViews.h */,
-			);
-			name = Common;
 			sourceTree = "<group>";
 		};
 		58FCF3F917315E46000E382D /* Scroll */ = {

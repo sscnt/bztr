@@ -30,15 +30,31 @@
     [self showSettingsBtn];
     [self showMenuBtn];
     
+    //// iCloud
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    _iCloudSwitch = [[DCRoundSwitch alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 70.0f, 26.0f)];
+    [_iCloudSwitch addTarget:self action:@selector(didSwitchToggledForICloudEnabled:) forControlEvents:UIControlEventValueChanged];
+    _iCloudSwitch.onText = @"ON";
+    _iCloudSwitch.offText = @"OFF";
+    _iCloudSwitch.onTintColor = [UIColor colorWithWhite:56.0f/255.0f alpha:1.0f];
+    _iCloudSwitch.on = userData.iCloudEnabled;
+    [self.view addSubview:_iCloudSwitch];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
     //// NavigationBar
     self.tabBarController.navigationItem.title = @"設定";
-    
-    DCRoundSwitch* iCloudSwitch = [[DCRoundSwitch alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 70.0f, 26.0f)];
-    iCloudSwitch.onText = @"ON";
-    iCloudSwitch.offText = @"OFF";
-    iCloudSwitch.onTintColor = [UIColor colorWithWhite:56.0f/255.0f alpha:1.0f];
-    [self.view addSubview:iCloudSwitch];
-    
+    dlog(@"Title has changed");
+}
+
+#pragma mark Switch for iCloud
+
+- (void)didSwitchToggledForICloudEnabled:(id)sender
+{
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    userData.iCloudEnabled = _iCloudSwitch.isOn;
 }
 
 - (void)didReceiveMemoryWarning

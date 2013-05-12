@@ -38,12 +38,12 @@ static NSEnduserData* _sharedEnduserData = nil;
     self = [super init];
     if(self){
         //// Set Keys
-        userDefaultsKeyForiCloudEnabled = @"iCloudEnabled";
+        userDefaultsKeyForiCloudEnabled = @"iCloud_enabled";
         userDefaultsKeyForRegistered = @"registered";
         userDefaultsKeyForUserId = @"user_id";
         userDefaultsKeyForUserToken = @"user_token";
         userDefaultsKeyForUserTokenSecret = @"user_token_secret";
-        userDefaultsKeyForLastAnnouncementTime = @"LastAnnouncementTime";
+        userDefaultsKeyForLastAnnouncementTime = @"last_announcement_time";
         
         //// Load Data
         NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];

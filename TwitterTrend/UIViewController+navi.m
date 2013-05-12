@@ -35,7 +35,8 @@
 
 - (void)showSettings:(id)sender
 {
-    
+    SideViewController* controller = (SideViewController*)[self sidePanelController].leftPanel;
+    [controller swithToSettings];
 }
 
 - (JASidePanelController *)sidePanelController {

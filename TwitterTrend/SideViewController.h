@@ -10,12 +10,12 @@
 #import "UIViewController+navi.h"
 #import "UIScreen+twitter.h"
 #import "UIDevice+resolution.h"
-#import "UITwitterScrollView.h"
 #import "UISideMenuHeaderView.h"
 #import "UISideMenuButton.h"
 #import "UISideMenuSeparatorView.h"
 #import "TwitterTimelineViewController.h"
 #import "NSMenuItem.h"
+#import "UITwitterScrollView.h"
 
 @interface SideViewController : UIViewController
 {
@@ -29,5 +29,7 @@
 - (void)setMenuButtonItems;
 - (void)showButtons;
 - (void)didClickMenuButton:(id)sender;
+
+- (void)swithToSettings;
 
 @end

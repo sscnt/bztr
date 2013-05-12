@@ -23,7 +23,6 @@
     [titleBarAttributes setValue:[UIColor blackColor] forKey:UITextAttributeTextShadowColor];
     [titleBarAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(1, 1)] forKey:UITextAttributeTextShadowOffset];
 
-
     [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
     
     UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect:CGRectMake(-6.0, 0.0, 332.0, self.navigationBar.frame.size.height + 1.0)];
@@ -40,7 +39,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
 }
 
 @end

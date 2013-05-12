@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "common.h"
-#import "commonViews.h"
+#import "UIColor+twitter.h"
+#import "UIDevice+resolution.h"
+#import "UIScreen+twitter.h"
+#import "UIView+extend.h"
+#import "UIViewController+navi.h"
+#import "NSRequestParams.h"
+#import "UIBlackAlertView.h"
+#import "UITwitterBackgroundView.h"
+#import "UITwitterScrollView.h"
+#import "SVProgressHUD.h"
+#import "DCRoundSwitch.h"
 #import "TwitterTimelineViewStatusesModel.h"
 #import "TwitterTimelineViewDeveloperModel.h"
 #import "TwitterTimelineViewEnduserModel.h"
@@ -36,7 +45,7 @@ typedef NS_ENUM(int, AlertViewIdentifier){
     AlertViewIdentifierFetchingAnnouncement
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate>
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate>
 {
     __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;

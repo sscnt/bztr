@@ -36,7 +36,7 @@
 	CGFloat colorStops[2] = {0.0, 1.0};
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGFloat innerGlossStartColorComponents[] = {1.0, 1.0, 1.0, 0.14};
-	CGFloat innerGlossEndColorComponents[] = {1.0, 1.0, 1.0, 0.50};
+	CGFloat innerGlossEndColorComponents[] = {1.0, 1.0, 1.0, 0.20};
 	CGColorRef topColor = CGColorCreate(colorSpace, innerGlossStartColorComponents);
 	CGColorRef bottomColor = CGColorCreate(colorSpace, innerGlossEndColorComponents);
 	CGColorRef colors[] = { topColor, bottomColor };

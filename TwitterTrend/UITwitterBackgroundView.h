@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "common.h"
+#import "UIScreen+twitter.h"
+#import "UIViewController+navi.h"
+
 
 @interface UITwitterBackgroundView : UIView
 
