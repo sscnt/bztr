@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, TwitterTimelineViewEnduerModelApiIdentifier)
 @interface TwitterTimelineViewEnduserModel : NSObject <NSTrendApiDelegate>
 {
     NSTrendApi* _apiForRegistration;
+    NSTrendApi* _apiForFetchingUserData;
 }
 @property (nonatomic, weak) id<TwitterTimelineViewEnduserModelDelegate> delegate;
 
