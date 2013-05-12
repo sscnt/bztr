@@ -20,6 +20,7 @@
     
     BOOL _registered;
     BOOL _iCloudEnabled;
+    BOOL _premium;
     NSInteger _user_id;
     NSInteger _last_announcement_time;
     NSString* _user_token;
@@ -27,6 +28,7 @@
 }
 
 @property (nonatomic, assign) BOOL registered;
+@property (nonatomic, assign) BOOL premium;
 @property (nonatomic, assign) BOOL iCloudEnabled;
 @property (nonatomic, assign) NSInteger user_id;
 @property (nonatomic, assign) NSInteger last_announcement_time;

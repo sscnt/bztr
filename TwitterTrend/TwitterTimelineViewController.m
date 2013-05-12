@@ -40,8 +40,10 @@
         [alert addButtonWithTitle:@"保存する"];
         [alert show];
         return;
+    } else {
+        [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
+        [_modelEnduser fetchUser];
     }
-    [self initializeController];
 }
 
 - (void)initializeController
@@ -195,6 +197,36 @@
 }
 
 - (void)didFailToRegisterWithError:(NSString *)error
+{
+    [SVProgressHUD dismiss];
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = error;
+    alert.title = @"エラー";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
+}
+
+- (void)didFetchUserData
+{
+    [self initializeController];
+}
+
+- (void)didFetchUserDataWithAnnouncement:(NSString *)announcement
+{
+    [SVProgressHUD dismiss];
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = self;
+    alert.tag = AlertViewIdentifierFetchingAnnouncement;
+    alert.message = announcement;
+    alert.title = @"お知らせ";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
+}
+
+- (void)didFailToFetchUserDataWithError:(NSString *)error
 {
     [SVProgressHUD dismiss];
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
@@ -402,6 +434,12 @@
             userData.iCloudEnabled = YES;
         }
         [self initializeUser];
+        return;
+    }
+    
+    //// Fetching Announcement
+    if(alertView.tag == AlertViewIdentifierFetchingAnnouncement){
+        [self initializeController];
         return;
     }
 }

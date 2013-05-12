@@ -68,6 +68,7 @@ static NSEnduserData* _sharedEnduserData = nil;
     _user_token = [userDefaults stringForKey:userDefaultsKeyForUserToken];
     _user_token_secret = [userDefaults stringForKey:userDefaultsKeyForUserTokenSecret];
     _last_announcement_time = [userDefaults integerForKey:userDefaultsKeyForLastAnnouncementTime];
+    _premium = NO;
 }
 
 - (NSInteger)user_id
@@ -107,6 +108,16 @@ static NSEnduserData* _sharedEnduserData = nil;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:registered forKey:userDefaultsKeyForRegistered];
     [userDefaults synchronize];
+}
+
+- (BOOL)premium
+{
+    return _premium;
+}
+
+- (void)setPremium:(BOOL)premium
+{
+    _premium = premium;
 }
 
 - (BOOL)iCloudEnabled

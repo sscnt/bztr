@@ -32,7 +32,8 @@ typedef NS_ENUM(int, ActionSheetTag){
 
 typedef NS_ENUM(int, AlertViewIdentifier){
     AlertViewIdentifierDeveloperBlock = 0,
-    AlertViewIdentifierRegistration
+    AlertViewIdentifierRegistration,
+    AlertViewIdentifierFetchingAnnouncement
 };
 
 @interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate, UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate>

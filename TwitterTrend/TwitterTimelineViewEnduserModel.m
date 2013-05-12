@@ -54,6 +54,12 @@
         [self.delegate didFailToRegisterWithError:error];
         return;
     }
+    
+    //// Fetching
+    if(identifier == TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData){
+        [self.delegate didFailToFetchUserDataWithError:error];
+        return;
+    }
 }
 
 - (void)apiDidReturnResult:(NSDictionary *)json WithIdentifier:(NSInteger)identifier
@@ -82,6 +88,19 @@
     
     //// Fetching
     if(identifier == TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData){
+        NSEnduserFetched* fetchedData = [[NSEnduserFetched alloc] initWithJsonObject:json];
+        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        
+        if(fetchedData.premium == 1){
+            userData.premium = YES;
+        }
+        if(fetchedData.announcement.length > 0){
+            userData.last_announcement_time = fetchedData.announcement_time + 1;
+            [self.delegate didFetchUserDataWithAnnouncement:fetchedData.announcement];
+        }else{
+            [self.delegate didFetchUserData];
+        }
+        
         return;
     }
 }

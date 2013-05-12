@@ -11,6 +11,7 @@
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
 #import "NSEnduserRegistration.h"
+#import "NSEnduserFetched.h"
 
 @protocol TwitterTimelineViewEnduserModelDelegate <NSObject>
 
@@ -18,6 +19,7 @@
 - (void)didRegisterUserAndSaved;
 - (void)didFailToRegisterWithError:(NSString*)error;
 - (void)didFetchUserData;
+- (void)didFetchUserDataWithAnnouncement:(NSString*)announcement;
 - (void)didFailToFetchUserDataWithError:(NSString*)error;
 @end
 

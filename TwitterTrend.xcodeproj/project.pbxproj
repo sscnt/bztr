@@ -22,6 +22,7 @@
 		5804D294173F67390000B03B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804D28E173F67390000B03B /* FMDatabaseQueue.m */; };
 		5804D295173F67390000B03B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804D290173F67390000B03B /* FMResultSet.m */; };
 		5804D297173F71810000B03B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804D296173F71800000B03B /* libsqlite3.0.dylib */; };
+		5804D29A173F8ED20000B03B /* NSEnduserFetched.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804D299173F8ED10000B03B /* NSEnduserFetched.m */; };
 		580CEEC1173BD2F90050470F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBB173BD2F90050470F /* Icon-72.png */; };
 		580CEEC2173BD2F90050470F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBC173BD2F90050470F /* Icon-Small-50.png */; };
 		580CEEC3173BD2F90050470F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBD173BD2F90050470F /* Icon-Small.png */; };
@@ -118,6 +119,8 @@
 		5804D28F173F67390000B03B /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		5804D290173F67390000B03B /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		5804D296173F71800000B03B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5804D298173F8ED10000B03B /* NSEnduserFetched.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserFetched.h; sourceTree = "<group>"; };
+		5804D299173F8ED10000B03B /* NSEnduserFetched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSEnduserFetched.m; sourceTree = "<group>"; };
 		580CEEBB173BD2F90050470F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		580CEEBC173BD2F90050470F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		580CEEBD173BD2F90050470F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -598,6 +601,8 @@
 				583E92F8173E581400F7D3A7 /* NSEnduserData.m */,
 				5804D27F173F53790000B03B /* NSEnduserRegistration.h */,
 				5804D280173F53790000B03B /* NSEnduserRegistration.m */,
+				5804D298173F8ED10000B03B /* NSEnduserFetched.h */,
+				5804D299173F8ED10000B03B /* NSEnduserFetched.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 				5804D293173F67390000B03B /* FMDatabasePool.m in Sources */,
 				5804D294173F67390000B03B /* FMDatabaseQueue.m in Sources */,
 				5804D295173F67390000B03B /* FMResultSet.m in Sources */,
+				5804D29A173F8ED20000B03B /* NSEnduserFetched.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
