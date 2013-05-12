@@ -27,8 +27,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
-    [self showSettingsBtn];
-    [self showMenuBtn];
     
     //// iCloud
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
@@ -46,7 +44,6 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = @"設定";
-    dlog(@"Title has changed");
 }
 
 #pragma mark Switch for iCloud

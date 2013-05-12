@@ -14,9 +14,8 @@
 
 @implementation SideViewController
 
-- (void)viewDidLoad
+- (void)awakeFromNib
 {
-    [super viewDidLoad];
     _currentButtonIndex = 0;
     _menuButtons = [NSMutableArray array];
     
@@ -42,7 +41,12 @@
     
     [self setMenuButtonItems];
     [self showButtons];
-    
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];    
 }
 
 - (void)setMenuButtonItems
@@ -158,19 +162,19 @@
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"使い方";
-    item.type = NSMenuItemTypeSettings;
+    item.type = NSMenuItemTypeHelp;
     item.index = 13;
     [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"ご意見・不具合の報告など";
-    item.type = NSMenuItemTypeSettings;
+    item.type = NSMenuItemTypeAsk;
     item.index = 14;
     [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
     item.buttonTitle = @"プレミアムサービスについて";
-    item.type = NSMenuItemTypeSettings;
+    item.type = NSMenuItemTypePremium;
     item.index = 15;
     [_menuButtonItems addObject:item];
 }
@@ -269,6 +273,27 @@
     //// Settings
     if(item.type == NSMenuItemTypeSettings){
         tabbarController.selectedIndex = 1;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        return;
+    }
+    
+    //// Help
+    if(item.type == NSMenuItemTypeHelp){
+        tabbarController.selectedIndex = 2;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        return;
+    }
+    
+    //// Report
+    if(item.type == NSMenuItemTypeAsk){
+        tabbarController.selectedIndex = 3;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        return;
+    }
+    
+    //// Premium
+    if(item.type == NSMenuItemTypePremium){
+        tabbarController.selectedIndex = 4;
         [[self sidePanelController] showCenterPanelAnimated:YES];
         return;
     }

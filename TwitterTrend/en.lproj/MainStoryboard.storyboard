@@ -76,6 +76,9 @@
                     <connections>
                         <segue destination="hOX-V4-0vL" kind="relationship" relationship="viewControllers" id="rbS-S7-hXo"/>
                         <segue destination="cV4-Iz-8On" kind="relationship" relationship="viewControllers" id="cO8-vc-Xrv"/>
+                        <segue destination="LRe-Pm-TgD" kind="relationship" relationship="viewControllers" id="d59-aj-lAG"/>
+                        <segue destination="its-aG-paI" kind="relationship" relationship="viewControllers" id="E0R-Ti-NQm"/>
+                        <segue destination="Vbg-0Y-MFH" kind="relationship" relationship="viewControllers" id="1d0-qI-wDc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pl-mJ-P9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,6 +99,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mt-h5-mg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1249" y="517"/>
+        </scene>
+        <!--Help View Controller - Item-->
+        <scene sceneID="V9w-cC-9td">
+            <objects>
+                <viewController id="LRe-Pm-TgD" customClass="HelpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V1Y-W9-h7t">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="pyA-xD-Prm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XRm-Ai-uAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="1258"/>
+        </scene>
+        <!--Premium View Controller - Item-->
+        <scene sceneID="t8C-hq-9Yr">
+            <objects>
+                <viewController id="Vbg-0Y-MFH" customClass="PremiumViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WVP-24-szK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="B8b-78-YyK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OXx-4z-pNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="2742"/>
+        </scene>
+        <!--Report View Controller - Item-->
+        <scene sceneID="aRg-BB-yjM">
+            <objects>
+                <viewController id="its-aG-paI" customClass="ReportViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r0Z-N8-1A7">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="4E2-Cn-0B1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ooC-Cd-KUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="1986"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
