@@ -40,6 +40,8 @@
     NSRequestParams* params = [[NSRequestParams alloc] init];
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     params.user_id_string = [NSString stringWithFormat:@"%d", userData.user_id];
+    params.user_token = userData.user_token;
+    params.user_token_secret = userData.user_token_secret;
     [_apiForFetchingUserData call:@"enduser/fetch" params:params];
 }
 
@@ -58,7 +60,6 @@
 {
     //// Registration
     if(identifier == TwitterTimelineViewEnduserModelApiIdentifierRegistration){
-        dlog(@"%@", json);
         NSEnduserData* userData = [NSEnduserData sharedEnduserData];
         
         //// Check JSON
@@ -76,6 +77,11 @@
         
         //// Delegate
         [self.delegate didRegisterUserAndSaved];
+        return;
+    }
+    
+    //// Fetching
+    if(identifier == TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData){
         return;
     }
 }

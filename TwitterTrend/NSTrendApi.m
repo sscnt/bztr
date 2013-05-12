@@ -38,6 +38,15 @@
         bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"target_user_id",params.user_id_string,bodyString];
     }
     
+    //// Tokens
+    if(![params.user_token_secret isEqualToString:@""]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"user_token_secret",params.user_token_secret,bodyString];
+    }
+    if(![params.user_token isEqualToString:@""]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"user_token",params.user_token,bodyString];
+    }
+
+    
     return bodyString;
 }
 
