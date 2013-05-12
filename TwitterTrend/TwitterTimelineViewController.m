@@ -33,7 +33,7 @@
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
         alert.tag = AlertViewIdentifierRegistration;
         alert.delegate = self;
-        alert.message = @"iCloudにユーザー情報を保存しますか？";
+        alert.message = @"アプリ再インストール時に復元できるように、iCloudにユーザー情報を保存しますか？";
         alert.title = @"初期設定";
         int okIndex = [alert addButtonWithTitle:@"しない"];
         [alert setCancelButtonIndex:okIndex];

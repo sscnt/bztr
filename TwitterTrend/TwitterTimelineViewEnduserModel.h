@@ -10,6 +10,7 @@
 #import "NSEnduserData.h"
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
+#import "NSEnduserRegistration.h"
 
 @protocol TwitterTimelineViewEnduserModelDelegate <NSObject>
 

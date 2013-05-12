@@ -42,8 +42,23 @@
 {
     //// Registration
     if(identifier == TwitterTimelineViewEnduserModelApiIdentifierRegistration){
+        dlog(@"%@", json);
         NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        
+        //// Check JSON
+        NSEnduserRegistration* registration = [[NSEnduserRegistration alloc] initWithJsonObject:json];
+        if(registration.user_id == 0 || registration.user_token.length == 0 || registration.user_token_secret.length == 0){
+            [self apiDidReturnError:@"初期設定に失敗しました" WithIdentifier:identifier];
+            return;
+        }
+        
+        //// Set UserDefaults
         userData.registered = YES;
+        userData.user_id = registration.user_id;
+        userData.user_token = registration.user_token;
+        userData.user_token_secret = registration.user_token_secret;
+        
+        //// Delegate
         [self.delegate didRegisterUserAndSaved];
         return;
     }
