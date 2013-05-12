@@ -78,7 +78,7 @@
     NSString* message = @"";
     switch (statusCode) {
         case 0:
-            message = @"ネットワークエラーです。インターネットに接続されていることを確認してください。";
+            message = @"インターネットに接続されていることを確認してください。";
             break;
         case 404:
             message = @"サーバーが見つかりません。App Storeで修正済みの最新バージョンがリリースされている可能性があります。";
@@ -88,6 +88,10 @@
             break;
     }
     dlog(@"An error occured:%@", message);
+    if(self.identifier){
+        [self.delegate apiDidReturnError:message WithIdentifier:self.identifier];
+        return;
+    }
     [self.delegate apiDidReturnError:message];
 }
 
