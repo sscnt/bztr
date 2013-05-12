@@ -20,8 +20,8 @@
         }
         
         self.announcement = @"";
-        if([json objectForKey:@"announcment"] != nil){
-            self.announcement = [json objectForKey:@"announcment"];
+        if([json objectForKey:@"announcement"] != nil){
+            self.announcement = [json objectForKey:@"announcement"];
         }
         
         self.announcement_time = 0;

@@ -41,6 +41,7 @@
 		58F542A11737A499006C1FB2 /* UISideMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A01737A499006C1FB2 /* UISideMenuButton.m */; };
 		58F542A41737ACB1006C1FB2 /* UISideMenuSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */; };
 		58F542A71737E599006C1FB2 /* NSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F542A61737E598006C1FB2 /* NSMenuItem.m */; };
+		58F633CF173F962400673AA8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F633CE173F962400673AA8 /* SettingsViewController.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
 		58F82D04173BD8E100F8F080 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D01173BD8E100F8F080 /* Default-568h@2x.png */; };
@@ -149,6 +150,8 @@
 		58F542A31737ACB1006C1FB2 /* UISideMenuSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISideMenuSeparatorView.m; sourceTree = "<group>"; };
 		58F542A51737E598006C1FB2 /* NSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMenuItem.h; sourceTree = "<group>"; };
 		58F542A61737E598006C1FB2 /* NSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMenuItem.m; sourceTree = "<group>"; };
+		58F633CD173F962400673AA8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		58F633CE173F962400673AA8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		58F7BA86173546F40012AAEC /* JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMImageCache.h; sourceTree = "<group>"; };
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 		58FCA5C5173BA0B100B3DCEE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				58F633CD173F962400673AA8 /* SettingsViewController.h */,
+				58F633CE173F962400673AA8 /* SettingsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				5804D294173F67390000B03B /* FMDatabaseQueue.m in Sources */,
 				5804D295173F67390000B03B /* FMResultSet.m in Sources */,
 				5804D29A173F8ED20000B03B /* NSEnduserFetched.m in Sources */,
+				58F633CF173F962400673AA8 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

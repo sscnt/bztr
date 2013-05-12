@@ -169,7 +169,7 @@
     [_menuButtonItems addObject:item];
     
     item = [[NSMenuItem alloc] init];
-    item.buttonTitle = @"有料オプションについて";
+    item.buttonTitle = @"プレミアムサービスについて";
     item.type = NSMenuItemTypeSettings;
     item.index = 15;
     [_menuButtonItems addObject:item];
@@ -241,16 +241,6 @@
 {
     NSInteger selectedIndex = ((UISideMenuButton*)sender).tag;
     NSMenuItem* item = [self itemAtIndex:selectedIndex];    
-    
-    if(item.type == NSMenuItemTypeTimeline){        
-        TwitterTimelineViewController* controller = (TwitterTimelineViewController*)((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController).selectedViewController;
-        [controller restart];
-        controller.api = item.api;
-        controller.headerTitle = item.headerTitle;
-        controller.navigationBarTitle = item.navigationBarTitle;
-        [[self sidePanelController] showCenterPanelAnimated:YES];
-        [controller loadStatuses];
-    }
         
     for(int index = 0;index < [_menuButtons count];index++){
         UISideMenuButton* button = [_menuButtons objectAtIndex:index];
@@ -260,6 +250,29 @@
         }
     }
     _currentButtonIndex = selectedIndex;
+    
+    UITabBarController* tabbarController = ((UITabBarController*)((UINavigationController*)[self sidePanelController].centerPanel).visibleViewController);
+
+    //// Timeline
+    if(item.type == NSMenuItemTypeTimeline){
+        tabbarController.selectedIndex = 0;
+        TwitterTimelineViewController* controller = [[tabbarController viewControllers] objectAtIndex:0];
+        [controller restart];
+        controller.api = item.api;
+        controller.headerTitle = item.headerTitle;
+        controller.navigationBarTitle = item.navigationBarTitle;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        [controller loadStatuses];
+        return;
+    }
+    
+    //// Settings
+    if(item.type == NSMenuItemTypeSettings){
+        tabbarController.selectedIndex = 1;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
+        return;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

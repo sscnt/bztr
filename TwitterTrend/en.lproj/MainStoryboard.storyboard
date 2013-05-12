@@ -75,33 +75,29 @@
                     </tabBar>
                     <connections>
                         <segue destination="hOX-V4-0vL" kind="relationship" relationship="viewControllers" id="rbS-S7-hXo"/>
+                        <segue destination="cV4-Iz-8On" kind="relationship" relationship="viewControllers" id="cO8-vc-Xrv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pl-mJ-P9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715" y="103"/>
         </scene>
+        <!--Settings View Controller - Item-->
+        <scene sceneID="Yc3-qr-rBC">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="cV4-Iz-8On" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MEg-s8-esJ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="NmJ-C3-GQR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Mt-h5-mg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="517"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="JASidePanelController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
-        </class>
-        <class className="SidePanelController" superclassName="JASidePanelController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SidePanelController.h"/>
-        </class>
-        <class className="SideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SideViewController.h"/>
-        </class>
-        <class className="TwitterNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterNavigationController.h"/>
-        </class>
-        <class className="TwitterTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterTabBarController.h"/>
-        </class>
-        <class className="TwitterTimelineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwitterTimelineViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

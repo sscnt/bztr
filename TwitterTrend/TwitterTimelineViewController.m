@@ -26,6 +26,13 @@
     _modelEnduser = [[TwitterTimelineViewEnduserModel alloc] init];
     _modelEnduser.delegate = self;
     
+    //// View    
+    self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
+    [self.view addSubview:bg];
+    [self showMenuBtn];
+    [self showSettingsBtn];
+    
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     if(userData.registered == NO){
@@ -48,11 +55,6 @@
 
 - (void)initializeController
 {    
-    self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
-    UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
-    [self.view addSubview:bg];
-    [self showMenuBtn];
-    [self showSettingsBtn];
     
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
     [self.view addSubview:_scrollView];
