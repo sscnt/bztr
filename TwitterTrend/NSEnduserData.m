@@ -37,8 +37,16 @@ static NSEnduserData* _sharedEnduserData = nil;
 {
     self = [super init];
     if(self){
+        //// Set Keys
+        userDefaultsKeyForiCloudEnabled = @"iCloudEnabled";
+        userDefaultsKeyForRegistered = @"registered";
+        userDefaultsKeyForUserId = @"user_id";
+        userDefaultsKeyForUserToken = @"user_token";
+        userDefaultsKeyForUserTokenSecret = @"user_token_secret";
+        
+        //// Load Data
         NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-        _registered = [userDefaults boolForKey:@"registered"];
+        _registered = [userDefaults boolForKey:userDefaultsKeyForRegistered];
         if(_registered == YES){
             [self setData];
         } else {
@@ -51,7 +59,25 @@ static NSEnduserData* _sharedEnduserData = nil;
 
 - (void)setData
 {
-    
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    _user_id = [userDefaults integerForKey:userDefaultsKeyForUserId];
+    _registered = [userDefaults boolForKey:userDefaultsKeyForRegistered];
+    _iCloudEnabled = [userDefaults boolForKey:userDefaultsKeyForiCloudEnabled];
+    _user_token = [userDefaults stringForKey:userDefaultsKeyForUserToken];
+    _user_token_secret = [userDefaults stringForKey:userDefaultsKeyForUserTokenSecret];
+}
+
+- (NSInteger)user_id
+{
+    return _user_id;
+}
+
+- (void)setUser_id:(NSInteger)user_id
+{
+    _user_id = user_id;
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:user_id forKey:userDefaultsKeyForUserId];
+    [userDefaults synchronize];
 }
 
 - (BOOL)registered
@@ -63,16 +89,46 @@ static NSEnduserData* _sharedEnduserData = nil;
 {
     _registered = registered;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:registered forKey:@"registered"];
+    [userDefaults setBool:registered forKey:userDefaultsKeyForRegistered];
     [userDefaults synchronize];
 }
 
+- (BOOL)iCloudEnabled
+{
+    return _iCloudEnabled;
+}
 
 - (void)setICloudEnabled:(BOOL)iCloudEnabled
 {
     _iCloudEnabled = iCloudEnabled;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:iCloudEnabled forKey:@"iCloudEnabled"];
+    [userDefaults setBool:iCloudEnabled forKey:userDefaultsKeyForiCloudEnabled];
+    [userDefaults synchronize];
+}
+
+- (NSString*)user_token
+{
+    return _user_token;
+}
+
+- (void)setUser_token:(NSString *)user_token
+{
+    _user_token = user_token;
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:user_token forKey:userDefaultsKeyForUserToken];
+    [userDefaults synchronize];
+}
+
+- (NSString*)user_token_secret
+{
+    return _user_token_secret;
+}
+
+- (void)setUser_token_secret:(NSString *)user_token_secret
+{
+    _user_token_secret = user_token_secret;
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:user_token_secret forKey:userDefaultsKeyForUserTokenSecret];
     [userDefaults synchronize];
 }
 

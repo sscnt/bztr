@@ -8,9 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSEnduserData : NSUserDefaults
 {
+    NSString* userDefaultsKeyForRegistered;
+    NSString* userDefaultsKeyForiCloudEnabled;
+    NSString* userDefaultsKeyForUserId;
+    NSString* userDefaultsKeyForUserToken;
+    NSString* userDefaultsKeyForUserTokenSecret;
+    
     BOOL _registered;
+    BOOL _iCloudEnabled;
+    NSInteger _user_id;
+    NSString* _user_token;
+    NSString* _user_token_secret;
 }
 
 @property (nonatomic, assign) BOOL registered;
