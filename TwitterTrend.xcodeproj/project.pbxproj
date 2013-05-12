@@ -34,6 +34,10 @@
 		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */; };
 		583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F8173E581400F7D3A7 /* NSEnduserData.m */; };
 		583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */; };
+		58F3E33F173FBA5600896C82 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E338173FBA5600896C82 /* DCRoundSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		58F3E340173FBA5600896C82 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E33A173FBA5600896C82 /* DCRoundSwitchKnobLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		58F3E341173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E33C173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		58F3E342173FBA5600896C82 /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E33E173FBA5600896C82 /* DCRoundSwitchToggleLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58F5429817379269006C1FB2 /* SideMenuBg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */; };
 		58F5429917379269006C1FB2 /* SideMenuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429617379269006C1FB2 /* SideMenuBg.png */; };
 		58F5429A17379269006C1FB2 /* SideMenuBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5429717379269006C1FB2 /* SideMenuBg@2x.png */; };
@@ -139,6 +143,14 @@
 		583E92F8173E581400F7D3A7 /* NSEnduserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSEnduserData.m; sourceTree = "<group>"; };
 		583E92FA173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewEnduserModel.h; sourceTree = "<group>"; };
 		583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewEnduserModel.m; sourceTree = "<group>"; };
+		58F3E337173FBA5600896C82 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
+		58F3E338173FBA5600896C82 /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
+		58F3E339173FBA5600896C82 /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
+		58F3E33A173FBA5600896C82 /* DCRoundSwitchKnobLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchKnobLayer.m; sourceTree = "<group>"; };
+		58F3E33B173FBA5600896C82 /* DCRoundSwitchOutlineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchOutlineLayer.h; sourceTree = "<group>"; };
+		58F3E33C173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
+		58F3E33D173FBA5600896C82 /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
+		58F3E33E173FBA5600896C82 /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		58F5429517379269006C1FB2 /* SideMenuBg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg-568h@2x.png"; sourceTree = "<group>"; };
 		58F5429617379269006C1FB2 /* SideMenuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideMenuBg.png; sourceTree = "<group>"; };
 		58F5429717379269006C1FB2 /* SideMenuBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideMenuBg@2x.png"; sourceTree = "<group>"; };
@@ -290,6 +302,28 @@
 			name = Background;
 			sourceTree = "<group>";
 		};
+		58F3E335173FB9F100896C82 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		58F3E336173FBA5600896C82 /* DCRoundSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				58F3E337173FBA5600896C82 /* DCRoundSwitch.h */,
+				58F3E338173FBA5600896C82 /* DCRoundSwitch.m */,
+				58F3E339173FBA5600896C82 /* DCRoundSwitchKnobLayer.h */,
+				58F3E33A173FBA5600896C82 /* DCRoundSwitchKnobLayer.m */,
+				58F3E33B173FBA5600896C82 /* DCRoundSwitchOutlineLayer.h */,
+				58F3E33C173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m */,
+				58F3E33D173FBA5600896C82 /* DCRoundSwitchToggleLayer.h */,
+				58F3E33E173FBA5600896C82 /* DCRoundSwitchToggleLayer.m */,
+			);
+			path = DCRoundSwitch;
+			sourceTree = "<group>";
+		};
 		58F542941737924D006C1FB2 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +361,7 @@
 		58F9D2F917338156007100EF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				58F3E336173FBA5600896C82 /* DCRoundSwitch */,
 				5804D286173F672C0000B03B /* FMDB */,
 				580409BD173639DC0028EAD4 /* SVProgressHUD */,
 				58F7BA85173546B80012AAEC /* JMImageCache */,
@@ -475,6 +510,7 @@
 			children = (
 				58018B07173E0FE00084FC51 /* UIBlackAlertView.h */,
 				58018B08173E0FE00084FC51 /* UIBlackAlertView.m */,
+				58F3E335173FB9F100896C82 /* Settings */,
 				58FD57B7173CF39E001C4B8E /* Buttons */,
 				58FD57B6173CF387001C4B8E /* ActionSheet */,
 				58F5429B173797FB006C1FB2 /* SideMenu */,
@@ -764,6 +800,10 @@
 				5804D295173F67390000B03B /* FMResultSet.m in Sources */,
 				5804D29A173F8ED20000B03B /* NSEnduserFetched.m in Sources */,
 				58F633CF173F962400673AA8 /* SettingsViewController.m in Sources */,
+				58F3E33F173FBA5600896C82 /* DCRoundSwitch.m in Sources */,
+				58F3E340173FBA5600896C82 /* DCRoundSwitchKnobLayer.m in Sources */,
+				58F3E341173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m in Sources */,
+				58F3E342173FBA5600896C82 /* DCRoundSwitchToggleLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

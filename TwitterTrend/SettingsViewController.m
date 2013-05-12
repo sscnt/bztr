@@ -32,6 +32,13 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = @"設定";
+    
+    DCRoundSwitch* iCloudSwitch = [[DCRoundSwitch alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 70.0f, 26.0f)];
+    iCloudSwitch.onText = @"ON";
+    iCloudSwitch.offText = @"OFF";
+    iCloudSwitch.onTintColor = [UIColor colorWithWhite:56.0f/255.0f alpha:1.0f];
+    [self.view addSubview:iCloudSwitch];
+    
 }
 
 - (void)didReceiveMemoryWarning
