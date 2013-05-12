@@ -17,14 +17,30 @@
         _apiForRegistration = [[NSTrendApi alloc] init];
         _apiForRegistration.delegate = self;
         _apiForRegistration.identifier = TwitterTimelineViewEnduserModelApiIdentifierRegistration;
+        
+        _apiForFetchingUserData = [[NSTrendApi alloc] init];
+        _apiForFetchingUserData.delegate = self;
+        _apiForFetchingUserData.identifier = TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData;
     }
     return self;
 }
+
+#pragma mark Registration
 
 - (void)registerUser
 {
     NSRequestParams* params = [[NSRequestParams alloc] init];
     [_apiForRegistration call:@"enduser/register" params:params];
+}
+
+#pragma mark Fetcing
+
+- (void)fetchUser
+{
+    NSRequestParams* params = [[NSRequestParams alloc] init];
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    params.user_id_string = [NSString stringWithFormat:@"%d", userData.user_id];
+    [_apiForFetchingUserData call:@"enduser/fetch" params:params];
 }
 
 #pragma mark NSTrendApiDelegate
@@ -33,7 +49,7 @@
 {
     //// Registration
     if(identifier == TwitterTimelineViewEnduserModelApiIdentifierRegistration){
-        [self.delegate didRegistrationFailedWithError:error];
+        [self.delegate didFailToRegisterWithError:error];
         return;
     }
 }
@@ -62,6 +78,11 @@
         [self.delegate didRegisterUserAndSaved];
         return;
     }
+}
+
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 @end

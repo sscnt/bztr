@@ -10,16 +10,21 @@
 #import "NSRequestParams.h"
 #import "NSTrendApi.h"
 #import "NSStatus.h"
+#import "NSFilter.h"
 
 @protocol TwitterTimelineViewStatusesModelDelegate <NSObject>
+
+@optional
 - (void)didLoadStatuses:(NSArray*)statuses;
 - (void)didReturnError:(NSString*)error;
+- (void)didFailToPrepareFilter;
 @end
 
 @interface TwitterTimelineViewStatusesModel : NSObject <NSTrendApiDelegate>
 {
     NSMutableDictionary* _statuses;
     NSTrendApi* _api;
+    NSFilter* _filter;
 }
 
 @property (nonatomic, weak) id<TwitterTimelineViewStatusesModelDelegate> delegate;

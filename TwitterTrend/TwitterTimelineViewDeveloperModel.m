@@ -37,4 +37,9 @@
     [self.delegate didFinishDeveloperBlockingWithMessage:[json objectForKey:@"message"]];
 }
 
+- (void)dealloc
+{
+    self.delegate = nil;
+}
+
 @end

@@ -153,6 +153,24 @@
 {
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = error;
+    alert.title = @"エラー";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
+}
+
+- (void)didFailToPrepareFilter
+{
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = @"フィルター機能の初期化に失敗しました。";
+    alert.title = @"エラー";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
 }
 
 #pragma mark TwitterTimelineViewUsersModelDelegate
@@ -176,7 +194,7 @@
     [self didInitializeUser];
 }
 
-- (void)didRegistrationFailedWithError:(NSString *)error
+- (void)didFailToRegisterWithError:(NSString *)error
 {
     [SVProgressHUD dismiss];
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];

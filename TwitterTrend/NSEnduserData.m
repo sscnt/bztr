@@ -43,6 +43,7 @@ static NSEnduserData* _sharedEnduserData = nil;
         userDefaultsKeyForUserId = @"user_id";
         userDefaultsKeyForUserToken = @"user_token";
         userDefaultsKeyForUserTokenSecret = @"user_token_secret";
+        userDefaultsKeyForLastAnnouncementTime = @"LastAnnouncementTime";
         
         //// Load Data
         NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
@@ -52,6 +53,7 @@ static NSEnduserData* _sharedEnduserData = nil;
         } else {
             self.registered = NO;
             self.iCloudEnabled = NO;
+            self.last_announcement_time = 0;
         }
     }
     return self;
@@ -65,6 +67,7 @@ static NSEnduserData* _sharedEnduserData = nil;
     _iCloudEnabled = [userDefaults boolForKey:userDefaultsKeyForiCloudEnabled];
     _user_token = [userDefaults stringForKey:userDefaultsKeyForUserToken];
     _user_token_secret = [userDefaults stringForKey:userDefaultsKeyForUserTokenSecret];
+    _last_announcement_time = [userDefaults integerForKey:userDefaultsKeyForLastAnnouncementTime];
 }
 
 - (NSInteger)user_id
@@ -77,6 +80,19 @@ static NSEnduserData* _sharedEnduserData = nil;
     _user_id = user_id;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:user_id forKey:userDefaultsKeyForUserId];
+    [userDefaults synchronize];
+}
+
+- (NSInteger)last_announcement_time
+{
+    return _last_announcement_time;
+}
+
+- (void)setLast_announcement_time:(NSInteger)last_announce_time
+{
+    _last_announcement_time = last_announce_time;
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:_last_announcement_time forKey:userDefaultsKeyForLastAnnouncementTime];
     [userDefaults synchronize];
 }
 

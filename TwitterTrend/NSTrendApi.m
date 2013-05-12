@@ -130,4 +130,9 @@
     [self.delegate apiDidReturnError:message];
 }
 
+- (void)dealloc
+{
+    self.delegate = nil;
+}
+
 @end

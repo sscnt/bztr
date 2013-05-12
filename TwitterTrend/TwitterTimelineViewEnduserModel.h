@@ -16,13 +16,16 @@
 
 @optional
 - (void)didRegisterUserAndSaved;
-- (void)didRegistrationFailedWithError:(NSString*)error;
+- (void)didFailToRegisterWithError:(NSString*)error;
+- (void)didFetchUserData;
+- (void)didFailToFetchUserDataWithError:(NSString*)error;
 @end
 
 typedef NS_ENUM(NSInteger, TwitterTimelineViewEnduerModelApiIdentifier)
 {
     TwitterTimelineViewEnduerModelApiIdentifierError = 0,
-    TwitterTimelineViewEnduserModelApiIdentifierRegistration
+    TwitterTimelineViewEnduserModelApiIdentifierRegistration,
+    TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData
 };
 
 @interface TwitterTimelineViewEnduserModel : NSObject <NSTrendApiDelegate>
@@ -33,5 +36,7 @@ typedef NS_ENUM(NSInteger, TwitterTimelineViewEnduerModelApiIdentifier)
 @property (nonatomic, weak) id<TwitterTimelineViewEnduserModelDelegate> delegate;
 
 - (void)registerUser;
+
+- (void)fetchUser;
 
 @end

@@ -14,12 +14,14 @@
     NSString* userDefaultsKeyForRegistered;
     NSString* userDefaultsKeyForiCloudEnabled;
     NSString* userDefaultsKeyForUserId;
+    NSString* userDefaultsKeyForLastAnnouncementTime;
     NSString* userDefaultsKeyForUserToken;
     NSString* userDefaultsKeyForUserTokenSecret;
     
     BOOL _registered;
     BOOL _iCloudEnabled;
     NSInteger _user_id;
+    NSInteger _last_announcement_time;
     NSString* _user_token;
     NSString* _user_token_secret;
 }
@@ -27,8 +29,9 @@
 @property (nonatomic, assign) BOOL registered;
 @property (nonatomic, assign) BOOL iCloudEnabled;
 @property (nonatomic, assign) NSInteger user_id;
-@property (nonatomic, assign) NSString* user_token;
-@property (nonatomic, assign) NSString* user_token_secret;
+@property (nonatomic, assign) NSInteger last_announcement_time;
+@property (nonatomic, strong) NSString* user_token;
+@property (nonatomic, strong) NSString* user_token_secret;
 
 + (NSEnduserData*)sharedEnduserData;
 - (void)setData;
