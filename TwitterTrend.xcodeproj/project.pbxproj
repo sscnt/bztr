@@ -89,6 +89,7 @@
 		58FDE7AC1741104D0013CF4E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7A91741104D0013CF4E /* Default-568h@2x.png */; };
 		58FDE7AD1741104D0013CF4E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7AA1741104D0013CF4E /* Default.png */; };
 		58FDE7AE1741104D0013CF4E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7AB1741104D0013CF4E /* Default@2x.png */; };
+		58FDE7B1174123370013CF4E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FDE7B0174123370013CF4E /* Crashlytics.framework */; };
 		58FDEDC71733BF01000C037A /* UIStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDC61733BF01000C037A /* UIStatusView.m */; };
 		58FDEDCB1733C023000C037A /* NSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCA1733C023000C037A /* NSStatus.m */; };
 		58FDEDCE1733C1DF000C037A /* NSStatusUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCD1733C1DF000C037A /* NSStatusUser.m */; };
@@ -230,6 +231,7 @@
 		58FDE7A91741104D0013CF4E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		58FDE7AA1741104D0013CF4E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		58FDE7AB1741104D0013CF4E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		58FDE7B0174123370013CF4E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		58FDEDC51733BF01000C037A /* UIStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusView.h; sourceTree = "<group>"; };
 		58FDEDC61733BF01000C037A /* UIStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusView.m; sourceTree = "<group>"; };
 		58FDEDC91733C023000C037A /* NSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatus.h; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */,
 				58FCF3D017314752000E382D /* Foundation.framework in Frameworks */,
 				58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */,
+				58FDE7B1174123370013CF4E /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +504,7 @@
 		58FCF3CC17314752000E382D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58FDE7B0174123370013CF4E /* Crashlytics.framework */,
 				58FCF3CD17314752000E382D /* UIKit.framework */,
 				58FCF3CF17314752000E382D /* Foundation.framework */,
 				58FCF3D117314752000E382D /* CoreGraphics.framework */,
@@ -698,6 +702,7 @@
 				58FCF3C617314752000E382D /* Sources */,
 				58FCF3C717314752000E382D /* Frameworks */,
 				58FCF3C817314752000E382D /* Resources */,
+				58FDE7AF174122E00013CF4E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -774,6 +779,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58FDE7AF174122E00013CF4E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run a8f7ec67dfb4ba747a4f4ed2d8a07acd5b1e5bf6";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58FCF3C617314752000E382D /* Sources */ = {
@@ -918,11 +939,17 @@
 		58FCF3EE17314752000E382D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Toshiki Nakanishi (WRHUFP3254)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TwitterTrend/TwitterTrend-Prefix.pch";
 				INFOPLIST_FILE = "TwitterTrend/TwitterTrend-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterTrend;
+				PROVISIONING_PROFILE = "858B46C4-1B27-43DC-828D-5722440805B9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -930,11 +957,17 @@
 		58FCF3EF17314752000E382D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Toshiki Nakanishi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TwitterTrend/TwitterTrend-Prefix.pch";
 				INFOPLIST_FILE = "TwitterTrend/TwitterTrend-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterTrend;
+				PROVISIONING_PROFILE = "AABDD4EE-1FAF-484A-ADED-CC9D26F448DE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

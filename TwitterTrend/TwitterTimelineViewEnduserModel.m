@@ -90,6 +90,7 @@
     if(identifier == TwitterTimelineViewEnduerModelApiIdentifierFetchingUserData){
         NSEnduserFetched* fetchedData = [[NSEnduserFetched alloc] initWithJsonObject:json];
         NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+
         
         if(fetchedData.premium == 1){
             userData.premium = YES;
