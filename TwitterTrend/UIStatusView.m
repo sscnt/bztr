@@ -244,6 +244,7 @@
 
 - (void)didClickUserOpenWithButton
 {
+    dlog(@"%@", _status);
     [self.delegate didClickUserOpenWithButton:_status];
 }
 
@@ -254,6 +255,7 @@
 
 - (void)dealloc
 {
+    self.delegate = nil;
     [[JMImageCache sharedCache] removeImageFromMemoryForKey:_media_url];
     [[JMImageCache sharedCache] removeImageFromMemoryForKey:_profile_image_url];
 }
