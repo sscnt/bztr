@@ -68,7 +68,7 @@
         [[UIColor colorWithWhite:0.0f alpha:0.5f] setStroke];
         [topStrokePath stroke];
         
-        UIBezierPath* labelPath = [UIBezierPath bezierPathWithRect:CGRectMake(0.0f, 0.0f, 5.0f, rect.size.height)];
+        UIBezierPath* labelPath = [UIBezierPath bezierPathWithRect:CGRectMake(0.0f, 1.0f, 5.0f, rect.size.height)];
         [[UIColor colorWithRed:174.0f/255.0f green:66.0f/255.0f blue:63.0f/255.0f alpha:1.0f] setFill];
         [labelPath fill];
     }

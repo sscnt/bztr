@@ -51,9 +51,6 @@
 		58F633CF173F962400673AA8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F633CE173F962400673AA8 /* SettingsViewController.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
-		58F82D04173BD8E100F8F080 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D01173BD8E100F8F080 /* Default-568h@2x.png */; };
-		58F82D05173BD8E100F8F080 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D02173BD8E100F8F080 /* Default.png */; };
-		58F82D06173BD8E100F8F080 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F82D03173BD8E100F8F080 /* Default@2x.png */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
@@ -89,6 +86,9 @@
 		58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF400173162CB000E382D /* UIColor+twitter.m */; };
 		58FD57BA173CF3E2001C4B8E /* UIFlatButtonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FD57B9173CF3E2001C4B8E /* UIFlatButtonCreator.m */; };
 		58FD57BD173CF7CF001C4B8E /* UIFlatBUtton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FD57BC173CF7CF001C4B8E /* UIFlatBUtton.m */; };
+		58FDE7AC1741104D0013CF4E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7A91741104D0013CF4E /* Default-568h@2x.png */; };
+		58FDE7AD1741104D0013CF4E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7AA1741104D0013CF4E /* Default.png */; };
+		58FDE7AE1741104D0013CF4E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FDE7AB1741104D0013CF4E /* Default@2x.png */; };
 		58FDEDC71733BF01000C037A /* UIStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDC61733BF01000C037A /* UIStatusView.m */; };
 		58FDEDCB1733C023000C037A /* NSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCA1733C023000C037A /* NSStatus.m */; };
 		58FDEDCE1733C1DF000C037A /* NSStatusUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDEDCD1733C1DF000C037A /* NSStatusUser.m */; };
@@ -176,9 +176,6 @@
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
 		58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
-		58F82D01173BD8E100F8F080 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		58F82D02173BD8E100F8F080 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		58F82D03173BD8E100F8F080 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
 		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
 		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -230,6 +227,9 @@
 		58FD57B9173CF3E2001C4B8E /* UIFlatButtonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlatButtonCreator.m; sourceTree = "<group>"; };
 		58FD57BB173CF7CF001C4B8E /* UIFlatBUtton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlatBUtton.h; sourceTree = "<group>"; };
 		58FD57BC173CF7CF001C4B8E /* UIFlatBUtton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlatBUtton.m; sourceTree = "<group>"; };
+		58FDE7A91741104D0013CF4E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		58FDE7AA1741104D0013CF4E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		58FDE7AB1741104D0013CF4E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		58FDEDC51733BF01000C037A /* UIStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusView.h; sourceTree = "<group>"; };
 		58FDEDC61733BF01000C037A /* UIStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusView.m; sourceTree = "<group>"; };
 		58FDEDC91733C023000C037A /* NSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatus.h; sourceTree = "<group>"; };
@@ -472,11 +472,11 @@
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
+				58FDE7A91741104D0013CF4E /* Default-568h@2x.png */,
+				58FDE7AA1741104D0013CF4E /* Default.png */,
+				58FDE7AB1741104D0013CF4E /* Default@2x.png */,
 				5804D296173F71800000B03B /* libsqlite3.0.dylib */,
 				5804D284173F66AF0000B03B /* Filters.sqlite */,
-				58F82D01173BD8E100F8F080 /* Default-568h@2x.png */,
-				58F82D02173BD8E100F8F080 /* Default.png */,
-				58F82D03173BD8E100F8F080 /* Default@2x.png */,
 				580CEEBB173BD2F90050470F /* Icon-72.png */,
 				580CEEBC173BD2F90050470F /* Icon-Small-50.png */,
 				580CEEBD173BD2F90050470F /* Icon-Small.png */,
@@ -766,10 +766,10 @@
 				580CEEC4173BD2F90050470F /* Icon-Small@2x.png in Resources */,
 				580CEEC5173BD2F90050470F /* Icon.png in Resources */,
 				580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */,
-				58F82D04173BD8E100F8F080 /* Default-568h@2x.png in Resources */,
-				58F82D05173BD8E100F8F080 /* Default.png in Resources */,
-				58F82D06173BD8E100F8F080 /* Default@2x.png in Resources */,
 				5804D285173F66AF0000B03B /* Filters.sqlite in Resources */,
+				58FDE7AC1741104D0013CF4E /* Default-568h@2x.png in Resources */,
+				58FDE7AD1741104D0013CF4E /* Default.png in Resources */,
+				58FDE7AE1741104D0013CF4E /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
