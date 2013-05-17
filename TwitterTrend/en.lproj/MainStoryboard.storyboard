@@ -7,7 +7,7 @@
         <!--Side Panel Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="SidePanelController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SidePanelController" id="2" customClass="SidePanelController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

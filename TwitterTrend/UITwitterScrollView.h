@@ -10,6 +10,7 @@
 #import "UIStatusView.h"
 #import "UIView+extend.h"
 #import "UITwitterScrollHeaderView.h"
+#import "UIFilterView.h"
 
 @interface UITwitterScrollView : UIScrollView
 {

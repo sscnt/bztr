@@ -51,7 +51,7 @@ static NSFilter* _sharedFilter = nil;
 {
     //// Check if iCloud Enabled
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    if(userData.iCloudEnabled == NO){
+    if(userData.iCloudEnabled == NO || userData.premium == NO){
         return NO;
     }
     

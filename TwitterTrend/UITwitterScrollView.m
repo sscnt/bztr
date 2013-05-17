@@ -53,6 +53,7 @@
     for(UIView* view in [self subviews]){
         if([view isKindOfClass:[UIImageView class]]){
 
+        } else if([view isKindOfClass:[UIFilterView class]]){
         } else {
             [view removeFromSuperview];
         }

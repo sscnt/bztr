@@ -46,7 +46,8 @@
     [strokePath closePath];
     strokePath.lineWidth = 1;
     [[UIColor timelineBackgroundColorStrokeColor] setStroke];
-    [strokePath stroke];    
+    [strokePath stroke];
+
 }
 
 

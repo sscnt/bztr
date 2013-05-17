@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,6 +18,8 @@
     [[JMImageCache sharedCache] removeAllObjects];
     [UIApplication sharedApplication].statusBarHidden = NO;
     // Override point for customization after application launch.
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [self.window setRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"SidePanelController"]];
     return YES;
 }
 							

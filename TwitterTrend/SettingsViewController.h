@@ -15,10 +15,13 @@
 #import "UIBlackAlertView.h"
 #import "NSEnduserData.h"
 #import "DCRoundSwitch.h"
+#import "UISettingsCellView.h"
+#import "UITwitterScrollView.h"
 
 @interface SettingsViewController : UIViewController
 {
     DCRoundSwitch* _iCloudSwitch;
+    UITwitterScrollView* _scrollView;
 }
 
 - (void)didSwitchToggledForICloudEnabled:(id)sender;

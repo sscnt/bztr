@@ -27,11 +27,13 @@
 #import "UIFlatButtonCreator.h"
 #import "UIFlatBUtton.h"
 #import "NSEnduserData.h"
+#import "UIFilterView.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
     TimelineViewStateLoadingStatuses,
-    TimelineViewStateActionSheetShowing
+    TimelineViewStateActionSheetShowing,
+    TimelineViewStateSettingMinMax
 };
 
 typedef NS_ENUM(int, ActionSheetTag){
@@ -45,7 +47,12 @@ typedef NS_ENUM(int, AlertViewIdentifier){
     AlertViewIdentifierFetchingAnnouncement
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate>
+typedef NS_ENUM(int, FilterViewState){
+    FilterViewStateHidden = 0,
+    FilterViewStateDisplay
+};
+
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate, UIScrollViewDelegate>
 {
     __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;
@@ -59,6 +66,7 @@ typedef NS_ENUM(int, AlertViewIdentifier){
     int _actionSheetUserButtonIndexOpenWithTwitterApp;
     int _actionSheetUserButtonIndexDeveloperBlock;
     int _actionSheetUserButtonIndexCancel;
+    FilterViewState _filterViewState;
 }
 
 @property (nonatomic, strong) NSString* api;

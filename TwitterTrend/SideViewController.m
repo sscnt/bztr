@@ -117,7 +117,7 @@
     item.buttonTitle = @"つぶやき（24時間ランキング）";
     item.api = @"words/top_celebrities";
     item.navigationBarTitle = @"つぶやき";
-    item.headerTitle = @"24時間ランキング（芸能人・有名人））";
+    item.headerTitle = @"24時間ランキング（芸能人・有名人）";
     item.index = 7;
     [_menuButtonItems addObject:item];
     
@@ -125,7 +125,7 @@
     item.buttonTitle = @"つぶやき（週間ランキング）";
     item.api = @"words/weekly_top_celebrities";
     item.navigationBarTitle = @"つぶやき";
-    item.headerTitle = @"週間ランキング（芸能人・有名人））";
+    item.headerTitle = @"週間ランキング（芸能人・有名人）";
     item.index = 8;
     [_menuButtonItems addObject:item];
     
@@ -133,7 +133,7 @@
     item.buttonTitle = @"画像（新着順）";
     item.api = @"images/celebrities";
     item.navigationBarTitle = @"画像";
-    item.headerTitle = @"新着順（芸能人・有名人））";
+    item.headerTitle = @"新着順（芸能人・有名人）";
     item.index = 9;
     [_menuButtonItems addObject:item];
     
@@ -141,7 +141,7 @@
     item.buttonTitle = @"画像（24時間ランキング）";
     item.api = @"images/top_celebrities";
     item.navigationBarTitle = @"画像";
-    item.headerTitle = @"24時間ランキング（芸能人・有名人））";
+    item.headerTitle = @"24時間ランキング（芸能人・有名人）";
     item.index = 10;
     [_menuButtonItems addObject:item];
     
@@ -149,7 +149,7 @@
     item.buttonTitle = @"画像（週間ランキング）";
     item.api = @"images/weekly_top_celebrities";
     item.navigationBarTitle = @"画像";
-    item.headerTitle = @"週間ランキング（芸能人・有名人））";
+    item.headerTitle = @"週間ランキング（芸能人・有名人）";
     item.index = 11;
     [_menuButtonItems addObject:item];   
     

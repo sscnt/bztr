@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5800AA5E1746569000570EBF /* UIFilterDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5800AA5D1746569000570EBF /* UIFilterDragView.m */; };
 		58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B02173E04920084FC51 /* UIStatusUserButton.m */; };
 		58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B08173E0FE00084FC51 /* UIBlackAlertView.m */; };
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
@@ -23,6 +24,11 @@
 		5804D295173F67390000B03B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804D290173F67390000B03B /* FMResultSet.m */; };
 		5804D297173F71810000B03B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804D296173F71800000B03B /* libsqlite3.0.dylib */; };
 		5804D29A173F8ED20000B03B /* NSEnduserFetched.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804D299173F8ED10000B03B /* NSEnduserFetched.m */; };
+		5806169D1742761100D2AB37 /* UISettingsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5806169C1742761100D2AB37 /* UISettingsCellView.m */; };
+		5809EB8E1743BBCB008DC7DA /* UIFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809EB8D1743BBCB008DC7DA /* UIFilterView.m */; };
+		5809EB921743C25B008DC7DA /* UIFilterInnerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809EB911743C25B008DC7DA /* UIFilterInnerShadowView.m */; };
+		5809EB951743D2B2008DC7DA /* UIFilterBarBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809EB941743D2B2008DC7DA /* UIFilterBarBaseView.m */; };
+		5809EB981743D3F8008DC7DA /* UIFilterSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809EB971743D3F8008DC7DA /* UIFilterSliderView.m */; };
 		580CEEC1173BD2F90050470F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBB173BD2F90050470F /* Icon-72.png */; };
 		580CEEC2173BD2F90050470F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBC173BD2F90050470F /* Icon-Small-50.png */; };
 		580CEEC3173BD2F90050470F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEBD173BD2F90050470F /* Icon-Small.png */; };
@@ -101,6 +107,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5800AA5C1746569000570EBF /* UIFilterDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterDragView.h; sourceTree = "<group>"; };
+		5800AA5D1746569000570EBF /* UIFilterDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterDragView.m; sourceTree = "<group>"; };
 		58018B01173E04920084FC51 /* UIStatusUserButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusUserButton.h; sourceTree = "<group>"; };
 		58018B02173E04920084FC51 /* UIStatusUserButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusUserButton.m; sourceTree = "<group>"; };
 		58018B07173E0FE00084FC51 /* UIBlackAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBlackAlertView.h; sourceTree = "<group>"; };
@@ -130,6 +138,16 @@
 		5804D296173F71800000B03B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5804D298173F8ED10000B03B /* NSEnduserFetched.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserFetched.h; sourceTree = "<group>"; };
 		5804D299173F8ED10000B03B /* NSEnduserFetched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSEnduserFetched.m; sourceTree = "<group>"; };
+		5806169B1742761100D2AB37 /* UISettingsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsCellView.h; sourceTree = "<group>"; };
+		5806169C1742761100D2AB37 /* UISettingsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsCellView.m; sourceTree = "<group>"; };
+		5809EB8C1743BBCB008DC7DA /* UIFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterView.h; sourceTree = "<group>"; };
+		5809EB8D1743BBCB008DC7DA /* UIFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterView.m; sourceTree = "<group>"; };
+		5809EB901743C25B008DC7DA /* UIFilterInnerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterInnerShadowView.h; sourceTree = "<group>"; };
+		5809EB911743C25B008DC7DA /* UIFilterInnerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterInnerShadowView.m; sourceTree = "<group>"; };
+		5809EB931743D2B2008DC7DA /* UIFilterBarBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterBarBaseView.h; sourceTree = "<group>"; };
+		5809EB941743D2B2008DC7DA /* UIFilterBarBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterBarBaseView.m; sourceTree = "<group>"; };
+		5809EB961743D3F8008DC7DA /* UIFilterSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterSliderView.h; sourceTree = "<group>"; };
+		5809EB971743D3F8008DC7DA /* UIFilterSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterSliderView.m; sourceTree = "<group>"; };
 		580CEEBB173BD2F90050470F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		580CEEBC173BD2F90050470F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		580CEEBD173BD2F90050470F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -303,6 +321,23 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		5809EB8F1743BBD1008DC7DA /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				5809EB8C1743BBCB008DC7DA /* UIFilterView.h */,
+				5809EB8D1743BBCB008DC7DA /* UIFilterView.m */,
+				5809EB901743C25B008DC7DA /* UIFilterInnerShadowView.h */,
+				5809EB911743C25B008DC7DA /* UIFilterInnerShadowView.m */,
+				5809EB961743D3F8008DC7DA /* UIFilterSliderView.h */,
+				5809EB971743D3F8008DC7DA /* UIFilterSliderView.m */,
+				5809EB931743D2B2008DC7DA /* UIFilterBarBaseView.h */,
+				5809EB941743D2B2008DC7DA /* UIFilterBarBaseView.m */,
+				5800AA5C1746569000570EBF /* UIFilterDragView.h */,
+				5800AA5D1746569000570EBF /* UIFilterDragView.m */,
+			);
+			name = Filter;
+			sourceTree = "<group>";
+		};
 		580FBE361732B65900D57341 /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +377,8 @@
 		58F3E335173FB9F100896C82 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5806169B1742761100D2AB37 /* UISettingsCellView.h */,
+				5806169C1742761100D2AB37 /* UISettingsCellView.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -553,6 +590,7 @@
 				58F5429B173797FB006C1FB2 /* SideMenu */,
 				580FBE361732B65900D57341 /* Background */,
 				58FCF3F917315E46000E382D /* Scroll */,
+				5809EB8F1743BBD1008DC7DA /* Filter */,
 				58FCF3F317314C9B000E382D /* Status */,
 				58FCF3F217314C92000E382D /* NavigationBar */,
 				58FCF3F117314BF5000E382D /* Buttons */,
@@ -855,6 +893,12 @@
 				58BB6749173FDFDF00D17669 /* HelpViewController.m in Sources */,
 				58BB674D173FDFF300D17669 /* ReportViewController.m in Sources */,
 				58BB6751173FE00400D17669 /* PremiumViewController.m in Sources */,
+				5806169D1742761100D2AB37 /* UISettingsCellView.m in Sources */,
+				5809EB8E1743BBCB008DC7DA /* UIFilterView.m in Sources */,
+				5809EB921743C25B008DC7DA /* UIFilterInnerShadowView.m in Sources */,
+				5809EB951743D2B2008DC7DA /* UIFilterBarBaseView.m in Sources */,
+				5809EB981743D3F8008DC7DA /* UIFilterSliderView.m in Sources */,
+				5800AA5E1746569000570EBF /* UIFilterDragView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

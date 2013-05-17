@@ -24,7 +24,7 @@ CGGradientRef CreateGradientRefWithColors(CGColorSpaceRef colorSpace, CGColorRef
 
 	// knob outline (shadow is drawn in the toggle layer)
 	CGContextSetStrokeColorWithColor(context, [UIColor colorWithWhite:0.62 alpha:1.0].CGColor);
-	CGContextSetLineWidth(context, 1.5);
+	CGContextSetLineWidth(context, 1.0);
 	CGContextStrokeEllipseInRect(context, knobRect);
 	CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 0, NULL);
 

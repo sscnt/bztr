@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _filterViewState = FilterViewStateHidden;
     
     //// Model
     _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
@@ -36,17 +37,7 @@
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     if(userData.registered == NO){
-        dlog(@"DO REGISTERATION NOW!!!!!!");
-        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
-        alert.tag = AlertViewIdentifierRegistration;
-        alert.delegate = self;
-        alert.message = @"アプリ再インストール時に復元できるように、iCloudにユーザー情報を保存しますか？";
-        alert.title = @"初期設定";
-        int okIndex = [alert addButtonWithTitle:@"しない"];
-        [alert setCancelButtonIndex:okIndex];
-        [alert addButtonWithTitle:@"保存する"];
-        [alert show];
-        return;
+        [self initializeController];
     } else {
         [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
         [_modelEnduser fetchUser];
@@ -57,7 +48,12 @@
 {    
     
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
+    _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
+
+    UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 500.0f)];
+    [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
+    
     [self addSwipeGesture];
     
     [self restart];    
@@ -306,12 +302,16 @@
 
 - (void)didSwipeRight:(UISwipeGestureRecognizer *)sender
 {
-    [self goToPrevPageWithProgressHUD];
+    if(_state == TimelineViewStateReady){
+        [self goToPrevPageWithProgressHUD];
+    }
 }
 
 - (void)didSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
-    [self goToNextPageWithProgressHUD];
+    if(_state == TimelineViewStateReady){
+        [self goToNextPageWithProgressHUD];
+    }
 }
 
 
@@ -415,6 +415,30 @@
     _state = TimelineViewStateReady;
 }
 
+#pragma mark UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //// When Hidden
+    if(_filterViewState == FilterViewStateHidden){
+        if(scrollView.contentOffset.y < -120.0f){
+            scrollView.contentInset = UIEdgeInsetsMake(300.0f, 0.0f, 0.0f, 0.0f);
+            _filterViewState = FilterViewStateDisplay;
+            _state = TimelineViewStateSettingMinMax;
+        }
+        return;
+    }
+    
+    //// when Display
+    if(_filterViewState == FilterViewStateDisplay){
+        if(scrollView.contentOffset.y > 0.0f){
+            scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+            _filterViewState = FilterViewStateHidden;
+            _state = TimelineViewStateReady;
+        }
+        return;
+    }
+}
+
 #pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -431,12 +455,7 @@
     
     //// Registration
     if(alertView.tag == AlertViewIdentifierRegistration){
-        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-        if(buttonIndex == 1){
-            userData.iCloudEnabled = YES;
-        }
-        [self initializeUser];
-        return;
+        //// Deleted
     }
     
     //// Fetching Announcement
