@@ -16,6 +16,8 @@
     if (self) {
         UIFilterBarBaseView* base = [[UIFilterBarBaseView alloc] initWithFrame:self.bounds];
         [self addSubview:base];
+        _centerMaxX = self.frame.size.width - 20.0f;
+        _centerMinX = 20.0f;
         
         //// Label
         _minValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.center.x - 120.0f, 20.0f, 100.0f, 16.0f)];
@@ -39,6 +41,10 @@
         label.textColor = [UIColor colorWithWhite:240.0f/255.0f alpha:1.0f];
         [self addSubview:label];
         
+        //// Bar
+        _bar = [[UIView alloc] initWithFrame:CGRectMake(_centerMinX, 53.0f, (_centerMaxX - _centerMinX), 10.0f)];
+        _bar.backgroundColor = [UIColor colorWithRed:174.0f/255.0f green:66.0f/255.0f blue:63.0f/255.0f alpha:1.0f];
+        [self addSubview:_bar];
         
         //// Min Knob
         _knobViewMin = [[UIFilterKnobView alloc] initWithFrame:CGRectMake(0.0f, 26.0f, 60.0f, 60.0f)];
@@ -52,8 +58,6 @@
         [_knobViewMax addGestureRecognizer:recognizer];
         [self addSubview:_knobViewMax];
         
-        _centerMaxX = self.frame.size.width - 20.0f;
-        _centerMinX = 20.0f;
     }
     return self;
 }
@@ -71,6 +75,14 @@
     _snapPeriod = (_centerMaxX - _centerMinX) / (_maxLevel + 1);
     _minValueLabel.text = [levels objectAtIndex:0];
     _maxVlaueLabel.text = [levels objectAtIndex:[levels count] - 1];
+}
+
+- (void)setBarWidth
+{
+    CGFloat width = (_centerMaxX - _centerMinX) * (_currentMaxLevel - _currentMinLevel) / _maxLevel;
+    CGFloat centerX = _currentMinLevel * _snapPeriod + _centerMinX;
+    [_bar setWidth:width];
+    [_bar setX:centerX];
 }
 
 - (void)didDragMaxKnob:(UIPanGestureRecognizer *)sender
@@ -100,6 +112,7 @@
             CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * (_currentMaxLevel + 1) / (_maxLevel + 1) + _centerMinX, knobView.center.y);
             knobView.center = destinationPoint;
             _maxVlaueLabel.text = [_levels objectAtIndex:_currentMaxLevel];
+            [self setBarWidth];
             [self.delegate sliderDidValueChanged:self];
         }
     }
@@ -131,6 +144,7 @@
             CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * _currentMinLevel / (_maxLevel + 1) + _centerMinX, knobView.center.y);
             knobView.center = destinationPoint;
             _minValueLabel.text = [_levels objectAtIndex:_currentMinLevel];
+            [self setBarWidth];
             [self.delegate sliderDidValueChanged:self];
         }
     }

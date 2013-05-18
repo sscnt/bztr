@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
     _filterViewState = FilterViewStateHidden;
+    _params = [[NSRequestParams alloc] init];
     
     //// Model
     _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
@@ -52,6 +53,7 @@
     [self.view addSubview:_scrollView];
 
     UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
+    filterView.delegate = self;
     [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
     
     [self addSwipeGesture];
@@ -89,10 +91,11 @@
 - (void)restart
 {
     [_scrollView removeAllSubviews];
+    _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    _filterViewState = FilterViewStateHidden;
+    _state = TimelineViewStateReady;
     [_modelStatuses cleanStatusesCache];
-    _params = [[NSRequestParams alloc] init];
     _params.page = 1;
-    dlog(@"Restart");
 }
 
 - (void)loadStatuses
@@ -104,6 +107,49 @@
 }
 
 #pragma mark TwitterTimelineViewStatusesModelDelegate
+
+- (void)didLoadStatusesButEmpty
+{
+    //// General Decralations
+    CGFloat viewWidth = _scrollView.frame.size.width - 20.0f;
+    CGFloat viewX = 10.0f;
+    CGFloat paddingX = 16.0f;
+    CGFloat paddingWidth = viewWidth - 12.0f;
+    
+    //// Add Header
+    UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(viewX, 0.0f, viewWidth, 44.0f)];
+    [header setTitle:_headerTitle page:_params.page];
+    [_scrollView appendView:header margin:4.0f];
+    
+    //// Label
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(viewX, 0.0f, viewWidth, [UIScreen screenSize].height - 108.0f)];
+    label.text = @"見つかりませんでした";
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:18.0f];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    [_scrollView appendView:label margin:10.0f];
+    
+    //// Insert Buttons
+    CGRect frame = CGRectMake(paddingX, 0.0f, paddingWidth, 34.0f);
+    UIFlatBUtton* button;
+    
+    if(_params.page > 1){
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"前のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:15.0f];
+        
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:15.0f];
+    }
+    
+    
+    _state = TimelineViewStateReady;
+    [SVProgressHUD dismiss];
+}
 
 - (void)didLoadStatuses:(NSArray *)statuses
 {
@@ -138,13 +184,14 @@
         [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:@"前のページへ" forState:UIControlStateNormal];
         [_scrollView appendView:button margin:15.0f];
+        
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:15.0f];
+
     }
-    
-    button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
-    [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
-    [_scrollView appendView:button margin:15.0f];
-    
+        
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
 }
@@ -413,6 +460,34 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     _state = TimelineViewStateReady;
+}
+
+#pragma mark UIFilterViewDelegate
+
+- (void)filterDidApply
+{
+    [_modelStatuses cleanStatusesCache];
+    _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    _filterViewState = FilterViewStateHidden;
+    [self loadStatuses];
+}
+
+- (void)filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav
+{
+    _params.max_fav = max_fav;
+    _params.min_fav = min_fav;
+    if(max_fav == 99999){
+        _params.max_fav = -1;
+    }
+}
+
+- (void)filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt
+{
+    _params.max_rt = max_rt;
+    _params.min_rt = min_rt;
+    if(_params.max_rt == 99999){
+        _params.max_rt = -1;
+    }
 }
 
 #pragma mark UIScrollViewDelegate

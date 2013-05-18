@@ -106,7 +106,7 @@
     json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&conversion_error];
     if(conversion_error){
         dlog(@"Conversion Error: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        message = @"データが壊れています。サーバーで障害が発生している可能性があります。";
+        message = @"受信したデータが壊れています。サーバーで障害が発生している可能性があります。";
     } else {
         if([json objectForKey:@"errors"] != nil){
             id errors = [json objectForKey:@"errors"];

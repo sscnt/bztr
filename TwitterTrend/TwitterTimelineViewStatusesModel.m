@@ -84,6 +84,8 @@
             }
         }
         [self.delegate didLoadStatuses:[_statuses objectForKey:[NSString stringWithFormat:@"%d", page]]];
+    }else{
+        [self.delegate didLoadStatusesButEmpty];
     }
 }
 

@@ -23,11 +23,17 @@ typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
 
 - (void) filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt;
 - (void) filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav;
+- (void) filterDidApply;
 
 @end
 
 @interface UIFilterView : UIView <UIFilterSliderViewDelegate>
+{
+    NSArray* _levels;
+}
 
 @property (nonatomic, weak) id<UIFilterViewProtocol> delegate;
+
+- (void)apply;
 
 @end

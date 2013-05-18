@@ -52,7 +52,7 @@ typedef NS_ENUM(int, FilterViewState){
     FilterViewStateDisplay
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate, UIScrollViewDelegate>
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate, UIScrollViewDelegate, UIFilterViewProtocol>
 {
     __weak NSStatus* _currentTargetStatus;
     UITwitterScrollView* _scrollView;

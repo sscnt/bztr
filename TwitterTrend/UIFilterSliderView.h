@@ -33,6 +33,7 @@
     UIFilterKnobView* _knobViewMax;
     UILabel* _minValueLabel;
     UILabel* _maxVlaueLabel;
+    UIView* _bar;
 }
 
 @property (nonatomic, assign) NSInteger currentMaxLevel;
@@ -40,6 +41,7 @@
 @property (nonatomic, weak) id<UIFilterSliderViewDelegate> delegate;
 
 - (void)setLevels:(NSArray*)levels;
+- (void)setbarWidth;
 - (void)didDragMinKnob:(UIPanGestureRecognizer*)sender;
 - (void)didDragMaxKnob:(UIPanGestureRecognizer*)sender;
 

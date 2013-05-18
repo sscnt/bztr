@@ -22,7 +22,7 @@
         [self addSubview:scrollView];
         
         //// Retweet Filter
-        NSArray* levels = [NSArray arrayWithObjects:@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", @"99999", nil];
+        _levels = [NSArray arrayWithObjects:@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", @"3000", @"4000", @"5000", @"7500",@"10000", @"99999", nil];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
         label.text = @"リツイート数";
         label.backgroundColor = [UIColor clearColor];
@@ -33,7 +33,7 @@
         [scrollView appendView:label margin:215.0f];
         
         UIFilterSliderView* slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [slider setLevels:levels];
+        [slider setLevels:_levels];
         slider.tag = UIFilterSliderIdentifierRetweet;
         slider.delegate = self;
         [scrollView appendView:slider margin:10.0f];
@@ -49,7 +49,7 @@
         [scrollView appendView:label margin:15.0f];
         
         slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [slider setLevels:levels];
+        [slider setLevels:_levels];
         slider.tag = UIFilterSliderIdentifierFavorite;
         slider.delegate = self;
         [scrollView appendView:slider margin:10.0f];
@@ -57,6 +57,7 @@
         //// Apply Button
         UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
         [button setTitle:@"適用" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(apply) forControlEvents:UIControlEventTouchUpInside];
         [scrollView appendView:button margin:15.0f];
         
         UIFilterInnerShadowView* shadow = [[UIFilterInnerShadowView alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 1.0f, frame.size.width, 40.0f)];
@@ -71,9 +72,20 @@
 {
     //// Retweet
     if(slider.tag == UIFilterSliderIdentifierRetweet){
-        
+        [self.delegate filterDidChangeNumRetweetMax:[[_levels objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levels objectAtIndex:slider.currentMinLevel] integerValue]];
         return;
     }
+    
+    //// Favorite
+    if(slider.tag == UIFilterSliderIdentifierFavorite){
+        [self.delegate filterDidChangeNumFavoriteMax:[[_levels objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levels objectAtIndex:slider.currentMinLevel] integerValue]];
+        return;        
+    }
+}
+
+- (void)apply
+{
+    [self.delegate filterDidApply];
 }
 
 - (void)drawRect:(CGRect)rect
