@@ -14,8 +14,20 @@
 
 @implementation SideViewController
 
-- (void)awakeFromNib
+- (id)init
 {
+    self = [super init];
+    if(self){
+        _layoutFinished = NO;
+        [self layout];
+    }
+    return self;
+}
+
+- (void)layout
+{
+    dlog(@"layout");
+    _layoutFinished = YES;
     _currentButtonIndex = 0;
     _menuButtons = [NSMutableArray array];
     
@@ -47,6 +59,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
+    if(_layoutFinished == NO){
+        [self layout];
+    }
 }
 
 - (void)setMenuButtonItems
@@ -303,11 +318,21 @@
 - (void)swithToSettings
 {
     UISideMenuButton* sender = [_menuButtons objectAtIndex:12];
+    _currentButtonIndex = 12;
     [self didClickMenuButton:sender];
+}
+
+- (void)viewDidUnload
+{
+    dlog(@"viewDidUnload");
+    _layoutFinished = NO;
+    _menuButtonItems = nil;
+    _menuButtons = nil;
 }
 
 - (void)didReceiveMemoryWarning
 {
+    [self viewDidUnload];
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

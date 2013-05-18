@@ -15,6 +15,7 @@
 #import <QuartzCore/CALayer.h>
 #import "JMImageCache.h"
 #import "UIStatusUserButton.h"
+#import "UIStatusOpenButton.h"
 
 @protocol UIStatusViewDelegate <NSObject>
 - (void)didClickImage:(UIImage*)image status:(NSStatus*)status;;

@@ -14,12 +14,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    SidePanelController* sidePanelController = [[SidePanelController alloc] init];
+    TwitterTabBarController* tabbarController = [[TwitterTabBarController alloc] init];
+    SideViewController* sideViewController = [[SideViewController alloc] init];
+    TwitterTimelineViewController* timelineViewController = [[TwitterTimelineViewController alloc] init];
+    SettingsViewController* settingsViewController = [[SettingsViewController alloc] init];
+    HelpViewController* helpViewController = [[HelpViewController alloc] init];
+    ReportViewController* reportViewController = [[ReportViewController alloc] init];
+    PremiumViewController* premiumViewController = [[PremiumViewController alloc] init];
+    
+    NSArray* controllers = [NSArray arrayWithObjects:timelineViewController, settingsViewController, helpViewController, reportViewController, premiumViewController, nil];
+    [tabbarController setViewControllers:controllers];
+    TwitterNavigationController* navigationController = [[TwitterNavigationController alloc] init];
+    [navigationController pushViewController:tabbarController animated:NO];
+    
+    [sidePanelController setCenterPanel:navigationController];
+    [sidePanelController setLeftPanel:sideViewController];
+    
+
     [Crashlytics startWithAPIKey:@"a8f7ec67dfb4ba747a4f4ed2d8a07acd5b1e5bf6"];
     [[JMImageCache sharedCache] removeAllObjects];
-    [UIApplication sharedApplication].statusBarHidden = NO;
-    // Override point for customization after application launch.
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [self.window setRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"SidePanelController"]];
+
+    [self.window setRootViewController:sidePanelController];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

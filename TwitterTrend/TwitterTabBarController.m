@@ -10,12 +10,17 @@
 
 @implementation TwitterTabBarController
 
+- (id)init
+{
+    self = [super init];
+    if(self){
+        self.tabBar.hidden = YES;
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.tabBar.hidden = YES;
-    [self.view setFrame:[UIScreen screenRect]];
     for(UIView *view in self.view.subviews)
     {
         if(![view isKindOfClass:[UITabBar class]])
@@ -24,6 +29,7 @@
         }
     }
 }
+
 
 - (void)didReceiveMemoryWarning
 {

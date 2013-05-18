@@ -232,25 +232,29 @@
     [favDescLabel sizeToFit];
     [self addSubview:favDescLabel];
     baseX += favDescLabel.frame.size.width + 5.0f;
+    
+    //// Open
+    UIStatusOpenButton* button = [[UIStatusOpenButton alloc] init];
+    [button setY:self.bottom - 32.0f];
+    [button setX:self.right - 52.0f];
+    [self addSubview:button];
 
 }
 
 //// Events
 - (void)didClickImage
 {
-    dlog(@"didClickImage");
     [self.delegate didClickImage:_imageView.image status:_status];
 }
 
 - (void)didClickUserOpenWithButton
 {
-    dlog(@"%@", _status);
     [self.delegate didClickUserOpenWithButton:_status];
 }
 
 - (void)didClickStatusOpenWithButton
 {
-    
+    [self.delegate didClickStatusOpenWithButton:_status];
 }
 
 - (void)dealloc

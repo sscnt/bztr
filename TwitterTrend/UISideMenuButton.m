@@ -56,7 +56,6 @@
     [bottomStrokePath stroke];
     
     if(self.selected){
-        dlog(@"DrawRect");
         UIBezierPath* bgPath = [UIBezierPath bezierPathWithRect:rect];
         [[UIColor colorWithWhite:32.0f/255.0f alpha:1.0f] setFill];
         [bgPath fill];

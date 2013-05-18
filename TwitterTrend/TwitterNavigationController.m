@@ -33,7 +33,6 @@
     self.navigationBar.layer.shadowPath = rectanglePath.CGPath;
     self.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor;
     self.navigationBar.layer.shadowOpacity = 0.4f;
-
 }
 
 - (void)didReceiveMemoryWarning

@@ -29,6 +29,7 @@ typedef NS_ENUM(int, ImageZoomViewState)
     int _actionSheetOpenWithSafariIndex;
     int _actionSheetOpenwithChromeIndex;
     int _actionSheetOpenwithTwitterIndex;
+    int _actionSheetSaveIndex;
     int _actionSheetBackIndex;
 }
 
@@ -38,5 +39,6 @@ typedef NS_ENUM(int, ImageZoomViewState)
 - (void)adjustImageViewOrigin:(UIScrollView*)scrollView;
 - (void)back;
 - (void)didLongTapped:(id)sender;
+- (void)onCompleteCapture:(UIImage *)screenImage didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
 
 @end

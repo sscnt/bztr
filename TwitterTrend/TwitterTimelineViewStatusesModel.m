@@ -73,7 +73,6 @@
         if(page < 0){
             page = 0;
         }
-        dlog(@"Page:%d", page);
         if([_statuses objectForKey:[NSString stringWithFormat:@"%d", page]] == nil){
             [_statuses setObject:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d", page]];
         }

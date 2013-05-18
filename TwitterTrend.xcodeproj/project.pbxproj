@@ -37,6 +37,9 @@
 		580CEEC6173BD2F90050470F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 580CEEC0173BD2F90050470F /* Icon@2x.png */; };
 		580FBE391732B66F00D57341 /* UITwitterBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */; };
 		580FBE3C1732B6DE00D57341 /* UIScreen+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */; };
+		581175A6174784310077A709 /* Open.png in Resources */ = {isa = PBXBuildFile; fileRef = 581175A4174784310077A709 /* Open.png */; };
+		581175A7174784310077A709 /* Open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581175A5174784310077A709 /* Open@2x.png */; };
+		581175AA174784660077A709 /* UIStatusOpenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 581175A9174784660077A709 /* UIStatusOpenButton.m */; };
 		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */; };
 		583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F8173E581400F7D3A7 /* NSEnduserData.m */; };
 		583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */; };
@@ -86,7 +89,6 @@
 		58FCF3D817314752000E382D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3D617314752000E382D /* InfoPlist.strings */; };
 		58FCF3DA17314752000E382D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3D917314752000E382D /* main.m */; };
 		58FCF3DE17314752000E382D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3DD17314752000E382D /* AppDelegate.m */; };
-		58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FCF3E517314752000E382D /* MainStoryboard.storyboard */; };
 		58FCF3F8173150F3000E382D /* UIDevice+resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3F7173150F3000E382D /* UIDevice+resolution.m */; };
 		58FCF3FC17315EB6000E382D /* UITwitterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF3FB17315EB6000E382D /* UITwitterScrollView.m */; };
 		58FCF401173162CB000E382D /* UIColor+twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCF400173162CB000E382D /* UIColor+twitter.m */; };
@@ -158,6 +160,10 @@
 		580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterBackgroundView.m; sourceTree = "<group>"; };
 		580FBE3A1732B6DE00D57341 /* UIScreen+twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+twitter.h"; sourceTree = "<group>"; };
 		580FBE3B1732B6DE00D57341 /* UIScreen+twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+twitter.m"; sourceTree = "<group>"; };
+		581175A4174784310077A709 /* Open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Open.png; sourceTree = "<group>"; };
+		581175A5174784310077A709 /* Open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open@2x.png"; sourceTree = "<group>"; };
+		581175A8174784660077A709 /* UIStatusOpenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusOpenButton.h; sourceTree = "<group>"; };
+		581175A9174784660077A709 /* UIStatusOpenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusOpenButton.m; sourceTree = "<group>"; };
 		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewDeveloperModel.h; sourceTree = "<group>"; };
 		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewDeveloperModel.m; sourceTree = "<group>"; };
 		583E92F7173E581300F7D3A7 /* NSEnduserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserData.h; sourceTree = "<group>"; };
@@ -235,7 +241,6 @@
 		58FCF3DB17314752000E382D /* TwitterTrend-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterTrend-Prefix.pch"; sourceTree = "<group>"; };
 		58FCF3DC17314752000E382D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58FCF3DD17314752000E382D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		58FCF3E617314752000E382D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		58FCF3F6173150F3000E382D /* UIDevice+resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+resolution.h"; sourceTree = "<group>"; };
 		58FCF3F7173150F3000E382D /* UIDevice+resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+resolution.m"; sourceTree = "<group>"; };
 		58FCF3FA17315EB6000E382D /* UITwitterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITwitterScrollView.h; sourceTree = "<group>"; };
@@ -345,6 +350,15 @@
 				580FBE381732B66F00D57341 /* UITwitterBackgroundView.m */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		581175A3174784310077A709 /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				581175A4174784310077A709 /* Open.png */,
+				581175A5174784310077A709 /* Open@2x.png */,
+			);
+			path = Tweet;
 			sourceTree = "<group>";
 		};
 		58BB6746173FDFCA00D17669 /* Help */ = {
@@ -459,6 +473,7 @@
 				58FCA5CC173BA6DF00B3DCEE /* placeholder.png */,
 				58FCA5C8173BA55800B3DCEE /* close.png */,
 				58FCA5C9173BA55800B3DCEE /* close@2x.png */,
+				581175A3174784310077A709 /* Tweet */,
 				58F542941737924D006C1FB2 /* SideMenu */,
 				58F9D30F173391FF007100EF /* NavigationBar */,
 			);
@@ -560,7 +575,6 @@
 				58FCF3F017314BEC000E382D /* UIView */,
 				58FCF3DC17314752000E382D /* AppDelegate.h */,
 				58FCF3DD17314752000E382D /* AppDelegate.m */,
-				58FCF3E517314752000E382D /* MainStoryboard.storyboard */,
 				58FDEDDB17340AE5000C037A /* VIewModels */,
 				58FCF3FD1731616E000E382D /* ViewControllers */,
 				58FCF3D417314752000E382D /* Supporting Files */,
@@ -619,6 +633,8 @@
 				58FDEDC61733BF01000C037A /* UIStatusView.m */,
 				58018B01173E04920084FC51 /* UIStatusUserButton.h */,
 				58018B02173E04920084FC51 /* UIStatusUserButton.m */,
+				581175A8174784660077A709 /* UIStatusOpenButton.h */,
+				581175A9174784660077A709 /* UIStatusOpenButton.m */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -783,7 +799,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58FCF3D817314752000E382D /* InfoPlist.strings in Resources */,
-				58FCF3E717314752000E382D /* MainStoryboard.storyboard in Resources */,
 				58F9D31217339211007100EF /* NavigationBarBg.png in Resources */,
 				58F9D31317339211007100EF /* NavigationBarBg@2x.png in Resources */,
 				58F9D32117339CB4007100EF /* NavigationBarMenuButtonBg@2x.png in Resources */,
@@ -813,6 +828,8 @@
 				58FDE7AC1741104D0013CF4E /* Default-568h@2x.png in Resources */,
 				58FDE7AD1741104D0013CF4E /* Default.png in Resources */,
 				58FDE7AE1741104D0013CF4E /* Default@2x.png in Resources */,
+				581175A6174784310077A709 /* Open.png in Resources */,
+				581175A7174784310077A709 /* Open@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +916,7 @@
 				5809EB951743D2B2008DC7DA /* UIFilterBarBaseView.m in Sources */,
 				5809EB981743D3F8008DC7DA /* UIFilterSliderView.m in Sources */,
 				5800AA5E1746569000570EBF /* UIFilterKnobView.m in Sources */,
+				581175AA174784660077A709 /* UIStatusOpenButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,14 +929,6 @@
 				58FCF3D717314752000E382D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		58FCF3E517314752000E382D /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				58FCF3E617314752000E382D /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

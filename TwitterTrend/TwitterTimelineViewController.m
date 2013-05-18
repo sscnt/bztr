@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.wantsFullScreenLayout = YES;
     _filterViewState = FilterViewStateHidden;
     _params = [[NSRequestParams alloc] init];
     
@@ -191,7 +192,6 @@
         [_scrollView appendView:button margin:15.0f];
 
     }
-        
     _state = TimelineViewStateReady;
     [SVProgressHUD dismiss];
 }
@@ -384,7 +384,21 @@
 
 - (void)didClickStatusOpenWithButton:(NSStatus *)status
 {
-    
+    if(_state == TimelineViewStateReady){
+        _state = TimelineViewStateActionSheetShowing;
+        if(!_sheetUser){
+            _sheetUser = [[UIActionSheet alloc] init];
+            _sheetUser.delegate = self;
+            _sheetUser.tag = ActionSheetTagUser;
+            _actionSheetUserButtonIndexOpenWithTwitterApp = [_sheetUser addButtonWithTitle:@"Twitterアプリで開く"];
+            _actionSheetUserButtonIndexDeveloperBlock = [_sheetUser addButtonWithTitle:@"ブロック"];
+            _actionSheetUserButtonIndexCancel = [_sheetUser addButtonWithTitle:@"キャンセル"];
+            [_sheetUser setCancelButtonIndex:_actionSheetUserButtonIndexCancel];
+        }
+        _sheetUser.title = [NSString stringWithFormat:@"%@ @%@", status.user.name, status.user.screen_name];
+        _currentTargetStatus = status;
+        [_sheetUser showInView:self.view];
+    }
 }
 
 - (void)didClickUserOpenWithButton:(NSStatus *)status

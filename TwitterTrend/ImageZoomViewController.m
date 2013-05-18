@@ -115,7 +115,8 @@
             _sheet = [[UIActionSheet alloc] init];
             _sheet.title = self.status.photo.media_url;
             _sheet.delegate = self;
-            _actionSheetBackIndex = [_sheet addButtonWithTitle:@"画像を閉じる"];
+            _actionSheetBackIndex = [_sheet addButtonWithTitle:@"閉じる"];
+            _actionSheetSaveIndex = [_sheet addButtonWithTitle:@"保存する"];
             _actionSheetUrlCopyIndex = [_sheet addButtonWithTitle:@"URLをコピー"];
             _actionSheetOpenwithTwitterIndex = [_sheet addButtonWithTitle:@"Twitterアプリで開く"];
             _actionSheetOpenWithSafariIndex = [_sheet addButtonWithTitle:@"Safariで開く"];
@@ -135,6 +136,12 @@
     if(buttonIndex == _actionSheetBackIndex){
         [_sheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
         [self back];
+        return;
+    }
+    
+    //// Save
+    if(buttonIndex == _actionSheetSaveIndex){
+        UIImageWriteToSavedPhotosAlbum(_image, self, @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:), nil);
         return;
     }
     
@@ -215,6 +222,18 @@
     }
     
 
+}
+
+#pragma mark Save Image
+- (void)onCompleteCapture:(UIImage *)screenImage didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = nil;
+    alert.message = @"画像を保存しました";
+    alert.title = @"完了";
+    int okIndex = [alert addButtonWithTitle:@"OK"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert show];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex

@@ -16,20 +16,23 @@
 #import "TwitterTimelineViewController.h"
 #import "NSMenuItem.h"
 #import "UITwitterScrollView.h"
+#import "UIBlackAlertView.h"
 
 @interface SideViewController : UIViewController
 {
+    BOOL _layoutFinished;
     UITwitterScrollView* _scrollView;
-    NSInteger _currentButtonIndex;
     NSMutableArray* _menuButtons;
     NSMutableArray* _menuButtonItems;
 }
+
+@property (nonatomic, assign) NSInteger currentButtonIndex;
 
 - (NSMenuItem*)itemAtIndex:(NSInteger)index;
 - (void)setMenuButtonItems;
 - (void)showButtons;
 - (void)didClickMenuButton:(id)sender;
-
+- (void)layout;
 - (void)swithToSettings;
 
 @end
