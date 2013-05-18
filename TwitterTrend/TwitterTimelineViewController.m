@@ -51,7 +51,7 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
 
-    UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 500.0f)];
+    UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
     [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
     
     [self addSwipeGesture];
@@ -421,7 +421,7 @@
     //// When Hidden
     if(_filterViewState == FilterViewStateHidden){
         if(scrollView.contentOffset.y < -120.0f){
-            scrollView.contentInset = UIEdgeInsetsMake(300.0f, 0.0f, 0.0f, 0.0f);
+            scrollView.contentInset = UIEdgeInsetsMake(330.0f, 0.0f, 0.0f, 0.0f);
             _filterViewState = FilterViewStateDisplay;
             _state = TimelineViewStateSettingMinMax;
         }

@@ -11,6 +11,13 @@
 #import "UIFilterInnerShadowView.h"
 #import "UIFilterSliderView.h"
 #import "UITwitterScrollView.h"
+#import "UIFlatButtonCreator.h"
+
+typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
+{
+    UIFilterSliderIdentifierRetweet = 0,
+    UIFilterSliderIdentifierFavorite
+};
 
 @protocol UIFilterViewProtocol <NSObject>
 
@@ -19,7 +26,7 @@
 
 @end
 
-@interface UIFilterView : UIView
+@interface UIFilterView : UIView <UIFilterSliderViewDelegate>
 
 @property (nonatomic, weak) id<UIFilterViewProtocol> delegate;
 

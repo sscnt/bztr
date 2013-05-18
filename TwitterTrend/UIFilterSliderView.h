@@ -11,19 +11,12 @@
 #import "UIFilterKnobView.h"
 #import "UIView+extend.h"
 
-typedef NS_ENUM(NSInteger, UIFilterDragIdentifier)
-{
-    UIFilterDragIdentifierMinRT = 0,
-    UIFilterDragIdentifierMaxRT,
-    UIFilterDragIdentifierMinFav,
-    UIFilterDragIdentifierMaxFav
-};
 
 @class UIFilterSliderView;
 
 @protocol UIFilterSliderViewDelegate <NSObject>
 
-- (void)slider:(UIFilterSliderView*)slider didDragKnob:(UIFilterKnobView*)knob;
+- (void)sliderDidValueChanged:(UIFilterSliderView*)slider;
 
 @end
 
@@ -38,6 +31,8 @@ typedef NS_ENUM(NSInteger, UIFilterDragIdentifier)
     CGFloat _centerMaxX;
     UIFilterKnobView* _knobViewMin;
     UIFilterKnobView* _knobViewMax;
+    UILabel* _minValueLabel;
+    UILabel* _maxVlaueLabel;
 }
 
 @property (nonatomic, assign) NSInteger currentMaxLevel;
