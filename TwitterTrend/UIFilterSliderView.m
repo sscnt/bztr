@@ -50,8 +50,9 @@
 
 - (void)didDragMaxKnob:(UIPanGestureRecognizer *)sender
 {
-    UIFilterKnobView* dragView = (UIFilterKnobView*)sender.view;
-    CGPoint transitionPoint = [sender translationInView:dragView];
+    UIFilterKnobView* knobView = (UIFilterKnobView*)sender.view;
+    [self bringSubviewToFront:knobView];
+    CGPoint transitionPoint = [sender translationInView:knobView];
     NSInteger deltaLevel = 0;
     CGFloat deltaLevelFloat = transitionPoint.x / _snapPeriod;
     if(deltaLevelFloat < 0){
@@ -65,55 +66,48 @@
             tmpLevel = 1;
         } else if (tmpLevel > _maxLevel){
             tmpLevel = _maxLevel;
+        } else if(tmpLevel <= _currentMinLevel){
+            tmpLevel = _currentMinLevel + 1;
         }
         if(_currentMaxLevel != tmpLevel){
-            [sender setTranslation:CGPointZero inView:dragView];
+            [sender setTranslation:CGPointZero inView:knobView];
             _currentMaxLevel = tmpLevel;
-            CGPoint destinationPoint = CGPointMake(_currentMaxLevel * _snapPeriod, dragView.center.y);
-            dragView.center = destinationPoint;
+            CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * (_currentMaxLevel + 1) / (_maxLevel + 1) + _centerMinX, knobView.center.y);
+            knobView.center = destinationPoint;
             dlog(@"%d", _currentMaxLevel);
         }
     }
     return;
-    _currentMaxLevel += deltaLevel;
-    if(_currentMaxLevel < 1){
-        _currentMaxLevel = 1;
-    } else if (_currentMaxLevel > _maxLevel){
-        _currentMaxLevel = _maxLevel;
-    }
-    CGPoint destinationPoint = CGPointMake(_currentMaxLevel * _snapPeriod, dragView.center.y);
-    dragView.center = destinationPoint;
-    return;
-    {
-    CGPoint destinationPoint = CGPointMake(dragView.center.x + transitionPoint.x, dragView.center.y);
-    CGFloat limitMax = (_currentMinLevel) * _snapPeriod + _centerMinX + _snapPeriod;
-    if(destinationPoint.x < limitMax){
-        destinationPoint = CGPointMake(limitMax, dragView.center.y);
-    }
-    if(destinationPoint.x > _centerMaxX){
-        destinationPoint = CGPointMake(_centerMaxX, dragView.center.y);
-    }
-    dragView.center = destinationPoint;
-    [sender setTranslation:CGPointZero inView:dragView];
-    _currentMaxLevel = floorf((dragView.center.x - _centerMinX) / _snapPeriod);
-    }
 }
 
 - (void)didDragMinKnob:(UIPanGestureRecognizer *)sender
 {
-    UIFilterKnobView* dragView = (UIFilterKnobView*)sender.view;
-    CGPoint transitionPoint = [sender translationInView:dragView];
-    CGPoint destinationPoint = CGPointMake(dragView.center.x + transitionPoint.x, dragView.center.y);
-    if(destinationPoint.x < _centerMinX){
-        destinationPoint = CGPointMake(_centerMinX, dragView.center.y);
+    UIFilterKnobView* knobView = (UIFilterKnobView*)sender.view;
+    [self bringSubviewToFront:knobView];
+    CGPoint transitionPoint = [sender translationInView:knobView];
+    NSInteger deltaLevel = 0;
+    CGFloat deltaLevelFloat = transitionPoint.x / _snapPeriod;
+    if(deltaLevelFloat < 0){
+        deltaLevel = floorf(deltaLevelFloat) + 1;
+    }else{
+        deltaLevel = floorf(deltaLevelFloat);
     }
-    if(destinationPoint.x > _snapPeriod * _currentMaxLevel){
-        destinationPoint = CGPointMake(_snapPeriod * _currentMaxLevel, dragView.center.y);
+    if(deltaLevel != 0){
+        NSInteger tmpLevel = _currentMinLevel + deltaLevel;
+        if(tmpLevel < 0){
+            tmpLevel = 0;
+        } else if(tmpLevel >= _currentMaxLevel){
+            tmpLevel = _currentMaxLevel - 1;
+        }
+        if(_currentMinLevel != tmpLevel){
+            [sender setTranslation:CGPointZero inView:knobView];
+            _currentMinLevel = tmpLevel;
+            CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * _currentMinLevel / (_maxLevel + 1) + _centerMinX, knobView.center.y);
+            knobView.center = destinationPoint;
+            dlog(@"%d", _currentMinLevel);
+        }
     }
-    dragView.center = destinationPoint;
-    [sender setTranslation:CGPointZero inView:dragView];
-    
-    _currentMinLevel = floorf((dragView.center.x - _centerMinX) / _snapPeriod);
+    return;
 }
 
 
