@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5800AA5E1746569000570EBF /* UIFilterDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5800AA5D1746569000570EBF /* UIFilterDragView.m */; };
+		5800AA5E1746569000570EBF /* UIFilterKnobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5800AA5D1746569000570EBF /* UIFilterKnobView.m */; };
 		58018B03173E04930084FC51 /* UIStatusUserButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B02173E04920084FC51 /* UIStatusUserButton.m */; };
 		58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B08173E0FE00084FC51 /* UIBlackAlertView.m */; };
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
@@ -107,8 +107,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5800AA5C1746569000570EBF /* UIFilterDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterDragView.h; sourceTree = "<group>"; };
-		5800AA5D1746569000570EBF /* UIFilterDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterDragView.m; sourceTree = "<group>"; };
+		5800AA5C1746569000570EBF /* UIFilterKnobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFilterKnobView.h; sourceTree = "<group>"; };
+		5800AA5D1746569000570EBF /* UIFilterKnobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFilterKnobView.m; sourceTree = "<group>"; };
 		58018B01173E04920084FC51 /* UIStatusUserButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusUserButton.h; sourceTree = "<group>"; };
 		58018B02173E04920084FC51 /* UIStatusUserButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusUserButton.m; sourceTree = "<group>"; };
 		58018B07173E0FE00084FC51 /* UIBlackAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBlackAlertView.h; sourceTree = "<group>"; };
@@ -332,8 +332,8 @@
 				5809EB971743D3F8008DC7DA /* UIFilterSliderView.m */,
 				5809EB931743D2B2008DC7DA /* UIFilterBarBaseView.h */,
 				5809EB941743D2B2008DC7DA /* UIFilterBarBaseView.m */,
-				5800AA5C1746569000570EBF /* UIFilterDragView.h */,
-				5800AA5D1746569000570EBF /* UIFilterDragView.m */,
+				5800AA5C1746569000570EBF /* UIFilterKnobView.h */,
+				5800AA5D1746569000570EBF /* UIFilterKnobView.m */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -898,7 +898,7 @@
 				5809EB921743C25B008DC7DA /* UIFilterInnerShadowView.m in Sources */,
 				5809EB951743D2B2008DC7DA /* UIFilterBarBaseView.m in Sources */,
 				5809EB981743D3F8008DC7DA /* UIFilterSliderView.m in Sources */,
-				5800AA5E1746569000570EBF /* UIFilterDragView.m in Sources */,
+				5800AA5E1746569000570EBF /* UIFilterKnobView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

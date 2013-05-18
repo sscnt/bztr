@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIFilterDragView : UIView
+@interface UIFilterKnobView : UIView
 
 @end

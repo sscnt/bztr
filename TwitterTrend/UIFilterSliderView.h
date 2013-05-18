@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIFilterBarBaseView.h"
-#import "UIFilterDragView.h"
+#import "UIFilterKnobView.h"
+#import "UIView+extend.h"
 
 typedef NS_ENUM(NSInteger, UIFilterDragIdentifier)
 {
@@ -18,9 +19,33 @@ typedef NS_ENUM(NSInteger, UIFilterDragIdentifier)
     UIFilterDragIdentifierMaxFav
 };
 
+@class UIFilterSliderView;
+
+@protocol UIFilterSliderViewDelegate <NSObject>
+
+- (void)slider:(UIFilterSliderView*)slider didDragKnob:(UIFilterKnobView*)knob;
+
+@end
+
 @interface UIFilterSliderView : UIView
+{
+    NSArray* _levels;
+    CGFloat _snapPeriod;
+    NSInteger _maxLevel;
+    NSInteger _lastChangedMaxLevel;
+    NSInteger _lastChangedMinLevel;
+    CGFloat _centerMinX;
+    CGFloat _centerMaxX;
+    UIFilterKnobView* _knobViewMin;
+    UIFilterKnobView* _knobViewMax;
+}
+
+@property (nonatomic, assign) NSInteger currentMaxLevel;
+@property (nonatomic, assign) NSInteger currentMinLevel;
+@property (nonatomic, weak) id<UIFilterSliderViewDelegate> delegate;
 
 - (void)setLevels:(NSArray*)levels;
-- (void)didDragMinRT:(UIPanGestureRecognizer*)sender;
+- (void)didDragMinKnob:(UIPanGestureRecognizer*)sender;
+- (void)didDragMaxKnob:(UIPanGestureRecognizer*)sender;
 
 @end

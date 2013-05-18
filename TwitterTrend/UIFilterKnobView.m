@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 SSC. All rights reserved.
 //
 
-#import "UIFilterDragView.h"
+#import "UIFilterKnobView.h"
 
-@implementation UIFilterDragView
+@implementation UIFilterKnobView
 
 - (id)initWithFrame:(CGRect)frame
 {

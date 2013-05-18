@@ -40,6 +40,15 @@
 {    
     self.frame = CGRectMake( self.frame.origin.x, y, self.frame.size.width, self.frame.size.height );    
 }
+- (void)setCenterX:(CGFloat)x
+{
+    self.center = CGPointMake(x, self.center.y);
+}
+
+-(void) setCenterY:(CGFloat)y
+{
+    self.center = CGPointMake(self.center.x, y);
+}
 
 - (void)setWidth:(NSInteger)width
 {    

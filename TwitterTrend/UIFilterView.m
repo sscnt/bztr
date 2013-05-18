@@ -20,6 +20,8 @@
         UITwitterScrollView* scrollView = [[UITwitterScrollView alloc] initWithFrame:frame];
         [self addSubview:scrollView];
         
+        //// Retweet Filter
+        NSArray* levels = [NSArray arrayWithObjects:@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", nil];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
         label.text = @"リツイート数";
         label.backgroundColor = [UIColor clearColor];
@@ -30,6 +32,7 @@
         [scrollView appendView:label margin:215.0f];
         
         UIFilterSliderView* slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
+        [slider setLevels:levels];
         [scrollView appendView:slider margin:10.0f];
         
         UIFilterInnerShadowView* shadow = [[UIFilterInnerShadowView alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 1.0f, frame.size.width, 40.0f)];

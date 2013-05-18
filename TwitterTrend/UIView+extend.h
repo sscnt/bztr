@@ -20,6 +20,8 @@
 - (void)setShadow;
 - (void)setX:(NSInteger)x;
 - (void)setY:(NSInteger)y;
+- (void)setCenterX:(CGFloat)x;
+- (void)setCenterY:(CGFloat)y;
 - (void)setWidth:(NSInteger)width;
 - (void)setHeight:(NSInteger)height;
 - (void)setOrigin:(CGPoint)point;
