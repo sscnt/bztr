@@ -12,20 +12,29 @@
 
 - (void)showMenuBtn
 {
-    UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
-    [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarMenuButtonBg"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
-    self.tabBarController.navigationItem.leftBarButtonItem = menuBtnItem;
+    if(self.tabBarController.navigationItem.leftBarButtonItem == nil){
+        UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
+        [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarMenuButtonBg"] forState:UIControlStateNormal];
+        [menuBtn addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
+        self.tabBarController.navigationItem.leftBarButtonItem = menuBtnItem;
+    }
 }
 
 - (void)showSettingsBtn
 {
-    UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
-    [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarSettingsButtonBg.png"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(showSettings:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
-    self.tabBarController.navigationItem.rightBarButtonItem = menuBtnItem;
+    if(self.tabBarController.navigationItem.rightBarButtonItem == nil){
+        UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
+        [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarSettingsButtonBg.png"] forState:UIControlStateNormal];
+        [menuBtn addTarget:self action:@selector(showSettings:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
+        self.tabBarController.navigationItem.rightBarButtonItem = menuBtnItem;
+    }
+}
+
+- (void)showBackButton
+{
+    
 }
 
 - (void)showMenu:(id)sender
@@ -37,6 +46,11 @@
 {
     SideViewController* controller = (SideViewController*)[self sidePanelController].leftPanel;
     [controller swithToSettings];
+}
+
+- (void)back
+{
+    [self.tabBarController.navigationController popViewControllerAnimated:YES];
 }
 
 - (JASidePanelController *)sidePanelController {

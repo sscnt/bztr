@@ -39,7 +39,7 @@
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     if(userData.registered == NO){
-        [self initializeController];
+        [_modelEnduser registerUser];
     } else {
         [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
         [_modelEnduser fetchUser];
@@ -47,16 +47,20 @@
 }
 
 - (void)initializeController
-{    
+{
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
-    _scrollView.delegate = self;
+    if(userData.premium){
+        _scrollView.delegate = self;
+    }
     [self.view addSubview:_scrollView];
 
-    UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
-    filterView.delegate = self;
-    [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
-    
+    if(userData.premium){
+        UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
+        filterView.delegate = self;
+        [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
+    }
     [self addSwipeGesture];
     
     [self restart];    
@@ -408,11 +412,15 @@
     if(_state == TimelineViewStateReady){
         _state = TimelineViewStateActionSheetShowing;
         if(!_sheetUser){
+            NSEnduserData* userData = [NSEnduserData sharedEnduserData];
             _sheetUser = [[UIActionSheet alloc] init];
             _sheetUser.delegate = self;
             _sheetUser.tag = ActionSheetTagUser;
             _actionSheetUserButtonIndexOpenWithTwitterApp = [_sheetUser addButtonWithTitle:@"Twitterアプリで開く"];
             _actionSheetUserButtonIndexDeveloperBlock = [_sheetUser addButtonWithTitle:@"ブロック"];
+            if(userData.premium){
+                _actionSheetUserButtonIndexPremiumHide = [_sheetUser addButtonWithTitle:@"非表示にする"];
+            }
             _actionSheetUserButtonIndexCancel = [_sheetUser addButtonWithTitle:@"キャンセル"];
             [_sheetUser setCancelButtonIndex:_actionSheetUserButtonIndexCancel];
         }
@@ -461,6 +469,11 @@
             [alert setCancelButtonIndex:okIndex];
             [alert addButtonWithTitle:@"ブロック"];
             [alert show];
+            return;
+        }
+        
+        //// Hide
+        if(buttonIndex == _actionSheetUserButtonIndexPremiumHide){
             return;
         }
         

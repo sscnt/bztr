@@ -47,13 +47,13 @@
         [self addSubview:_bar];
         
         //// Min Knob
-        _knobViewMin = [[UIFilterKnobView alloc] initWithFrame:CGRectMake(0.0f, 26.0f, 60.0f, 60.0f)];
+        _knobViewMin = [[UIFilterKnobView alloc] initWithFrame:CGRectMake(0.0f, 27.0f, 60.0f, 60.0f)];
         UIPanGestureRecognizer* recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMinKnob:)];
         [_knobViewMin addGestureRecognizer:recognizer];
         [self addSubview:_knobViewMin];
         
         //// Max Knob
-        _knobViewMax = [[UIFilterKnobView alloc] initWithFrame:CGRectMake(0.0f, 26.0f, 60.0f, 60.0f)];
+        _knobViewMax = [[UIFilterKnobView alloc] initWithFrame:CGRectMake(0.0f, 27.0f, 60.0f, 60.0f)];
         recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMaxKnob:)];
         [_knobViewMax addGestureRecognizer:recognizer];
         [self addSubview:_knobViewMax];

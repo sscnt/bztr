@@ -43,6 +43,9 @@
 		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */; };
 		583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F8173E581400F7D3A7 /* NSEnduserData.m */; };
 		583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */; };
+		588DECA51748C46900FC43C1 /* UICellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECA41748C46900FC43C1 /* UICellButton.m */; };
+		588DECAA1748D24E00FC43C1 /* NGWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECA91748D24E00FC43C1 /* NGWordViewController.m */; };
+		588DECAD1748D25C00FC43C1 /* NonDisplayUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECAC1748D25C00FC43C1 /* NonDisplayUsersViewController.m */; };
 		58BB6749173FDFDF00D17669 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6748173FDFDF00D17669 /* HelpViewController.m */; };
 		58BB674D173FDFF300D17669 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB674C173FDFF300D17669 /* ReportViewController.m */; };
 		58BB6751173FE00400D17669 /* PremiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6750173FE00400D17669 /* PremiumViewController.m */; };
@@ -170,6 +173,12 @@
 		583E92F8173E581400F7D3A7 /* NSEnduserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSEnduserData.m; sourceTree = "<group>"; };
 		583E92FA173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewEnduserModel.h; sourceTree = "<group>"; };
 		583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewEnduserModel.m; sourceTree = "<group>"; };
+		588DECA31748C46900FC43C1 /* UICellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICellButton.h; sourceTree = "<group>"; };
+		588DECA41748C46900FC43C1 /* UICellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICellButton.m; sourceTree = "<group>"; };
+		588DECA81748D24E00FC43C1 /* NGWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGWordViewController.h; sourceTree = "<group>"; };
+		588DECA91748D24E00FC43C1 /* NGWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGWordViewController.m; sourceTree = "<group>"; };
+		588DECAB1748D25C00FC43C1 /* NonDisplayUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonDisplayUsersViewController.h; sourceTree = "<group>"; };
+		588DECAC1748D25C00FC43C1 /* NonDisplayUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonDisplayUsersViewController.m; sourceTree = "<group>"; };
 		58BB6747173FDFDF00D17669 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		58BB6748173FDFDF00D17669 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		58BB674B173FDFF300D17669 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -361,6 +370,24 @@
 			path = Tweet;
 			sourceTree = "<group>";
 		};
+		588DECA61748D0F500FC43C1 /* NGWord */ = {
+			isa = PBXGroup;
+			children = (
+				588DECA81748D24E00FC43C1 /* NGWordViewController.h */,
+				588DECA91748D24E00FC43C1 /* NGWordViewController.m */,
+			);
+			name = NGWord;
+			sourceTree = "<group>";
+		};
+		588DECA71748D0FC00FC43C1 /* NonDisplayUsers */ = {
+			isa = PBXGroup;
+			children = (
+				588DECAB1748D25C00FC43C1 /* NonDisplayUsersViewController.h */,
+				588DECAC1748D25C00FC43C1 /* NonDisplayUsersViewController.m */,
+			);
+			name = NonDisplayUsers;
+			sourceTree = "<group>";
+		};
 		58BB6746173FDFCA00D17669 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +420,8 @@
 			children = (
 				5806169B1742761100D2AB37 /* UISettingsCellView.h */,
 				5806169C1742761100D2AB37 /* UISettingsCellView.m */,
+				588DECA31748C46900FC43C1 /* UICellButton.h */,
+				588DECA41748C46900FC43C1 /* UICellButton.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -518,6 +547,8 @@
 		58FCA5C5173BA0B100B3DCEE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				588DECA71748D0FC00FC43C1 /* NonDisplayUsers */,
+				588DECA61748D0F500FC43C1 /* NGWord */,
 				58F633CD173F962400673AA8 /* SettingsViewController.h */,
 				58F633CE173F962400673AA8 /* SettingsViewController.m */,
 			);
@@ -917,6 +948,9 @@
 				5809EB981743D3F8008DC7DA /* UIFilterSliderView.m in Sources */,
 				5800AA5E1746569000570EBF /* UIFilterKnobView.m in Sources */,
 				581175AA174784660077A709 /* UIStatusOpenButton.m in Sources */,
+				588DECA51748C46900FC43C1 /* UICellButton.m in Sources */,
+				588DECAA1748D24E00FC43C1 /* NGWordViewController.m in Sources */,
+				588DECAD1748D25C00FC43C1 /* NonDisplayUsersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

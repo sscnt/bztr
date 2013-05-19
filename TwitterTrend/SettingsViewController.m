@@ -37,7 +37,7 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width, 20.0f)];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
-        label.text = @"iCloud";
+        label.text = @"バックアップ";
         [_scrollView appendView:label margin:10.0f];
         
         //////// Switch
@@ -87,6 +87,18 @@
         label.text = @"ツイート非表示設定";
         [_scrollView appendView:label margin:20.0f];
         
+        //// NG Word Button
+        UICellButton* button = [[UICellButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenRect].size.width - 20.0f, label.frame.size.height + 18.0f) byRoundingCouners:UIRectCornerTopLeft | UIRectCornerTopRight];
+        [button setTitle:@"NGワードの登録・削除" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(didClickSettingButtonNGWord) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollView appendView:button margin:10.0f];
+        
+        //// Hide User
+        button = [[UICellButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenRect].size.width - 20.0f, label.frame.size.height + 18.0f) byRoundingCouners:UIRectCornerBottomLeft | UIRectCornerBottomRight];
+        [button setTitle:@"非表示ユーザーの管理" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(didClickSettingButtonManageNonDisplayUsers) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollView appendView:button margin:0.0f];
+        
 
     }
     
@@ -98,6 +110,43 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = @"設定";
+}
+
+#pragma mark Hiding Tweets
+
+- (void)didClickSettingButtonNGWord
+{
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.iCloudEnabled == NO){
+        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+        alert.delegate = nil;
+        alert.message = @"「iCloudに保存」がOFFになっています。ONにしてください。";
+        alert.title = @"エラー";
+        int okIndex = [alert addButtonWithTitle:@"OK"];
+        [alert setCancelButtonIndex:okIndex];
+        [alert show];
+    }else{
+        NGWordViewController* controller = [[NGWordViewController alloc] init];
+        [self.tabBarController.navigationController pushViewController:controller animated:YES];
+    }
+}
+
+- (void)didClickSettingButtonManageNonDisplayUsers
+{
+    
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.iCloudEnabled == NO){
+        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+        alert.delegate = nil;
+        alert.message = @"「iCloudに保存」がOFFになっています。ONにしてください。";
+        alert.title = @"エラー";
+        int okIndex = [alert addButtonWithTitle:@"OK"];
+        [alert setCancelButtonIndex:okIndex];
+        [alert show];
+    }else{        
+        NonDisplayUsersViewController* controller = [[NonDisplayUsersViewController alloc] init];
+        [self.tabBarController.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma mark Switch for iCloud

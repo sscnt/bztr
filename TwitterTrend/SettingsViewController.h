@@ -16,7 +16,10 @@
 #import "NSEnduserData.h"
 #import "DCRoundSwitch.h"
 #import "UISettingsCellView.h"
+#import "UICellButton.h"
 #import "UITwitterScrollView.h"
+#import "NGWordViewController.h"
+#import "NonDisplayUsersViewController.h"
 
 @interface SettingsViewController : UIViewController
 {
@@ -25,5 +28,8 @@
 }
 
 - (void)didSwitchToggledForICloudEnabled:(id)sender;
+
+- (void)didClickSettingButtonNGWord;
+- (void)didClickSettingButtonManageNonDisplayUsers;
 
 @end
