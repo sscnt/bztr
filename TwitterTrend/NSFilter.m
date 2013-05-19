@@ -100,7 +100,7 @@ static NSFilter* _sharedFilter = nil;
 {
     _NGUsers = [NSMutableArray array];
     if(self.databaseOpened){
-        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUserIDs"];
+        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUsers"];
         while ([rs next]) {
             [_NGUsers addObject:[NSNumber numberWithInt:[rs intForColumn:@"user_id"]]];
         }
@@ -129,6 +129,18 @@ static NSFilter* _sharedFilter = nil;
         return NO;
     }
     return YES;
+}
+
+#pragma mark Insert
+
+- (void)insertNGWord:(NSString *)word
+{
+    
+}
+
+- (void)insertUserInStastus:(NSStatus *)status
+{
+    
 }
 
 - (BOOL)ifConatainNGWord

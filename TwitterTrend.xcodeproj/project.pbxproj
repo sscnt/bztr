@@ -46,6 +46,9 @@
 		588DECA51748C46900FC43C1 /* UICellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECA41748C46900FC43C1 /* UICellButton.m */; };
 		588DECAA1748D24E00FC43C1 /* NGWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECA91748D24E00FC43C1 /* NGWordViewController.m */; };
 		588DECAD1748D25C00FC43C1 /* NonDisplayUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588DECAC1748D25C00FC43C1 /* NonDisplayUsersViewController.m */; };
+		588DECC81748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */; };
+		588DECCB1748F04A00FC43C1 /* NavigationBarBackButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */; };
+		588DECCC1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */; };
 		58BB6749173FDFDF00D17669 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6748173FDFDF00D17669 /* HelpViewController.m */; };
 		58BB674D173FDFF300D17669 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB674C173FDFF300D17669 /* ReportViewController.m */; };
 		58BB6751173FE00400D17669 /* PremiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6750173FE00400D17669 /* PremiumViewController.m */; };
@@ -179,6 +182,9 @@
 		588DECA91748D24E00FC43C1 /* NGWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGWordViewController.m; sourceTree = "<group>"; };
 		588DECAB1748D25C00FC43C1 /* NonDisplayUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonDisplayUsersViewController.h; sourceTree = "<group>"; };
 		588DECAC1748D25C00FC43C1 /* NonDisplayUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonDisplayUsersViewController.m; sourceTree = "<group>"; };
+		588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarMenuButtonBgWithOuterShadow2@2x.png"; sourceTree = "<group>"; };
+		588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarBackButtonBg.png; sourceTree = "<group>"; };
+		588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarBackButtonBg@2x.png"; sourceTree = "<group>"; };
 		58BB6747173FDFDF00D17669 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		58BB6748173FDFDF00D17669 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		58BB674B173FDFF300D17669 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -388,6 +394,13 @@
 			name = NonDisplayUsers;
 			sourceTree = "<group>";
 		};
+		588DECAE1748D73600FC43C1 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		58BB6746173FDFCA00D17669 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +525,9 @@
 		58F9D30F173391FF007100EF /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */,
+				588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */,
+				588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */,
 				58F9D32417339D2D007100EF /* NavigationBarSettingsButtonBg.png */,
 				58F9D32517339D2D007100EF /* NavigationBarSettingsButtonBg@2x.png */,
 				58F9D32217339CE4007100EF /* NavigationBarMenuButtonBg.png */,
@@ -706,6 +722,7 @@
 				58BB674E173FDFFA00D17669 /* Premium */,
 				58BB674A173FDFE400D17669 /* Report */,
 				58BB6746173FDFCA00D17669 /* Help */,
+				588DECAE1748D73600FC43C1 /* News */,
 				58FCA5C5173BA0B100B3DCEE /* Settings */,
 				580241F1173697AC00C64E28 /* Viewer */,
 				58F9D31417339355007100EF /* Side */,
@@ -861,6 +878,9 @@
 				58FDE7AE1741104D0013CF4E /* Default@2x.png in Resources */,
 				581175A6174784310077A709 /* Open.png in Resources */,
 				581175A7174784310077A709 /* Open@2x.png in Resources */,
+				588DECC81748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png in Resources */,
+				588DECCB1748F04A00FC43C1 /* NavigationBarBackButtonBg.png in Resources */,
+				588DECCC1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

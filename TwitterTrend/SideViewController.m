@@ -175,6 +175,12 @@
         item.type = NSMenuItemTypePremium;
         item.index = 15;
         [_menuButtonItems addObject:item];
+        
+        item = [[NSMenuItem alloc] init];
+        item.buttonTitle = @"お知らせ";
+        item.type = NSMenuItemTypeNews;
+        item.index = 16;
+        [_menuButtonItems addObject:item];
     }
 }
 
@@ -263,7 +269,7 @@
     [_scrollView appendView:aboutSeparatorView margin:0.0f];
     
     //// Buttons
-    for(int index = 12;index < 16;index++){
+    for(int index = 12;index < 17;index++){
         UISideMenuButton* button = [_menuButtons objectAtIndex:index];
         if(index == _currentButtonIndex){
             button.selected = YES;
@@ -326,6 +332,11 @@
     if(item.type == NSMenuItemTypePremium){
         tabbarController.selectedIndex = 4;
         [[self sidePanelController] showCenterPanelAnimated:YES];
+        return;
+    }
+    
+    //// News
+    if(item.type == NSMenuItemTypeNews){
         return;
     }
     

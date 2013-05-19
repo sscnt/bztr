@@ -34,7 +34,6 @@
     UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
     [self.view addSubview:bg];
     [self showMenuBtn];
-    [self showSettingsBtn];
     
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];

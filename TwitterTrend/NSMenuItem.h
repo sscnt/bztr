@@ -13,7 +13,8 @@ typedef NS_ENUM(int, NSMenuItemType){
     NSMenuItemTypeSettings,
     NSMenuItemTypeHelp,
     NSMenuItemTypeAsk,
-    NSMenuItemTypePremium
+    NSMenuItemTypePremium,
+    NSMenuItemTypeNews
 };
 
 @interface NSMenuItem : NSObject

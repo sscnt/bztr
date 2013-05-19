@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIColor+twitter.h"
+#import "UIViewController+navi.h"
 
 @interface NonDisplayUsersViewController : UIViewController
 

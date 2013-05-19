@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    [self showBackButton];
+
 }
 
 - (void)didReceiveMemoryWarning
