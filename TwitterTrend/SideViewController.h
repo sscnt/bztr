@@ -20,7 +20,7 @@
 
 @interface SideViewController : UIViewController
 {
-    BOOL _layoutFinished;
+    BOOL _viewDidUnload;
     UITwitterScrollView* _scrollView;
     NSMutableArray* _menuButtons;
     NSMutableArray* _menuButtonItems;
@@ -28,8 +28,10 @@
 
 @property (nonatomic, assign) NSInteger currentButtonIndex;
 
+- (void)initButtons;
+- (void)initButtonItems;
+
 - (NSMenuItem*)itemAtIndex:(NSInteger)index;
-- (void)setMenuButtonItems;
 - (void)showButtons;
 - (void)didClickMenuButton:(id)sender;
 - (void)layout;

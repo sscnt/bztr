@@ -237,6 +237,7 @@
     UIStatusOpenButton* button = [[UIStatusOpenButton alloc] init];
     [button setY:self.bottom - 32.0f];
     [button setX:self.right - 52.0f];
+    [button addTarget:self action:@selector(didClickStatusOpenWithButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:button];
 
 }

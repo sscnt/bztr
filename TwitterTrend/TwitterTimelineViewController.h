@@ -65,7 +65,13 @@ typedef NS_ENUM(int, FilterViewState){
     UIActionSheet* _sheetStatus;
     int _actionSheetUserButtonIndexOpenWithTwitterApp;
     int _actionSheetUserButtonIndexDeveloperBlock;
+    int _actionSheetUserButtonIndexPremiumHide;
     int _actionSheetUserButtonIndexCancel;
+    int _actionSheetStatusButtonIndexOpenWithTwitterApp;
+    int _actionSheetStatusButtonIndexCopyUrl;
+    int _actionSheetStatusButtonIndexOpenWithSafari;
+    int _actionSheetStatusButtonIndexOpenWithChrome;
+    int _actionSheetStatusButtonIndexCancel;
     FilterViewState _filterViewState;
 }
 

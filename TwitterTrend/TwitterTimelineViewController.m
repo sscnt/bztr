@@ -386,18 +386,20 @@
 {
     if(_state == TimelineViewStateReady){
         _state = TimelineViewStateActionSheetShowing;
-        if(!_sheetUser){
-            _sheetUser = [[UIActionSheet alloc] init];
-            _sheetUser.delegate = self;
-            _sheetUser.tag = ActionSheetTagUser;
-            _actionSheetUserButtonIndexOpenWithTwitterApp = [_sheetUser addButtonWithTitle:@"Twitterアプリで開く"];
-            _actionSheetUserButtonIndexDeveloperBlock = [_sheetUser addButtonWithTitle:@"ブロック"];
-            _actionSheetUserButtonIndexCancel = [_sheetUser addButtonWithTitle:@"キャンセル"];
-            [_sheetUser setCancelButtonIndex:_actionSheetUserButtonIndexCancel];
+        if(!_sheetStatus){
+            _sheetStatus = [[UIActionSheet alloc] init];
+            _sheetStatus.delegate = self;
+            _sheetStatus.tag = ActionSheetTagStatus;
+            _actionSheetStatusButtonIndexOpenWithTwitterApp = [_sheetStatus addButtonWithTitle:@"Twitterアプリで開く"];
+            _actionSheetStatusButtonIndexCopyUrl = [_sheetStatus addButtonWithTitle:@"URLをコピー"];
+            _actionSheetStatusButtonIndexOpenWithSafari = [_sheetStatus addButtonWithTitle:@"Safariで開く"];
+            _actionSheetStatusButtonIndexOpenWithChrome = [_sheetStatus addButtonWithTitle:@"Chromeで開く"];
+            _actionSheetStatusButtonIndexCancel = [_sheetStatus addButtonWithTitle:@"キャンセル"];
+            [_sheetStatus setCancelButtonIndex:_actionSheetStatusButtonIndexCancel];
         }
-        _sheetUser.title = [NSString stringWithFormat:@"%@ @%@", status.user.name, status.user.screen_name];
+        _sheetStatus.title = [NSString stringWithFormat:@"http://twitter.com/%@/statuses/%@", status.user.screen_name, status.id_string];
         _currentTargetStatus = status;
-        [_sheetUser showInView:self.view];
+        [_sheetStatus showInView:self.view];
     }
 }
 
@@ -467,6 +469,83 @@
     
     //// Status
     if(actionSheet.tag == ActionSheetTagStatus){
+        //// Open With Twitter App
+        if(buttonIndex == _actionSheetStatusButtonIndexOpenWithTwitterApp){
+            NSString* urlString = [NSString stringWithFormat:@"twitter://status?id=%@", _currentTargetStatus.id_string];
+            NSURL *url = [NSURL URLWithString:urlString];
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            } else {
+                UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+                alert.delegate = nil;
+                alert.message = @"URLを開けません";
+                alert.title = @"エラー";
+                int okIndex = [alert addButtonWithTitle:@"OK"];
+                [alert setCancelButtonIndex:okIndex];
+                [alert show];
+            }
+            return;
+        }
+        
+        //// Copy URL
+        if(buttonIndex == _actionSheetStatusButtonIndexCopyUrl){
+            UIPasteboard *board = [UIPasteboard generalPasteboard];
+            [board setValue:[NSString stringWithFormat:@"https://twitter.com/%@/statuses/%@", _currentTargetStatus.user.screen_name, _currentTargetStatus.id_string] forPasteboardType:@"public.utf8-plain-text"];
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.delegate = nil;
+            alert.message = @"コピーしました";
+            alert.title = @"";
+            int okIndex = [alert addButtonWithTitle:@"OK"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert show];
+            return;
+
+            return;
+        }
+        
+        //// Open With Safari
+        if(buttonIndex == _actionSheetStatusButtonIndexOpenWithSafari){
+            NSString* urlString = [NSString stringWithFormat:@"https://twitter.com/%@/statuses/%@", _currentTargetStatus.user.screen_name, _currentTargetStatus.id_string];
+            NSURL *url = [NSURL URLWithString:urlString];
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            } else {
+                UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+                alert.delegate = nil;
+                alert.message = @"URLを開けません";
+                alert.title = @"エラー";
+                int okIndex = [alert addButtonWithTitle:@"OK"];
+                [alert setCancelButtonIndex:okIndex];
+                [alert show];
+            }
+            return;
+        }
+        
+        //// Open With Chrome
+        if(buttonIndex == _actionSheetStatusButtonIndexOpenWithChrome){
+            NSString* urlString = [NSString stringWithFormat:@"googlechrome://twitter.com/%@/statuses/%@", _currentTargetStatus.user.screen_name, _currentTargetStatus.id_string];
+            NSURL *url = [NSURL URLWithString:urlString];
+            [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:NO];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            } else {
+                UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+                alert.delegate = nil;
+                alert.message = @"URLを開けません";
+                alert.title = @"エラー";
+                int okIndex = [alert addButtonWithTitle:@"OK"];
+                [alert setCancelButtonIndex:okIndex];
+                [alert show];
+            }
+            return;
+            return;
+        }
         return;
     }
 }
