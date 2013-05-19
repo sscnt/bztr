@@ -25,7 +25,6 @@
 {
     NSMutableDictionary* _statuses;
     NSTrendApi* _api;
-    NSFilter* _filter;
 }
 
 @property (nonatomic, weak) id<TwitterTimelineViewStatusesModelDelegate> delegate;

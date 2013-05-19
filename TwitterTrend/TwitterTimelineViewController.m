@@ -473,6 +473,15 @@
         
         //// Hide
         if(buttonIndex == _actionSheetUserButtonIndexPremiumHide){
+            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+            alert.tag = AlertViewIdentifierHideUser;
+            alert.delegate = self;
+            alert.title = @"確認";
+            alert.message = @"非表示にしますか？";
+            int okIndex = [alert addButtonWithTitle:@"キャンセル"];
+            [alert setCancelButtonIndex:okIndex];
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
             return;
         }
         
@@ -631,6 +640,28 @@
             [_modelDeveloper developerBlockWithParams:_params];
         }
         return;
+    }
+    
+    //// Hide User
+    if(alertView.tag == AlertViewIdentifierHideUser){
+        if(buttonIndex == 1){
+            NSFilter* filter = [NSFilter sharedFilter];
+            BOOL success = [filter insertUserInStastus:_currentTargetStatus];
+            if(success){
+                [_modelStatuses cleanStatusesCache];
+                [self loadStatuses];
+            } else {
+                UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+                alert.delegate = self;
+                alert.title = @"エラー";
+                alert.message = @"データベースエラー";
+                int okIndex = [alert addButtonWithTitle:@"OK"];
+                [alert setCancelButtonIndex:okIndex];
+                [alert show];                
+            }
+        }
+        return;
+
     }
     
     //// Registration

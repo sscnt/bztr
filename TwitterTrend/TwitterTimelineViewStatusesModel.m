@@ -17,11 +17,6 @@
         _statuses = [NSMutableDictionary dictionary];
         _api = [[NSTrendApi alloc] init];
         _api.delegate = self;
-        
-        _filter = [[NSFilter alloc] init];
-        if(_filter.databaseOpened == NO){
-            [self.delegate didFailToPrepareFilter];
-        }
     }
     return self;
 }
@@ -67,6 +62,11 @@
 
 - (void)apiDidReturnResult:(NSDictionary*)json
 {
+    NSFilter* filter = [NSFilter sharedFilter];
+    if(filter.databaseOpened == NO){
+        [self.delegate didFailToPrepareFilter];
+    }
+    
     NSInteger returnedStatusesCount = [[json objectForKey:@"statuses"] count];
     if(returnedStatusesCount > 0){
         NSInteger page = [[json objectForKey:@"page"] integerValue];
@@ -78,7 +78,7 @@
         }
         for(int index = 0;index < returnedStatusesCount;index++){
             NSStatus* status = [[NSStatus alloc] initWithJsonObject:[[json objectForKey:@"statuses"] objectAtIndex:index]];
-            if([_filter isDisplayable:status]){
+            if([filter isDisplayable:status]){
                 [[_statuses objectForKey:[NSString stringWithFormat:@"%d", page]] addObject:status];
             }
         }

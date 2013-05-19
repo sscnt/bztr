@@ -32,7 +32,7 @@
 - (void)setNGUsersToArray;
 - (void)setNGWordsToArray;
 
-- (void)insertUserInStastus:(NSStatus*)status;
-- (void)insertNGWord:(NSString*)word;
+- (BOOL)insertUserInStastus:(NSStatus*)status;
+- (BOOL)insertNGWord:(NSString*)word;
 
 @end

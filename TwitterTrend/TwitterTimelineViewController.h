@@ -44,7 +44,8 @@ typedef NS_ENUM(int, ActionSheetTag){
 typedef NS_ENUM(int, AlertViewIdentifier){
     AlertViewIdentifierDeveloperBlock = 0,
     AlertViewIdentifierRegistration,
-    AlertViewIdentifierFetchingAnnouncement
+    AlertViewIdentifierFetchingAnnouncement,
+    AlertViewIdentifierHideUser
 };
 
 typedef NS_ENUM(int, FilterViewState){

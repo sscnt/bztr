@@ -49,36 +49,38 @@ static NSFilter* _sharedFilter = nil;
 
 - (BOOL)openDatabase
 {
-    //// Check if iCloud Enabled
-    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    if(userData.iCloudEnabled == NO || userData.premium == NO){
-        return NO;
-    }
-    
-    //// General Decralations
-    NSString* sqliteFileName = @"Filters.sqlite";
-    NSArray* pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentPath = [pathArray objectAtIndex:0];
-    NSString* destinationPath = [documentPath stringByAppendingPathComponent:sqliteFileName];
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    NSError* error = nil;
-    
-    //// Check if exists
-    if([fileManager fileExistsAtPath:destinationPath]){
-        dlog(@"Fiters.sqlite found.");
-    }else{
-        dlog(@"Filters.sqlite NOT FOUND.");
-        NSString* originalSqliteFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:sqliteFileName];
-        BOOL success = [fileManager copyItemAtPath:originalSqliteFilePath toPath:destinationPath error:&error];
-        if(success){
-            dlog(@"Filters.sqlite SUCCESSFULLY COPIED.");
-        }else{
-            dlog(@"FAILED TO COPY Filters.sqlite.");
+    if(_db == nil){
+        //// Check if iCloud Enabled
+        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        if(userData.iCloudEnabled == NO || userData.premium == NO){
             return NO;
         }
+        
+        //// General Decralations
+        NSString* sqliteFileName = @"Filters.sqlite";
+        NSArray* pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* documentPath = [pathArray objectAtIndex:0];
+        NSString* destinationPath = [documentPath stringByAppendingPathComponent:sqliteFileName];
+        NSFileManager* fileManager = [NSFileManager defaultManager];
+        NSError* error = nil;
+        
+        //// Check if exists
+        if([fileManager fileExistsAtPath:destinationPath]){
+            dlog(@"Fiters.sqlite found.");
+        }else{
+            dlog(@"Filters.sqlite NOT FOUND.");
+            NSString* originalSqliteFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:sqliteFileName];
+            BOOL success = [fileManager copyItemAtPath:originalSqliteFilePath toPath:destinationPath error:&error];
+            if(success){
+                dlog(@"Filters.sqlite SUCCESSFULLY COPIED.");
+            }else{
+                dlog(@"FAILED TO COPY Filters.sqlite.");
+                return NO;
+            }
+        }
+        
+        _db = [FMDatabase databaseWithPath:destinationPath];
     }
-    
-    _db = [FMDatabase databaseWithPath:destinationPath];
     return [_db open];
 }
 
@@ -98,6 +100,7 @@ static NSFilter* _sharedFilter = nil;
 
 - (void)setNGUsersToArray
 {
+    _NGUsers = nil;
     _NGUsers = [NSMutableArray array];
     if(self.databaseOpened){
         FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUsers"];
@@ -109,6 +112,7 @@ static NSFilter* _sharedFilter = nil;
 
 - (void)setNGWordsToArray
 {
+    _NGWords = nil;
     _NGWords = [NSMutableArray array];
     if(self.databaseOpened){
         FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
@@ -133,14 +137,44 @@ static NSFilter* _sharedFilter = nil;
 
 #pragma mark Insert
 
-- (void)insertNGWord:(NSString *)word
+- (BOOL)insertNGWord:(NSString *)word
 {
-    
+    BOOL success = NO;
+    NSString* sql = [NSString stringWithFormat:@"INSERT INTO NGwords values (NULL,'%@');", word];
+    if([self openDatabase]){
+        [_db beginTransaction];
+        [_db setShouldCacheStatements:YES];
+        [_db executeUpdate:sql];
+        if(![_db hadError]){
+            success = YES;
+        }
+        [_db commit];
+    }
+    [self setNGWordsToArray];
+    [_db close];
+    return success;
 }
 
-- (void)insertUserInStastus:(NSStatus *)status
+- (BOOL)insertUserInStastus:(NSStatus *)status
 {
-    
+    if(status == nil){
+        return NO;
+    }
+    BOOL success = NO;
+    NSString* name = [status.user.name stringByReplacingOccurrencesOfString:@"'" withString:@""];
+    NSString* sql = [NSString stringWithFormat:@"INSERT INTO NGUsers values ('%@','%@','%@');", status.user.id_string, name, status.user.screen_name];
+    if([self openDatabase]){
+        [_db beginTransaction];
+        [_db setShouldCacheStatements:YES];
+        [_db executeUpdate:sql];
+        if(![_db hadError]){
+            success = YES;
+        }
+        [_db commit];
+    }
+    [self setNGUsersToArray];
+    [_db close];
+    return success;
 }
 
 - (BOOL)ifConatainNGWord

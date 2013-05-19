@@ -97,7 +97,6 @@
             userData.premium = YES;
             dlog(@"PREMIUM");
         }
-        userData.premium = YES;
         if(fetchedData.announcement.length > 0){
             userData.last_announcement_time = fetchedData.announcement_time + 1;
             [self.delegate didFetchUserDataWithAnnouncement:fetchedData.announcement];
