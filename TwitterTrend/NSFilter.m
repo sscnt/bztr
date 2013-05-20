@@ -37,25 +37,26 @@ static NSFilter* _sharedFilter = nil;
 {
     self = [super init];
     if(self){
-        self.databaseOpened = [self openDatabase];
-        if(self.databaseOpened){
-            [self setNGUsersToArray];
-            [self setNGWordsToArray];
-            [_db close];
+        
+        //// Check if iCloud Enabled
+        _isPremium = NO;
+        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        if(userData.iCloudEnabled == YES && userData.premium == YES){
+            _isPremium = YES;
+            if([self openDatabase]){
+                [self setNGUsersToArray];
+                [self setNGWordsToArray];
+                [_db close];
+            }
         }
+
     }
     return self;
 }
 
 - (BOOL)openDatabase
 {
-    if(_db == nil){
-        //// Check if iCloud Enabled
-        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-        if(userData.iCloudEnabled == NO || userData.premium == NO){
-            return NO;
-        }
-        
+    if(_db == nil){        
         //// General Decralations
         NSString* sqliteFileName = @"Filters.sqlite";
         NSArray* pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -102,32 +103,48 @@ static NSFilter* _sharedFilter = nil;
 {
     _NGUsers = nil;
     _NGUsers = [NSMutableArray array];
-    if(self.databaseOpened){
+    FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUsers"];
+    while ([rs next]) {
+        [_NGUsers addObject:[NSNumber numberWithInt:[rs intForColumn:@"user_id"]]];
+    }
+}
+
+- (NSMutableArray*)getHiddenUsersFullData
+{
+    NSMutableArray* array = [NSMutableArray array];
+    if([self openDatabase]){
         FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUsers"];
         while ([rs next]) {
-            [_NGUsers addObject:[NSNumber numberWithInt:[rs intForColumn:@"user_id"]]];
+            NSFilterUsersFullData* data = [[NSFilterUsersFullData alloc] init];
+            data.user_id = [rs intForColumn:@"user_id"];
+            data.name = [rs stringForColumn:@"name"];
+            data.screen_name = [rs stringForColumn:@"screen_name"];
+            [array addObject:data];
         }
     }
+    return array;
 }
 
 - (void)setNGWordsToArray
 {
     _NGWords = nil;
     _NGWords = [NSMutableArray array];
-    if(self.databaseOpened){
-        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
-        while ([rs next]) {
-            NSString* word = [rs stringForColumn:@"word"];
-            dlog(@"NG:%@", word);
-            if(word){
-                [_NGWords addObject:[NSString stringWithFormat:@"%@",word]];                
-            }
+    
+    FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
+    while ([rs next]) {
+        NSString* word = [rs stringForColumn:@"word"];
+        if(word){
+            [_NGWords addObject:[NSString stringWithFormat:@"%@",word]];
         }
     }
+    
 }
 
 - (BOOL)isDisplayable:(NSStatus *)status
 {
+    if(_isPremium == NO){
+        return YES;
+    }
     _status = status;
     if([self ifConatainNGWord] || [self ifNGUser]){
         return NO;

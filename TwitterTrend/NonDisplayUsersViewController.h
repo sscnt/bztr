@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+twitter.h"
 #import "UIViewController+navi.h"
+#import "NSFilter.h"
 
-@interface NonDisplayUsersViewController : UIViewController
+@interface NonDisplayUsersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    NSMutableArray* _users;
+}
 
 @end

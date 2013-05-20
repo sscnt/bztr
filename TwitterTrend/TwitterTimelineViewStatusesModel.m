@@ -16,7 +16,7 @@
     if(self){
         _statuses = [NSMutableDictionary dictionary];
         _api = [[NSTrendApi alloc] init];
-        _api.delegate = self;
+        _api.delegate = self;  
     }
     return self;
 }
@@ -63,9 +63,6 @@
 - (void)apiDidReturnResult:(NSDictionary*)json
 {
     NSFilter* filter = [NSFilter sharedFilter];
-    if(filter.databaseOpened == NO){
-        [self.delegate didFailToPrepareFilter];
-    }
     
     NSInteger returnedStatusesCount = [[json objectForKey:@"statuses"] count];
     if(returnedStatusesCount > 0){

@@ -18,7 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        NSFilter* filter = [NSFilter sharedFilter];
+        _users = [filter getHiddenUsersFullData];
     }
     return self;
 }
@@ -27,6 +28,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    [self showBackButton];
+
 }
 
 - (void)didReceiveMemoryWarning

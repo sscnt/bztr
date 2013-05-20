@@ -52,6 +52,8 @@
 		58BB6749173FDFDF00D17669 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6748173FDFDF00D17669 /* HelpViewController.m */; };
 		58BB674D173FDFF300D17669 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB674C173FDFF300D17669 /* ReportViewController.m */; };
 		58BB6751173FE00400D17669 /* PremiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6750173FE00400D17669 /* PremiumViewController.m */; };
+		58C457C9174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C457C8174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png */; };
+		58C457CC174A5C8C00E5B0EE /* NSFilterUsersFullData.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C457CB174A5C8C00E5B0EE /* NSFilterUsersFullData.m */; };
 		58F3E33F173FBA5600896C82 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E338173FBA5600896C82 /* DCRoundSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58F3E340173FBA5600896C82 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E33A173FBA5600896C82 /* DCRoundSwitchKnobLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58F3E341173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F3E33C173FBA5600896C82 /* DCRoundSwitchOutlineLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -191,6 +193,9 @@
 		58BB674C173FDFF300D17669 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		58BB674F173FE00400D17669 /* PremiumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PremiumViewController.h; sourceTree = "<group>"; };
 		58BB6750173FE00400D17669 /* PremiumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumViewController.m; sourceTree = "<group>"; };
+		58C457C8174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarBgTextured2@2x.png"; sourceTree = "<group>"; };
+		58C457CA174A5C8C00E5B0EE /* NSFilterUsersFullData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFilterUsersFullData.h; sourceTree = "<group>"; };
+		58C457CB174A5C8C00E5B0EE /* NSFilterUsersFullData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFilterUsersFullData.m; sourceTree = "<group>"; };
 		58F3E337173FBA5600896C82 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
 		58F3E338173FBA5600896C82 /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
 		58F3E339173FBA5600896C82 /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
@@ -525,6 +530,7 @@
 		58F9D30F173391FF007100EF /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				58C457C8174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png */,
 				588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */,
 				588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */,
 				588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */,
@@ -777,6 +783,8 @@
 				5804D280173F53790000B03B /* NSEnduserRegistration.m */,
 				5804D298173F8ED10000B03B /* NSEnduserFetched.h */,
 				5804D299173F8ED10000B03B /* NSEnduserFetched.m */,
+				58C457CA174A5C8C00E5B0EE /* NSFilterUsersFullData.h */,
+				58C457CB174A5C8C00E5B0EE /* NSFilterUsersFullData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -881,6 +889,7 @@
 				588DECC81748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png in Resources */,
 				588DECCB1748F04A00FC43C1 /* NavigationBarBackButtonBg.png in Resources */,
 				588DECCC1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png in Resources */,
+				58C457C9174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,6 +980,7 @@
 				588DECA51748C46900FC43C1 /* UICellButton.m in Sources */,
 				588DECAA1748D24E00FC43C1 /* NGWordViewController.m in Sources */,
 				588DECAD1748D25C00FC43C1 /* NonDisplayUsersViewController.m in Sources */,
+				58C457CC174A5C8C00E5B0EE /* NSFilterUsersFullData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

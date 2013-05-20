@@ -11,6 +11,7 @@
 #import "NSStatus.h"
 #import "FMDatabase.h"
 #import "NSEnduserData.h"
+#import "NSFilterUsersFullData.h"
 
 @interface NSFilter : NSObject
 {
@@ -18,9 +19,8 @@
     NSMutableArray* _NGUsers;
     __weak NSStatus* _status;
     FMDatabase* _db;
+    BOOL _isPremium;
 }
-
-@property (nonatomic, assign) BOOL databaseOpened;
 
 + (NSFilter*)sharedFilter;
 - (BOOL)isDisplayable:(NSStatus*)status;
@@ -34,5 +34,7 @@
 
 - (BOOL)insertUserInStastus:(NSStatus*)status;
 - (BOOL)insertNGWord:(NSString*)word;
+
+- (NSMutableArray*)getHiddenUsersFullData;
 
 @end
