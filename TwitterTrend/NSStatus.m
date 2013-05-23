@@ -39,14 +39,10 @@
         }
         self.type = @"word";
         self.photo = nil;
-        if([json objectForKey:@"entities"] != nil){
-            if([[json objectForKey:@"entities"] objectForKey:@"media"] != nil){
-                if([[[json objectForKey:@"entities"] objectForKey:@"media"] count] == 1){
-                    self.type = @"photo";
-                    self.photo = [[NSStatusPhoto alloc] initWithJsonObject:[[[json objectForKey:@"entities"] objectForKey:@"media"] objectAtIndex:0]];
-                }
+        if([json objectForKey:@"photo"] != nil){
+            self.type = @"photo";
+            self.photo = [[NSStatusPhoto alloc] initWithJsonObject:[json objectForKey:@"photo"]];
 
-            }
         }
         self.user = nil;
         if([json objectForKey:@"user"] != nil){

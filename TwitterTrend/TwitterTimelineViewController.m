@@ -20,6 +20,7 @@
     self.wantsFullScreenLayout = YES;
     _filterViewState = FilterViewStateHidden;
     _params = [[NSRequestParams alloc] init];
+    _nextPageExists = YES;
     
     //// Model
     _modelStatuses = [[TwitterTimelineViewStatusesModel alloc] init];
@@ -94,6 +95,7 @@
 
 - (void)restart
 {
+    _nextPageExists = YES;
     [_scrollView removeAllSubviews];
     _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     _filterViewState = FilterViewStateHidden;
@@ -104,6 +106,7 @@
 
 - (void)loadStatuses
 {
+    _nextPageExists = YES;
     dlog(@"Called API %@", _api);
     [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [_scrollView removeAllSubviews];
@@ -114,6 +117,7 @@
 
 - (void)didLoadStatusesButEmpty
 {
+    _nextPageExists = NO;
     //// General Decralations
     CGFloat viewWidth = _scrollView.frame.size.width - 20.0f;
     CGFloat viewX = 10.0f;
@@ -157,6 +161,7 @@
 
 - (void)didLoadStatuses:(NSArray *)statuses
 {
+    _nextPageExists = YES;
     //// General Decralations
     CGFloat viewWidth = _scrollView.frame.size.width - 20.0f;
     CGFloat viewX = 10.0f;
@@ -359,7 +364,7 @@
 
 - (void)didSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
-    if(_state == TimelineViewStateReady){
+    if(_state == TimelineViewStateReady && _nextPageExists){
         [self goToNextPageWithProgressHUD];
     }
 }
