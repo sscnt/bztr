@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 #import "UIColor+twitter.h"
 #import "UIDevice+resolution.h"
 #import "UIScreen+twitter.h"
@@ -16,10 +17,23 @@
 #import "NSEnduserData.h"
 #import "UIFlatButtonCreator.h"
 #import "UITwitterScrollView.h"
+#import "SVProgressHUD.h"
 
-@interface PremiumViewController : UIViewController
+typedef NS_ENUM(NSInteger, PaymentStatus){
+    PaymentStatusReady = 0,
+    PaymentStatusStarted,
+    PaymentStatusFinished
+};
+
+@interface PremiumViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver, UIAlertViewDelegate>
 {
+    BOOL _paymentButtonPressed;
+    PaymentStatus _paymentStatus;
     UITwitterScrollView* _scrollView;
+    SKProductsRequest* _skProductsRequest;
 }
+
+- (void)didClickPaymentButton;
+- (void)paymentExecute;
 
 @end

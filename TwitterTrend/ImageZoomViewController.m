@@ -141,6 +141,7 @@
     
     //// Save
     if(buttonIndex == _actionSheetSaveIndex){
+        [SVProgressHUD showWithStatus:@"保存しています" maskType:SVProgressHUDMaskTypeClear];
         UIImageWriteToSavedPhotosAlbum(_image, self, @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:), nil);
         return;
     }
@@ -227,6 +228,7 @@
 #pragma mark Save Image
 - (void)onCompleteCapture:(UIImage *)screenImage didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    [SVProgressHUD dismiss];
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
     alert.delegate = nil;
     alert.message = @"画像を保存しました";

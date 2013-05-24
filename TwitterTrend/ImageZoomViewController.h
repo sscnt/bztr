@@ -12,6 +12,7 @@
 #import "UIView+extend.h"
 #import "NSStatus.h"
 #import "UIBlackAlertView.h"
+#import "SVProgressHUD.h"
 
 typedef NS_ENUM(int, ImageZoomViewState)
 {
