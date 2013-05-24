@@ -65,7 +65,7 @@
         [cell addSubview:_iCloudSwitch];
         [_scrollView appendView:cell margin:5.0f];
     }
-        if(userData.premium == NO){
+    if(userData.premium == NO){
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 20.0f)];
         label.backgroundColor = [UIColor clearColor];
         label.numberOfLines = 0;

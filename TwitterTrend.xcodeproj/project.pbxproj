@@ -49,6 +49,9 @@
 		588DECC81748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */; };
 		588DECCB1748F04A00FC43C1 /* NavigationBarBackButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */; };
 		588DECCC1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */; };
+		58AFE83B174F8DF5004B611C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58AFE83A174F8DF5004B611C /* StoreKit.framework */; };
+		58AFE841174FB069004B611C /* NavigationBarBgTextured3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AFE840174FB069004B611C /* NavigationBarBgTextured3@2x.png */; };
+		58AFE843174FB14C004B611C /* NavigationBarBgTextured3.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AFE842174FB14C004B611C /* NavigationBarBgTextured3.png */; };
 		58BB6749173FDFDF00D17669 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6748173FDFDF00D17669 /* HelpViewController.m */; };
 		58BB674D173FDFF300D17669 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB674C173FDFF300D17669 /* ReportViewController.m */; };
 		58BB6751173FE00400D17669 /* PremiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB6750173FE00400D17669 /* PremiumViewController.m */; };
@@ -187,6 +190,9 @@
 		588DECC71748EE6E00FC43C1 /* NavigationBarMenuButtonBgWithOuterShadow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarMenuButtonBgWithOuterShadow2@2x.png"; sourceTree = "<group>"; };
 		588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarBackButtonBg.png; sourceTree = "<group>"; };
 		588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarBackButtonBg@2x.png"; sourceTree = "<group>"; };
+		58AFE83A174F8DF5004B611C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		58AFE840174FB069004B611C /* NavigationBarBgTextured3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBarBgTextured3@2x.png"; sourceTree = "<group>"; };
+		58AFE842174FB14C004B611C /* NavigationBarBgTextured3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBarBgTextured3.png; sourceTree = "<group>"; };
 		58BB6747173FDFDF00D17669 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		58BB6748173FDFDF00D17669 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		58BB674B173FDFF300D17669 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58AFE83B174F8DF5004B611C /* StoreKit.framework in Frameworks */,
 				5804D297173F71810000B03B /* libsqlite3.0.dylib in Frameworks */,
 				58F9D30A1733886C007100EF /* QuartzCore.framework in Frameworks */,
 				58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */,
@@ -530,6 +537,8 @@
 		58F9D30F173391FF007100EF /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				58AFE842174FB14C004B611C /* NavigationBarBgTextured3.png */,
+				58AFE840174FB069004B611C /* NavigationBarBgTextured3@2x.png */,
 				58C457C8174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png */,
 				588DECC91748F04A00FC43C1 /* NavigationBarBackButtonBg.png */,
 				588DECCA1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png */,
@@ -580,6 +589,7 @@
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
+				58AFE83A174F8DF5004B611C /* StoreKit.framework */,
 				58FDE7A91741104D0013CF4E /* Default-568h@2x.png */,
 				58FDE7AA1741104D0013CF4E /* Default.png */,
 				58FDE7AB1741104D0013CF4E /* Default@2x.png */,
@@ -890,6 +900,8 @@
 				588DECCB1748F04A00FC43C1 /* NavigationBarBackButtonBg.png in Resources */,
 				588DECCC1748F04A00FC43C1 /* NavigationBarBackButtonBg@2x.png in Resources */,
 				58C457C9174A55EC00E5B0EE /* NavigationBarBgTextured2@2x.png in Resources */,
+				58AFE841174FB069004B611C /* NavigationBarBgTextured3@2x.png in Resources */,
+				58AFE843174FB14C004B611C /* NavigationBarBgTextured3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

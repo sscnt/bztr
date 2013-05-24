@@ -14,7 +14,12 @@
 #import "UIViewController+navi.h"
 #import "UIBlackAlertView.h"
 #import "NSEnduserData.h"
+#import "UIFlatButtonCreator.h"
+#import "UITwitterScrollView.h"
 
 @interface PremiumViewController : UIViewController
+{
+    UITwitterScrollView* _scrollView;
+}
 
 @end
