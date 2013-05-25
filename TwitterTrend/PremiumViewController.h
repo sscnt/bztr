@@ -18,6 +18,7 @@
 #import "UIFlatButtonCreator.h"
 #import "UITwitterScrollView.h"
 #import "SVProgressHUD.h"
+#import "NSData+Base64.h"
 
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,

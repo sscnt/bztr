@@ -91,9 +91,9 @@
 
 - (void)paymentExecute
 {
-    if(_paymentStatus == PaymentStatusStarted){
-        [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
+    if(_paymentStatus == PaymentStatusReady){
         _paymentStatus = PaymentStatusStarted;
+        [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
         NSSet *set = [NSSet setWithObjects:@"PremiumService30days", nil];
         SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
         productsRequest.delegate = self;
@@ -119,13 +119,25 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
+    if ([response.invalidProductIdentifiers count] > 0) {
+        dlog("Invalid Product");
+        [SVProgressHUD dismiss];
+        return;
+    }
     if(response == nil){
+        dlog("Response is nil");
+        [SVProgressHUD dismiss];
         return;
     }
     if(_paymentStatus == PaymentStatusStarted){
+        BOOL queued = NO;
         for(SKProduct *product in response.products){
             SKPayment *payment = [SKPayment paymentWithProduct:product];
             [[SKPaymentQueue defaultQueue] addPayment:payment];
+            queued = YES;
+        }
+        if(queued){
+            return;
         }
     }
     [SVProgressHUD dismiss];
@@ -134,6 +146,26 @@
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
     
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchasing:// 何らかのOKを押す前の処理
+                break;
+            case SKPaymentTransactionStatePurchased:// success : 決済手続き完了処理
+                [queue finishTransaction:transaction];
+                dlog("%@", [transaction.transactionReceipt base64EncodedString]);               
+                
+                break;
+            case SKPaymentTransactionStateFailed://  途中でキャンセルした時
+                [queue finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateRestored:// 通常はコールされない
+                [queue finishTransaction:transaction];
+                break;
+            default:
+                break;
+        }
+    }
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning
