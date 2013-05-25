@@ -29,13 +29,13 @@
         [self layoutFooter];
         
         //// Drop Shadow
-        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height) cornerRadius:_radius];
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(1.0f, 1.0f, self.frame.size.width - 2, self.frame.size.height - 2) cornerRadius:_radius];
         self.backgroundColor = [UIColor clearColor];
-        self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-        self.layer.shadowRadius = 1.0f;
+        self.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        self.layer.shadowRadius = 2.0f;
         self.layer.shadowPath = path.CGPath;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowOpacity = 0.15f;
+        self.layer.shadowOpacity = 0.10f;
 
     }
     return self;
@@ -55,11 +55,11 @@
 - (void)drawRect:(CGRect)rect
 {
     //// General Declarations
-    UIColor* borderColor = [UIColor colorWithWhite:200.0f/255.0f alpha:1.0f];
+    UIColor* borderColor = [UIColor colorWithWhite:222.0f/255.0f alpha:1.0f];
     UIColor* sepColor = [UIColor colorWithWhite:222.0f/255.0f alpha:1.0f];
     
     //// Draw Base
-    UIBezierPath* basePath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, rect.size.width, rect.size.height) cornerRadius:_radius];
+    UIBezierPath* basePath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(1.0f, 1.0f, rect.size.width - 2, rect.size.height - 2) cornerRadius:_radius];
     [[UIColor whiteColor] setFill];
     [basePath fill];
     [borderColor setStroke];

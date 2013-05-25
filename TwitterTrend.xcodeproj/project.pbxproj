@@ -40,6 +40,7 @@
 		581175A6174784310077A709 /* Open.png in Resources */ = {isa = PBXBuildFile; fileRef = 581175A4174784310077A709 /* Open.png */; };
 		581175A7174784310077A709 /* Open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581175A5174784310077A709 /* Open@2x.png */; };
 		581175AA174784660077A709 /* UIStatusOpenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 581175A9174784660077A709 /* UIStatusOpenButton.m */; };
+		58317EEA1750C20600731170 /* UISettingsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58317EE91750C20600731170 /* UISettingsTableView.m */; };
 		583E92F6173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */; };
 		583E92F9173E581400F7D3A7 /* NSEnduserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92F8173E581400F7D3A7 /* NSEnduserData.m */; };
 		583E92FC173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E92FB173E7F7200F7D3A7 /* TwitterTimelineViewEnduserModel.m */; };
@@ -92,6 +93,7 @@
 		58FA24C21734EDAF004D803D /* rounded-mplus-1p-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BC1734EDAF004D803D /* rounded-mplus-1p-regular.ttf */; };
 		58FA24C31734EDAF004D803D /* rounded-mplus-1p-thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */; };
 		58FC3814175078C100A7FD99 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FC3813175078C100A7FD99 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		58FC3817175095DE00A7FD99 /* UISettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FC3816175095DE00A7FD99 /* UISettingsTableViewCell.m */; };
 		58FCA5CA173BA55800B3DCEE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5C8173BA55800B3DCEE /* close.png */; };
 		58FCA5CB173BA55800B3DCEE /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5C9173BA55800B3DCEE /* close@2x.png */; };
 		58FCA5CD173BA6DF00B3DCEE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5CC173BA6DF00B3DCEE /* placeholder.png */; };
@@ -176,6 +178,8 @@
 		581175A5174784310077A709 /* Open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open@2x.png"; sourceTree = "<group>"; };
 		581175A8174784660077A709 /* UIStatusOpenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStatusOpenButton.h; sourceTree = "<group>"; };
 		581175A9174784660077A709 /* UIStatusOpenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStatusOpenButton.m; sourceTree = "<group>"; };
+		58317EE81750C20600731170 /* UISettingsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsTableView.h; sourceTree = "<group>"; };
+		58317EE91750C20600731170 /* UISettingsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsTableView.m; sourceTree = "<group>"; };
 		583E92F4173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTimelineViewDeveloperModel.h; sourceTree = "<group>"; };
 		583E92F5173E2E5F00F7D3A7 /* TwitterTimelineViewDeveloperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTimelineViewDeveloperModel.m; sourceTree = "<group>"; };
 		583E92F7173E581300F7D3A7 /* NSEnduserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEnduserData.h; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		58FA24BD1734EDAF004D803D /* rounded-mplus-1p-thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rounded-mplus-1p-thin.ttf"; sourceTree = "<group>"; };
 		58FC3812175078C100A7FD99 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		58FC3813175078C100A7FD99 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		58FC3815175095DE00A7FD99 /* UISettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsTableViewCell.h; sourceTree = "<group>"; };
+		58FC3816175095DE00A7FD99 /* UISettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsTableViewCell.m; sourceTree = "<group>"; };
 		58FCA5C8173BA55800B3DCEE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		58FCA5C9173BA55800B3DCEE /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		58FCA5CC173BA6DF00B3DCEE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
@@ -450,6 +456,10 @@
 				5806169C1742761100D2AB37 /* UISettingsCellView.m */,
 				588DECA31748C46900FC43C1 /* UICellButton.h */,
 				588DECA41748C46900FC43C1 /* UICellButton.m */,
+				58FC3815175095DE00A7FD99 /* UISettingsTableViewCell.h */,
+				58FC3816175095DE00A7FD99 /* UISettingsTableViewCell.m */,
+				58317EE81750C20600731170 /* UISettingsTableView.h */,
+				58317EE91750C20600731170 /* UISettingsTableView.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -999,6 +1009,8 @@
 				588DECAD1748D25C00FC43C1 /* NonDisplayUsersViewController.m in Sources */,
 				58C457CC174A5C8C00E5B0EE /* NSFilterUsersFullData.m in Sources */,
 				58FC3814175078C100A7FD99 /* NSData+Base64.m in Sources */,
+				58FC3817175095DE00A7FD99 /* UISettingsTableViewCell.m in Sources */,
+				58317EEA1750C20600731170 /* UISettingsTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@
 #import "UITwitterScrollView.h"
 #import "SVProgressHUD.h"
 #import "NSData+Base64.h"
+#import "NSTrendApi.h"
+#import "NSRequestParams.h"
 
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,
@@ -26,15 +28,30 @@ typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusFinished
 };
 
-@interface PremiumViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver, UIAlertViewDelegate>
+@interface PremiumViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver, UIAlertViewDelegate, NSTrendApiDelegate>
 {
     BOOL _paymentButtonPressed;
+    BOOL _observerRemmoved;
     PaymentStatus _paymentStatus;
     UITwitterScrollView* _scrollView;
     SKProductsRequest* _skProductsRequest;
+    SKProductsResponse* _skProductsResponse;
+    NSTrendApi* _api;
 }
+
+- (void)layoutView;
+- (void)requestProductData;
+- (void)didRecieveProductData;
+- (void)didFailToRecieveProductData;
 
 - (void)didClickPaymentButton;
 - (void)paymentExecute;
+- (void)validateReceipt:(NSData*)reciept;
+- (void)didValidateReciept:(NSDictionary*)json;
+
+- (void)error:(NSString*)message;
+
+- (void)applicationDidEnterBackground;
+- (void)applicationWillEnterForeground;
 
 @end

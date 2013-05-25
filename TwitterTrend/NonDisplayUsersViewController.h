@@ -13,6 +13,7 @@
 #import "UISettingsTableViewCell.h"
 #import "UITwitterScrollView.h"
 #import "NSFilter.h"
+#import "NSFilterUsersFullData.h"
 
 @interface NonDisplayUsersViewController : UIViewController <UISettingsTableViewDelegate>
 {

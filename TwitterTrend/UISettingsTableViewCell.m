@@ -23,21 +23,33 @@
 
 - (void)setText:(NSString *)text
 {
-    if(_textLabel){
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    if(_textLabel == nil){
+        _textLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:18];
+        _textLabel.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16];
         [self addSubview:_textLabel];
     }
     _textLabel.text = text;
     [_textLabel sizeToFit];
+    [_textLabel adjustsFontSizeToFitWidth];
+    [_textLabel setY:5];
+    [_textLabel setX:10];
 }
 
 - (void)setDetailText:(NSString *)detailText
 {
     if(_textLabel){
-        
+        _detailTextLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        _detailTextLabel.backgroundColor = [UIColor clearColor];
+        _detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+        _detailTextLabel.textColor = [UIColor colorWithWhite:140.0f/255.0f alpha:1.0f];
+        [self addSubview:_detailTextLabel];
     }
+    _detailTextLabel.text = detailText;
+    [_detailTextLabel sizeToFit];
+    [_detailTextLabel adjustsFontSizeToFitWidth];
+    [_detailTextLabel setX:10];
+    [_detailTextLabel setY:24];
 }
 
 - (void)drawRect:(CGRect)rect

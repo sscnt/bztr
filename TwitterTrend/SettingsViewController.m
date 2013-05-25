@@ -38,7 +38,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
         label.text = @"バックアップ";
-        [_scrollView appendView:label margin:10.0f];
+        [_scrollView appendView:label margin:15.0f];
         
         //////// Switch
         _iCloudSwitch = [[DCRoundSwitch alloc] initWithFrame:CGRectMake([UIScreen screenRect].size.width - 100.0f, 20.0f, 70.0f, 26.0f)];
@@ -85,7 +85,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
         label.text = @"ツイート非表示設定";
-        [_scrollView appendView:label margin:20.0f];
+        [_scrollView appendView:label margin:15.0f];
         
         //// NG Word Button
         UICellButton* button = [[UICellButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenRect].size.width - 20.0f, label.frame.size.height + 18.0f) byRoundingCouners:UIRectCornerTopLeft | UIRectCornerTopRight];

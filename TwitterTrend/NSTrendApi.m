@@ -45,6 +45,11 @@
     if(![params.user_token isEqualToString:@""]){
         bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"user_token",params.user_token,bodyString];
     }
+    
+    //// Receipt
+    if(![params.receipt isEqualToString:@""]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"receipt",params.receipt,bodyString];
+    }
 
     
     return bodyString;
@@ -66,6 +71,7 @@
         int statusCode = ((NSHTTPURLResponse *)response).statusCode;
         if(connection_error || statusCode != 200){
             [_self didReturnConnectionErrorWithStatusCode:statusCode];
+            dlog(@"%@", _self);
         } else {
             [_self didReturnData:data];
         }

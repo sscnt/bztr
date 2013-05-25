@@ -22,6 +22,7 @@
         self.user_id_string = @"0";
         self.user_token = @"";
         self.user_token_secret = @"";
+        self.receipt = @"";
     }
     return self;
 }
