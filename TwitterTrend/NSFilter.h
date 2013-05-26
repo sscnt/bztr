@@ -12,6 +12,7 @@
 #import "FMDatabase.h"
 #import "NSEnduserData.h"
 #import "NSFilterUsersFullData.h"
+#import "NSFilterWordsFullData.h"
 
 @interface NSFilter : NSObject
 {
@@ -36,8 +37,9 @@
 - (BOOL)insertNGWord:(NSString*)word;
 
 - (BOOL)removeUser:(NSFilterUsersFullData*)user;
-- (BOOL)removeWord:(NSString*)word;
+- (BOOL)removeWord:(NSFilterWordsFullData*)word;
 
 - (NSMutableArray*)getHiddenUsersFullData;
+- (NSMutableArray*)getNGWords;
 
 @end

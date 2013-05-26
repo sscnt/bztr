@@ -125,6 +125,21 @@ static NSFilter* _sharedFilter = nil;
     return array;
 }
 
+
+- (NSMutableArray*)getNGWords
+{
+    NSMutableArray* array = [NSMutableArray array];
+    if([self openDatabase]){
+        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
+        while ([rs next]) {
+            NSFilterWordsFullData* data = [[NSFilterWordsFullData alloc] init];
+            data.index = [rs intForColumn:@"index"];
+            data.word = [rs stringForColumn:@"word"];
+            [array addObject:data];
+        }
+    }
+    return array;
+}
 - (void)setNGWordsToArray
 {
     _NGWords = nil;
@@ -201,7 +216,7 @@ static NSFilter* _sharedFilter = nil;
     }
     
     BOOL success = NO;
-    NSString* sql = [NSString stringWithFormat:@"DELETE FROM NGUsers WHERE user_id = %d", user.user_id];
+    NSString* sql = [NSString stringWithFormat:@"DELETE FROM NGUsers WHERE \"user_id\" = %d", user.user_id];
     if([self openDatabase]){
         [_db beginTransaction];
         [_db setShouldCacheStatements:YES];
@@ -216,9 +231,27 @@ static NSFilter* _sharedFilter = nil;
     return success;
 }
 
-- (BOOL)removeWord:(NSString *)word
+- (BOOL)removeWord:(NSFilterWordsFullData *)word
 {
-    return NO;
+    if(word == nil){
+        return NO;
+    }
+    
+    BOOL success = NO;
+    NSString* sql = [NSString stringWithFormat:@"DELETE FROM NGWords WHERE \"index\" = %d", word.index];
+    dlog(@"%@", sql);
+    if([self openDatabase]){
+        [_db beginTransaction];
+        [_db setShouldCacheStatements:YES];
+        [_db executeUpdate:sql];
+        if(![_db hadError]){
+            success = YES;
+        }
+        [_db commit];
+    }
+    [self setNGUsersToArray];
+    [_db close];
+    return success;
 }
 
 - (BOOL)ifConatainNGWord

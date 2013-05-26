@@ -73,6 +73,10 @@
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
 		58F805381751A4A900DEC6BD /* UISettingsTableViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */; };
+		58F8053B1751B7C100DEC6BD /* NSFilterWordsFullData.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F8053A1751B7C100DEC6BD /* NSFilterWordsFullData.m */; };
+		58F8053E1751C21100DEC6BD /* UISettingsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F8053D1751C21000DEC6BD /* UISettingsTextField.m */; };
+		58F805411751CD1C00DEC6BD /* UIAccessoryCloseButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F805401751CD1B00DEC6BD /* UIAccessoryCloseButtonView.m */; };
+		58F805441751CD4200DEC6BD /* UIAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F805431751CD4000DEC6BD /* UIAccessoryView.m */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
@@ -235,6 +239,14 @@
 		58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
 		58F805361751A4A900DEC6BD /* UISettingsTableViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsTableViewContainer.h; sourceTree = "<group>"; };
 		58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsTableViewContainer.m; sourceTree = "<group>"; };
+		58F805391751B7C100DEC6BD /* NSFilterWordsFullData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFilterWordsFullData.h; sourceTree = "<group>"; };
+		58F8053A1751B7C100DEC6BD /* NSFilterWordsFullData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFilterWordsFullData.m; sourceTree = "<group>"; };
+		58F8053C1751C21000DEC6BD /* UISettingsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsTextField.h; sourceTree = "<group>"; };
+		58F8053D1751C21000DEC6BD /* UISettingsTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsTextField.m; sourceTree = "<group>"; };
+		58F8053F1751CD1A00DEC6BD /* UIAccessoryCloseButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAccessoryCloseButtonView.h; sourceTree = "<group>"; };
+		58F805401751CD1B00DEC6BD /* UIAccessoryCloseButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAccessoryCloseButtonView.m; sourceTree = "<group>"; };
+		58F805421751CD4000DEC6BD /* UIAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAccessoryView.h; sourceTree = "<group>"; };
+		58F805431751CD4000DEC6BD /* UIAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAccessoryView.m; sourceTree = "<group>"; };
 		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
 		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
 		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -465,6 +477,8 @@
 				58317EE91750C20600731170 /* UISettingsTableView.m */,
 				58F805361751A4A900DEC6BD /* UISettingsTableViewContainer.h */,
 				58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */,
+				58F8053C1751C21000DEC6BD /* UISettingsTextField.h */,
+				58F8053D1751C21000DEC6BD /* UISettingsTextField.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -677,6 +691,10 @@
 		58FCF3F017314BEC000E382D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				58F805421751CD4000DEC6BD /* UIAccessoryView.h */,
+				58F805431751CD4000DEC6BD /* UIAccessoryView.m */,
+				58F8053F1751CD1A00DEC6BD /* UIAccessoryCloseButtonView.h */,
+				58F805401751CD1B00DEC6BD /* UIAccessoryCloseButtonView.m */,
 				58018B07173E0FE00084FC51 /* UIBlackAlertView.h */,
 				58018B08173E0FE00084FC51 /* UIBlackAlertView.m */,
 				58F3E335173FB9F100896C82 /* Settings */,
@@ -815,6 +833,8 @@
 				5804D299173F8ED10000B03B /* NSEnduserFetched.m */,
 				58C457CA174A5C8C00E5B0EE /* NSFilterUsersFullData.h */,
 				58C457CB174A5C8C00E5B0EE /* NSFilterUsersFullData.m */,
+				58F805391751B7C100DEC6BD /* NSFilterWordsFullData.h */,
+				58F8053A1751B7C100DEC6BD /* NSFilterWordsFullData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1017,6 +1037,10 @@
 				58FC3817175095DE00A7FD99 /* UISettingsTableViewCell.m in Sources */,
 				58317EEA1750C20600731170 /* UISettingsTableView.m in Sources */,
 				58F805381751A4A900DEC6BD /* UISettingsTableViewContainer.m in Sources */,
+				58F8053B1751B7C100DEC6BD /* NSFilterWordsFullData.m in Sources */,
+				58F8053E1751C21100DEC6BD /* UISettingsTextField.m in Sources */,
+				58F805411751CD1C00DEC6BD /* UIAccessoryCloseButtonView.m in Sources */,
+				58F805441751CD4200DEC6BD /* UIAccessoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

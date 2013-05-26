@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"設定";
+    self.navigationItem.title = @"非表示ユーザー";
     
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     [self showBackButton];    
@@ -66,11 +66,6 @@
     UISettingsTableViewCell* cell = [[UISettingsTableViewCell alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 50.0f)];
     cell.text = data.name;
     cell.detailText = [NSString stringWithFormat:@"@%@", data.screen_name];
-    if(index == 0){
-        cell.position = CellPositionTop;
-    } else if (index == [_users count] - 1){
-        cell.position = CellPositionBottom;
-    }
     return cell;
 }
 

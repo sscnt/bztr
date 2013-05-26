@@ -89,7 +89,7 @@
         
         //// NG Word Button
         UICellButton* button = [[UICellButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenRect].size.width - 20.0f, label.frame.size.height + 18.0f) byRoundingCouners:UIRectCornerTopLeft | UIRectCornerTopRight];
-        [button setTitle:@"NGワードの登録・削除" forState:UIControlStateNormal];
+        [button setTitle:@"NGワードの追加・削除" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(didClickSettingButtonNGWord) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView appendView:button margin:10.0f];
         
