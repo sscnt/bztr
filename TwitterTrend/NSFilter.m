@@ -130,7 +130,7 @@ static NSFilter* _sharedFilter = nil;
 {
     NSMutableArray* array = [NSMutableArray array];
     if([self openDatabase]){
-        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
+        FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords ORDER BY \"index\" DESC"];
         while ([rs next]) {
             NSFilterWordsFullData* data = [[NSFilterWordsFullData alloc] init];
             data.index = [rs intForColumn:@"index"];

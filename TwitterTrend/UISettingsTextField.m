@@ -23,7 +23,7 @@
         self.returnKeyType = UIReturnKeyDone;
         
         //// Padding
-        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, frame.size.height)];
+        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, frame.size.height)];
         self.leftView = paddingView;
         self.leftViewMode = UITextFieldViewModeAlways;
         
@@ -41,9 +41,9 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //////// Shadow Declarations
-    UIColor* shadow = [UIColor colorWithWhite:0.00f alpha:1.0f];
+    UIColor* shadow = [UIColor colorWithWhite:0.15f alpha:1.0f];
     CGSize shadowOffset = CGSizeMake(0.0f, 0.0f);
-    CGFloat shadowBlurRadius = 3.0f;
+    CGFloat shadowBlurRadius = 2.0f;
     
     //////// Rail Drawing
     UIBezierPath* roundedRectanble2Path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
@@ -73,7 +73,7 @@
     }
     CGContextRestoreGState(context);
     
-    [[UIColor colorWithWhite:50.0f/255.0f alpha:1.0f] setStroke];
+    [[UIColor colorWithWhite:100.0f/255.0f alpha:1.0f] setStroke];
     roundedRectanble2Path.lineWidth = 1.0f;
     [roundedRectanble2Path stroke];
 }

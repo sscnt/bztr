@@ -16,7 +16,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        _bottomY = 0.0f;
         _cells = [NSMutableArray array];
         _container = [[UISettingsTableViewContainer alloc] initWithFrame:self.bounds];
         [self addSubview:_container];
@@ -26,6 +25,10 @@
 
 - (void)setDelegate:(id<UISettingsTableViewDelegate>)delegate
 {
+    _bottomY = 0.0f;
+    for(UIView* view in [_container subviews]){
+        [view removeFromSuperview];
+    }
     _delegate = delegate;
     NSInteger numCell = [self.delegate numberOfRowsInTableView:self];
     for(NSInteger i = 0;i < numCell;i++){

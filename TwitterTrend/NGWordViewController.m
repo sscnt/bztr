@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     _words = [NSMutableArray array];
+    NSFilter* filter = [NSFilter sharedFilter];
+    _words = [filter getNGWords];
     
     self.navigationItem.title = @"NGワード";
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
@@ -55,10 +57,12 @@
     
     [wrapper addSubview:_textField];
     
-    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(_textField.right + 5.0f, 0.0f, buttonWidth, 35.0f)];
+    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(_textField.right + 5.0f, 0.0f, buttonWidth, 36.0f)];
     [button setTitle:@"追加" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(didClickAddButton) forControlEvents:UIControlEventTouchUpInside];
     [wrapper addSubview:button];
+    
+    [_scrollView appendView:wrapper margin:10.0f];
     
     _labelForList = [[UILabel alloc] initWithFrame:CGRectZero];
     _labelForList.text = @"登録中のNGワード";
@@ -66,9 +70,11 @@
     _labelForList.backgroundColor = [UIColor clearColor];
     [_labelForList setX:15];
     [_labelForList sizeToFit];
+    if([_words count] == 0){
+        _labelForList.hidden = YES;
+    }
     [_scrollView appendView:_labelForList margin:15.0f];
     
-    [_scrollView appendView:wrapper margin:10.0f];
     
     
     [self layout];
@@ -76,19 +82,19 @@
 
 - (void)layout
 {
-    if(_tableView){
-        [_tableView removeFromSuperview];
-        _tableView.delegate = nil;
-        _tableView = nil;
+    if(_tableView == nil){
+        _tableView = [[UISettingsTableView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 0.0f)];
+        [_scrollView appendView:_tableView margin:10];
     }
     [_words removeAllObjects];
     NSFilter* filter = [NSFilter sharedFilter];
     _words = [filter getNGWords];
     if([_words count] > 0){
-        
-        _tableView = [[UISettingsTableView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 0.0f)];
+        _labelForList.hidden = NO;
         _tableView.delegate = self;
-        [_scrollView appendView:_tableView margin:10];
+        [_scrollView sizeToFit];
+    }else{
+        _labelForList.hidden = YES;
     }
 }
 
@@ -107,6 +113,7 @@
         success = [filter insertNGWord:word];
     }
     if(success){
+        _textField.text = @"";
         [self layout];
     }else{
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
@@ -148,7 +155,7 @@
     if(_actionSheet == nil){
         _actionSheet = [[UIActionSheet alloc] init];
         _actionSheet.delegate = self;
-        _actionSheetButtonIndexForRemoveNonDisplayUser = [_actionSheet addButtonWithTitle:@"非表示を解除"];
+        _actionSheetButtonIndexForRemoveNonDisplayUser = [_actionSheet addButtonWithTitle:@"NGを取り消し"];
         int cancelIndex = [_actionSheet addButtonWithTitle:@"キャンセル"];
         [_actionSheet setCancelButtonIndex:cancelIndex];
     }

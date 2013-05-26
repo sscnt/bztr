@@ -62,6 +62,15 @@
     self.contentSize = CGSizeMake(self.contentSize.width, 0.0f);
 }
 
+- (void)sizeToFit
+{
+    _bottom = 0.0f;
+    for(UIView* view in [self subviews]){
+        _bottom = MAX(view.bottom, _bottom);
+    }
+    [self setContentSize:CGSizeMake(self.frame.size.width, _bottom + 10.0f)];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     //// General Declarations
