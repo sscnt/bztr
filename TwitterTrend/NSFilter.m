@@ -194,6 +194,33 @@ static NSFilter* _sharedFilter = nil;
     return success;
 }
 
+- (BOOL)removeUser:(NSFilterUsersFullData *)user
+{
+    if(user == nil){
+        return NO;
+    }
+    
+    BOOL success = NO;
+    NSString* sql = [NSString stringWithFormat:@"DELETE FROM NGUsers WHERE user_id = %d", user.user_id];
+    if([self openDatabase]){
+        [_db beginTransaction];
+        [_db setShouldCacheStatements:YES];
+        [_db executeUpdate:sql];
+        if(![_db hadError]){
+            success = YES;
+        }
+        [_db commit];
+    }
+    [self setNGUsersToArray];
+    [_db close];
+    return success;
+}
+
+- (BOOL)removeWord:(NSString *)word
+{
+    return NO;
+}
+
 - (BOOL)ifConatainNGWord
 {
     int count = [_NGWords count];

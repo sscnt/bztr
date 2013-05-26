@@ -35,6 +35,9 @@
 - (BOOL)insertUserInStastus:(NSStatus*)status;
 - (BOOL)insertNGWord:(NSString*)word;
 
+- (BOOL)removeUser:(NSFilterUsersFullData*)user;
+- (BOOL)removeWord:(NSString*)word;
+
 - (NSMutableArray*)getHiddenUsersFullData;
 
 @end

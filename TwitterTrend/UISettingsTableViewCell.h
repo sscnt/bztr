@@ -14,8 +14,15 @@ typedef NS_ENUM(NSInteger, CellPosition){
     CellPositionMiddle,
     CellPositionBottom
 };
+@class UISettingsTableViewCell;
 
-@interface UISettingsTableViewCell : UIView
+@protocol UISettingsTableViewCellDelegate <NSObject>
+
+- (void)cell:(UISettingsTableViewCell*)cell highlighted:(BOOL)highlighted;
+
+@end
+
+@interface UISettingsTableViewCell : UIButton
 {
     UILabel* _textLabel;
     UILabel* _detailTextLabel;
@@ -23,7 +30,11 @@ typedef NS_ENUM(NSInteger, CellPosition){
 
 @property (nonatomic, assign) CellPosition position;
 @property (nonatomic, assign) BOOL editing;
+@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSString* text;
 @property (nonatomic, strong) NSString* detailText;
+@property (nonatomic, weak) id<UISettingsTableViewCellDelegate> delegate;
+
+- (void)didClickCell;
 
 @end

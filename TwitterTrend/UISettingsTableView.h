@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/CALayer.h>
 #import "UISettingsTableViewCell.h"
+#import "UISettingsTableViewContainer.h"
 #import "UIView+extend.h"
 
 @class UISettingsTableView;
@@ -17,17 +18,21 @@
 
 - (NSInteger)numberOfRowsInTableView:(UISettingsTableView *)tableView;
 - (UISettingsTableViewCell*)tableView:(UISettingsTableView *)tableView cellForRowAtIndex:(NSInteger)index;
+- (void)tableView:(UISettingsTableView*)tableView didCellTapAtIndex:(NSInteger)index;
 
 @end
 
-@interface UISettingsTableView : UIView
+@interface UISettingsTableView : UIView <UISettingsTableViewCellDelegate>
 {
     CGFloat _bottomY;
-    
+    UIView* _container;
+    NSMutableArray* _cells;
 }
 
 @property (nonatomic, weak) id<UISettingsTableViewDelegate> delegate;
 
 - (void)setDropShadow;
+- (void)removeRowAtIndex:(NSInteger)index;
+- (void)plugCells;
 
 @end

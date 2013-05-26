@@ -72,6 +72,7 @@
 		58F633CF173F962400673AA8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F633CE173F962400673AA8 /* SettingsViewController.m */; };
 		58F7BA8A173546F40012AAEC /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA87173546F40012AAEC /* JMImageCache.m */; };
 		58F7BA8B173546F40012AAEC /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */; };
+		58F805381751A4A900DEC6BD /* UISettingsTableViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */; };
 		58F9D2F817337CB6007100EF /* TwitterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2F717337CB6007100EF /* TwitterNavigationController.m */; };
 		58F9D2FF17338242007100EF /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D2FE17338242007100EF /* SidePanelController.m */; };
 		58F9D3031733845D007100EF /* TwitterTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F9D3021733845D007100EF /* TwitterTabBarController.m */; };
@@ -232,6 +233,8 @@
 		58F7BA87173546F40012AAEC /* JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMImageCache.m; sourceTree = "<group>"; };
 		58F7BA88173546F40012AAEC /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JMImageCache.h"; sourceTree = "<group>"; };
 		58F7BA89173546F40012AAEC /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JMImageCache.m"; sourceTree = "<group>"; };
+		58F805361751A4A900DEC6BD /* UISettingsTableViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISettingsTableViewContainer.h; sourceTree = "<group>"; };
+		58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISettingsTableViewContainer.m; sourceTree = "<group>"; };
 		58F9D2F617337CB6007100EF /* TwitterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterNavigationController.h; sourceTree = "<group>"; };
 		58F9D2F717337CB6007100EF /* TwitterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterNavigationController.m; sourceTree = "<group>"; };
 		58F9D2FB1733817C007100EF /* JASidePanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				58FC3816175095DE00A7FD99 /* UISettingsTableViewCell.m */,
 				58317EE81750C20600731170 /* UISettingsTableView.h */,
 				58317EE91750C20600731170 /* UISettingsTableView.m */,
+				58F805361751A4A900DEC6BD /* UISettingsTableViewContainer.h */,
+				58F805371751A4A900DEC6BD /* UISettingsTableViewContainer.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1011,6 +1016,7 @@
 				58FC3814175078C100A7FD99 /* NSData+Base64.m in Sources */,
 				58FC3817175095DE00A7FD99 /* UISettingsTableViewCell.m in Sources */,
 				58317EEA1750C20600731170 /* UISettingsTableView.m in Sources */,
+				58F805381751A4A900DEC6BD /* UISettingsTableViewContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

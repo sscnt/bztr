@@ -17,6 +17,9 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         _bottomY = 0.0f;
+        _cells = [NSMutableArray array];
+        _container = [[UISettingsTableViewContainer alloc] initWithFrame:self.bounds];
+        [self addSubview:_container];
     }
     return self;
 }
@@ -27,21 +30,59 @@
     NSInteger numCell = [self.delegate numberOfRowsInTableView:self];
     for(NSInteger i = 0;i < numCell;i++){
         UISettingsTableViewCell* cell = [self.delegate tableView:self cellForRowAtIndex:i];
+        cell.index = i;
+        cell.delegate = self;
+        [_cells insertObject:cell atIndex:i];
         [self append:cell];
     }
     [self setHeight:_bottomY];
     [self setDropShadow];
 }
 
+- (void)cell:(UISettingsTableViewCell *)cell highlighted:(BOOL)highlighted
+{
+    [self.delegate tableView:self didCellTapAtIndex:cell.index];
+}
+
 - (void)append:(UIView *)view
 {
     [view setY:_bottomY];
-    [self addSubview:view];
+    [_container addSubview:view];
     CGFloat bottomY = view.frame.origin.y + view.frame.size.height;
     if(bottomY > _bottomY){
         _bottomY = bottomY;
         [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _bottomY)];
+        [_container setFrame:self.bounds];
     }
+}
+
+- (void)removeRowAtIndex:(NSInteger)index
+{
+    if(_cells == nil){
+        return;
+    }
+    UISettingsTableViewCell* cell = [_cells objectAtIndex:index];
+    if(cell){
+        [cell removeFromSuperview];
+        cell = nil;
+        [self plugCells];
+    }
+}
+
+- (void)plugCells
+{
+    CGFloat bottomY = 0.0f;
+    for(UIView* view in [_container subviews]){
+        if([view isKindOfClass:[UISettingsTableViewCell class]]){
+            if(view.frame.origin.y != bottomY){
+                [view setY:bottomY];
+            }
+            bottomY = view.bottom;
+        }
+    }
+    [self setHeight:bottomY];
+    [_container setFrame:self.bounds];
+    [self setDropShadow];
 }
 
 - (void)setDropShadow
@@ -59,6 +100,12 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+}
+
+- (void)dealloc
+{
+    [_cells removeAllObjects];
+    _cells = nil;
 }
 
 

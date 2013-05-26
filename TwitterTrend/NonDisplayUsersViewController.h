@@ -14,12 +14,15 @@
 #import "UITwitterScrollView.h"
 #import "NSFilter.h"
 #import "NSFilterUsersFullData.h"
+#import "UIBlackAlertView.h"
 
-@interface NonDisplayUsersViewController : UIViewController <UISettingsTableViewDelegate>
+@interface NonDisplayUsersViewController : UIViewController <UISettingsTableViewDelegate, UIActionSheetDelegate>
 {
     NSMutableArray* _users;
     UISettingsTableView* _tableView;
     UITwitterScrollView* _scrollView;
+    UIActionSheet* _actionSheet;
+    NSInteger _actionSheetButtonIndexForRemoveNonDisplayUser;
 }
 
 @end

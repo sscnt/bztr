@@ -17,6 +17,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.editing = NO;
         self.position = CellPositionMiddle;
+        [self addTarget:self action:@selector(didClickCell) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -52,21 +53,28 @@
     [_detailTextLabel setY:24];
 }
 
+- (void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    [self setNeedsDisplay];
+}
+
+- (void)didClickCell
+{
+    [self.delegate cell:self highlighted:self.highlighted];
+}
+
 - (void)drawRect:(CGRect)rect
 {
-    UIRectCorner _corner;
-    UIBezierPath* path;
-    if(_position == CellPositionTop){
-        _corner = UIRectCornerTopLeft | UIRectCornerTopRight;
-        path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:_corner cornerRadii:CGSizeMake(4.0f, 4.0f)];        
-    } else if (_position == CellPositionBottom){
-        _corner = UIRectCornerBottomLeft | UIRectCornerBottomRight;
-        path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:_corner cornerRadii:CGSizeMake(4.0f, 4.0f)];
-    } else {
-        path = [UIBezierPath bezierPathWithRect:rect];
-    }
 
-    [[UIColor whiteColor] setFill];    
+    UIBezierPath* path;
+    path = [UIBezierPath bezierPathWithRect:rect];
+
+    if(self.highlighted){
+        [[UIColor colorWithWhite:245.0f/255.0f alpha:1.0f] setFill];
+    } else {  
+        [[UIColor whiteColor] setFill];
+    }
     [path fill];
     
     if(_position != CellPositionBottom){
@@ -77,6 +85,11 @@
         [[UIColor colorWithWhite:0.0f alpha:0.1f] setStroke];
         [bottomStrokePath stroke];
     }
+}
+
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 @end

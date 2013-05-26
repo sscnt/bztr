@@ -185,7 +185,7 @@
     _paymentButtonPressed = NO;
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
     alert.delegate = nil;
-    alert.message = @"購入しました。";
+    alert.message = @"購入しました。アプリを再起動してください。";
     alert.title = @"完了";
     int okIndex = [alert addButtonWithTitle:@"OK"];
     [alert setCancelButtonIndex:okIndex];
