@@ -101,7 +101,10 @@ static NSFilter* _sharedFilter = nil;
 
 - (void)setNGUsersToArray
 {
-    _NGUsers = nil;
+    if(_NGUsers){
+        [_NGUsers removeAllObjects];
+        _NGUsers = nil;
+    }
     _NGUsers = [NSMutableArray array];
     FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGUsers"];
     while ([rs next]) {
@@ -142,7 +145,10 @@ static NSFilter* _sharedFilter = nil;
 }
 - (void)setNGWordsToArray
 {
-    _NGWords = nil;
+    if(_NGWords){
+        [_NGWords removeAllObjects];
+        _NGWords = nil;        
+    }
     _NGWords = [NSMutableArray array];
     
     FMResultSet* rs = [_db executeQuery:@"SELECT * FROM NGWords"];
@@ -171,6 +177,10 @@ static NSFilter* _sharedFilter = nil;
 
 - (BOOL)insertNGWord:(NSString *)word
 {
+    word = [word stringByReplacingOccurrencesOfString:@"'" withString:@""];
+    if(word.length == 0){
+        return NO;
+    }
     BOOL success = NO;
     NSString* sql = [NSString stringWithFormat:@"INSERT INTO NGwords values (NULL,'%@');", word];
     if([self openDatabase]){
@@ -249,7 +259,7 @@ static NSFilter* _sharedFilter = nil;
         }
         [_db commit];
     }
-    [self setNGUsersToArray];
+    [self setNGWordsToArray];
     [_db close];
     return success;
 }

@@ -46,8 +46,8 @@ static NSEnduserData* _sharedEnduserData = nil;
         userDefaultsKeyForLastAnnouncementTime = @"last_announcement_time";
         
         //// Load Data
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-        _registered = [userDefaults boolForKey:userDefaultsKeyForRegistered];
+        LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+        _registered = [userKeyChain boolForKey:userDefaultsKeyForRegistered];
         if(_registered == YES){
             [self setData];
         } else {
@@ -61,13 +61,13 @@ static NSEnduserData* _sharedEnduserData = nil;
 
 - (void)setData
 {
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    _user_id = [userDefaults integerForKey:userDefaultsKeyForUserId];
-    _registered = [userDefaults boolForKey:userDefaultsKeyForRegistered];
-    _iCloudEnabled = [userDefaults boolForKey:userDefaultsKeyForiCloudEnabled];
-    _user_token = [userDefaults stringForKey:userDefaultsKeyForUserToken];
-    _user_token_secret = [userDefaults stringForKey:userDefaultsKeyForUserTokenSecret];
-    _last_announcement_time = [userDefaults integerForKey:userDefaultsKeyForLastAnnouncementTime];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    _user_id = [userKeyChain integerForKey:userDefaultsKeyForUserId];
+    _registered = [userKeyChain boolForKey:userDefaultsKeyForRegistered];
+    _iCloudEnabled = [userKeyChain boolForKey:userDefaultsKeyForiCloudEnabled];
+    _user_token = [userKeyChain stringForKey:userDefaultsKeyForUserToken];
+    _user_token_secret = [userKeyChain stringForKey:userDefaultsKeyForUserTokenSecret];
+    _last_announcement_time = [userKeyChain integerForKey:userDefaultsKeyForLastAnnouncementTime];
     _premium = NO;
 }
 
@@ -78,10 +78,9 @@ static NSEnduserData* _sharedEnduserData = nil;
 
 - (void)setUser_id:(NSInteger)user_id
 {
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
     _user_id = user_id;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:user_id forKey:userDefaultsKeyForUserId];
-    [userDefaults synchronize];
+    [userKeyChain setInteger:user_id forKey:userDefaultsKeyForUserId];
 }
 
 - (NSInteger)last_announcement_time
@@ -92,9 +91,8 @@ static NSEnduserData* _sharedEnduserData = nil;
 - (void)setLast_announcement_time:(NSInteger)last_announce_time
 {
     _last_announcement_time = last_announce_time;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:_last_announcement_time forKey:userDefaultsKeyForLastAnnouncementTime];
-    [userDefaults synchronize];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    [userKeyChain setInteger:_last_announcement_time forKey:userDefaultsKeyForLastAnnouncementTime];
 }
 
 - (BOOL)registered
@@ -105,9 +103,8 @@ static NSEnduserData* _sharedEnduserData = nil;
 - (void)setRegistered:(BOOL)registered
 {
     _registered = registered;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:registered forKey:userDefaultsKeyForRegistered];
-    [userDefaults synchronize];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    [userKeyChain setBool:registered forKey:userDefaultsKeyForRegistered];
 }
 
 - (BOOL)premium
@@ -128,9 +125,8 @@ static NSEnduserData* _sharedEnduserData = nil;
 - (void)setICloudEnabled:(BOOL)iCloudEnabled
 {
     _iCloudEnabled = iCloudEnabled;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:iCloudEnabled forKey:userDefaultsKeyForiCloudEnabled];
-    [userDefaults synchronize];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    [userKeyChain setBool:iCloudEnabled forKey:userDefaultsKeyForiCloudEnabled];
 }
 
 - (NSString*)user_token
@@ -141,9 +137,8 @@ static NSEnduserData* _sharedEnduserData = nil;
 - (void)setUser_token:(NSString *)user_token
 {
     _user_token = user_token;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:user_token forKey:userDefaultsKeyForUserToken];
-    [userDefaults synchronize];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    [userKeyChain setString:user_token forKey:userDefaultsKeyForUserToken];
 }
 
 - (NSString*)user_token_secret
@@ -154,9 +149,8 @@ static NSEnduserData* _sharedEnduserData = nil;
 - (void)setUser_token_secret:(NSString *)user_token_secret
 {
     _user_token_secret = user_token_secret;
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:user_token_secret forKey:userDefaultsKeyForUserTokenSecret];
-    [userDefaults synchronize];
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    [userKeyChain setString:user_token_secret forKey:userDefaultsKeyForUserTokenSecret];
 }
 
 @end

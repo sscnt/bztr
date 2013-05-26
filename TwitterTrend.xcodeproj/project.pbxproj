@@ -12,6 +12,8 @@
 		58018B09173E0FE00084FC51 /* UIBlackAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58018B08173E0FE00084FC51 /* UIBlackAlertView.m */; };
 		580241F01736644900C64E28 /* UITwitterScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */; };
 		580241F4173697E500C64E28 /* ImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580241F3173697E500C64E28 /* ImageZoomViewController.m */; };
+		5802EF271752479A00B533AE /* LUKeychainAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 5802EF261752479A00B533AE /* LUKeychainAccess.m */; };
+		5802EF29175249ED00B533AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5802EF28175249ED00B533AE /* Security.framework */; };
 		580409BC173619B00028EAD4 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409BB173619B00028EAD4 /* SideViewController.m */; };
 		580409C1173639ED0028EAD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */; };
 		580409C2173639ED0028EAD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 580409C0173639ED0028EAD4 /* SVProgressHUD.m */; };
@@ -138,6 +140,9 @@
 		580241EF1736644900C64E28 /* UITwitterScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITwitterScrollHeaderView.m; sourceTree = "<group>"; };
 		580241F2173697E500C64E28 /* ImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageZoomViewController.h; sourceTree = "<group>"; };
 		580241F3173697E500C64E28 /* ImageZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageZoomViewController.m; sourceTree = "<group>"; };
+		5802EF251752479A00B533AE /* LUKeychainAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUKeychainAccess.h; sourceTree = "<group>"; };
+		5802EF261752479A00B533AE /* LUKeychainAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUKeychainAccess.m; sourceTree = "<group>"; };
+		5802EF28175249ED00B533AE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		580409BA173619B00028EAD4 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideViewController.h; sourceTree = "<group>"; };
 		580409BB173619B00028EAD4 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
 		580409BE173639ED0028EAD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -328,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5802EF29175249ED00B533AE /* Security.framework in Frameworks */,
 				58AFE83B174F8DF5004B611C /* StoreKit.framework in Frameworks */,
 				5804D297173F71810000B03B /* libsqlite3.0.dylib in Frameworks */,
 				58F9D30A1733886C007100EF /* QuartzCore.framework in Frameworks */,
@@ -348,6 +354,15 @@
 				580241F3173697E500C64E28 /* ImageZoomViewController.m */,
 			);
 			name = Viewer;
+			sourceTree = "<group>";
+		};
+		5802EF231752479A00B533AE /* LUKeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				5802EF251752479A00B533AE /* LUKeychainAccess.h */,
+				5802EF261752479A00B533AE /* LUKeychainAccess.m */,
+			);
+			path = LUKeychainAccess;
 			sourceTree = "<group>";
 		};
 		580409BD173639DC0028EAD4 /* SVProgressHUD */ = {
@@ -535,6 +550,7 @@
 		58F9D2F917338156007100EF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5802EF231752479A00B533AE /* LUKeychainAccess */,
 				58F3E336173FBA5600896C82 /* DCRoundSwitch */,
 				5804D286173F672C0000B03B /* FMDB */,
 				580409BD173639DC0028EAD4 /* SVProgressHUD */,
@@ -621,6 +637,7 @@
 		58FCF3C117314752000E382D = {
 			isa = PBXGroup;
 			children = (
+				5802EF28175249ED00B533AE /* Security.framework */,
 				58AFE83A174F8DF5004B611C /* StoreKit.framework */,
 				58FDE7A91741104D0013CF4E /* Default-568h@2x.png */,
 				58FDE7AA1741104D0013CF4E /* Default.png */,
@@ -1041,6 +1058,7 @@
 				58F8053E1751C21100DEC6BD /* UISettingsTextField.m in Sources */,
 				58F805411751CD1C00DEC6BD /* UIAccessoryCloseButtonView.m in Sources */,
 				58F805441751CD4200DEC6BD /* UIAccessoryView.m in Sources */,
+				5802EF271752479A00B533AE /* LUKeychainAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

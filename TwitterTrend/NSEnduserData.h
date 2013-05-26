@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LUKeychainAccess.h"
 
 
-@interface NSEnduserData : NSUserDefaults
+@interface NSEnduserData : NSObject
 {
     NSString* userDefaultsKeyForRegistered;
     NSString* userDefaultsKeyForiCloudEnabled;
