@@ -12,17 +12,20 @@
 #import "UIFilterSliderView.h"
 #import "UITwitterScrollView.h"
 #import "UIFlatButtonCreator.h"
+#import "UIFilterPickerView.h"
 
 typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
 {
     UIFilterSliderIdentifierRetweet = 0,
-    UIFilterSliderIdentifierFavorite
+    UIFilterSliderIdentifierFavorite,
+    UIFilterSliderIdentifierPage
 };
 
 @protocol UIFilterViewProtocol <NSObject>
 
 - (void) filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt;
 - (void) filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav;
+- (void) filterDidChangeNumPage:(NSInteger)page;
 - (void) filterDidApply;
 
 @end

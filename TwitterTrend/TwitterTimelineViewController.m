@@ -295,8 +295,15 @@
 
 - (void)goToNextPage
 {
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     dlog(@"Go to Next Page.");
     _params.page = _params.page + 1;
+    if(userData.premium == NO && _params.page > 30){
+        [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
+        [_scrollView removeAllSubviews];
+        [self didLoadStatusesButEmpty];
+        return;
+    }
     [self loadStatuses];
 }
 

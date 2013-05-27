@@ -53,7 +53,7 @@
         slider.tag = UIFilterSliderIdentifierFavorite;
         slider.delegate = self;
         [scrollView appendView:slider margin:10.0f];
-        
+                
         //// Apply Button
         UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
         [button setTitle:@"適用" forState:UIControlStateNormal];
@@ -65,6 +65,7 @@
     }
     return self;
 }
+
 
 #pragma mark UIFilterSliderViewDelegate;
 

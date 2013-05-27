@@ -41,7 +41,7 @@
 @property (nonatomic, weak) id<UIFilterSliderViewDelegate> delegate;
 
 - (void)setLevels:(NSArray*)levels;
-- (void)setbarWidth;
+- (void)setBarWidth;
 - (void)didDragMinKnob:(UIPanGestureRecognizer*)sender;
 - (void)didDragMaxKnob:(UIPanGestureRecognizer*)sender;
 
