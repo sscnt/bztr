@@ -14,19 +14,15 @@
 
 @implementation HelpViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    _scrollView = [[UITwitterScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView.contentSize = self.view.bounds.size;
+    _scrollView.backgroundColor = [UIColor redColor];
+    _scrollView.pagingEnabled = YES;
+    [self.view addSubview:_scrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

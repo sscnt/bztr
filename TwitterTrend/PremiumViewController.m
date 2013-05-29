@@ -108,9 +108,20 @@
     }
     _paymentButtonPressed = YES;
     if ([SKPaymentQueue canMakePayments]) {
+        SKProduct* product = [_skProductsResponse.products objectAtIndex:0];
+        if(product == nil){
+            [self error:@"予期せぬエラー。"];
+            return;
+        }
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setLocale:product.priceLocale];
+        NSString *formattedPriceString = [numberFormatter stringFromNumber:product.price];
+        
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
         alert.delegate = self;
-        alert.message = @"プレミアムサービス（30日間）を¥450で購入しますか？なお、自動継続はされません。";
+        alert.message = [NSString stringWithFormat:@"プレミアムサービス（30日間）を%@で購入しますか？", formattedPriceString];
         alert.title = @"確認";
         alert.tag = 1;
         int okIndex = [alert addButtonWithTitle:@"キャンセル"];

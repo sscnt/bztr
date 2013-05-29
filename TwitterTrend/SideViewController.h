@@ -17,6 +17,7 @@
 #import "NSMenuItem.h"
 #import "UITwitterScrollView.h"
 #import "UIBlackAlertView.h"
+#import "NSEnduserData.h"
 
 @interface SideViewController : UIViewController
 {

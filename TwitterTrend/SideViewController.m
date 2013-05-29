@@ -171,7 +171,7 @@
         [_menuButtonItems addObject:item];
         
         item = [[NSMenuItem alloc] init];
-        item.buttonTitle = @"プレミアムサービスについて";
+        item.buttonTitle = @"プレミアムサービス";
         item.type = NSMenuItemTypePremium;
         item.index = 15;
         [_menuButtonItems addObject:item];
@@ -273,6 +273,12 @@
         UISideMenuButton* button = [_menuButtons objectAtIndex:index];
         if(index == _currentButtonIndex){
             button.selected = YES;
+        }
+        if(index == 12){
+            NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+            if(userData.premium == NO){
+                continue;
+            }
         }
         [_scrollView appendView:button margin:0.0f];
     }

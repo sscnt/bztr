@@ -18,8 +18,8 @@
     [[UINavigationBar appearance] setTintColor:[UIColor clearColor]];
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0f forBarMetrics:UIBarMetricsDefault];
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
-    [titleBarAttributes setValue:[UIFont fontWithName:@"rounded-mplus-1p-bold" size:18] forKey:UITextAttributeFont];
-    [titleBarAttributes setValue:[UIColor colorWithWhite:240.0f/255.0f alpha:1.0f] forKey:UITextAttributeTextColor];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"rounded-mplus-1p-medium" size:17] forKey:UITextAttributeFont];
+    [titleBarAttributes setValue:[UIColor colorWithWhite:230.0f/255.0f alpha:1.0f] forKey:UITextAttributeTextColor];
     //[titleBarAttributes setValue:[UIColor blackColor] forKey:UITextAttributeTextShadowColor];
     //[titleBarAttributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(1, 1)] forKey:UITextAttributeTextShadowOffset];
 
@@ -29,10 +29,10 @@
     [rectanglePath closePath];
     
     self.navigationBar.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    self.navigationBar.layer.shadowRadius = 1.0f;
+    self.navigationBar.layer.shadowRadius = 0.5f;
     self.navigationBar.layer.shadowPath = rectanglePath.CGPath;
     self.navigationBar.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.navigationBar.layer.shadowOpacity = 0.4f;
+    self.navigationBar.layer.shadowOpacity = 0.3f;
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,7 +14,11 @@
 #import "UIViewController+navi.h"
 #import "UIBlackAlertView.h"
 #import "NSEnduserData.h"
+#import "UITwitterScrollView.h"
 
 @interface HelpViewController : UIViewController
+{
+    UITwitterScrollView* _scrollView;
+}
 
 @end

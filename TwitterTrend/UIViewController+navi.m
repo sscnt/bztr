@@ -14,7 +14,7 @@
 {
     if(self.tabBarController.navigationItem.leftBarButtonItem == nil){
         UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
-        [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarMenuButtonBgWithOuterShadow2.png"] forState:UIControlStateNormal];
+        [menuBtn setBackgroundImage:[UIImage imageNamed:@"m6.png"] forState:UIControlStateNormal];
         [menuBtn addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
         self.tabBarController.navigationItem.leftBarButtonItem = menuBtnItem;
