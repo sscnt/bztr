@@ -159,6 +159,65 @@
     [SVProgressHUD dismiss];
 }
 
+
+- (void)didLoadStatusesButReachedToLimit
+{
+    _nextPageExists = NO;
+    //// General Decralations
+    CGFloat viewWidth = _scrollView.frame.size.width - 20.0f;
+    CGFloat viewX = 10.0f;
+    CGFloat paddingX = 16.0f;
+    CGFloat paddingWidth = viewWidth - 12.0f;
+    
+    //// Add Header
+    UITwitterScrollHeaderView* header = [[UITwitterScrollHeaderView alloc] initWithFrame:CGRectMake(viewX, 0.0f, viewWidth, 44.0f)];
+    [header setTitle:_headerTitle page:_params.page];
+    [_scrollView appendView:header margin:4.0f];
+    
+    //// Label
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(paddingX, 0.0f, viewWidth - 10.0f, 0.0f)];
+    label.text = @"プレミアム会員になればすべてのページを見ることができます。";
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    CGFloat margin = [UIScreen screenRect].size.height / 2.0f - 130.0f;
+    [_scrollView appendView:label margin:margin];
+    
+    //// Button
+    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(paddingX, 0.0f, viewWidth - 10.0f, 40.0f)];
+    [button setTitle:@"プレミアム会員について" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(presentToPremium) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollView appendView:button margin:10.0f];
+    
+    //// Insert Buttons
+    CGRect frame = CGRectMake(paddingX, 0.0f, paddingWidth, 34.0f);
+    
+    if(_params.page > 1){
+        margin = [UIScreen screenRect].size.height / 2.0f - 90.0f;
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToPrevPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"前のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:margin];
+        
+        button = [UIFlatButtonCreator createWhiteButtonWithFrame:frame];
+        [button addTarget:self action:@selector(goToTopPageWithProgressHUD) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"最初のページへ" forState:UIControlStateNormal];
+        [_scrollView appendView:button margin:15.0f];
+    }
+    
+    
+    _state = TimelineViewStateReady;
+    [SVProgressHUD dismiss];
+}
+
+- (void)presentToPremium
+{
+    [self showPremium];
+}
+
 - (void)didLoadStatuses:(NSArray *)statuses
 {
     _nextPageExists = YES;
@@ -298,10 +357,10 @@
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     dlog(@"Go to Next Page.");
     _params.page = _params.page + 1;
-    if(userData.premium == NO && _params.page > 30){
+    if(userData.premium == NO && _params.page > 3){
         [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
         [_scrollView removeAllSubviews];
-        [self didLoadStatusesButEmpty];
+        [self didLoadStatusesButReachedToLimit];
         return;
     }
     [self loadStatuses];

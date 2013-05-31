@@ -21,6 +21,7 @@
 #import "NSData+Base64.h"
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
+#import "UIPremiumBackgroundView.h"
 
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,

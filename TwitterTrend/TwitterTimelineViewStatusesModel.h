@@ -17,6 +17,7 @@
 @optional
 - (void)didLoadStatuses:(NSArray*)statuses;
 - (void)didLoadStatusesButEmpty;
+- (void)didLoadStatusesButReachedToLimit;
 - (void)didReturnError:(NSString*)error;
 - (void)didFailToPrepareFilter;
 @end

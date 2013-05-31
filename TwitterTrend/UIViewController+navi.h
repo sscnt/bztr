@@ -17,7 +17,8 @@
 - (void)showBackButton;
 
 - (void)showMenu:(id)sender;
-- (void)showSettings:(id)sender;
+- (void)showSettings;
+- (void)showPremium;
 - (void)back;
 
 - (JASidePanelController *)sidePanelController;

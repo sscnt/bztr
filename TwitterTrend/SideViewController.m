@@ -171,7 +171,7 @@
         [_menuButtonItems addObject:item];
         
         item = [[NSMenuItem alloc] init];
-        item.buttonTitle = @"プレミアムサービス";
+        item.buttonTitle = @"プレミアム会員";
         item.type = NSMenuItemTypePremium;
         item.index = 15;
         [_menuButtonItems addObject:item];
@@ -352,6 +352,14 @@
 {
     UISideMenuButton* sender = [_menuButtons objectAtIndex:12];
     _currentButtonIndex = 12;
+    [self didClickMenuButton:sender];
+}
+
+- (void)swithToPremium
+{
+    
+    UISideMenuButton* sender = [_menuButtons objectAtIndex:15];
+    _currentButtonIndex = 15;
     [self didClickMenuButton:sender];
 }
 

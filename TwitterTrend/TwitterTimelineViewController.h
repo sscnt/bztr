@@ -106,4 +106,6 @@ typedef NS_ENUM(int, FilterViewState){
 
 - (void)confirmedAndBlockUser;
 
+- (void)presentToPremium;
+
 @end

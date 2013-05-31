@@ -31,7 +31,7 @@
     _paymentStatus = PaymentStatusReady;
     _observerRemmoved = NO;
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
-    self.tabBarController.navigationItem.title = @"プレミアムサービス";
+    self.tabBarController.navigationItem.title = @"プレミアム会員";
     
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, [UIScreen screenRect].size.height - 64.0f)];
     
@@ -68,10 +68,44 @@
 	[numberFormatter setLocale:product.priceLocale];
 	NSString *formattedPriceString = [numberFormatter stringFromNumber:product.price];
     
-    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 40.0f)];
+    CGFloat viewWidth = [UIScreen screenSize].width - 40.0f;
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
+    label.text = @"プレミアム会員の特典でもっと便利に";
+    label.textAlignment = NSTextAlignmentLeft;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor blackColor];
+    [label sizeToFit];
+    [_scrollView appendView:label margin:15.0f];
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:15.0f];
+    label.text = [NSString stringWithFormat:@"%@で30日間プレミアム機能をご利用になれます。", formattedPriceString];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor blackColor];
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    [_scrollView appendView:label margin:5.0f];
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
+    label.text = @"※自動継続されませんので、30日経過後は自動的にスタンダード会員に戻ります。";
+    label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.backgroundColor = [UIColor clearColor];
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    [_scrollView appendView:label margin:5.0f];
+    
+    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
     [button setTitle:@"購入する" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(didClickPaymentButton) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:20.0f];
+
+    UIPremiumBackgroundView* bgView = [[UIPremiumBackgroundView alloc] init];
+    [_scrollView appendView:bgView margin:15.0f];
 
 }
 
@@ -121,7 +155,7 @@
         
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
         alert.delegate = self;
-        alert.message = [NSString stringWithFormat:@"プレミアムサービス（30日間）を%@で購入しますか？", formattedPriceString];
+        alert.message = [NSString stringWithFormat:@"%@で購入します。よろしければ「購入」を押してください。", formattedPriceString];
         alert.title = @"確認";
         alert.tag = 1;
         int okIndex = [alert addButtonWithTitle:@"キャンセル"];

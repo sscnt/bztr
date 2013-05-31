@@ -37,5 +37,6 @@
 - (void)didClickMenuButton:(id)sender;
 - (void)layout;
 - (void)swithToSettings;
+- (void)swithToPremium;
 
 @end

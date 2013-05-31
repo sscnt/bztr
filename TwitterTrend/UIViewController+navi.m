@@ -37,7 +37,7 @@
     if(self.tabBarController.navigationItem.rightBarButtonItem == nil){
         UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
         [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarSettingsButtonBgWithOuterShadow.png"] forState:UIControlStateNormal];
-        [menuBtn addTarget:self action:@selector(showSettings:) forControlEvents:UIControlEventTouchUpInside];
+        [menuBtn addTarget:self action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
         self.tabBarController.navigationItem.rightBarButtonItem = menuBtnItem;
     }
@@ -49,10 +49,16 @@
     [[self sidePanelController] showLeftPanelAnimated:YES];
 }
 
-- (void)showSettings:(id)sender
+- (void)showSettings
 {
     SideViewController* controller = (SideViewController*)[self sidePanelController].leftPanel;
     [controller swithToSettings];
+}
+
+- (void)showPremium
+{
+    SideViewController* controller = (SideViewController*)[self sidePanelController].leftPanel;
+    [controller swithToPremium];
 }
 
 - (void)back
