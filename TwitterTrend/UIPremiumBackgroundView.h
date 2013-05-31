@@ -10,6 +10,7 @@
 #import <QuartzCore/CALayer.h>
 #import "UIScreen+twitter.h"
 #import "UIPremiumDropShadowView.h"
+#import "UIPremiumSeparator.h"
 #import "UIView+extend.h"
 
 @interface UIPremiumBackgroundView : UIView

@@ -111,6 +111,9 @@
 		58FCA5CD173BA6DF00B3DCEE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5CC173BA6DF00B3DCEE /* placeholder.png */; };
 		58FCD2331758D3570018024B /* UIPremiumBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */; };
 		58FCD2361758D6BE0018024B /* UIPremiumDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */; };
+		58FCD2391758F1450018024B /* UIPremiumSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCD2381758F1450018024B /* UIPremiumSeparator.m */; };
+		58FCD2401758FE050018024B /* premium_filtering_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCD23E1758FE050018024B /* premium_filtering_test.png */; };
+		58FCD2411758FE050018024B /* premium_filtering_test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCD23F1758FE050018024B /* premium_filtering_test@2x.png */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -305,6 +308,10 @@
 		58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumBackgroundView.m; sourceTree = "<group>"; };
 		58FCD2341758D6BE0018024B /* UIPremiumDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPremiumDropShadowView.h; sourceTree = "<group>"; };
 		58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumDropShadowView.m; sourceTree = "<group>"; };
+		58FCD2371758F1450018024B /* UIPremiumSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPremiumSeparator.h; sourceTree = "<group>"; };
+		58FCD2381758F1450018024B /* UIPremiumSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumSeparator.m; sourceTree = "<group>"; };
+		58FCD23E1758FE050018024B /* premium_filtering_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = premium_filtering_test.png; sourceTree = "<group>"; };
+		58FCD23F1758FE050018024B /* premium_filtering_test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "premium_filtering_test@2x.png"; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -633,6 +640,8 @@
 		58F9D30F173391FF007100EF /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				58FCD23E1758FE050018024B /* premium_filtering_test.png */,
+				58FCD23F1758FE050018024B /* premium_filtering_test@2x.png */,
 				580B487F1755E55800390375 /* m6@2x.png */,
 				580A1CFD1753A0B2004A7F62 /* 5@2x.png */,
 				58AFE842174FB14C004B611C /* NavigationBarBgTextured3.png */,
@@ -691,6 +700,8 @@
 				58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */,
 				58FCD2341758D6BE0018024B /* UIPremiumDropShadowView.h */,
 				58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */,
+				58FCD2371758F1450018024B /* UIPremiumSeparator.h */,
+				58FCD2381758F1450018024B /* UIPremiumSeparator.m */,
 			);
 			name = Premium;
 			sourceTree = "<group>";
@@ -1024,6 +1035,8 @@
 				58AFE843174FB14C004B611C /* NavigationBarBgTextured3.png in Resources */,
 				580A1CFE1753A0B2004A7F62 /* 5@2x.png in Resources */,
 				580B48801755E55800390375 /* m6@2x.png in Resources */,
+				58FCD2401758FE050018024B /* premium_filtering_test.png in Resources */,
+				58FCD2411758FE050018024B /* premium_filtering_test@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,6 +1142,7 @@
 				580A1CF8175395BF004A7F62 /* UIFilterPickerScrollView.m in Sources */,
 				58FCD2331758D3570018024B /* UIPremiumBackgroundView.m in Sources */,
 				58FCD2361758D6BE0018024B /* UIPremiumDropShadowView.m in Sources */,
+				58FCD2391758F1450018024B /* UIPremiumSeparator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

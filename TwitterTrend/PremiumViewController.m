@@ -91,7 +91,7 @@
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
     label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
-    label.text = @"※自動継続されませんので、30日経過後は自動的にスタンダード会員に戻ります。";
+    label.text = @"※自動継続されません。30日経過後は自動的にスタンダード会員に戻ります。また、アプリ削除後再インストールした場合でも自動的にリストアされます。";
     label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
     label.textAlignment = NSTextAlignmentLeft;
     label.backgroundColor = [UIColor clearColor];
@@ -105,7 +105,7 @@
     [_scrollView appendView:button margin:20.0f];
 
     UIPremiumBackgroundView* bgView = [[UIPremiumBackgroundView alloc] init];
-    [_scrollView appendView:bgView margin:15.0f];
+    [_scrollView appendView:bgView margin:20.0f];
 
 }
 
