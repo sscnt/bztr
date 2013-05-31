@@ -110,6 +110,7 @@
 		58FCA5CB173BA55800B3DCEE /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5C9173BA55800B3DCEE /* close@2x.png */; };
 		58FCA5CD173BA6DF00B3DCEE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FCA5CC173BA6DF00B3DCEE /* placeholder.png */; };
 		58FCD2331758D3570018024B /* UIPremiumBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */; };
+		58FCD2361758D6BE0018024B /* UIPremiumDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */; };
 		58FCF3CE17314752000E382D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CD17314752000E382D /* UIKit.framework */; };
 		58FCF3D017314752000E382D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3CF17314752000E382D /* Foundation.framework */; };
 		58FCF3D217314752000E382D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCF3D117314752000E382D /* CoreGraphics.framework */; };
@@ -302,6 +303,8 @@
 		58FCA5CC173BA6DF00B3DCEE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		58FCD2311758D3570018024B /* UIPremiumBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPremiumBackgroundView.h; sourceTree = "<group>"; };
 		58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumBackgroundView.m; sourceTree = "<group>"; };
+		58FCD2341758D6BE0018024B /* UIPremiumDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPremiumDropShadowView.h; sourceTree = "<group>"; };
+		58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumDropShadowView.m; sourceTree = "<group>"; };
 		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -686,6 +689,8 @@
 			children = (
 				58FCD2311758D3570018024B /* UIPremiumBackgroundView.h */,
 				58FCD2321758D3570018024B /* UIPremiumBackgroundView.m */,
+				58FCD2341758D6BE0018024B /* UIPremiumDropShadowView.h */,
+				58FCD2351758D6BE0018024B /* UIPremiumDropShadowView.m */,
 			);
 			name = Premium;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				580A1CF51753954C004A7F62 /* UIFilterPickerView.m in Sources */,
 				580A1CF8175395BF004A7F62 /* UIFilterPickerScrollView.m in Sources */,
 				58FCD2331758D3570018024B /* UIPremiumBackgroundView.m in Sources */,
+				58FCD2361758D6BE0018024B /* UIPremiumDropShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

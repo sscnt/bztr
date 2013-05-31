@@ -9,7 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/CALayer.h>
 #import "UIScreen+twitter.h"
+#import "UIPremiumDropShadowView.h"
+#import "UIView+extend.h"
 
 @interface UIPremiumBackgroundView : UIView
+{
+    CGFloat _margin;
+    CGFloat _bottom;
+}
+
+- (void)appendView:(UIView*)view;
+- (void)appendView:(UIView *)view margin:(NSInteger)margin;
+- (void)prependView:(UIView*)view;
+- (void)prependView:(UIView*)view margin:(NSInteger)margin;
+
+- (void)removeAllSubviews;
 
 @end

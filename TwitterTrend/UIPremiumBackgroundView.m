@@ -20,36 +20,76 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:200.0f/255.0f alpha:1.0f];
+        _margin = 20.0f;
+        _bottom = 0.0f;
+
+        self.backgroundColor = [UIColor colorWithWhite:210.0f/255.0f alpha:1.0f];
         self.layer.masksToBounds = YES;
         
+        UIPremiumDropShadowView* shadow = [[UIPremiumDropShadowView alloc] initWithFrame:CGRectMake(0.0f, -8.0f, self.bounds.size.width, 10.0f)];
+        [self addSubview:shadow];
         
-        UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect:CGRectMake(-6.0, 0.0, [UIScreen screenSize].width + 10.0f, 10.0f)];
-        [rectanglePath closePath];
+        //// Label
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:16.0f];
+        label.text = @"プレミアム機能の紹介・使い方";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 1;
+        [label sizeToFit];
+        [self appendView:label margin:16.0f];
         
-        self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-        self.layer.shadowRadius = 0.5f;
-        self.layer.shadowPath = rectanglePath.CGPath;
-        self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowOpacity = 0.3f;
     }
     return self;
 }
 
-
-- (void)drawRect:(CGRect)rect
+//// Adding View
+- (void)appendView:(UIView *)view
 {
-    //// Color Decralations
-    UIColor* strokeColor = [UIColor colorWithWhite:245.0f/255.0f alpha:1.0f];
-    
-    //// Stroke
-    UIBezierPath* path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0.0f, 0.0f)];
-    [path addLineToPoint:CGPointMake(rect.size.width, 0.0f)];
-    [strokeColor setStroke];
-    path.lineWidth = 1.0f;
-    [path stroke];
+    [self appendView:view margin:_margin];
 }
+
+- (void)appendView:(UIView *)view margin:(NSInteger)margin
+{
+    [view setY:(_bottom + margin)];
+    [self addSubview:view];
+    CGFloat bottom = view.frame.origin.y + view.frame.size.height;
+    if(bottom > _bottom){
+        _bottom = bottom;
+    }
+}
+
+- (void)prependView:(UIView *)view
+{
+    [self prependView:view margin:_margin];
+}
+
+- (void)prependView:(UIView *)view margin:(NSInteger)margin
+{
+    
+}
+
+- (void)removeAllSubviews
+{
+    for(UIView* view in [self subviews]){
+        if([view isKindOfClass:[UIImageView class]]){
+            
+        } else {
+            [view removeFromSuperview];
+        }
+    }
+    _bottom = 0.0f;
+}
+
+- (void)sizeToFit
+{
+    _bottom = 0.0f;
+    for(UIView* view in [self subviews]){
+        _bottom = MAX(view.bottom, _bottom);
+    }
+}
+
 
 
 @end
