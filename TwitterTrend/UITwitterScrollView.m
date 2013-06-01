@@ -48,6 +48,15 @@
     
 }
 
+- (void)removeBottomPadding
+{
+    _bottom = 0.0f;
+    for(UIView* view in [self subviews]){
+        _bottom = MAX(view.bottom, _bottom);
+    }
+    [self setContentSize:CGSizeMake(self.frame.size.width, _bottom)];
+}
+
 - (void)removeAllSubviews
 {
     for(UIView* view in [self subviews]){
@@ -68,7 +77,7 @@
     for(UIView* view in [self subviews]){
         _bottom = MAX(view.bottom, _bottom);
     }
-    [self setContentSize:CGSizeMake(self.frame.size.width, _bottom + 10.0f)];
+    [self setContentSize:CGSizeMake(self.frame.size.width, _bottom + _margin)];
 }
 
 - (void)drawRect:(CGRect)rect

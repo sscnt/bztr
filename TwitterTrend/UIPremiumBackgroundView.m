@@ -74,7 +74,70 @@
         [label sizeToFit];
         [self appendView:label margin:10.0f];
         
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
+        label.text = @"・ページ閲覧制限の解除";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 1;
+        [label sizeToFit];
+        [self appendView:label margin:10.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
+        label.text = @"スタンダード会員は30ページ以降の閲覧ができませんが、プレミアム会員ならすべてのページを閲覧可能です。";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        [label sizeToFit];
+        [self appendView:label margin:0.0f];
         UIPremiumSeparator* sep = [[UIPremiumSeparator alloc] init];
+        [self appendView:sep margin:15.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
+        label.text = @"・NGワード";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 1;
+        [label sizeToFit];
+        [self appendView:label margin:10.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
+        label.text = @"特定の単語を含むツイートを非表示にします。\n「メニュー」→「設定」ページで追加・削除できます。";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        [label sizeToFit];
+        [self appendView:label margin:0.0f];
+        sep = [[UIPremiumSeparator alloc] init];
+        [self appendView:sep margin:15.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
+        label.text = @"・ユーザー非表示";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 1;
+        [label sizeToFit];
+        [self appendView:label margin:10.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
+        label.text = @"特定のユーザーのツイートを非表示にします。ツイートのユーザー名をタップすると非表示にできます。\n「メニュー」→「設定」ページで解除できます。";
+        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        [label sizeToFit];
+        [self appendView:label margin:0.0f];
+        sep = [[UIPremiumSeparator alloc] init];
         [self appendView:sep margin:15.0f];
         
     }

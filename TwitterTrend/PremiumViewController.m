@@ -106,6 +106,7 @@
 
     UIPremiumBackgroundView* bgView = [[UIPremiumBackgroundView alloc] init];
     [_scrollView appendView:bgView margin:20.0f];
+    [_scrollView removeBottomPadding];
 
 }
 

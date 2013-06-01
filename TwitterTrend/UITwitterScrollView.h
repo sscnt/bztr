@@ -23,6 +23,7 @@
 - (void)prependView:(UIView*)view;
 - (void)prependView:(UIView*)view margin:(NSInteger)margin;
 
+- (void)removeBottomPadding;
 - (void)removeAllSubviews;
 
 @end
