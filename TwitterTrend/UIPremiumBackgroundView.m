@@ -73,7 +73,8 @@
         label.numberOfLines = 0;
         [label sizeToFit];
         [self appendView:label margin:10.0f];
-        
+        UIPremiumSeparator* sep = [[UIPremiumSeparator alloc] init];
+        [self appendView:sep margin:15.0f];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
         label.text = @"・ページ閲覧制限の解除";
@@ -93,8 +94,9 @@
         label.numberOfLines = 0;
         [label sizeToFit];
         [self appendView:label margin:0.0f];
-        UIPremiumSeparator* sep = [[UIPremiumSeparator alloc] init];
+        sep = [[UIPremiumSeparator alloc] init];
         [self appendView:sep margin:15.0f];
+
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-bold" size:16.0f];
