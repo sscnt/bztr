@@ -652,6 +652,7 @@
 - (void)filterDidApply
 {
     [_modelStatuses cleanStatusesCache];
+    _params.page = 1;
     _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     _filterViewState = FilterViewStateHidden;
     [self loadStatuses];
