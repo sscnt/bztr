@@ -113,7 +113,7 @@
 - (void)requestProductData
 {
     [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
-    NSSet *set = [NSSet setWithObjects:@"PremiumService30days", nil];
+    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.30dayspremium", nil];
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     productsRequest.delegate = self;
     [productsRequest start];
