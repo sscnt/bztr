@@ -312,14 +312,14 @@
 		58FCD2381758F1450018024B /* UIPremiumSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPremiumSeparator.m; sourceTree = "<group>"; };
 		58FCD23E1758FE050018024B /* premium_filtering_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = premium_filtering_test.png; sourceTree = "<group>"; };
 		58FCD23F1758FE050018024B /* premium_filtering_test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "premium_filtering_test@2x.png"; sourceTree = "<group>"; };
-		58FCF3CA17314752000E382D /* TwitterTrend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTrend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58FCF3CA17314752000E382D /* Buzztter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buzztter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FCF3CD17314752000E382D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58FCF3CF17314752000E382D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58FCF3D117314752000E382D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		58FCF3D517314752000E382D /* TwitterTrend-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwitterTrend-Info.plist"; sourceTree = "<group>"; };
+		58FCF3D517314752000E382D /* Buzztter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Buzztter-Info.plist"; sourceTree = "<group>"; };
 		58FCF3D717314752000E382D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58FCF3D917314752000E382D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		58FCF3DB17314752000E382D /* TwitterTrend-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterTrend-Prefix.pch"; sourceTree = "<group>"; };
+		58FCF3DB17314752000E382D /* Buzztter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Buzztter-Prefix.pch"; sourceTree = "<group>"; };
 		58FCF3DC17314752000E382D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58FCF3DD17314752000E382D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		58FCF3F6173150F3000E382D /* UIDevice+resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+resolution.h"; sourceTree = "<group>"; };
@@ -723,7 +723,7 @@
 				580CEEBF173BD2F90050470F /* Icon.png */,
 				580CEEC0173BD2F90050470F /* Icon@2x.png */,
 				58F9D3091733886B007100EF /* QuartzCore.framework */,
-				58FCF3D317314752000E382D /* TwitterTrend */,
+				58FCF3D317314752000E382D /* Buzztter */,
 				58FCF3CC17314752000E382D /* Frameworks */,
 				58FCF3CB17314752000E382D /* Products */,
 			);
@@ -732,7 +732,7 @@
 		58FCF3CB17314752000E382D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				58FCF3CA17314752000E382D /* TwitterTrend.app */,
+				58FCF3CA17314752000E382D /* Buzztter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -748,7 +748,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		58FCF3D317314752000E382D /* TwitterTrend */ = {
+		58FCF3D317314752000E382D /* Buzztter */ = {
 			isa = PBXGroup;
 			children = (
 				58FA24B71734EB21004D803D /* Fonts */,
@@ -763,16 +763,16 @@
 				58FCF3FD1731616E000E382D /* ViewControllers */,
 				58FCF3D417314752000E382D /* Supporting Files */,
 			);
-			path = TwitterTrend;
+			path = Buzztter;
 			sourceTree = "<group>";
 		};
 		58FCF3D417314752000E382D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				58FCF3D517314752000E382D /* TwitterTrend-Info.plist */,
+				58FCF3D517314752000E382D /* Buzztter-Info.plist */,
 				58FCF3D617314752000E382D /* InfoPlist.strings */,
 				58FCF3D917314752000E382D /* main.m */,
-				58FCF3DB17314752000E382D /* TwitterTrend-Prefix.pch */,
+				58FCF3DB17314752000E382D /* Buzztter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -946,9 +946,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58FCF3C917314752000E382D /* TwitterTrend */ = {
+		58FCF3C917314752000E382D /* Buzztter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58FCF3ED17314752000E382D /* Build configuration list for PBXNativeTarget "TwitterTrend" */;
+			buildConfigurationList = 58FCF3ED17314752000E382D /* Build configuration list for PBXNativeTarget "Buzztter" */;
 			buildPhases = (
 				58FCF3C617314752000E382D /* Sources */,
 				58FCF3C717314752000E382D /* Frameworks */,
@@ -959,9 +959,9 @@
 			);
 			dependencies = (
 			);
-			name = TwitterTrend;
+			name = Buzztter;
 			productName = TwitterTrend;
-			productReference = 58FCF3CA17314752000E382D /* TwitterTrend.app */;
+			productReference = 58FCF3CA17314752000E382D /* Buzztter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -973,19 +973,20 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SSC;
 			};
-			buildConfigurationList = 58FCF3C517314752000E382D /* Build configuration list for PBXProject "TwitterTrend" */;
+			buildConfigurationList = 58FCF3C517314752000E382D /* Build configuration list for PBXProject "Buzztter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 58FCF3C117314752000E382D;
 			productRefGroup = 58FCF3CB17314752000E382D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58FCF3C917314752000E382D /* TwitterTrend */,
+				58FCF3C917314752000E382D /* Buzztter */,
 			);
 		};
 /* End PBXProject section */
@@ -1220,16 +1221,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Toshiki Nakanishi (WRHUFP3254)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Toshiki Nakanishi (WRHUFP3254)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TwitterTrend/TwitterTrend-Prefix.pch";
-				INFOPLIST_FILE = "TwitterTrend/TwitterTrend-Info.plist";
+				GCC_PREFIX_HEADER = "Buzztter/Buzztter-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Buzztter/Buzztter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = TwitterTrend;
-				PROVISIONING_PROFILE = "858B46C4-1B27-43DC-828D-5722440805B9";
+				PRODUCT_NAME = Buzztter;
+				PROVISIONING_PROFILE = "78B54CDD-D55D-447D-B34B-3A32F23748BD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B54CDD-D55D-447D-B34B-3A32F23748BD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1238,16 +1241,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Toshiki Nakanishi";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Toshiki Nakanishi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TwitterTrend/TwitterTrend-Prefix.pch";
-				INFOPLIST_FILE = "TwitterTrend/TwitterTrend-Info.plist";
+				GCC_PREFIX_HEADER = "Buzztter/Buzztter-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Buzztter/Buzztter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = TwitterTrend;
-				PROVISIONING_PROFILE = "AABDD4EE-1FAF-484A-ADED-CC9D26F448DE";
+				PRODUCT_NAME = Buzztter;
+				PROVISIONING_PROFILE = "57DE9B02-E670-479C-8BDB-C0DB3CA988B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57DE9B02-E670-479C-8BDB-C0DB3CA988B6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1255,7 +1260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58FCF3C517314752000E382D /* Build configuration list for PBXProject "TwitterTrend" */ = {
+		58FCF3C517314752000E382D /* Build configuration list for PBXProject "Buzztter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58FCF3EB17314752000E382D /* Debug */,
@@ -1264,7 +1269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58FCF3ED17314752000E382D /* Build configuration list for PBXNativeTarget "TwitterTrend" */ = {
+		58FCF3ED17314752000E382D /* Build configuration list for PBXNativeTarget "Buzztter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58FCF3EE17314752000E382D /* Debug */,
