@@ -14,7 +14,15 @@
 #import "UIViewController+navi.h"
 #import "UIBlackAlertView.h"
 #import "NSEnduserData.h"
+#import "UIReportTextView.h"
+#import "UIFlatButtonCreator.h"
+#import "UIAccessoryView.h"
 
 @interface ReportViewController : UIViewController
+{
+    UIReportTextView* _textView;
+}
+
+- (void)closeKeyboard:(id)sender;
 
 @end

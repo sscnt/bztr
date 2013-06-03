@@ -27,6 +27,22 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
+    
+    _textView = [[UIReportTextView alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenSize].width - 20.0f, 100.0f)];
+    //// AccessoryView
+    UIAccessoryView* accessory = [[UIAccessoryView alloc] initWithStyle:UIAccessoryViewButtonPositionRight];
+    [accessory addTarget:self action:@selector(closeKeyboard:)];
+    _textView.inputAccessoryView = accessory;
+    [self.view addSubview:_textView];
+    
+    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, _textView.bottom + 10.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
+    [button setTitle:@"送信" forState:UIControlStateNormal];
+    [self.view addSubview:button];
+}
+
+- (void)closeKeyboard:(id)sender
+{
+    [_textView resignFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated
