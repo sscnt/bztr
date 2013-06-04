@@ -18,11 +18,13 @@
 #import "UIFlatButtonCreator.h"
 #import "UIAccessoryView.h"
 
-@interface ReportViewController : UIViewController
+@interface ReportViewController : UIViewController <UIAlertViewDelegate ,NSTrendApiDelegate>
 {
     UIReportTextView* _textView;
+    NSTrendApi* _api;
 }
 
 - (void)closeKeyboard:(id)sender;
+- (void)confirmToSend;
 
 @end

@@ -50,7 +50,13 @@
     if(![params.receipt isEqualToString:@""]){
         bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"receipt",params.receipt,bodyString];
     }
-
+    
+    
+    //// Text
+    if(![params.text isEqualToString:@""]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"text",params.text,bodyString];
+    }
+    
     
     return bodyString;
 }

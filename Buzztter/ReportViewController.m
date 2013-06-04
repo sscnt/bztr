@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     
-    _textView = [[UIReportTextView alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenSize].width - 20.0f, 100.0f)];
+    _textView = [[UIReportTextView alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenSize].width - 20.0f, 180.0f)];
     //// AccessoryView
     UIAccessoryView* accessory = [[UIAccessoryView alloc] initWithStyle:UIAccessoryViewButtonPositionRight];
     [accessory addTarget:self action:@selector(closeKeyboard:)];
@@ -37,12 +37,60 @@
     
     UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, _textView.bottom + 10.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
     [button setTitle:@"送信" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(confirmToSend) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
 - (void)closeKeyboard:(id)sender
 {
     [_textView resignFirstResponder];
+}
+
+- (void)confirmToSend
+{
+    UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+    alert.delegate = self;
+    alert.message = @"送信しますか？";
+    alert.title = @"確認";
+    alert.tag = 1;
+    int okIndex = [alert addButtonWithTitle:@"キャンセル"];
+    [alert setCancelButtonIndex:okIndex];
+    [alert addButtonWithTitle:@"送信"];
+    [alert show];
+    
+}
+
+#pragma mark NSTrendAPI
+
+
+- (void)apiDidReturnError:(NSString*)error
+{
+    dlog(@"%@", error);
+}
+
+- (void)apiDidReturnResult:(NSDictionary*)json
+{
+    dlog(@"%@", json);
+}
+
+
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 1){
+        if(buttonIndex == 1){
+            _api = [[NSTrendApi alloc] init];
+            NSRequestParams* params = [[NSRequestParams alloc] init];
+            NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+            params.user_token = userData.user_token;
+            params.user_id_string = [NSString stringWithFormat:@"%d", userData.user_id];
+            params.user_token_secret = userData.user_token_secret;
+            params.text = _textView.text;
+            _api.delegate = self;
+            [_api call:@"enduser/report" params:params];
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

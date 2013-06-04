@@ -19,5 +19,6 @@
 @property (nonatomic, assign) NSInteger max_fav;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSString* receipt;
+@property (nonatomic, strong) NSString* text;
 
 @end
