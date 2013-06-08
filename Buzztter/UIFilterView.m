@@ -30,7 +30,7 @@
         label.shadowOffset = CGSizeMake(1.0f, 1.0f);
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:15.0f];
         label.textColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0f];
-        [scrollView appendView:label margin:215.0f];
+        [scrollView appendView:label margin:10.0f];
         
         UIFilterSliderView* slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
         [slider setLevels:_levels];

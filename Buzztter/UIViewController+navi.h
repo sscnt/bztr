@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JASidePanelController.h"
 #import "SideViewController.h"
+#import "TwitterTimelineViewController.h"
 
 @interface UIViewController (navi)
 

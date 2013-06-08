@@ -28,6 +28,7 @@
 #import "UIFlatBUtton.h"
 #import "NSEnduserData.h"
 #import "UIFilterView.h"
+#import "FilterViewController.h"
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
@@ -53,7 +54,7 @@ typedef NS_ENUM(int, FilterViewState){
     FilterViewStateDisplay
 };
 
-@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate, UIScrollViewDelegate, UIFilterViewProtocol>
+@interface TwitterTimelineViewController : UIViewController <TwitterTimelineViewStatusesModelDelegate, UIGestureRecognizerDelegate,UIStatusViewDelegate, UIActionSheetDelegate, TwitterTimelineViewDeveloperModelDelegate, UIAlertViewDelegate, TwitterTimelineViewEnduserModelDelegate, UIScrollViewDelegate>
 {
     BOOL _nextPageExists;
     __weak NSStatus* _currentTargetStatus;
@@ -91,6 +92,8 @@ typedef NS_ENUM(int, FilterViewState){
 - (void)goToNextPage;
 - (void)goToPrevPage;
 - (void)goToTopPage;
+
+- (void)showFilterView;
 
 - (void)goToNextPageWithProgressHUD;
 - (void)goToPrevPageWithProgressHUD;

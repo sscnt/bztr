@@ -35,6 +35,7 @@
     UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
     [self.view addSubview:bg];
     [self showMenuBtn];
+    [self showSettingsBtn];
     
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
@@ -111,6 +112,12 @@
     [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
     [_scrollView removeAllSubviews];
     [_modelStatuses loadStatusesWithApi:_api params:_params];
+}
+
+- (void)showFilterView
+{
+    FilterViewController* controller  = [[FilterViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark TwitterTimelineViewStatusesModelDelegate
@@ -487,7 +494,6 @@
             _sheetUser.delegate = self;
             _sheetUser.tag = ActionSheetTagUser;
             _actionSheetUserButtonIndexOpenWithTwitterApp = [_sheetUser addButtonWithTitle:@"Twitterアプリで開く"];
-            _actionSheetUserButtonIndexDeveloperBlock = [_sheetUser addButtonWithTitle:@"ブロック"];
             if(userData.premium){
                 _actionSheetUserButtonIndexPremiumHide = [_sheetUser addButtonWithTitle:@"非表示にする"];
             }
@@ -525,20 +531,6 @@
                 [alert show];
             }
         
-            return;
-        }
-        
-        //// Developer Block
-        if(buttonIndex == _actionSheetUserButtonIndexDeveloperBlock){
-            UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
-            alert.tag = AlertViewIdentifierDeveloperBlock;
-            alert.delegate = self;
-            alert.title = @"確認";
-            alert.message = @"ブロックしますか？";
-            int okIndex = [alert addButtonWithTitle:@"キャンセル"];
-            [alert setCancelButtonIndex:okIndex];
-            [alert addButtonWithTitle:@"ブロック"];
-            [alert show];
             return;
         }
         
@@ -704,15 +696,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    //// Developer Block
-    if(alertView.tag == AlertViewIdentifierDeveloperBlock){
-        if(buttonIndex == 1){            
-            [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
-            _params.user_id_string = _currentTargetStatus.user.id_string;
-            [_modelDeveloper developerBlockWithParams:_params];
-        }
-        return;
-    }
+
     
     //// Hide User
     if(alertView.tag == AlertViewIdentifierHideUser){

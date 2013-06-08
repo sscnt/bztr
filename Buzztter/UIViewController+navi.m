@@ -36,7 +36,7 @@
 {
     if(self.tabBarController.navigationItem.rightBarButtonItem == nil){
         UIButton *menuBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 43, 30)];
-        [menuBtn setBackgroundImage:[UIImage imageNamed:@"NavigationBarSettingsButtonBgWithOuterShadow.png"] forState:UIControlStateNormal];
+        [menuBtn setBackgroundImage:[UIImage imageNamed:@"m7.png"] forState:UIControlStateNormal];
         [menuBtn addTarget:self action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* menuBtnItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
         self.tabBarController.navigationItem.rightBarButtonItem = menuBtnItem;
@@ -51,8 +51,8 @@
 
 - (void)showSettings
 {
-    SideViewController* controller = (SideViewController*)[self sidePanelController].leftPanel;
-    [controller swithToSettings];
+    TwitterTimelineViewController* controller = (TwitterTimelineViewController*)[self sidePanelController].timelineViewController;
+    [controller showFilterView];
 }
 
 - (void)showPremium
