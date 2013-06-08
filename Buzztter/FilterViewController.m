@@ -43,8 +43,12 @@
 - (void)setParams:(NSRequestParams *)params
 {
     _params = params;
-    [_filterView setMaxRT:_params.max_rt MinRt:_params.min_rt];
-    [_filterView setMaxFav:_params.max_fav MinFav:_params.min_fav];
+    int maxRT = (params.max_rt != -1) ? params.max_rt : 99999;
+    int minRT = (params.min_rt != -1) ? params.min_rt : 50;
+    int maxFav = (params.max_fav != -1) ? params.max_fav : 99999;
+    int minFav = (params.min_fav != -1) ? params.min_fav : 5;
+    [_filterView setMaxRT:maxRT MinRt:minRT];
+    [_filterView setMaxFav:maxFav MinFav:minFav];
 }
 
 
@@ -66,6 +70,9 @@
     _params.min_fav = min_fav;
     if(max_fav == 99999){
         _params.max_fav = -1;
+    }
+    if(min_fav == 5){
+        _params.min_fav = -1;
     }
 }
 

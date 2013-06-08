@@ -31,7 +31,8 @@ typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
 
 @interface UIFilterView : UIView <UIFilterSliderViewDelegate>
 {
-    NSArray* _levels;
+    NSArray* _levelsArrayForFav;
+    NSArray* _levelsArrayForRT;
     UIFilterSliderView* _rtSlider;
     UIFilterSliderView* _favSlider;
 }
@@ -39,7 +40,8 @@ typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
 @property (nonatomic, weak) id<UIFilterViewProtocol> delegate;
 
 - (void)apply;
-- (NSInteger)value2Level:(int)value;
+- (NSInteger)value2LevelForFav:(int)value;
+- (NSInteger)value2LevelForRT:(int)value;
 - (void)setMaxRT:(int)max MinRt:(int)min;
 - (void)setMaxFav:(int)max MinFav:(int)min;
 

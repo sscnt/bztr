@@ -22,7 +22,8 @@
         [self addSubview:scrollView];
         
         //// Retweet Filter
-        _levels = [NSArray arrayWithObjects:@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", @"3000", @"4000", @"5000", @"7500",@"10000", @"99999", nil];
+        _levelsArrayForRT = [NSArray arrayWithObjects:@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", @"3000", @"4000", @"5000", @"7500",@"10000", @"99999", nil];
+        _levelsArrayForFav = [NSArray arrayWithObjects:@"5",@"50",@"100",@"150",@"200",@"250",@"300",@"350",@"400",@"450",@"500",@"600",@"700",@"800",@"900",@"1000",@"1500",@"2000", @"3000", @"4000", @"5000", @"7500",@"10000", @"99999", nil];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
         label.text = @"リツイート数";
         label.backgroundColor = [UIColor clearColor];
@@ -33,7 +34,7 @@
         [scrollView appendView:label margin:10.0f];
         
         _rtSlider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [_rtSlider setLevels:_levels];
+        [_rtSlider setLevels:_levelsArrayForRT];
         _rtSlider.tag = UIFilterSliderIdentifierRetweet;
         _rtSlider.delegate = self;
         [scrollView appendView:_rtSlider margin:10.0f];
@@ -50,7 +51,7 @@
         
         
         _favSlider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [_favSlider setLevels:_levels];
+        [_favSlider setLevels:_levelsArrayForFav];
         _favSlider.tag = UIFilterSliderIdentifierFavorite;
         _favSlider.delegate = self;
         [scrollView appendView:_favSlider margin:10.0f];
@@ -68,28 +69,40 @@
 }
 
 
-- (NSInteger)value2Level:(int)value
+
+- (NSInteger)value2LevelForFav:(int)value
 {
     int level = 0;
-    for (NSString* valueString in _levels) {
+    for (NSString* valueString in _levelsArrayForFav) {
         if([valueString isEqualToString:[NSString stringWithFormat:@"%d",value]]){
             return level;
         }
         level++;
     }
-    return 0;
+    return [_levelsArrayForFav count] - 1;
 }
 
+- (NSInteger)value2LevelForRT:(int)value
+{
+    int level = 0;
+    for (NSString* valueString in _levelsArrayForRT) {
+        if([valueString isEqualToString:[NSString stringWithFormat:@"%d",value]]){
+            return level;
+        }
+        level++;
+    }
+    return [_levelsArrayForRT count] - 1;
+}
 - (void)setMaxFav:(int)max MinFav:(int)min
 {
-    [_favSlider setMinKnobPositionWithLevel:[self value2Level:min]];
-    [_favSlider setMaxKnobPositionWithLevel:[self value2Level:max]];
+    [_favSlider setMinKnobPositionWithLevel:[self value2LevelForFav:min]];
+    [_favSlider setMaxKnobPositionWithLevel:[self value2LevelForFav:max]];
 }
 
 - (void)setMaxRT:(int)max MinRt:(int)min
 {
-    [_rtSlider setMinKnobPositionWithLevel:[self value2Level:min]];
-    [_rtSlider setMaxKnobPositionWithLevel:[self value2Level:max]];
+    [_rtSlider setMinKnobPositionWithLevel:[self value2LevelForRT:min]];
+    [_rtSlider setMaxKnobPositionWithLevel:[self value2LevelForRT:max]];
 }
 
 #pragma mark UIFilterSliderViewDelegate;
@@ -98,13 +111,13 @@
 {
     //// Retweet
     if(slider.tag == UIFilterSliderIdentifierRetweet){
-        [self.delegate filterDidChangeNumRetweetMax:[[_levels objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levels objectAtIndex:slider.currentMinLevel] integerValue]];
+        [self.delegate filterDidChangeNumRetweetMax:[[_levelsArrayForRT objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levelsArrayForRT objectAtIndex:slider.currentMinLevel] integerValue]];
         return;
     }
     
     //// Favorite
     if(slider.tag == UIFilterSliderIdentifierFavorite){
-        [self.delegate filterDidChangeNumFavoriteMax:[[_levels objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levels objectAtIndex:slider.currentMinLevel] integerValue]];
+        [self.delegate filterDidChangeNumFavoriteMax:[[_levelsArrayForFav objectAtIndex:slider.currentMaxLevel] integerValue] Min:[[_levelsArrayForFav objectAtIndex:slider.currentMinLevel] integerValue]];
         return;        
     }
 }
