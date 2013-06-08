@@ -25,6 +25,8 @@
 {
     UITwitterScrollView* _scrollView;
     UIFilterView* _filterView;
+    UIFilterPickerView* _pickerView;
+    BOOL _didChangeOnlyPage;
 }
 
 @property (nonatomic, weak) NSRequestParams* params;

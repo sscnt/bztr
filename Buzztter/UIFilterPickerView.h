@@ -10,8 +10,13 @@
 #import "UIFilterPickerWrapperView.h"
 #import "UIView+extend.h"
 
+typedef NS_ENUM(NSInteger, ScrollViewId){
+    ScrollViewIdOnePlace = 0,
+    ScrollViewIdTenPlace = 1,
+    ScrollViewIdHundredPlace = 2
+};
 
-@interface UIFilterPickerView : UIView <UIScrollViewDelegate>
+@interface UIFilterPickerView : UIView
 {
     UIFilterPickerScrollView* _scrollViewOnePlace;
     UIFilterPickerScrollView* _scrollViewTenPlace;
@@ -20,5 +25,8 @@
     UIFilterPickerWrapperView* _wrapperTenPlace;
     UIFilterPickerWrapperView* _wrapperHundredPlace;
 }
+
+- (void)setCurrentPage:(NSInteger)page;
+- (NSInteger)currentPageNumber;
 
 @end

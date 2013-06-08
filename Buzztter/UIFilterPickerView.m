@@ -25,9 +25,13 @@
         self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = YES;
         
+        
         _scrollViewHundredPlace = [[UIFilterPickerScrollView alloc] init];
+        _scrollViewHundredPlace.tag = ScrollViewIdHundredPlace;
         _scrollViewOnePlace = [[UIFilterPickerScrollView alloc] init];
+        _scrollViewOnePlace.tag = ScrollViewIdOnePlace;
         _scrollViewTenPlace = [[UIFilterPickerScrollView alloc] init];
+        _scrollViewTenPlace.tag = ScrollViewIdTenPlace;
         
         _wrapperHundredPlace = [[UIFilterPickerWrapperView alloc] init];
         _wrapperOnePlace = [[UIFilterPickerWrapperView alloc] init];
@@ -45,6 +49,45 @@
         
     }
     return self;
+}
+
+- (void)setCurrentPage:(NSInteger)page
+{
+
+}
+
+- (NSInteger)currentPageNumber
+{
+    int value;
+    int numPage = 0;
+    value = _scrollViewOnePlace.contentOffset.y / _scrollViewOnePlace.frame.size.height;
+    numPage += value;
+    value = _scrollViewTenPlace.contentOffset.y / _scrollViewTenPlace.frame.size.height;
+    numPage += value * 10;
+    value = _scrollViewHundredPlace.contentOffset.y / _scrollViewHundredPlace.frame.size.height;
+    numPage += value * 100;
+    return numPage;
+}
+
+#pragma mark UIScrollViewDelegate
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int value = 0;
+    value = scrollView.contentOffset.y / scrollView.frame.size.height;
+    if(scrollView.tag == ScrollViewIdHundredPlace){
+        
+        return;
+    }
+    
+    if(scrollView.tag == ScrollViewIdTenPlace){
+        return;
+    }
+    
+    if(scrollView.tag == ScrollViewIdOnePlace){
+        return;
+    }
+    
 }
 
 - (void)drawRect:(CGRect)rect

@@ -99,7 +99,7 @@ typedef NS_ENUM(int, FilterViewState){
 - (void)goToPrevPageWithProgressHUD;
 - (void)goToTopPageWithProgressHUD;
 
-- (void)filterDidApply;
+- (void)filterDidApply:(BOOL)didChangeOnlyPage;
 
 - (void)addSwipeGesture;
 - (void)didSwipeRight:(UISwipeGestureRecognizer*)sender;

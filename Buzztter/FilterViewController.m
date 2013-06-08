@@ -18,6 +18,7 @@
 {
     self = [super init];
     if (self) {
+        _didChangeOnlyPage = YES;
     }
     return self;
 }
@@ -41,8 +42,8 @@
     [_filterView setMaxFav:maxFav MinFav:minFav];
     [_scrollView appendView:_filterView margin:0];
     
-    UIFilterPickerView* pickerView = [[UIFilterPickerView alloc] init];
-    [_scrollView appendView:pickerView margin:10.0f];
+    _pickerView = [[UIFilterPickerView alloc] init];
+    [_scrollView appendView:_pickerView margin:10.0f];
     
     UIButton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
     [button addTarget:self action:@selector(filterDidApply) forControlEvents:UIControlEventTouchUpInside];
@@ -56,14 +57,18 @@
 
 - (void)filterDidApply
 {
+    _params.page = [_pickerView currentPageNumber];
+    dlog(@"%d", _params.page);
     UIViewController* prev = [self sidePanelController].timelineViewController;
     [self.navigationController popViewControllerAnimated:YES];
-    [prev performSelector:@selector(filterDidApply)];
+    NSNumber *passedValue = [NSNumber numberWithBool:_didChangeOnlyPage];
+    [prev performSelector:@selector(filterDidApply:) withObject:passedValue];
     dlog(@"%@", [[prev class] description]);
 }
 
 - (void)filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav
 {
+    _didChangeOnlyPage = NO;
     _params.max_fav = max_fav;
     _params.min_fav = min_fav;
     if(max_fav == 99999){
@@ -76,6 +81,7 @@
 
 - (void)filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt
 {
+    _didChangeOnlyPage = NO;
     _params.max_rt = max_rt;
     _params.min_rt = min_rt;
     if(_params.max_rt == 99999){

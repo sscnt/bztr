@@ -633,10 +633,12 @@
 
 #pragma mark UIFilterViewDelegate
 
-- (void)filterDidApply
+- (void)filterDidApply:(BOOL)didChangeOnlyPage
 {
     [_modelStatuses cleanStatusesCache];
-    _params.page = 1;
+    if(!didChangeOnlyPage){
+        _params.page = 1;
+    }
     _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     _filterViewState = FilterViewStateHidden;
     [self loadStatuses];
