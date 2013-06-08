@@ -17,14 +17,6 @@
 #import "UITwitterScrollView.h"
 
 
-@protocol FilterViewControllerDelegate <NSObject>
-
-- (void) filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt;
-- (void) filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav;
-- (void) filterDidApply;
-
-@end
-
 
 @interface FilterViewController : UIViewController <UIFilterViewProtocol>
 {
@@ -33,6 +25,5 @@
 }
 
 @property (nonatomic, weak) NSRequestParams* params;
-@property (nonatomic, weak) id<FilterViewControllerDelegate> delegate;
 
 @end

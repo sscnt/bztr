@@ -44,5 +44,7 @@
 - (void)setBarWidth;
 - (void)didDragMinKnob:(UIPanGestureRecognizer*)sender;
 - (void)didDragMaxKnob:(UIPanGestureRecognizer*)sender;
+- (void)setMinKnobPositionWithLevel:(NSInteger)level;
+- (void)setMaxKnobPositionWithLevel:(NSInteger)level;
 
 @end

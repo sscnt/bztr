@@ -49,19 +49,10 @@
 
 - (void)initializeController
 {
-    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    
+
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
-    if(userData.premium){
-        _scrollView.delegate = self;
-    }
     [self.view addSubview:_scrollView];
 
-    if(userData.premium){
-        UIFilterView* filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
-        filterView.delegate = self;
-        [_scrollView appendView:filterView margin:filterView.frame.size.height * -1];
-    }
     [self addSwipeGesture];
     
     [self restart];    
@@ -117,6 +108,7 @@
 - (void)showFilterView
 {
     FilterViewController* controller  = [[FilterViewController alloc] init];
+    controller.params = _params;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -648,24 +640,6 @@
     _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     _filterViewState = FilterViewStateHidden;
     [self loadStatuses];
-}
-
-- (void)filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav
-{
-    _params.max_fav = max_fav;
-    _params.min_fav = min_fav;
-    if(max_fav == 99999){
-        _params.max_fav = -1;
-    }
-}
-
-- (void)filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt
-{
-    _params.max_rt = max_rt;
-    _params.min_rt = min_rt;
-    if(_params.max_rt == 99999){
-        _params.max_rt = -1;
-    }
 }
 
 #pragma mark UIScrollViewDelegate

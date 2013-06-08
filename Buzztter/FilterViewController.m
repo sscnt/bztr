@@ -14,11 +14,21 @@
 
 @implementation FilterViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self.navigationItem.title = @"ページ設定";
+        self.view.backgroundColor = [UIColor colorWithWhite:46.0f/255.0f alpha:1.0f];
+        [self showBackButton];
+        
+        
+        _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
+        
+        [self.view addSubview:_scrollView];
+        _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
+        _filterView.delegate = self;
+        [_scrollView appendView:_filterView margin:0];
     }
     return self;
 }
@@ -26,35 +36,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"ページ設定";
-    self.view.backgroundColor = [UIColor colorWithWhite:46.0f/255.0f alpha:1.0f];
-    [self showBackButton];
-
-    
-    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
-
-    [self.view addSubview:_scrollView];
-    _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
-    [_scrollView appendView:_filterView margin:0];
     
 
+}
+
+- (void)setParams:(NSRequestParams *)params
+{
+    _params = params;
+    [_filterView setMaxRT:_params.max_rt MinRt:_params.min_rt];
+    [_filterView setMaxFav:_params.max_fav MinFav:_params.min_fav];
 }
 
 
 
 #pragma mark UIFilterView
 
-- (void) filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt
+
+- (void)filterDidApply
 {
-    
+    UIViewController* prev = [self sidePanelController].timelineViewController;
+    [self.navigationController popViewControllerAnimated:YES];
+    [prev performSelector:@selector(filterDidApply)];
+    dlog(@"%@", [[prev class] description]);
 }
-- (void) filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav
+
+- (void)filterDidChangeNumFavoriteMax:(NSInteger)max_fav Min:(NSInteger)min_fav
 {
-    
+    _params.max_fav = max_fav;
+    _params.min_fav = min_fav;
+    if(max_fav == 99999){
+        _params.max_fav = -1;
+    }
 }
-- (void) filterDidApply
+
+- (void)filterDidChangeNumRetweetMax:(NSInteger)max_rt Min:(NSInteger)min_rt
 {
-    
+    _params.max_rt = max_rt;
+    _params.min_rt = min_rt;
+    if(_params.max_rt == 99999){
+        _params.max_rt = -1;
+    }
 }
 
 - (void)didReceiveMemoryWarning

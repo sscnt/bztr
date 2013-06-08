@@ -27,8 +27,8 @@
 #import "UIFlatButtonCreator.h"
 #import "UIFlatBUtton.h"
 #import "NSEnduserData.h"
-#import "UIFilterView.h"
 #import "FilterViewController.h"
+
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
@@ -98,6 +98,8 @@ typedef NS_ENUM(int, FilterViewState){
 - (void)goToNextPageWithProgressHUD;
 - (void)goToPrevPageWithProgressHUD;
 - (void)goToTopPageWithProgressHUD;
+
+- (void)filterDidApply;
 
 - (void)addSwipeGesture;
 - (void)didSwipeRight:(UISwipeGestureRecognizer*)sender;

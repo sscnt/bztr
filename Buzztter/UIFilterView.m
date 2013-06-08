@@ -32,11 +32,11 @@
         label.textColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0f];
         [scrollView appendView:label margin:10.0f];
         
-        UIFilterSliderView* slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [slider setLevels:_levels];
-        slider.tag = UIFilterSliderIdentifierRetweet;
-        slider.delegate = self;
-        [scrollView appendView:slider margin:10.0f];
+        _rtSlider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
+        [_rtSlider setLevels:_levels];
+        _rtSlider.tag = UIFilterSliderIdentifierRetweet;
+        _rtSlider.delegate = self;
+        [scrollView appendView:_rtSlider margin:10.0f];
         
         //// Favorite Filter
         label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
@@ -48,11 +48,12 @@
         label.textColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0f];
         [scrollView appendView:label margin:15.0f];
         
-        slider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
-        [slider setLevels:_levels];
-        slider.tag = UIFilterSliderIdentifierFavorite;
-        slider.delegate = self;
-        [scrollView appendView:slider margin:10.0f];
+        
+        _favSlider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
+        [_favSlider setLevels:_levels];
+        _favSlider.tag = UIFilterSliderIdentifierFavorite;
+        _favSlider.delegate = self;
+        [scrollView appendView:_favSlider margin:10.0f];
                 
         //// Apply Button
         UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
@@ -66,6 +67,30 @@
     return self;
 }
 
+
+- (NSInteger)value2Level:(int)value
+{
+    int level = 0;
+    for (NSString* valueString in _levels) {
+        if([valueString isEqualToString:[NSString stringWithFormat:@"%d",value]]){
+            return level;
+        }
+        level++;
+    }
+    return 0;
+}
+
+- (void)setMaxFav:(int)max MinFav:(int)min
+{
+    [_favSlider setMinKnobPositionWithLevel:[self value2Level:min]];
+    [_favSlider setMaxKnobPositionWithLevel:[self value2Level:max]];
+}
+
+- (void)setMaxRT:(int)max MinRt:(int)min
+{
+    [_rtSlider setMinKnobPositionWithLevel:[self value2Level:min]];
+    [_rtSlider setMaxKnobPositionWithLevel:[self value2Level:max]];
+}
 
 #pragma mark UIFilterSliderViewDelegate;
 

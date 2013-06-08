@@ -108,15 +108,20 @@
         }
         if(_currentMaxLevel != tmpLevel){
             [sender setTranslation:CGPointZero inView:knobView];
-            _currentMaxLevel = tmpLevel;
-            CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * (_currentMaxLevel + 1) / (_maxLevel + 1) + _centerMinX, knobView.center.y);
-            knobView.center = destinationPoint;
-            _maxVlaueLabel.text = [_levels objectAtIndex:_currentMaxLevel];
-            [self setBarWidth];
+            [self setMaxKnobPositionWithLevel:tmpLevel];
             [self.delegate sliderDidValueChanged:self];
         }
     }
     return;
+}
+
+- (void)setMaxKnobPositionWithLevel:(NSInteger)level
+{
+    _currentMaxLevel = level;
+    CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * (_currentMaxLevel + 1) / (_maxLevel + 1) + _centerMinX, _knobViewMax.center.y);
+    _knobViewMax.center = destinationPoint;
+    _maxVlaueLabel.text = [_levels objectAtIndex:_currentMaxLevel];
+    [self setBarWidth];
 }
 
 - (void)didDragMinKnob:(UIPanGestureRecognizer *)sender
@@ -140,15 +145,21 @@
         }
         if(_currentMinLevel != tmpLevel){
             [sender setTranslation:CGPointZero inView:knobView];
-            _currentMinLevel = tmpLevel;
-            CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * _currentMinLevel / (_maxLevel + 1) + _centerMinX, knobView.center.y);
-            knobView.center = destinationPoint;
-            _minValueLabel.text = [_levels objectAtIndex:_currentMinLevel];
-            [self setBarWidth];
+            [self setMinKnobPositionWithLevel:tmpLevel];
             [self.delegate sliderDidValueChanged:self];
         }
     }
     return;
+}
+
+- (void)setMinKnobPositionWithLevel:(NSInteger)level
+{
+    _currentMinLevel = level;
+    CGPoint destinationPoint = CGPointMake((_centerMaxX - _centerMinX) * _currentMinLevel / (_maxLevel + 1) + _centerMinX, _knobViewMin.center.y);
+    _knobViewMin.center = destinationPoint;
+    _minValueLabel.text = [_levels objectAtIndex:_currentMinLevel];
+    [self setBarWidth];
+
 }
 
 
