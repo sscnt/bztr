@@ -11,7 +11,6 @@
 #import "UIFilterInnerShadowView.h"
 #import "UIFilterSliderView.h"
 #import "UITwitterScrollView.h"
-#import "UIFlatButtonCreator.h"
 #import "UIFilterPickerView.h"
 
 typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
@@ -39,7 +38,6 @@ typedef NS_ENUM(NSInteger, UIFilterSliderIdentifier)
 
 @property (nonatomic, weak) id<UIFilterViewProtocol> delegate;
 
-- (void)apply;
 - (NSInteger)value2LevelForFav:(int)value;
 - (NSInteger)value2LevelForRT:(int)value;
 - (void)setMaxRT:(int)max MinRt:(int)min;

@@ -15,10 +15,13 @@
 #import "UIViewController+navi.h"
 #import "NSRequestParams.h"
 #import "UITwitterScrollView.h"
+#import "IZValueSelectorView.h"
+#import "UIFlatBUtton.h"
+#import "UIFilterPickerView.h"
 
 
 
-@interface FilterViewController : UIViewController <UIFilterViewProtocol>
+@interface FilterViewController : UIViewController <UIFilterViewProtocol, IZValueSelectorViewDataSource, IZValueSelectorViewDelegate>
 {
     UITwitterScrollView* _scrollView;
     UIFilterView* _filterView;

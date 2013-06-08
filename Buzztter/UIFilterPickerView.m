@@ -13,8 +13,8 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(0.0f, 0.0f, 166.0f, 50.0f);
-    return [super initWithFrame:frame];
+    CGRect frame = CGRectMake(0.0f, 0.0f, PickerWidth * 3, PickerHeight);
+    return [self initWithFrame:frame];
 }
 
 
@@ -23,22 +23,29 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        self.clipsToBounds = YES;
         
         _scrollViewHundredPlace = [[UIFilterPickerScrollView alloc] init];
         _scrollViewOnePlace = [[UIFilterPickerScrollView alloc] init];
         _scrollViewTenPlace = [[UIFilterPickerScrollView alloc] init];
         
-        [_scrollViewHundredPlace setX:2];
-        [self addSubview:_scrollViewHundredPlace];
-        [_scrollViewTenPlace setX:56];
-        [self addSubview:_scrollViewTenPlace];
-        [_scrollViewOnePlace setX:110];
-        [self addSubview:_scrollViewOnePlace];        
+        _wrapperHundredPlace = [[UIFilterPickerWrapperView alloc] init];
+        _wrapperOnePlace = [[UIFilterPickerWrapperView alloc] init];
+        _wrapperTenPlace = [[UIFilterPickerWrapperView alloc] init];
+        
+        [_wrapperHundredPlace setX:0];
+        _wrapperHundredPlace.scrollView = _scrollViewHundredPlace;
+        [self addSubview:_wrapperHundredPlace];
+        [_wrapperTenPlace setX:PickerWidth];
+        _wrapperTenPlace.scrollView = _scrollViewTenPlace;
+        [self addSubview:_wrapperTenPlace];
+        [_wrapperOnePlace setX:PickerWidth * 2];
+        _wrapperOnePlace.scrollView = _scrollViewOnePlace;
+        [self addSubview:_wrapperOnePlace];
         
     }
     return self;
 }
-
 
 - (void)drawRect:(CGRect)rect
 {

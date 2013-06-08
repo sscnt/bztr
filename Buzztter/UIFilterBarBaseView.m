@@ -23,16 +23,16 @@
 {
     //// Base
     CGRect baseRect = CGRectMake(rect.origin.x + 1.0f, rect.origin.y + 1.0f, rect.size.width - 2.0f, rect.size.height - 2.0f);
-    UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:baseRect cornerRadius:6.0f];
+    UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:baseRect cornerRadius:5.0f];
     [[UIColor colorWithWhite:56.0f/255.0f alpha:1.0f] setFill];
-    [[UIColor colorWithWhite:26.0f/255.0f alpha:1.0f] setStroke];
+    [[UIColor colorWithWhite:0.0f/255.0f alpha:1.0f] setStroke];
     path.lineWidth = 1;
     [path fill];
     [path stroke];
     
     CGRect innerRect = CGRectMake(rect.origin.x + 2.0f, rect.origin.y + 2.0f, rect.size.width - 4.0f, rect.size.height - 4.0f);
     path = [UIBezierPath bezierPathWithRoundedRect:innerRect cornerRadius:5.0f];
-    [[UIColor colorWithWhite:64.0f/255.0f alpha:1.0f] setStroke];
+    [[UIColor colorWithWhite:255.0f/255.0f alpha:0.10f] setStroke];
     [path stroke];
     
     

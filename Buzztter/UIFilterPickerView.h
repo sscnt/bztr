@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIFilterPickerScrollView.h"
+#import "UIFilterPickerWrapperView.h"
 #import "UIView+extend.h"
+
 
 @interface UIFilterPickerView : UIView <UIScrollViewDelegate>
 {
     UIFilterPickerScrollView* _scrollViewOnePlace;
     UIFilterPickerScrollView* _scrollViewTenPlace;
     UIFilterPickerScrollView* _scrollViewHundredPlace;
+    UIFilterPickerWrapperView* _wrapperOnePlace;
+    UIFilterPickerWrapperView* _wrapperTenPlace;
+    UIFilterPickerWrapperView* _wrapperHundredPlace;
 }
 
 @end

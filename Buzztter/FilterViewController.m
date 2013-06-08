@@ -18,17 +18,6 @@
 {
     self = [super init];
     if (self) {
-        self.navigationItem.title = @"ページ設定";
-        self.view.backgroundColor = [UIColor colorWithWhite:46.0f/255.0f alpha:1.0f];
-        [self showBackButton];
-        
-        
-        _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
-        
-        [self.view addSubview:_scrollView];
-        _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 530.0f)];
-        _filterView.delegate = self;
-        [_scrollView appendView:_filterView margin:0];
     }
     return self;
 }
@@ -36,21 +25,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"ページ設定";
+    self.view.backgroundColor = [UIColor colorWithWhite:46.0f/255.0f alpha:1.0f];
+    [self showBackButton];
+    _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
+    [self.view addSubview:_scrollView];
     
-
-}
-
-- (void)setParams:(NSRequestParams *)params
-{
-    _params = params;
-    int maxRT = (params.max_rt != -1) ? params.max_rt : 99999;
-    int minRT = (params.min_rt != -1) ? params.min_rt : 50;
-    int maxFav = (params.max_fav != -1) ? params.max_fav : 99999;
-    int minFav = (params.min_fav != -1) ? params.min_fav : 5;
+    _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 270.0f)];
+    _filterView.delegate = self; 
+    int maxRT = (_params.max_rt != -1) ? _params.max_rt : 99999;
+    int minRT = (_params.min_rt != -1) ? _params.min_rt : 50;
+    int maxFav = (_params.max_fav != -1) ? _params.max_fav : 99999;
+    int minFav = (_params.min_fav != -1) ? _params.min_fav : 5;
     [_filterView setMaxRT:maxRT MinRt:minRT];
     [_filterView setMaxFav:maxFav MinFav:minFav];
+    [_scrollView appendView:_filterView margin:0];
+    
+    UIFilterPickerView* pickerView = [[UIFilterPickerView alloc] init];
+    [_scrollView appendView:pickerView margin:10.0f];
+    
+    UIButton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
+    [button addTarget:self action:@selector(filterDidApply) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"適用" forState:UIControlStateNormal];
+    [_scrollView appendView:button margin:10.0f];
 }
-
 
 
 #pragma mark UIFilterView
@@ -84,6 +82,39 @@
         _params.max_rt = -1;
     }
 }
+
+#pragma mark IZValuePicker
+
+- (void)selector:(IZValueSelectorView *)valueSelector didSelectRowAtIndex:(NSInteger)index
+{
+    
+}
+- (NSInteger)numberOfRowsInSelector:(IZValueSelectorView *)valueSelector
+{
+    return 10;
+}
+- (UIView *)selector:(IZValueSelectorView *)valueSelector viewForRowAtIndex:(NSInteger)index
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 60.0f, 50.0f, 0.0f)];
+    label.text = [NSString stringWithFormat:@"%d", index];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
+    label.backgroundColor = [UIColor clearColor];
+    [label sizeToFit];
+    return label;
+}
+- (CGRect)rectForSelectionInSelector:(IZValueSelectorView *)valueSelector
+{
+    return CGRectMake(0.0f, 0.0f, 80.0f, 60.0f);
+}
+- (CGFloat)rowHeightInSelector:(IZValueSelectorView *)valueSelector
+{
+    return 60.0f;
+}
+- (CGFloat)rowWidthInSelector:(IZValueSelectorView *)valueSelector
+{
+    return 80.0f;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

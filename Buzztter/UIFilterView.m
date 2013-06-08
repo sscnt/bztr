@@ -49,21 +49,16 @@
         label.textColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0f];
         [scrollView appendView:label margin:15.0f];
         
-        
         _favSlider = [[UIFilterSliderView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 90.0f)];
         [_favSlider setLevels:_levelsArrayForFav];
         _favSlider.tag = UIFilterSliderIdentifierFavorite;
         _favSlider.delegate = self;
         [scrollView appendView:_favSlider margin:10.0f];
-                
-        //// Apply Button
-        UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
-        [button setTitle:@"適用" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(apply) forControlEvents:UIControlEventTouchUpInside];
-        [scrollView appendView:button margin:15.0f];
+            
         
         UIFilterInnerShadowView* shadow = [[UIFilterInnerShadowView alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 1.0f, frame.size.width, 40.0f)];
         [self addSubview:shadow];
+        
     }
     return self;
 }
@@ -122,10 +117,6 @@
     }
 }
 
-- (void)apply
-{
-    [self.delegate filterDidApply];
-}
 
 - (void)drawRect:(CGRect)rect
 {
