@@ -639,6 +639,9 @@
     if(!didChangeOnlyPage){
         _params.page = 1;
     }
+    if(_params.page == 0){
+        _params.page = 1;
+    }
     
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     if(userData.premium == NO && _params.page > StandardPageLimit){

@@ -22,6 +22,7 @@
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
 #import "UIPremiumBackgroundView.h"
+#import "SharePaymentViewController.h"
 
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,
@@ -49,6 +50,8 @@ typedef NS_ENUM(NSInteger, PaymentStatus){
 - (void)paymentExecute;
 - (void)validateReceipt:(NSData*)reciept;
 - (void)didValidateReciept:(NSDictionary*)json;
+
+- (void)willSharePayment;
 
 - (void)error:(NSString*)message;
 

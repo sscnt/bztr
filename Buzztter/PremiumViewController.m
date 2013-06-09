@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad
 {
-    dlog(@"ViewDidLoad");
     [super viewDidLoad];
     _paymentButtonPressed = NO;
     _paymentStatus = PaymentStatusReady;
@@ -103,11 +102,22 @@
     [button setTitle:@"購入する" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(didClickPaymentButton) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:20.0f];
+    
+    button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
+    [button setTitle:@"他の端末と共有する" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(willSharePayment) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollView appendView:button margin:20.0f];
 
     UIPremiumBackgroundView* bgView = [[UIPremiumBackgroundView alloc] init];
     [_scrollView appendView:bgView margin:20.0f];
     [_scrollView removeBottomPadding];
 
+}
+
+- (void)willSharePayment
+{
+    SharePaymentViewController* controller = [[SharePaymentViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)requestProductData
