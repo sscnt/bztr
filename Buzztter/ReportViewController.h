@@ -17,6 +17,7 @@
 #import "UIReportTextView.h"
 #import "UIFlatButtonCreator.h"
 #import "UIAccessoryView.h"
+#import "SVProgressHUD.h"
 
 @interface ReportViewController : UIViewController <UIAlertViewDelegate ,NSTrendApiDelegate>
 {
@@ -26,5 +27,7 @@
 
 - (void)closeKeyboard:(id)sender;
 - (void)confirmToSend;
+- (void)alert:(NSString*)message;
+- (void)followOnTwitter;
 
 @end

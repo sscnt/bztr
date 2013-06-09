@@ -51,7 +51,7 @@
         [self addSubview:_wrapperOnePlace];
         
         
-        UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner.png"]];
+        UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner_gradient.png"]];
         imageView.frame = frame;
         imageView.userInteractionEnabled = NO;
         [self addSubview:imageView];

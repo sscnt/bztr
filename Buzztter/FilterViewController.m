@@ -60,7 +60,7 @@
     UIButton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
     [button addTarget:self action:@selector(filterDidApply) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"適用" forState:UIControlStateNormal];
-    [_scrollView appendView:button margin:10.0f];
+    [_scrollView appendView:button margin:15.0f];
 }
 
 

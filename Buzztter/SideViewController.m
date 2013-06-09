@@ -160,7 +160,7 @@
         
         
         item = [[NSMenuItem alloc] init];
-        item.buttonTitle = @"ご意見・不具合の報告など";
+        item.buttonTitle = @"ご意見・不具合の報告";
         item.type = NSMenuItemTypeAsk;
         item.index = 13;
         [_menuButtonItems addObject:item];

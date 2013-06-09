@@ -60,19 +60,6 @@
         [label sizeToFit];
         [self appendView:label margin:0.0f];
         
-        UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"premium_filtering_test.png"]];
-        [imageView setFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].width)];
-        [self appendView:imageView margin:10.0f];
-        
-        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
-        label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
-        label.text = @"ページ上部をさらに下げると現れます。変更は全ページに反映されます。";
-        label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
-        label.textAlignment = NSTextAlignmentLeft;
-        label.backgroundColor = [UIColor clearColor];
-        label.numberOfLines = 0;
-        [label sizeToFit];
-        [self appendView:label margin:10.0f];
         UIPremiumSeparator* sep = [[UIPremiumSeparator alloc] init];
         [self appendView:sep margin:15.0f];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
