@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIFilterPickerLabel.h"
+
 #define PickerHeight 160.0f
-#define PickerWidth 100.0f
+#define PickerWidth 94.0f
 #define PickerLabelHeight 60.0f
-#define PickerLabelWidth 120.0f
+#define PickerLabelWidth 94.0f
 
 @interface UIFilterPickerScrollView : UIScrollView
 

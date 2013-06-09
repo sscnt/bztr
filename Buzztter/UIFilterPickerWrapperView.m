@@ -41,7 +41,24 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    UIColor* color;
+    UIBezierPath* path;
+    
+    //// Draw Border
+    color = [UIColor colorWithWhite:119.0f/255.0f alpha:1.0f];
+    path = [UIBezierPath bezierPathWithRect:rect];
+    [color setFill];
+    [path fill];
+    
+    
+    //// Draw Bg
+    color = [UIColor colorWithWhite:69.0f/255.0f alpha:1.0f];
+    path = [UIBezierPath bezierPathWithRect:CGRectMake(2.0f, rect.origin.y, rect.size.width - 4.0f, rect.size.height)];
+    [color setFill];
+    [path fill];
+    
+    
+
 }
 
 

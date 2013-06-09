@@ -42,7 +42,19 @@
     [_filterView setMaxFav:maxFav MinFav:minFav];
     [_scrollView appendView:_filterView margin:0];
     
+    
+    //// Favorite Filter
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
+    label.text = @"ページ番号";
+    label.backgroundColor = [UIColor clearColor];
+    label.shadowColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:15.0f];
+    label.textColor = [UIColor colorWithWhite:225.0f/255.0f alpha:1.0f];
+    [_scrollView appendView:label margin:10.0f];
+    
     _pickerView = [[UIFilterPickerView alloc] init];
+    [_pickerView setX:11];
     [_scrollView appendView:_pickerView margin:10.0f];
     
     UIButton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(10.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];

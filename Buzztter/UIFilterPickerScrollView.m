@@ -28,26 +28,15 @@
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         
-        UILabel* label;
+        UIFilterPickerLabel* label;
         for(int i = 0;i < 10;i++){
-            label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, PickerLabelHeight * i, PickerLabelWidth, PickerLabelHeight)];
+            label = [[UIFilterPickerLabel alloc] initWithFrame:CGRectMake(0.0f, PickerLabelHeight * i, PickerLabelWidth, PickerLabelHeight)];
             label.text = [NSString stringWithFormat:@"%d", i];
-            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0f];
-            label.textAlignment = NSTextAlignmentCenter;
-            label.backgroundColor = [UIColor clearColor];
             [self addSubview:label];
         }
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

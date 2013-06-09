@@ -54,10 +54,7 @@
         _favSlider.tag = UIFilterSliderIdentifierFavorite;
         _favSlider.delegate = self;
         [scrollView appendView:_favSlider margin:10.0f];
-            
-        
-        UIFilterInnerShadowView* shadow = [[UIFilterInnerShadowView alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 1.0f, frame.size.width, 40.0f)];
-        [self addSubview:shadow];
+
         
     }
     return self;

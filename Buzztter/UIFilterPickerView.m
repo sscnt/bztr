@@ -13,13 +13,15 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(0.0f, 0.0f, PickerWidth * 3, PickerHeight);
+    CGRect frame = CGRectMake(0.0f, 0.0f, (PickerWidth + 4.0f) * 3 + 4.0f, PickerHeight);
     return [self initWithFrame:frame];
 }
 
 
 - (id)initWithFrame:(CGRect)frame
 {
+    dlog(@"%f", frame.size.width);
+    dlog(@"%f", frame.size.height);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -37,15 +39,22 @@
         _wrapperOnePlace = [[UIFilterPickerWrapperView alloc] init];
         _wrapperTenPlace = [[UIFilterPickerWrapperView alloc] init];
         
-        [_wrapperHundredPlace setX:0];
+        [_wrapperHundredPlace setX:4];
         _wrapperHundredPlace.scrollView = _scrollViewHundredPlace;
         [self addSubview:_wrapperHundredPlace];
-        [_wrapperTenPlace setX:PickerWidth];
+        [_wrapperTenPlace setX:PickerWidth + 8];
         _wrapperTenPlace.scrollView = _scrollViewTenPlace;
         [self addSubview:_wrapperTenPlace];
-        [_wrapperOnePlace setX:PickerWidth * 2];
+        [_wrapperOnePlace setX:PickerWidth * 2 + 12];
         _wrapperOnePlace.scrollView = _scrollViewOnePlace;
         [self addSubview:_wrapperOnePlace];
+        
+        
+        UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner.png"]];
+        imageView.frame = frame;
+        imageView.userInteractionEnabled = NO;
+        [self addSubview:imageView];
+        
         
     }
     return self;
@@ -92,7 +101,9 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
+    [[UIColor blackColor] setFill];
+    [path fill];
 }
 
 

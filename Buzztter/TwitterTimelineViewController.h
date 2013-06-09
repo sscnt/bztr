@@ -29,6 +29,8 @@
 #import "NSEnduserData.h"
 #import "FilterViewController.h"
 
+#define StandardPageLimit 3
+
 
 typedef NS_ENUM(int, TimelineViewState){
     TimelineViewStateReady = 0,
