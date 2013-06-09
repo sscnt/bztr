@@ -21,6 +21,11 @@
 #import "NSRequestParams.h"
 
 
-@interface SharePaymentViewController : UIViewController
+@interface SharePaymentViewController : UIViewController <NSTrendApiDelegate>
+{
+    NSTrendApi* _apiGetPin;
+}
+
+- (void)alert:(NSString*)message;
 
 @end
