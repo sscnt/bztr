@@ -41,7 +41,7 @@
     [button addTarget:self action:@selector(confirmToSend) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(10.0f, button.bottom + 10.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
+    button = [UIFlatButtonCreator createBlueButtonWithFrame:CGRectMake(10.0f, button.bottom + 10.0f, [UIScreen screenSize].width - 20.0f, 40.0f)];
     [button setTitle:@"@buzztter_appをフォローする" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(followOnTwitter) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];

@@ -63,7 +63,13 @@
 
 - (void)setCurrentPage:(NSInteger)page
 {
-
+    int hundred = page / 100;
+    int ten = (page - hundred * 100) / 10;
+    int one = page - hundred * 100 - ten * 10;
+   
+    _scrollViewOnePlace.contentOffset = CGPointMake(0, one * _scrollViewOnePlace.frame.size.height);
+    _scrollViewTenPlace.contentOffset = CGPointMake(0, ten * _scrollViewTenPlace.frame.size.height);
+    _scrollViewHundredPlace.contentOffset = CGPointMake(0, hundred * _scrollViewHundredPlace.frame.size.height);
 }
 
 - (NSInteger)currentPageNumber

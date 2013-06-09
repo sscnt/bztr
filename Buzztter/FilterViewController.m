@@ -54,6 +54,7 @@
     [_scrollView appendView:label margin:10.0f];
     
     _pickerView = [[UIFilterPickerView alloc] init];
+    [_pickerView setCurrentPage:_params.page];
     [_pickerView setX:11];
     [_scrollView appendView:_pickerView margin:10.0f];
     

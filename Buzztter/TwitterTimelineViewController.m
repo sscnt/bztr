@@ -641,7 +641,6 @@
     }
     
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    _params.page = _params.page + 1;
     if(userData.premium == NO && _params.page > StandardPageLimit){
         _params.page = StandardPageLimit;
         [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
