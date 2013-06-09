@@ -32,18 +32,19 @@
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, [UIScreen screenSize].height - 64.0f)];
     [self.view addSubview:_scrollView];
     
-    _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 270.0f)];
-    _filterView.delegate = self; 
-    int maxRT = (_params.max_rt != -1) ? _params.max_rt : 99999;
-    int minRT = (_params.min_rt != -1) ? _params.min_rt : 50;
-    int maxFav = (_params.max_fav != -1) ? _params.max_fav : 99999;
-    int minFav = (_params.min_fav != -1) ? _params.min_fav : 5;
-    [_filterView setMaxRT:maxRT MinRt:minRT];
-    [_filterView setMaxFav:maxFav MinFav:minFav];
-    [_scrollView appendView:_filterView margin:0];
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.premium) {
+        _filterView = [[UIFilterView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenSize].width, 270.0f)];
+        _filterView.delegate = self;
+        int maxRT = (_params.max_rt != -1) ? _params.max_rt : 99999;
+        int minRT = (_params.min_rt != -1) ? _params.min_rt : 50;
+        int maxFav = (_params.max_fav != -1) ? _params.max_fav : 99999;
+        int minFav = (_params.min_fav != -1) ? _params.min_fav : 5;
+        [_filterView setMaxRT:maxRT MinRt:minRT];
+        [_filterView setMaxFav:maxFav MinFav:minFav];
+        [_scrollView appendView:_filterView margin:0];
+    }
     
-    
-    //// Favorite Filter
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(14.0f, 0.0f, [UIScreen screenSize].width - 20.0f, 15.0f)];
     label.text = @"ページ番号";
     label.backgroundColor = [UIColor clearColor];

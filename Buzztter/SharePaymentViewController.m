@@ -29,7 +29,11 @@
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     self.navigationItem.title = @"購入の共有";
     [self showBackButton];
-    
+    [self requestPin];
+}
+
+- (void)requestPin
+{
     
     [SVProgressHUD showWithStatus:@"取得中です" maskType:SVProgressHUDMaskTypeClear];
     _apiGetPin = [[NSTrendApi alloc] init];

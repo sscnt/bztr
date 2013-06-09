@@ -20,8 +20,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    dlog(@"%f", frame.size.width);
-    dlog(@"%f", frame.size.height);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];

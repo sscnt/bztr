@@ -158,23 +158,18 @@
         item.index = 12;
         [_menuButtonItems addObject:item];
         
-        
-        item = [[NSMenuItem alloc] init];
-        item.buttonTitle = @"ご意見・不具合の報告";
-        item.type = NSMenuItemTypeAsk;
-        item.index = 13;
-        [_menuButtonItems addObject:item];
+
         
         item = [[NSMenuItem alloc] init];
         item.buttonTitle = @"プレミアム会員";
         item.type = NSMenuItemTypePremium;
-        item.index = 14;
+        item.index = 13;
         [_menuButtonItems addObject:item];
         
         item = [[NSMenuItem alloc] init];
         item.buttonTitle = @"お知らせ";
         item.type = NSMenuItemTypeNews;
-        item.index = 15;
+        item.index = 14;
         [_menuButtonItems addObject:item];
     }
 }
@@ -264,7 +259,7 @@
     [_scrollView appendView:aboutSeparatorView margin:0.0f];
     
     //// Buttons
-    for(int index = 12;index < 16;index++){
+    for(int index = 12;index < 15;index++){
         UISideMenuButton* button = [_menuButtons objectAtIndex:index];
         if(index == _currentButtonIndex){
             button.selected = YES;
@@ -353,8 +348,8 @@
 - (void)swithToPremium
 {
     
-    UISideMenuButton* sender = [_menuButtons objectAtIndex:14];
-    _currentButtonIndex = 14;
+    UISideMenuButton* sender = [_menuButtons objectAtIndex:13];
+    _currentButtonIndex = 13;
     [self didClickMenuButton:sender];
 }
 

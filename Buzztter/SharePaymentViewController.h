@@ -26,6 +26,7 @@
     NSTrendApi* _apiGetPin;
 }
 
+- (void)requestPin;
 - (void)alert:(NSString*)message;
 
 @end

@@ -104,7 +104,7 @@
     [_scrollView appendView:button margin:20.0f];
     
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
-    [button setTitle:@"他の端末と共有する" forState:UIControlStateNormal];
+    [button setTitle:@"他の端末の購入を共有する" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(willSharePayment) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:20.0f];
 
@@ -116,8 +116,24 @@
 
 - (void)willSharePayment
 {
-    SharePaymentViewController* controller = [[SharePaymentViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    if(_paymentStatus == PaymentStatusReady){
+        if(_observerRemmoved){
+            _observerRemmoved = NO;
+            [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        }
+        _paymentStatus = PaymentStatusStarted;
+        [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
+        BOOL queued = NO;
+        for(SKProduct *product in _skProductsResponse.products){
+            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+            queued = YES;
+        }
+        if(queued){
+            return;
+        }
+    }
+    [self error:@"予期せぬエラーです。"];
 }
 
 - (void)requestProductData
@@ -311,6 +327,7 @@
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
+    dlog(@"updatedTransactions");
     for (SKPaymentTransaction *transaction in transactions) {
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchasing:// 何らかのOKを押す前の処理
@@ -356,8 +373,39 @@
     }
 }
 
+- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    BOOL restore = NO;
+    dlog(@"%d", [queue.transactions count]);
+    
+    for (SKPaymentTransaction *transaction in queue.transactions) {
+        // プロダクトIDが一致した場合
+        dlog(@"%@", transaction.payment.productIdentifier);
+        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.30dayspremium"]) {
+            restore = YES;
+            // *** ここに制限解除や広告削除などの課金後の命令を書く ***
+            
+            break;
+        }
+    }
+    
+    // 一致するものがなかった場合
+    if (restore == NO) {
+        // 通常のアプリ内課金の実行など
+        _paymentStatus = PaymentStatusReady;
+        [self paymentExecute];
+    }
+}
+- (void) paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
+    // 失敗した際の処理をここに
+    dlog(@"Restore canceled.");
+    [SVProgressHUD dismiss];
+    _paymentStatus = PaymentStatusReady;
+}
+
 - (void)paymentQueue:(SKPaymentQueue *)queue removedTransactions:(NSArray *)transactions
 {
+    dlog(@"removedTransactions");
     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
     _observerRemmoved = YES;
 }
