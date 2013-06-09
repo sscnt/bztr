@@ -29,7 +29,7 @@
 #import "NSEnduserData.h"
 #import "FilterViewController.h"
 
-#define StandardPageLimit 3
+#define StandardPageLimit 30
 
 
 typedef NS_ENUM(int, TimelineViewState){

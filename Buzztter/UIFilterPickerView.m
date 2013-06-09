@@ -26,7 +26,8 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = YES;
-        
+        self.layer.cornerRadius = 4.0f;
+        self.layer.masksToBounds =  YES;
         
         _scrollViewHundredPlace = [[UIFilterPickerScrollView alloc] init];
         _scrollViewHundredPlace.tag = ScrollViewIdHundredPlace;

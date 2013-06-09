@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/CALayer.h>
 #import "UIFilterPickerWrapperView.h"
 #import "UIView+extend.h"
 
