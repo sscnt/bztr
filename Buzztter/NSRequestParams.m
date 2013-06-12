@@ -24,6 +24,7 @@
         self.user_token_secret = @"";
         self.receipt = @"";
         self.text = @"";
+        self.pin = @"";
     }
     return self;
 }

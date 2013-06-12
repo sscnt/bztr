@@ -57,6 +57,12 @@
         bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"text",params.text,bodyString];
     }
     
+    //// Pin
+    if(![params.pin isEqualToString:@""]){
+        bodyString = [NSString stringWithFormat:@"%@=%@&%@",@"pin",params.pin,bodyString];
+    }
+    
+    
     
     return bodyString;
 }

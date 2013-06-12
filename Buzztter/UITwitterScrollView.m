@@ -48,6 +48,11 @@
     
 }
 
+- (void)setPadding:(CGFloat)padding
+{
+    [self setContentSize:CGSizeMake(self.frame.size.width, self.contentSize.height + padding)];
+}
+
 - (void)removeBottomPadding
 {
     _bottom = 0.0f;

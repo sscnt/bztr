@@ -19,14 +19,27 @@
 #import "SVProgressHUD.h"
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
+#import "UIPremiumSeparator.h"
+#import "UISettingsTextField.h"
+#import "UISharePinLabel.h"
+
+typedef NS_ENUM(NSInteger, ApiType){
+    ApiTypeGetPin = 1,
+    ApiTypeConfirmPin
+};
 
 
-@interface SharePaymentViewController : UIViewController <NSTrendApiDelegate>
+@interface SharePaymentViewController : UIViewController <NSTrendApiDelegate, UITextFieldDelegate>
 {
-    NSTrendApi* _apiGetPin;
+    NSTrendApi* _api;
+    NSString* _pin;
+    UITwitterScrollView* _scrollView;
+    UISettingsTextField* _pinTextField;
 }
 
+- (void)layoutSubviews;
 - (void)requestPin;
 - (void)alert:(NSString*)message;
+- (void)confirmPin;
 
 @end

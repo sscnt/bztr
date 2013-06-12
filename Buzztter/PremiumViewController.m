@@ -104,7 +104,7 @@
     [_scrollView appendView:button margin:20.0f];
     
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
-    [button setTitle:@"他の端末の購入を共有する" forState:UIControlStateNormal];
+    [button setTitle:@"購入を共有する" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(willSharePayment) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:20.0f];
 
@@ -117,23 +117,8 @@
 - (void)willSharePayment
 {
     
-    if(_paymentStatus == PaymentStatusReady){
-        if(_observerRemmoved){
-            _observerRemmoved = NO;
-            [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-        }
-        _paymentStatus = PaymentStatusStarted;
-        [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
-        BOOL queued = NO;
-        for(SKProduct *product in _skProductsResponse.products){
-            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-            queued = YES;
-        }
-        if(queued){
-            return;
-        }
-    }
-    [self error:@"予期せぬエラーです。"];
+    SharePaymentViewController* controller = [[SharePaymentViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)requestProductData

@@ -20,5 +20,6 @@
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSString* receipt;
 @property (nonatomic, strong) NSString* text;
+@property (nonatomic, strong) NSString* pin;
 
 @end

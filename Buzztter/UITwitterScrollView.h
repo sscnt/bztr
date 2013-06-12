@@ -25,5 +25,6 @@
 
 - (void)removeBottomPadding;
 - (void)removeAllSubviews;
+- (void)setPadding:(CGFloat)padding;
 
 @end
