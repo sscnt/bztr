@@ -14,6 +14,7 @@
 #import "UIViewController+navi.h"
 #import "UIBlackAlertView.h"
 #import "NSEnduserData.h"
+#import "NSFilter.h"
 #import "DCRoundSwitch.h"
 #import "UISettingsCellView.h"
 #import "UICellButton.h"

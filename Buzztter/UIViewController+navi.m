@@ -43,6 +43,11 @@
     }
 }
 
+- (void)hideSettingsBtn
+{
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+}
+
 
 - (void)showMenu:(id)sender
 {

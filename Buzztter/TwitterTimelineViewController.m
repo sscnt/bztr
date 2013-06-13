@@ -35,7 +35,6 @@
     UITwitterBackgroundView* bg = [[UITwitterBackgroundView alloc] init];
     [self.view addSubview:bg];
     [self showMenuBtn];
-    [self showSettingsBtn];
     
     //// Load Enduser Data
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
@@ -45,6 +44,12 @@
         [SVProgressHUD showWithStatus:@"読み込み中" maskType:SVProgressHUDMaskTypeClear];
         [_modelEnduser fetchUser];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showSettingsBtn];
 }
 
 - (void)initializeController

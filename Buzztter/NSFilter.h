@@ -29,6 +29,7 @@
 - (BOOL)ifNGUser;
 
 - (BOOL)openDatabase;
+- (BOOL)reopenDatabase;
 - (BOOL)deleteSqliteFile;
 - (void)setNGUsersToArray;
 - (void)setNGWordsToArray;

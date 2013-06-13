@@ -50,7 +50,7 @@
         
         //////// Text
         label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, [UIScreen screenRect].size.width - 45.0f - _iCloudSwitch.frame.size.width, 0.0f)];
-        label.text = @"ツイート非表示設定をiCloudに保存";
+        label.text = @"ツイート非表示設定をバックアップ可能にする";
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:15.0f];
         label.numberOfLines = 0;
         label.textAlignment = NSTextAlignmentLeft;
@@ -110,43 +110,26 @@
     
     //// NavigationBar
     self.tabBarController.navigationItem.title = @"設定";
+    [self hideSettingsBtn];
 }
 
 #pragma mark Hiding Tweets
 
 - (void)didClickSettingButtonNGWord
 {
-    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    if(userData.iCloudEnabled == NO){
-        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
-        alert.delegate = nil;
-        alert.message = @"「iCloudに保存」がOFFになっています。ONにしてください。";
-        alert.title = @"エラー";
-        int okIndex = [alert addButtonWithTitle:@"OK"];
-        [alert setCancelButtonIndex:okIndex];
-        [alert show];
-    }else{
-        NGWordViewController* controller = [[NGWordViewController alloc] init];
-        [self.tabBarController.navigationController pushViewController:controller animated:YES];
-    }
+    
+    NGWordViewController* controller = [[NGWordViewController alloc] init];
+    [self.tabBarController.navigationController pushViewController:controller animated:YES];
+    
 }
 
 - (void)didClickSettingButtonManageNonDisplayUsers
 {
     
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
-    if(userData.iCloudEnabled == NO){
-        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
-        alert.delegate = nil;
-        alert.message = @"「iCloudに保存」がOFFになっています。ONにしてください。";
-        alert.title = @"エラー";
-        int okIndex = [alert addButtonWithTitle:@"OK"];
-        [alert setCancelButtonIndex:okIndex];
-        [alert show];
-    }else{        
-        NonDisplayUsersViewController* controller = [[NonDisplayUsersViewController alloc] init];
-        [self.tabBarController.navigationController pushViewController:controller animated:YES];
-    }
+    NonDisplayUsersViewController* controller = [[NonDisplayUsersViewController alloc] init];
+    [self.tabBarController.navigationController pushViewController:controller animated:YES];
+    
 }
 
 #pragma mark Switch for iCloud
@@ -155,6 +138,8 @@
 {
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     userData.iCloudEnabled = _iCloudSwitch.isOn;
+    NSFilter* filter = [NSFilter sharedFilter];
+    [filter reopenDatabase];
 }
 
 - (void)didReceiveMemoryWarning

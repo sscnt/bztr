@@ -51,7 +51,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
+    [super viewWillAppear:animated];
+    [self hideSettingsBtn];
 }
 
 - (void)layoutView

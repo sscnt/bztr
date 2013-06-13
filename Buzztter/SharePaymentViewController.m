@@ -38,43 +38,47 @@
     UIFlatBUtton* button;
     UIPremiumSeparator* sep;
     CGFloat viewWidth = [UIScreen screenSize].width - 20.0f;
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     
     //// Scroll
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, [UIScreen screenRect].size.height - 64.0f)];
     [self.view addSubview:_scrollView];
     
-    //// This Device
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
-    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:14.0f];
-    label.text = @"このデバイスで購入し、他のデバイスと共有するには、以下の暗証番号を共有したいデバイスに入力してください。";
-    label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
-    label.textAlignment = NSTextAlignmentLeft;
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 0;
-    [label sizeToFit];
-    [_scrollView appendView:label margin:10];
-    
-    //// PIN
-    UISharePinLabel* pinLabel = [[UISharePinLabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 40.0f)];
-    pinLabel.text = _pin;
-    [_scrollView appendView:pinLabel margin:10];
-    
-    
-    //// Hint
-    label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
-    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
-    label.text = @"一度共有すると、次回の購入からは共有したすべての端末に自動的に反映されます。";
-    label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
-    label.textAlignment = NSTextAlignmentLeft;
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 0;
-    [label sizeToFit];
-    [_scrollView appendView:label margin:10];
-
-    
-    //// Sep
-    sep = [[UIPremiumSeparator alloc] init];
-    [_scrollView appendView:sep margin:20];
+    if(userData.premium){
+        //// This Device
+        label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:14.0f];
+        label.text = @"このデバイスで購入し、他のデバイスと共有するには、以下の暗証番号を共有したいデバイスに入力してください。";
+        label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        [label sizeToFit];
+        [_scrollView appendView:label margin:10];
+        
+        //// PIN
+        UISharePinLabel* pinLabel = [[UISharePinLabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 40.0f)];
+        pinLabel.text = _pin;
+        [_scrollView appendView:pinLabel margin:10];
+        
+        
+        //// Hint
+        label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
+        label.text = @"一度共有すると、次回の購入からは共有したすべての端末に自動的に反映されます。";
+        label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        [label sizeToFit];
+        [_scrollView appendView:label margin:10];
+        
+        
+        //// Sep
+        sep = [[UIPremiumSeparator alloc] init];
+        [_scrollView appendView:sep margin:20];
+        
+    }
     
     
     //// This Device
@@ -106,7 +110,10 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [_scrollView setContentOffset:CGPointMake(0.0f, 700.0f - [UIScreen screenSize].height)];
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.premium){
+        [_scrollView setContentOffset:CGPointMake(0.0f, 700.0f - [UIScreen screenSize].height)];
+    }
     return YES;
 }
 
@@ -171,6 +178,41 @@
     
     //// Confirm Pin
     if(identifier == ApiTypeConfirmPin){
+        if([json objectForKey:@"paied_user_id"] == nil){
+            [self alert:@"問題が発生しました。"];
+            return;
+        }
+        NSInteger paied_user_id = [[json objectForKey:@"paied_user_id"] integerValue];
+        if(paied_user_id == 0){
+            [self alert:@"問題が発生しました。"];
+            return;            
+        }
+        
+        NSString* paied_user_token = [json objectForKey:@"paied_user_token"];
+        if(paied_user_token.length == 0){
+            [self alert:@"問題が発生しました。"];
+            return;
+        }
+
+        NSString* paied_user_token_secret = [json objectForKey:@"paied_user_token_secret"];
+        if(paied_user_token_secret.length == 0){
+            [self alert:@"問題が発生しました。"];
+            return;
+        }
+        
+        NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+        userData.user_id = paied_user_id;
+        userData.user_token = paied_user_token;
+        userData.user_token_secret = paied_user_token_secret;
+        
+        
+        UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
+        alert.delegate = nil;
+        alert.message = @"共有しました。アプリを再起動してください。";
+        alert.title = @"完了";
+        int okIndex = [alert addButtonWithTitle:@"OK"];
+        [alert setCancelButtonIndex:okIndex];
+        [alert show];
         
         return;
     }

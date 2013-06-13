@@ -15,6 +15,7 @@
 
 - (void)showMenuBtn;
 - (void)showSettingsBtn;
+- (void)hideSettingsBtn;
 - (void)showBackButton;
 
 - (void)showMenu:(id)sender;
