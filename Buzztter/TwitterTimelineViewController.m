@@ -270,6 +270,7 @@
 - (void)didReturnError:(NSString *)error
 {
     _state = TimelineViewStateReady;
+    [_modelStatuses cleanStatusesCache];
     [SVProgressHUD dismiss];
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
     alert.delegate = nil;

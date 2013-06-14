@@ -68,41 +68,45 @@ static NSFilter* _sharedFilter = nil;
         NSEnduserData* userData = [NSEnduserData sharedEnduserData];
         NSString* documentPath;
         NSString* cachePath;
-        NSString* destinationPath;
+        NSString* destinationFileName;
+        NSString* documentFileName;
+        NSString* cacheFileName;
         NSString* sqliteFileName = @"Filters.sqlite";
         NSFileManager* fileManager = [NSFileManager defaultManager];
         NSError* error = nil;
 
         NSArray* pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         documentPath = [pathArray objectAtIndex:0];
+        documentFileName = [documentPath stringByAppendingPathComponent:sqliteFileName];
         
         pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
         cachePath = [pathArray objectAtIndex:0];
+        cacheFileName = [cachePath stringByAppendingPathComponent:sqliteFileName];
         if(userData.iCloudEnabled){
-            destinationPath = [documentPath stringByAppendingPathComponent:sqliteFileName];
+            destinationFileName = documentFileName;
         }else{
-            destinationPath = [documentPath stringByAppendingPathComponent:sqliteFileName];
-            [fileManager removeItemAtPath:destinationPath error:&error];
-            destinationPath = [cachePath stringByAppendingPathComponent:sqliteFileName];
+            if([fileManager fileExistsAtPath:documentFileName]){
+                [fileManager removeItemAtPath:cacheFileName error:&error];
+                [fileManager moveItemAtPath:documentFileName toPath:cacheFileName error:&error];
+            }
+            destinationFileName = cacheFileName;
         }
         
         //// Check if exists
-        if([fileManager fileExistsAtPath:destinationPath]){
+        if([fileManager fileExistsAtPath:destinationFileName]){
             dlog(@"Fiters.sqlite found.");
         }else{
             dlog(@"Filters.sqlite NOT FOUND.");
-            NSString* originalSqliteFilePath;
             if(userData.iCloudEnabled){
-                originalSqliteFilePath = [cachePath stringByAppendingPathComponent:sqliteFileName];
-                BOOL success = [fileManager copyItemAtPath:originalSqliteFilePath toPath:destinationPath error:&error];
+                BOOL success = [fileManager copyItemAtPath:cacheFileName toPath:documentFileName error:&error];
                 if(success){
                     dlog(@"Filters.sqlite SUCCESSFULLY COPIED FROM CACHE");
-                    _db = [FMDatabase databaseWithPath:destinationPath];
+                    _db = [FMDatabase databaseWithPath:documentFileName];
                     return [_db open];
                 }
             }
-            originalSqliteFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:sqliteFileName];
-            BOOL success = [fileManager copyItemAtPath:originalSqliteFilePath toPath:destinationPath error:&error];
+            NSString* originalFileName = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:sqliteFileName];
+            BOOL success = [fileManager copyItemAtPath:originalFileName toPath:destinationFileName error:&error];
             if(success){
                 dlog(@"Filters.sqlite SUCCESSFULLY COPIED.");
             }else{
@@ -112,7 +116,7 @@ static NSFilter* _sharedFilter = nil;
             
         }
         
-        _db = [FMDatabase databaseWithPath:destinationPath];
+        _db = [FMDatabase databaseWithPath:destinationFileName];
     }
     return [_db open];
 }
