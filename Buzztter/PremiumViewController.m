@@ -79,7 +79,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
-        label.text = @"有効期限";
+        label.text = @"プレミアム機能を利用できます。";
         [label initOptions];
         [label sizeToFit];
         [_scrollView appendView:label margin:15.0f];
@@ -89,7 +89,7 @@
         [formatter setDateFormat:@"YYYY年MM月dd日"];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:16.0f];
-        label.text = [NSString stringWithFormat:@"%@ まで", [formatter stringFromDate:date]];
+        label.text = [NSString stringWithFormat:@"%@ まで有効", [formatter stringFromDate:date]];
         [label initOptions];
         label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
         [label sizeToFit];
