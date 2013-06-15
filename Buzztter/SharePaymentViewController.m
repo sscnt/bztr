@@ -29,7 +29,13 @@
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     self.navigationItem.title = @"購入の共有";
     [self showBackButton];
-    [self requestPin];
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    if(userData.premium){
+        [self requestPin];
+    }else{
+        [self layoutSubviews];
+        
+    }
 }
 
 - (void)layoutSubviews
@@ -141,7 +147,7 @@
 - (void)confirmPin
 {
     if(_pinTextField.text.length == 0){
-        [self alert:@"PINを入力してください。"];
+        [self alert:@"暗証番号を入力してください。"];
         return;
     }
     if(_api == Nil){
