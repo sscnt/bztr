@@ -23,6 +23,7 @@
 #import "NSRequestParams.h"
 #import "UIPremiumBackgroundView.h"
 #import "SharePaymentViewController.h"
+#import "UILabel+buzztter.h"
 
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,

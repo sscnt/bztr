@@ -95,6 +95,7 @@
         
         if(fetchedData.premium == 1){
             userData.premium = YES;
+            userData.premium_limit_time = fetchedData.premium_limit_time;
             dlog(@"PREMIUM");
         }
         if(fetchedData.announcement.length > 0){

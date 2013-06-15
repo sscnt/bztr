@@ -15,6 +15,7 @@
     NSString* userDefaultsKeyForRegistered;
     NSString* userDefaultsKeyForiCloudEnabled;
     NSString* userDefaultsKeyForUserId;
+    NSString* userDefaultsKeyForPremiumLimitTime;
     NSString* userDefaultsKeyForLastAnnouncementTime;
     NSString* userDefaultsKeyForUserToken;
     NSString* userDefaultsKeyForUserTokenSecret;
@@ -23,6 +24,7 @@
     BOOL _iCloudEnabled;
     BOOL _premium;
     NSInteger _user_id;
+    NSInteger _premium_limit_time;
     NSInteger _last_announcement_time;
     NSString* _user_token;
     NSString* _user_token_secret;
@@ -32,6 +34,7 @@
 @property (nonatomic, assign) BOOL premium;
 @property (nonatomic, assign) BOOL iCloudEnabled;
 @property (nonatomic, assign) NSInteger user_id;
+@property (nonatomic, assign) NSInteger premium_limit_time;
 @property (nonatomic, assign) NSInteger last_announcement_time;
 @property (nonatomic, strong) NSString* user_token;
 @property (nonatomic, strong) NSString* user_token_secret;

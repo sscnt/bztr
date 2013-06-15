@@ -41,6 +41,7 @@ static NSEnduserData* _sharedEnduserData = nil;
         userDefaultsKeyForiCloudEnabled = @"iCloud_enabled";
         userDefaultsKeyForRegistered = @"registered";
         userDefaultsKeyForUserId = @"user_id";
+        userDefaultsKeyForPremiumLimitTime = @"premium_limit_time";
         userDefaultsKeyForUserToken = @"user_token";
         userDefaultsKeyForUserTokenSecret = @"user_token_secret";
         userDefaultsKeyForLastAnnouncementTime = @"last_announcement_time";
@@ -68,6 +69,7 @@ static NSEnduserData* _sharedEnduserData = nil;
     _user_token = [userKeyChain stringForKey:userDefaultsKeyForUserToken];
     _user_token_secret = [userKeyChain stringForKey:userDefaultsKeyForUserTokenSecret];
     _last_announcement_time = [userKeyChain integerForKey:userDefaultsKeyForLastAnnouncementTime];
+    _premium_limit_time = [userKeyChain integerForKey:userDefaultsKeyForPremiumLimitTime];
     _premium = NO;
 }
 
@@ -81,6 +83,17 @@ static NSEnduserData* _sharedEnduserData = nil;
     LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
     _user_id = user_id;
     [userKeyChain setInteger:user_id forKey:userDefaultsKeyForUserId];
+}
+- (NSInteger)premium_limit_time
+{
+    return _premium_limit_time;
+}
+
+- (void)setPremium_limit_time:(NSInteger)premium_limit_time
+{
+    LUKeychainAccess* userKeyChain = [LUKeychainAccess standardKeychainAccess];
+    _premium_limit_time = premium_limit_time;
+    [userKeyChain setInteger:_premium_limit_time forKey:userDefaultsKeyForPremiumLimitTime];
 }
 
 - (NSInteger)last_announcement_time

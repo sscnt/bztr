@@ -69,41 +69,62 @@
 	NSString *formattedPriceString = [numberFormatter stringFromNumber:product.price];
     
     CGFloat viewWidth = [UIScreen screenSize].width - 40.0f;
+    NSEnduserData* userData = [NSEnduserData sharedEnduserData];
+    UILabel* label;
+    UIFlatBUtton* button;
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
-    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
-    label.text = @"プレミアム会員の特典でもっと便利に";
-    label.textAlignment = NSTextAlignmentLeft;
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor blackColor];
-    [label sizeToFit];
-    [_scrollView appendView:label margin:15.0f];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
-    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:15.0f];
-    label.text = [NSString stringWithFormat:@"%@で30日間プレミアム機能をご利用になれます。", formattedPriceString];
-    label.textAlignment = NSTextAlignmentLeft;
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor blackColor];
-    label.numberOfLines = 0;
-    [label sizeToFit];
-    [_scrollView appendView:label margin:5.0f];
-    
-    label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
-    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
-    label.text = @"※自動継続されません。30日経過後は自動的にスタンダード会員に戻ります。また、アプリ削除後再インストールした場合でも自動的にリストアされます。";
-    label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
-    label.textAlignment = NSTextAlignmentLeft;
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 0;
-    [label sizeToFit];
-    [_scrollView appendView:label margin:5.0f];
-    
-    UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
-    [button setTitle:@"購入する" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(didClickPaymentButton) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollView appendView:button margin:20.0f];
-    
+    //// Premium
+    if(userData.premium){
+        
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
+        label.text = @"有効期限";
+        [label initOptions];
+        [label sizeToFit];
+        [_scrollView appendView:label margin:15.0f];
+        
+        NSDate* date = [NSDate dateWithTimeIntervalSince1970:userData.premium_limit_time];
+        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY年MM月dd日"];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:16.0f];
+        label.text = [NSString stringWithFormat:@"%@ まで", [formatter stringFromDate:date]];
+        [label initOptions];
+        label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+        [label sizeToFit];
+        [_scrollView appendView:label margin:5.0f];
+
+    }else{
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
+        label.text = @"プレミアム会員の特典でもっと便利に";
+        [label initOptions];
+        [label sizeToFit];
+        [_scrollView appendView:label margin:15.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:15.0f];
+        label.text = [NSString stringWithFormat:@"%@で30日間プレミアム機能をご利用になれます。", formattedPriceString];
+        [label initOptions];
+        [label sizeToFit];
+        [_scrollView appendView:label margin:5.0f];
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+        label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
+        label.text = @"※自動継続されません。30日経過後は自動的にスタンダード会員に戻ります。また、アプリ削除後再インストールした場合でも自動的にリストアされます。";
+        [label initOptions];
+        label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+        [label sizeToFit];
+        [_scrollView appendView:label margin:5.0f];
+        
+        button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
+        [button setTitle:@"購入する" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(didClickPaymentButton) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollView appendView:button margin:20.0f];
+
+    }    
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
     [button setTitle:@"購入を共有する" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(willSharePayment) forControlEvents:UIControlEventTouchUpInside];
