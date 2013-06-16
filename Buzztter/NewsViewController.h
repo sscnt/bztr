@@ -19,10 +19,16 @@
 #import "SVProgressHUD.h"
 #import "NSTrendApi.h"
 #import "NSRequestParams.h"
+#import "UIAnnouncementItemView.h"
 
-@interface NewsViewController : UIViewController
+@interface NewsViewController : UIViewController <NSTrendApiDelegate>
 {
     UITwitterScrollView* _scrollView;
+    NSTrendApi* _api;
+    NSMutableArray* _announcement;
 }
+
+- (void)alert:(NSString*)message;
+- (void)layoutView;
 
 @end

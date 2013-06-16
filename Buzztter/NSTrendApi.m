@@ -102,7 +102,7 @@
             message = @"サーバーが見つかりません。";
             break;
         default:
-            message = @"サーバーに接続できません。障害が発生している可能性があります。";
+            message = @"サーバーに接続できません。問題が発生している可能性があります。";
             break;
     }
     dlog(@"An error occured:%@", message);
@@ -124,7 +124,7 @@
     json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&conversion_error];
     if(conversion_error){
         dlog(@"Conversion Error: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        message = @"受信したデータが壊れています。サーバーで障害が発生している可能性があります。";
+        message = @"受信したデータが壊れています。サーバーで問題が発生している可能性があります。";
     } else {
         if([json objectForKey:@"errors"] != nil){
             id errors = [json objectForKey:@"errors"];
@@ -146,12 +146,12 @@
             }else{
                 //// Unexpected Error
                 dlog(@"Unexpected Error:errors not array.");
-                message = @"予期せぬエラーです。サーバーで障害が発生している可能性があります。";
+                message = @"予期せぬエラーです。サーバーで問題が発生している可能性があります。";
             }
         } else {
             //// Unexpected Error
             dlog(@"Unexpected Error:errors not foound.");
-            message = @"予期せぬエラーです。サーバーで障害が発生している可能性があります。";
+            message = @"予期せぬエラーです。サーバーで問題が発生している可能性があります。";
         }
     }
     if(self.identifier){
