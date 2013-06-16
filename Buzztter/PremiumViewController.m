@@ -146,7 +146,7 @@
 - (void)requestProductData
 {
     [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
-    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.30dayspremium", nil];
+    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.premium", nil];
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     productsRequest.delegate = self;
     [productsRequest start];
@@ -394,7 +394,7 @@
     for (SKPaymentTransaction *transaction in queue.transactions) {
         // プロダクトIDが一致した場合
         dlog(@"%@", transaction.payment.productIdentifier);
-        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.30dayspremium"]) {
+        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.premium"]) {
             restore = YES;
             // *** ここに制限解除や広告削除などの課金後の命令を書く ***
             
