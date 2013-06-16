@@ -309,30 +309,18 @@
         [[self sidePanelController] showCenterPanelAnimated:YES];
         return;
     }
-    
-    //// Help
-    if(item.type == NSMenuItemTypeHelp){
-        tabbarController.selectedIndex = 2;
-        [[self sidePanelController] showCenterPanelAnimated:YES];
-        return;
-    }
-    
-    //// Report
-    if(item.type == NSMenuItemTypeAsk){
-        tabbarController.selectedIndex = 3;
-        [[self sidePanelController] showCenterPanelAnimated:YES];
-        return;
-    }
-    
+        
     //// Premium
     if(item.type == NSMenuItemTypePremium){
-        tabbarController.selectedIndex = 4;
+        tabbarController.selectedIndex = 2;
         [[self sidePanelController] showCenterPanelAnimated:YES];
         return;
     }
     
     //// News
     if(item.type == NSMenuItemTypeNews){
+        tabbarController.selectedIndex = 3;
+        [[self sidePanelController] showCenterPanelAnimated:YES];
         return;
     }
     

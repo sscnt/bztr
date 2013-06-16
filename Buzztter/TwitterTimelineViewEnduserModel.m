@@ -99,12 +99,14 @@
             dlog(@"PREMIUM");
         }
         if(fetchedData.announcement.length > 0){
-            userData.last_announcement_time = fetchedData.announcement_time + 1;
-            [self.delegate didFetchUserDataWithAnnouncement:fetchedData.announcement];
-        }else{
-            [self.delegate didFetchUserData];
+            if(fetchedData.announcement_time > userData.last_announcement_time){
+                userData.last_announcement_time = fetchedData.announcement_time + 1;
+                [self.delegate didFetchUserDataWithAnnouncement:fetchedData.announcement];
+                return;
+            }
         }
         
+        [self.delegate didFetchUserData];
         return;
     }
 }

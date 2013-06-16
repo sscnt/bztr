@@ -171,7 +171,7 @@
         return;
     }
     if(_paymentStatus != PaymentStatusReady){
-        [self error:@"問題が発生しました。"];
+        [self error:@"問題が発生しました。アプリを再起動してください。"];
         return;
     }
     _paymentButtonPressed = YES;
@@ -260,7 +260,6 @@
 - (void)didValidateReciept:(NSDictionary *)json
 {
     [SVProgressHUD dismiss];
-    _paymentStatus = PaymentStatusReady;
     _paymentButtonPressed = NO;
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
     alert.delegate = nil;
@@ -305,7 +304,11 @@
         if(buttonIndex == 1){
             [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
             [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+            return;
         }
+        _paymentStatus = PaymentStatusReady;
+        _paymentButtonPressed = NO;
+        return;        
     }
 }
 
@@ -335,13 +338,16 @@
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
     dlog(@"updatedTransactions");
+    [SVProgressHUD showWithStatus:@"購入処理中です" maskType:SVProgressHUDMaskTypeClear];
     for (SKPaymentTransaction *transaction in transactions) {
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchasing:// 何らかのOKを押す前の処理
                 dlog(@"Purchasing");
                 break;
             case SKPaymentTransactionStatePurchased:// success : 決済手続き完了処理
-                [queue finishTransaction:transaction];          
+                dlog(@"Purchasing finished.");
+                _paymentStatus = PaymentStatusFinished;
+                [queue finishTransaction:transaction];
                 [self validateReceipt:transaction.transactionReceipt];
                 return;
                 break;

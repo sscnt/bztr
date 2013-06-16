@@ -14,9 +14,8 @@
 #import "TwitterNavigationController.h"
 #import "TwitterTimelineViewController.h"
 #import "SettingsViewController.h"
-#import "HelpViewController.h"
-#import "ReportViewController.h"
 #import "PremiumViewController.h"
+#import "NewsViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

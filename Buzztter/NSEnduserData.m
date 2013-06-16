@@ -54,7 +54,7 @@ static NSEnduserData* _sharedEnduserData = nil;
         } else {
             self.registered = NO;
             self.iCloudEnabled = NO;
-            self.last_announcement_time = 0;
+            self.last_announcement_time = [[NSDate date] timeIntervalSince1970];
         }
     }
     return self;

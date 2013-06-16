@@ -24,11 +24,10 @@
     SideViewController* sideViewController = [[SideViewController alloc] init];
     TwitterTimelineViewController* timelineViewController = [[TwitterTimelineViewController alloc] init];
     SettingsViewController* settingsViewController = [[SettingsViewController alloc] init];
-    HelpViewController* helpViewController = [[HelpViewController alloc] init];
-    ReportViewController* reportViewController = [[ReportViewController alloc] init];
     PremiumViewController* premiumViewController = [[PremiumViewController alloc] init];
+    NewsViewController* newsViewController = [[NewsViewController alloc] init];
     
-    NSArray* controllers = [NSArray arrayWithObjects:timelineViewController, settingsViewController, helpViewController, reportViewController, premiumViewController, nil];
+    NSArray* controllers = [NSArray arrayWithObjects:timelineViewController, settingsViewController, premiumViewController, newsViewController, nil];
     [tabbarController setViewControllers:controllers];
     TwitterNavigationController* navigationController = [[TwitterNavigationController alloc] init];
     [navigationController pushViewController:tabbarController animated:NO];
