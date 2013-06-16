@@ -47,7 +47,8 @@
 
 - (void)layoutView
 {
-    for (NSAnnouncementItem* item in _announcement) {
+    for (NSDictionary* itemDictionary in _announcement) {
+        NSAnnouncementItem* item = [[NSAnnouncementItem alloc] initWithJson:itemDictionary];
         UIAnnouncementItemView* itemView = [[UIAnnouncementItemView alloc] initWithItem:item];
         [_scrollView appendView:itemView margin:10.0f];
     }

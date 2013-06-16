@@ -12,8 +12,12 @@
 
 - (id)initWithJson:(NSDictionary *)json
 {
-    self.created_at = [[json objectForKey:@"created_at"] intValue];
-    self.text = [[json objectForKey:@"text"] stringValue];
+    self = [super init];
+    if(self){
+        self.created_at = [[json objectForKey:@"created_at"] intValue];
+        self.text = [json objectForKey:@"text"];
+    }
+    return self;
 }
 
 @end

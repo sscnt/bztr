@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/CALayer.h>
+#import "UIScreen+twitter.h"
 #import "NSAnnouncementItem.h"
+#import "UILabel+buzztter.h"
+#import "UIView+extend.h"
 
 @interface UIAnnouncementItemView : UIView
 
