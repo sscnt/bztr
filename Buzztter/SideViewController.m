@@ -161,7 +161,7 @@
 
         
         item = [[NSMenuItem alloc] init];
-        item.buttonTitle = @"プレミアム会員";
+        item.buttonTitle = @"プレミアム機能";
         item.type = NSMenuItemTypePremium;
         item.index = 13;
         [_menuButtonItems addObject:item];

@@ -52,7 +52,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
-        label.text = @"RT数・お気に入り登録数の上限・下限を指定できます。\n例）500RT以上のツイートのみ表示する\n右上のボタンから「ページ設定」画面へ移動し設定してください。";
+        label.text = @"RT数・お気に入り登録数の上限・下限を指定できます。\n例）500RT以上のツイートのみ表示する\nナビゲーションバー右のボタンから「ページ設定」画面へ移動し設定してください。";
         label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
         label.textAlignment = NSTextAlignmentLeft;
         label.backgroundColor = [UIColor clearColor];
@@ -74,7 +74,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, [UIScreen screenSize].width - 40.0f, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-regular" size:14.0f];
-        label.text = @"スタンダード会員は30ページ以降の閲覧ができませんが、プレミアム会員ならすべてのページを閲覧可能です。";
+        label.text = @"閲覧制限が解除されるので、すべてのページにアクセスできます。";
         label.textColor = [UIColor colorWithWhite:0.0f/255.0f alpha:1.0f];
         label.textAlignment = NSTextAlignmentLeft;
         label.backgroundColor = [UIColor clearColor];

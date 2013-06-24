@@ -180,7 +180,7 @@
     
     //// Label
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(paddingX, 0.0f, viewWidth - 10.0f, 0.0f)];
-    label.text = @"プレミアム会員になればすべてのページを見ることができます。";
+    label.text = @"プレミアム機能を購入すればすべてのページを見ることができます。";
     label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
@@ -192,7 +192,7 @@
     
     //// Button
     UIFlatBUtton* button = [UIFlatButtonCreator createBlackButtonWithFrame:CGRectMake(paddingX, 0.0f, viewWidth - 10.0f, 40.0f)];
-    [button setTitle:@"プレミアム会員について" forState:UIControlStateNormal];
+    [button setTitle:@"プレミアム機能について" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(presentToPremium) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:10.0f];
     

@@ -30,7 +30,7 @@
     _paymentStatus = PaymentStatusReady;
     _observerRemmoved = NO;
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
-    self.tabBarController.navigationItem.title = @"プレミアム会員";
+    self.tabBarController.navigationItem.title = @"プレミアム機能";
     
     _scrollView = [[UITwitterScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen screenRect].size.width, [UIScreen screenRect].size.height - 64.0f)];
     
@@ -99,7 +99,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
-        label.text = @"プレミアム会員の特典でもっと便利に";
+        label.text = @"プレミアム機能でもっと便利に";
         [label initOptions];
         [label sizeToFit];
         [_scrollView appendView:label margin:15.0f];
@@ -113,7 +113,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
-        label.text = @"※自動継続されません。30日経過後は自動的にスタンダード会員に戻ります。また、アプリ削除後再インストールした場合でも自動的にリストアされます。";
+        label.text = @"購入日から30日を経過すると利用できなくなりますので再度ご購入ください。また、アプリ削除後再インストールした場合は自動的にリストアされます。";
         [label initOptions];
         label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
         [label sizeToFit];
@@ -126,9 +126,17 @@
 
     }    
     button = [UIFlatButtonCreator createWhiteButtonWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 40.0f)];
-    [button setTitle:@"購入を共有する" forState:UIControlStateNormal];
+    [button setTitle:@"リストア" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(willSharePayment) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView appendView:button margin:20.0f];
+    
+    label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
+    label.text = @"他のデバイスに課金状態を反映する、または他のデバイスの課金状態をこのデバイスに反映するには「リストア」ボタンを押してください。";
+    [label initOptions];
+    label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
+    [label sizeToFit];
+    [_scrollView appendView:label margin:5.0f];
 
     UIPremiumBackgroundView* bgView = [[UIPremiumBackgroundView alloc] init];
     [_scrollView appendView:bgView margin:20.0f];
@@ -146,7 +154,7 @@
 - (void)requestProductData
 {
     [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
-    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.premium", nil];
+    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.pro_version", nil];
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     productsRequest.delegate = self;
     [productsRequest start];
@@ -394,7 +402,7 @@
     for (SKPaymentTransaction *transaction in queue.transactions) {
         // プロダクトIDが一致した場合
         dlog(@"%@", transaction.payment.productIdentifier);
-        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.premium"]) {
+        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.pro_version"]) {
             restore = YES;
             // *** ここに制限解除や広告削除などの課金後の命令を書く ***
             

@@ -54,7 +54,7 @@
         //// This Device
         label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:14.0f];
-        label.text = @"このデバイスで購入し、他のデバイスと共有するには、以下の暗証番号を共有したいデバイスに入力してください。";
+        label.text = @"このデバイスで購入し、他のデバイスに課金状態を反映するには、以下の暗証番号を反映したいデバイスに入力してください。";
         label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
         label.textAlignment = NSTextAlignmentLeft;
         label.backgroundColor = [UIColor clearColor];
@@ -71,7 +71,7 @@
         //// Hint
         label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
         label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:12.0f];
-        label.text = @"一度共有すると、次回の購入からは共有したすべての端末に自動的に反映されます。";
+        label.text = @"一度反映すると、次回の購入からはすべてのデバイスに自動的に反映されます。";
         label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
         label.textAlignment = NSTextAlignmentLeft;
         label.backgroundColor = [UIColor clearColor];
@@ -90,7 +90,7 @@
     //// This Device
     label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0.0f, viewWidth, 0.0f)];
     label.font = [UIFont fontWithName:@"rounded-mplus-1p-light" size:14.0f];
-    label.text = @"他のデバイスで購入し、このデバイスと共有するには、購入したデバイスに表示されている暗証番号を入力し確認ボタンを押してください。";
+    label.text = @"他のデバイスで購入し、このデバイスに課金状態を反映するには、購入したデバイスに表示されている暗証番号を入力し確認ボタンを押してください。";
     label.textColor = [UIColor colorWithWhite:30.0f/255.0f alpha:1.0f];
     label.textAlignment = NSTextAlignmentLeft;
     label.backgroundColor = [UIColor clearColor];
@@ -214,7 +214,7 @@
         
         UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
         alert.delegate = nil;
-        alert.message = @"共有しました。アプリを再起動してください。";
+        alert.message = @"課金状態を反映しました。アプリを再起動してください。";
         alert.title = @"完了";
         int okIndex = [alert addButtonWithTitle:@"OK"];
         [alert setCancelButtonIndex:okIndex];
