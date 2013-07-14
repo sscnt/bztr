@@ -25,11 +25,14 @@
 #import "SharePaymentViewController.h"
 #import "UILabel+buzztter.h"
 
+
 typedef NS_ENUM(NSInteger, PaymentStatus){
     PaymentStatusReady = 0,
     PaymentStatusStarted,
-    PaymentStatusFinished
+    PaymentStatusFinished,
+    PaymentStatusInProgress
 };
+
 
 @interface PremiumViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver, UIAlertViewDelegate, NSTrendApiDelegate>
 {
@@ -40,6 +43,8 @@ typedef NS_ENUM(NSInteger, PaymentStatus){
     SKProductsRequest* _skProductsRequest;
     SKProductsResponse* _skProductsResponse;
     NSTrendApi* _api;
+    NSString* pid;
+
 }
 
 - (void)layoutView;

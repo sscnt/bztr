@@ -29,6 +29,7 @@
     _paymentButtonPressed = NO;
     _paymentStatus = PaymentStatusReady;
     _observerRemmoved = NO;
+    pid = @"jp.ssctech.buzz.pro2";
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     self.tabBarController.navigationItem.title = @"プレミアム機能";
     
@@ -154,7 +155,7 @@
 - (void)requestProductData
 {
     [SVProgressHUD showWithStatus:@"お待ちください" maskType:SVProgressHUDMaskTypeClear];
-    NSSet *set = [NSSet setWithObjects:@"jp.ssctech.buzz.pro_version", nil];
+    NSSet *set = [NSSet setWithObjects:pid, nil];
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     productsRequest.delegate = self;
     [productsRequest start];
@@ -176,6 +177,14 @@
 {
     if(_paymentButtonPressed){
         [self error:@"問題が発生しました。"];
+        return;
+    }
+    if(_paymentStatus == PaymentStatusInProgress){
+        [self error:@"現在購入処理中です。"];
+        return;
+    }
+    if(_paymentStatus == PaymentStatusFinished){
+        [self error:@"購入処理が完了しました。アプリを再起動してください。"];
         return;
     }
     if(_paymentStatus != PaymentStatusReady){
@@ -251,8 +260,9 @@
 
 - (void)validateReceipt:(NSData *)reciept
 {
-    dlog(@"Validate receipt");
     [SVProgressHUD dismiss];
+    _paymentStatus = PaymentStatusInProgress;
+    dlog(@"Validate receipt");
     [SVProgressHUD showWithStatus:@"購入を検証中" maskType:SVProgressHUDMaskTypeClear];
     NSRequestParams* params = [[NSRequestParams alloc] init];
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
@@ -268,6 +278,7 @@
 - (void)didValidateReciept:(NSDictionary *)json
 {
     [SVProgressHUD dismiss];
+    _paymentStatus = PaymentStatusFinished;
     _paymentButtonPressed = NO;
     UIBlackAlertView* alert = [[UIBlackAlertView alloc] init];
     alert.delegate = nil;
@@ -324,8 +335,8 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-    if ([response.invalidProductIdentifiers count] > 0) {
-        dlog("Invalid Product");
+    if([response.products count] == 0){
+        dlog("Products count = 0");
         [self didFailToRecieveProductData];
         return;
     }
@@ -334,8 +345,9 @@
         [self didFailToRecieveProductData];
         return;
     }
-    if([response.products count] == 0){
-        dlog("Products count = 0");
+    dlog(@"%@", response.invalidProductIdentifiers);
+    if ([response.invalidProductIdentifiers count] > 0) {
+        dlog("Invalid Product");
         [self didFailToRecieveProductData];
         return;
     }
@@ -402,7 +414,7 @@
     for (SKPaymentTransaction *transaction in queue.transactions) {
         // プロダクトIDが一致した場合
         dlog(@"%@", transaction.payment.productIdentifier);
-        if ([transaction.payment.productIdentifier isEqualToString:@"jp.ssctech.buzz.pro_version"]) {
+        if ([transaction.payment.productIdentifier isEqualToString:pid]) {
             restore = YES;
             // *** ここに制限解除や広告削除などの課金後の命令を書く ***
             
