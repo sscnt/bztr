@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, PaymentStatus){
 - (void)didValidateReciept:(NSDictionary*)json;
 
 - (void)willSharePayment;
+- (void)didSharePayment;
 
 - (void)error:(NSString*)message;
 

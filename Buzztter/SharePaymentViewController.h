@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, ApiType){
 
 @interface SharePaymentViewController : UIViewController <NSTrendApiDelegate, UITextFieldDelegate>
 {
+    BOOL _shared;
     NSTrendApi* _api;
     NSString* _pin;
     UITwitterScrollView* _scrollView;

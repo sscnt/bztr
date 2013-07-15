@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     self.navigationItem.title = @"購入の共有";
+    _shared = NO;
     [self showBackButton];
     NSEnduserData* userData = [NSEnduserData sharedEnduserData];
     if(userData.premium){
@@ -219,7 +220,7 @@
         int okIndex = [alert addButtonWithTitle:@"OK"];
         [alert setCancelButtonIndex:okIndex];
         [alert show];
-        
+        _shared = YES;
         return;
     }
 }
@@ -237,6 +238,21 @@
     
 }
 
+
+- (void)back
+{
+    if(_shared){
+        dlog(@"back");
+        NSArray* naviary = [self.navigationController viewControllers];
+        NSInteger current = [naviary count]-1;
+        UITabBarController* prev = (UITabBarController*)[naviary objectAtIndex:current-1];
+        current = [[prev viewControllers] count] - 1;
+        prev = [[prev viewControllers] objectAtIndex:current-1];
+        dlog(@"%@", [[prev class] description]);
+        [prev performSelector:@selector(didSharePayment)];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

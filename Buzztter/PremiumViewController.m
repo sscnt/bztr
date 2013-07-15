@@ -29,7 +29,7 @@
     _paymentButtonPressed = NO;
     _paymentStatus = PaymentStatusReady;
     _observerRemmoved = NO;
-    pid = @"jp.ssctech.buzz.pro2";
+    pid = @"jp.ssctech.buzz.pro3";
     self.view.backgroundColor = [UIColor timelineBackgroundColorPrimary];
     self.tabBarController.navigationItem.title = @"プレミアム機能";
     
@@ -145,11 +145,33 @@
 
 }
 
+- (void)layoutViewWhenError
+{
+    CGFloat viewWidth = [UIScreen screenSize].width - 40.0f;
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, viewWidth, 0.0f)];
+    label.font = [UIFont fontWithName:@"rounded-mplus-1p-medium" size:16.0f];
+    label.text = @"予期せぬエラーが発生しました。アプリを再起動してください。";
+    [label initOptions];
+    [label sizeToFit];
+    [_scrollView appendView:label margin:15.0f];
+
+}
+
 - (void)willSharePayment
 {
     
+    if(_paymentStatus == PaymentStatusFinished){
+        [self error:@"購入処理が完了しました。アプリを再起動してください。"];
+        return;
+    }
     SharePaymentViewController* controller = [[SharePaymentViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)didSharePayment
+{
+    dlog(@"SHared payment");
+    _paymentStatus = PaymentStatusFinished;
 }
 
 - (void)requestProductData
@@ -171,6 +193,7 @@
 {
     [SVProgressHUD dismiss];
     [self error:@"予期せぬエラーです。"];
+    [self layoutViewWhenError];
 }
 
 - (void)didClickPaymentButton
@@ -335,6 +358,7 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
+
     if([response.products count] == 0){
         dlog("Products count = 0");
         [self didFailToRecieveProductData];
@@ -345,7 +369,6 @@
         [self didFailToRecieveProductData];
         return;
     }
-    dlog(@"%@", response.invalidProductIdentifiers);
     if ([response.invalidProductIdentifiers count] > 0) {
         dlog("Invalid Product");
         [self didFailToRecieveProductData];
